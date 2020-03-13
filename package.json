@@ -37,6 +37,8 @@
     "@storybook/addons": "^5.3.13",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.3.13",
+    "@types/node": "^13.9.1",
+    "@types/react": "^16.9.23",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
@@ -55,7 +57,8 @@
     "stylelint": "^13.0.0",
     "stylelint-8-point-grid": "^0.2.3",
     "stylelint-config-recommended": "^3.0.0",
-    "stylelint-config-standard": "^19.0.0"
+    "stylelint-config-standard": "^19.0.0",
+    "typescript": "^3.8.3"
   },
   "config": {
     "commitizen": {

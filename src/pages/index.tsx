@@ -1,9 +1,10 @@
-import React from 'react'
+import * as React from 'react'
+import { NextPage } from 'next'
 
 // Components
 import Button from '../components/atoms/Button'
 
-function Homepage() {
+const Homepage: NextPage = () => {
   return (
     <main className="home">
       <div className="grid">
