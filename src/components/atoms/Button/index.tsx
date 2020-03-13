@@ -1,11 +1,20 @@
-import React from 'react'
+import * as React from 'react'
 import Link from 'next/link'
-import PropTypes from 'prop-types'
 
 // Styles
 import './button.scss'
 
-function Button({
+type Props = {
+  variation: 'primary' | 'secondary' | 'tertiary',
+  size: 's' | 'm' | 'l',
+  isDisabled?: boolean,
+  children?: any,
+  onClick?: React.MouseEventHandler<HTMLElement>,
+  url?: string,
+  to?: string
+}
+
+const Button: React.FunctionComponent<Props> = ({
   variation = 'primary',
   size = 'm',
   isDisabled,
@@ -13,8 +22,8 @@ function Button({
   onClick,
   url,
   to
-}) {
-  return to ? (
+}) => (
+  to ? (
     <Link href={to}>
       <button
         type="button"
@@ -40,7 +49,6 @@ function Button({
         ${size || 'medium'}
         ${isDisabled ? 'disabled' : ''}
       `}
-      disabled={isDisabled}
     >
       {children}
     </a>
@@ -58,24 +66,6 @@ function Button({
       {children}
     </button>
   )
-}
-
-Button.propTypes = {
-  variation: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'tertiary'
-  ]),
-  size: PropTypes.oneOf([
-    'm',
-    'l',
-    'xl'
-  ]),
-  isDisabled: PropTypes.bool,
-  children: PropTypes.any,
-  onClick: PropTypes.func,
-  url: PropTypes.string,
-  to: PropTypes.string
-}
+)
 
 export default Button

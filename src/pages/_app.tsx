@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 
@@ -10,12 +9,20 @@ import { version } from '../../package.json'
 // Styling
 import '../styles/index.scss'
 
+type Props = {
+  Component: any,
+  pageProps: any
+}
+
 const metaData = {
   name: `Next boilerplate ${version}`,
   description: 'This is a Next boilerplate'
 }
 
-function MyApp({ Component, pageProps }) {
+const MyApp: React.FunctionComponent<Props> = ({
+  Component,
+  pageProps
+}) => {
   const { name, description } = metaData
 
   return (
@@ -56,11 +63,6 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </>
   )
-}
-
-MyApp.propTypes = {
-  Component: PropTypes.any,
-  pageProps: PropTypes.any
 }
 
 export default MyApp

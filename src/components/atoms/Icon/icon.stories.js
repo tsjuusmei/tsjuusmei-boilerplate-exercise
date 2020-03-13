@@ -1,7 +1,7 @@
 import React from 'react'
 import { withA11y } from '@storybook/addon-a11y'
 
-import Icon from '.'
+import Icon from './index.tsx'
 
 export default {
   title: 'Components | Atoms / Icon',
