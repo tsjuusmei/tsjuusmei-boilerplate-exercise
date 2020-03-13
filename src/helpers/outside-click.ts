@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
 
-function useOnClickOutside(ref, handler) {
+function useOnClickOutside(
+  ref: React.RefObject<HTMLInputElement>,
+  handler: (e: Event) => void
+) {
   useEffect(
     () => {
-      const listener = (event) => {
+      const listener = (e: Event) => {
         // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target)) {
+        if (!ref.current || ref.current.contains(<HTMLElement>e.target)) {
           return
         }
 
-        handler(event)
+        handler(e)
       }
 
       document.addEventListener('mousedown', listener)

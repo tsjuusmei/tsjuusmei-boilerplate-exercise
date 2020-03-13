@@ -1,6 +1,6 @@
 module.exports = ({ config }) => {
   config.module.rules.push({
-    test: /\.tsx?$/,
+    test: /\.ts(x)?$/,
     exclude: /node_modules/,
     use: [
       {
