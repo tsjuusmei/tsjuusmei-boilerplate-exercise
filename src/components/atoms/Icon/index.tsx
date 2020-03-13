@@ -9,6 +9,7 @@ import Play from './Icons/Play'
 
 type Props = {
   name: string,
+  size?: number,
   color?: string
 }
 

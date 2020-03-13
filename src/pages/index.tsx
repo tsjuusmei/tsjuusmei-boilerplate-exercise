@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { NextPage } from 'next'
 
 // Components
@@ -12,7 +13,7 @@ const Homepage: NextPage = () => (
           variation='primary'
           size='l'
         >
-          Doe is
+          Button
         </Button>
       </div>
     </div>
