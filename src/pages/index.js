@@ -12,10 +12,6 @@ function Homepage() {
             <h2>Next Boilerplate</h2>
             <Button>Button</Button>
           </div>
-          <div className="col-6">
-            <h2>Next Boilerplate</h2>
-            <Button>Button</Button>
-          </div>
         </div>
       </div>
     </main>
