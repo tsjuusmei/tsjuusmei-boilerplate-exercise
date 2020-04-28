@@ -8,7 +8,7 @@ function Homepage() {
     <main className="home">
       <div className="grid">
         <div className="container-sm">
-          <h1 className="title-layer1-700">Next Boilerplate</h1>
+          <h1>Next Boilerplate</h1>
           <Button>Button</Button>
         </div>
       </div>
