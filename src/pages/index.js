@@ -6,10 +6,12 @@ import Button from '../components/atoms/Button'
 function Homepage() {
   return (
     <main className="home">
-      <div className="grid">
-        <div className="container-sm">
-          <h1>Next Boilerplate</h1>
-          <Button>Button</Button>
+      <div className="container-md">
+        <div className="grid">
+          <div className="col-6">
+            <h2>Next Boilerplate</h2>
+            <Button>Button</Button>
+          </div>
         </div>
       </div>
     </main>
