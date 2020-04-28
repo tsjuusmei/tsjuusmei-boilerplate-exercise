@@ -1,6 +1,6 @@
 # Next boilerplate
 
-This is Yummygum's [Next.ks](https://www.nextjs.org) boilerplate.
+This is Yummygum's [Next.js](https://www.nextjs.org) boilerplate.
 
 To commit use `npm run commit`, this will open up the commitizen CLI tool.
 
