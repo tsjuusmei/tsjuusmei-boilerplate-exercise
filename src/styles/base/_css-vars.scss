@@ -1,0 +1,39 @@
+:root {
+  // Colors
+  // Evening Cool (EC)
+  --ec-200: #dfe2e9;
+  --ec-300: #bac0cc;
+  --ec-400: #8f96a5;
+  --ec-500: #616775;
+  --ec-600: #3c414d;
+  --ec-700: #20232b;
+  --ec-800: #0f1116;
+
+  // Moonlight (ML)
+  --ml-100: #fff;
+  --ml-150: #f7f7f7;
+  --ml-200: #e9e9e9;
+  --ml-300: #ccc;
+  --ml-400: #a5a5a5;
+  --ml-500: #757575;
+  --ml-600: #4d4d4d;
+  --ml-700: #2b2b2b;
+  --ml-800: #161616;
+  --ml-900: #000;
+
+  //Dark Desert (DD)
+  --dd-200: #e9e6e4;
+  --dd-300: #ccc6c3;
+  --dd-400: #a59e9a;
+  --dd-500: #756e6a;
+  --dd-600: #4d4844;
+  --dd-700: #2b2725;
+  --dd-800: #161413;
+
+  // Misc
+  --black: #000;
+  --white: #fff;
+
+  // Easings
+  --circ-in-out: cubic-bezier(.785, .135, .15, .86);
+}

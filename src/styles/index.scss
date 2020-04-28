@@ -1,5 +1,6 @@
 // Base
-@import './base/variables';
+// Import css vars on all pages once
+@import './base/css-vars';
 @import './base/fonts';
 @import './base/reset';
 @import './base/base';

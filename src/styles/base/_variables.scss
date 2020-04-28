@@ -1,11 +1,5 @@
 // Base Fonts
-$base-font: -apple-system, BlinkMacSystemFont, Lato, "Segoe UI", Verdana, Arial, sans-serif;
-
-:root {
-  // Colors
-  --black: #000;
-  --white: #fff;
-}
+$base-font: -apple-system, 'BlinkMacSystemFont', 'Lato', 'Segoe UI', 'Verdana', 'Arial', sans-serif;
 
 // Breakpoints
 $bp-mobile-sm: 320px;

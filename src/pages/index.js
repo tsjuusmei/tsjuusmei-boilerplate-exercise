@@ -9,7 +9,7 @@ function Homepage() {
       <div className="grid">
         <div className="container-sm">
           <h1 className="title-layer1-700">Next Boilerplate</h1>
-          <Button>Doe is</Button>
+          <Button>Button</Button>
         </div>
       </div>
     </main>

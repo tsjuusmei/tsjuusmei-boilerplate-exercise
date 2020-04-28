@@ -12,6 +12,17 @@ module.exports = withSass({
       }
     })
 
+    const globalSass = ['./src/styles/base/_variables.scss']
+
+    config.module.rules.push({
+      enforce: 'pre',
+      test: /.scss$/,
+      loader: 'sass-resources-loader',
+      options: {
+        resources: globalSass
+      }
+    })
+
     return config
   }
 })
