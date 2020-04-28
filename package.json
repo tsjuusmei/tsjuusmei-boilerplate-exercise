@@ -9,7 +9,8 @@
     "start": "next start",
     "commit": "git cz",
     "release": "standard-version",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git"

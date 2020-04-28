@@ -15,11 +15,6 @@
     "node": true,
     "browser": true
   },
-  "settings": {
-    "react": {
-      "version": "16.5.2"
-    }
-  },
   "root": true,
   "globals": {},
   "extends": [
