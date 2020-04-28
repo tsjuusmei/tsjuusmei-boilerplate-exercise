@@ -495,6 +495,13 @@ div[class^='container'] {
   .col-#{$i} {
     grid-column: span #{$i};
   }
+
+  @for $b from 1 through 12 {
+    .col-#{$i}-#{$b} {
+      grid-column-start: #{$i};
+      grid-column-end: #{$b};
+    }
+  }
 }
 
 .block {

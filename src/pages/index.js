@@ -8,19 +8,11 @@ function Homepage() {
     <main className="home">
       <div className="container-md">
         <div className="grid">
-          <div className="col-3">
+          <div className="col-6">
             <h2>Next Boilerplate</h2>
             <Button>Button</Button>
           </div>
-          <div className="col-3">
-            <h2>Next Boilerplate</h2>
-            <Button>Button</Button>
-          </div>
-          <div className="col-3">
-            <h2>Next Boilerplate</h2>
-            <Button>Button</Button>
-          </div>
-          <div className="col-3">
+          <div className="col-6">
             <h2>Next Boilerplate</h2>
             <Button>Button</Button>
           </div>
