@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 
-// Verion number
-import Version from '../components/atoms/Version'
-import { version } from '../../package.json'
+// Components
+import Version from '@/components/atoms/Version'
 
 // Styling
 import '../styles/index.scss'
+
+// Version number
+import { version } from '../../package.json'
 
 const metaData = {
   name: `Next boilerplate ${version}`,
