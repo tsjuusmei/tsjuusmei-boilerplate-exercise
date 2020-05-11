@@ -28,7 +28,7 @@
     ],
     "plugin/8-point-grid": {
       "base": 4,
-      "whitelist": ["-7px", "-6px", "-2px", "-1px", "0px", "1px", "2px", "6px", "10px", "14px", "22px"],
+      "whitelist": ["-6px", "-2px", "-1px", "0px", "1px", "2px", "6px", "10px", "14px", "22px"],
       "ignore": [
         "width",
         "height",
