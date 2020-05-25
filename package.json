@@ -69,7 +69,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run greeting"
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   }
 }
