@@ -50,6 +50,7 @@
     "guard-for-in": 2,
     "wrap-iife": 2,
     "no-undef": 2,
+
     "new-cap": 2,
     "quotes": [
       2,
@@ -105,6 +106,7 @@
     ],
 
     "import/prefer-default-export": 0,
+    "import/no-unresolved": 0,
     "react/no-array-index-key": 0,
     "no-console": [
       1,

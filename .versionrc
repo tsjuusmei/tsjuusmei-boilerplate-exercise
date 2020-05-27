@@ -5,7 +5,7 @@
     {"type": "docs", "section":"Docs", "hidden": false},
     {"type": "func", "section": "Functional additions", "hidden": false},
     {"type": "bug", "section":"Bug fixes", "hidden": false},
-    {"type": "perf", "section":"Performance Improvements", "hidden": false},
+    {"type": "perf", "section":"Performance improvements", "hidden": false},
     {"type": "component", "section":"Component fixes", "hidden": false},
     {"type": "release", "section":"New Release", "hidden": false},
     {"type": "style", "section":"Style fixes", "hidden": false},
