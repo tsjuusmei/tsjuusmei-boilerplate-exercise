@@ -5,57 +5,67 @@ import PropTypes from 'prop-types'
 // Styles
 import './button.scss'
 
-function Button({
-  variation = 'primary',
-  size = 'm',
-  isDisabled,
-  children,
-  onClick,
-  url,
-  to
-}) {
-  return to ? (
-    <Link href={to}>
-      <button
-        type="button"
-        onClick={onClick}
-        className={`
-          button
-          ${variation}
-          ${size}
-          ${isDisabled ? 'disabled' : ''}
-        `}
-        disabled={isDisabled}
+function Button(props) {
+  const {
+    variation = 'primary',
+    target = '_blank',
+    size = 'm',
+    isDisabled,
+    isScroll,
+    children,
+    onClick,
+    href,
+    to
+  } = props
+
+  const classNames = `
+    button
+    ${variation}
+    ${size}
+    ${isDisabled ? 'disabled' : ''}
+  `
+
+  if (href) {
+    return (
+      <a
+        {...props}
+        href={href}
+        rel="noopener noreferrer"
+        target={target}
+        className={classNames}
       >
-        {children}
-      </button>
-    </Link>
-  ) : url ? (
-    <a
-      href={url}
-      onClick={onClick}
-      className={`
-        button
-        ${variation || 'primary'}
-        ${size || 'medium'}
-        ${isDisabled ? 'disabled' : ''}
-      `}
-      disabled={isDisabled}
-    >
-      {children}
-    </a>
-  ) : (
+        <span className="button-content" tabIndex="-1">
+          {children}
+        </span>
+      </a>
+    )
+  } if (to) {
+    return (
+      <Link
+        {...props}
+        href={to}
+        scroll={isScroll}
+        passHref
+      >
+        <a
+          className={classNames}
+        >
+          <span className="button-content" tabIndex="-1">
+            {children}
+          </span>
+        </a>
+      </Link>
+    )
+  }
+  return (
     <button
-      className={`
-        button
-        ${variation}
-        ${size}
-        ${isDisabled ? 'disabled' : ''}
-      `}
-      disabled={isDisabled}
+      className={classNames}
       onClick={onClick}
+      disabled={isDisabled}
     >
-      {children}
+      <span className="button-content" tabIndex="-1">
+        {children}
+      </span>
     </button>
   )
 }
@@ -72,8 +82,11 @@ Button.propTypes = {
     'xl'
   ]),
   isDisabled: PropTypes.bool,
+  isScroll: PropTypes.bool,
+  target: PropTypes.string,
   children: PropTypes.any,
   onClick: PropTypes.func,
+  href: PropTypes.string,
   url: PropTypes.string,
   to: PropTypes.string
 }
