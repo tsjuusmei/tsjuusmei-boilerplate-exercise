@@ -1,6 +1,6 @@
 @import '../../../styles/base/typography';
 
-.input-wrapper {
+.text-area-wrapper {
   display: flex;
   flex-direction: column;
   contain: layout;
@@ -22,13 +22,14 @@
     }
   }
 
-  .input {
+  .text-area {
     color: var(--ml-900);
     background: var(--ml-100);
     border: 1px solid var(--ml-400);
     outline: none;
-    resize: none;
+    resize: vertical;
     transition: $transition-200;
+    min-height: 48px;
 
     &::placeholder {
       color: var(--ml-400);
@@ -49,10 +50,6 @@
       border-color: var(--ml-150);
       background-color: var(--ml-150);
       cursor: not-allowed;
-    }
-
-    &.error {
-      border-color: var(--ml-900);
     }
 
     &.large {
