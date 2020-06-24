@@ -42,7 +42,6 @@ function Button(props) {
   } if (to) {
     return (
       <Link
-        {...props}
         href={to}
         scroll={isScroll}
         passHref

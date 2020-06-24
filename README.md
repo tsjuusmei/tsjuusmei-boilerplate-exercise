@@ -34,7 +34,7 @@ The boilerplate provides a lot of features out of the box. Here's an overview of
 - [x] Input
 - [ ] Radio
 - [ ] Textarea
-- [ ] Select
+- [x] Select
 
 #### Molecules
 -

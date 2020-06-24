@@ -4,6 +4,7 @@ import React from 'react'
 import Button from '@/components/atoms/Button'
 import Input from '@/components/atoms/Input'
 import TextArea from '@/components/atoms/TextArea'
+import Select from '@/components/atoms/Select'
 
 function Homepage() {
   return (
@@ -33,6 +34,17 @@ function Homepage() {
               placeholder="Text goes here"
               label="Text area"
             />
+
+            <Select
+              name="select-name"
+              id="input"
+              type="text"
+              label="Select"
+              placeholder="Text goes here"
+            >
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+            </Select>
           </div>
         </div>
       </div>
