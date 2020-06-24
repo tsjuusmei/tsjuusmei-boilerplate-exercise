@@ -30,17 +30,17 @@ The boilerplate provides a lot of features out of the box. Here's an overview of
 - [x] Button
 - [x] Version
 - [x] Icons
-- [ ] Checkbox
 - [x] Input
-- [ ] Radio
-- [ ] Textarea
+- [x] Textarea
 - [x] Select
+- [ ] Checkbox
+- [ ] Radio
 
 #### Molecules
--
+- [x] Modal
 
 #### Organisms
-- [ ] Modal
+-
 
 ## Requirements
 This boilerplate recommends a node version of `12.16.0` or higher.
@@ -61,7 +61,7 @@ There are webpack aliases that allow easy imports. In JavaScript files you can j
 import Foo from '@components/Foo'
 ```
 
-In SCSS you use them like: `@import '~Styles/Foo'`.
+<!-- In SCSS you use them like: `@import '~Styles/Foo'`. -->
 
 ## Commit
 To commit use the underneath script, this will open up the commitizen CLI options.
