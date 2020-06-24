@@ -31,7 +31,7 @@ The boilerplate provides a lot of features out of the box. Here's an overview of
 - [x] Version
 - [x] Icons
 - [ ] Checkbox
-- [ ] Input
+- [x] Input
 - [ ] Radio
 - [ ] Textarea
 - [ ] Select
