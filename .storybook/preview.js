@@ -1,6 +1,5 @@
 import { addParameters } from '@storybook/react'
 import { configureActions, action } from '@storybook/addon-actions'
-import '../mockNextRouter'
 
 // Styling
 import './storybook.scss'
