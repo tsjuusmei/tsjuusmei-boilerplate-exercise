@@ -44,7 +44,7 @@
       outline: 0;
 
       & + .select-custom {
-        @media (hover: hover) {
+        @media (hover: hover) and (pointer: fine) {
           display: none;
         }
       }
@@ -62,7 +62,7 @@
     width: 100%;
     display: none;
 
-    @media (hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
       display: block;
     }
 
