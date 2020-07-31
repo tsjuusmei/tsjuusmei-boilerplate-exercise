@@ -23,7 +23,7 @@
     "@zeit/next-sass": "^1.0.1",
     "framer-motion": "^1.8.3",
     "glob": "^7.1.6",
-    "next": "^9.2.1",
+    "next": "^9.4.0",
     "next-seo": "^4.1.0",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
@@ -48,6 +48,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "git-cz": "^4.3.1",
+    "husky": "^4.2.5",
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0",
     "prettier-stylelint": "^0.4.2",
@@ -63,6 +64,11 @@
   "config": {
     "commitizen": {
       "path": "git-cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   }
 }
