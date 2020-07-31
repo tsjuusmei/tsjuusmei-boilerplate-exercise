@@ -1,5 +1,10 @@
-import React, { useState } from 'react'
+import React, {
+  useState, useRef
+} from 'react'
 import PropTypes from 'prop-types'
+
+// Helpers
+import useOnClickOutside from '@/hooks/outsideClick'
 
 // Styles
 import './select.scss'
@@ -9,6 +14,8 @@ function Select({
   label,
   variation = 'default',
   placeholder,
+  options,
+  isCustom,
   isDisabled,
   isSuccess,
   isError,
@@ -19,19 +26,47 @@ function Select({
   ...props
 }) {
   const [isFilled, setIsFilled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const selectNativeRef = useRef(null)
+  const selectCustomRef = useRef(null)
+
+  // Selected option
+  const [selectedLabel, setSelectedLabel] = useState(null)
+  const [selectedValue, setSelectedValue] = useState('placeholder')
+
+  useOnClickOutside(selectCustomRef, closeSelectCustom)
 
   function handleChange(e) {
     setIsFilled(true)
+
+    const { value } = e.target
+    const label = e.target.options[e.target.selectedIndex].text
+
+    setSelectedValue(value)
+    setSelectedLabel(label)
 
     if (onChange) {
       onChange(e)
     }
   }
 
+  function toggleSelectCustom() {
+    if (isOpen) {
+      setIsOpen(false)
+    } else {
+      setIsOpen(true)
+    }
+  }
+
+  function closeSelectCustom() {
+    setIsOpen(false)
+  }
+
   return (
-    <div className="select-wrapper">
+    <div className="select">
       {label && (
-        <label htmlFor={id} className="label">
+        <div id={id} className="label">
           {label}
           {isError && (
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,29 +76,84 @@ function Select({
             </svg>
 
           )}
-        </label>
+        </div>
       )}
 
-      <select
-        className={`
-          select
+      <div className={`
+          select-wrapper
+          ${variation}
           ${isSuccess ? 'success' : ''}
           ${isError ? 'error' : ''}
-          ${variation}
-          ${isFilled ? 'filled' : ''}
         `}
-        onChange={(e) => {
-          handleChange(e)
-        }}
-        placeholder={placeholder}
-        type={type}
-        id={id}
-        disabled={isDisabled}
-        onFocus={onFocus}
-        {...props}
       >
-        {children}
-      </select>
+        <select
+          className={`
+            select-native
+            ${isFilled ? 'filled' : ''}
+          `}
+          value={selectedValue}
+          onChange={(e) => handleChange(e)}
+          placeholder={placeholder}
+          type={type}
+          disabled={isDisabled}
+          onFocus={onFocus}
+          ref={selectNativeRef}
+          aria-labelledby={id}
+          {...props}
+        >
+          <option value="placeholder" disabled>{placeholder}</option>
+          {options
+            ? options.map(({ label, value }, idx) => <option key={idx} value={value}>{label}</option>)
+            : children}
+        </select>
+
+        {/* Custom Select */}
+
+        {isCustom && (
+        <div
+          className={`
+            select-custom
+            ${isOpen ? 'is-active' : ''}
+          `}
+          ref={selectCustomRef}
+          aria-hidden={isOpen ? 'false' : 'true'}
+        >
+          <div
+            className="select-custom-trigger"
+            onClick={() => toggleSelectCustom()}
+          >
+            <span>{selectedLabel || placeholder}</span>
+          </div>
+
+          <div className="select-custom-options">
+            {options.map(({ label, value }, idx) => (
+              <div
+                key={idx}
+                className={`
+                  select-custom-options-item
+                  ${selectedValue === value ? 'is-active' : ''}
+                `}
+                data-value={value}
+                onClick={(e) => {
+                  const value = e.target.getAttribute('data-value')
+                  const label = e.target.innerText
+
+                  // Sync native select to have the same value
+                  selectNativeRef.current.value = value
+
+                  setSelectedLabel(label)
+                  setSelectedValue(value)
+
+                  setIsOpen(false)
+                }}
+              >
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        )}
+      </div>
     </div>
   )
 }
@@ -80,7 +170,9 @@ Select.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
-  children: PropTypes.any
+  children: PropTypes.any,
+  options: PropTypes.array,
+  isCustom: PropTypes.bool
 }
 
 export default Select
