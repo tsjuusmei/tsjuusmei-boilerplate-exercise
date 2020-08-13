@@ -41,7 +41,7 @@ module.exports = {
     },
     release: {
       description: 'Create a release commit',
-      emoji: '⏏',
+      emoji: '↑',
       value: 'release'
     },
     style: {
