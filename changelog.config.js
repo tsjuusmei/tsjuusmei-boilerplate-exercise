@@ -1,8 +1,8 @@
 module.exports = {
   disableEmoji: true,
-  list: ['test', 'func', 'bug', 'chore', 'docs', 'component', 'style', 'layout', 'perf', 'release'],
+  list: ['chore', 'layout', 'docs', 'func', 'bug', 'perf', 'component', 'release', 'style', 'test'],
   maxMessageLength: 100,
-  questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues'],
+  questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
   types: {
     chore: {
       description: 'Build process or auxiliary tool changes',
