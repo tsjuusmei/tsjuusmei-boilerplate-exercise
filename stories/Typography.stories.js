@@ -11,7 +11,7 @@ export default {
 export const Headings = () => (
   <>
     <div>
-      { headings.map((heading, idx) => {
+      {headings.map((heading, idx) => {
         const CustomTag = `h${heading}`
 
         return (
