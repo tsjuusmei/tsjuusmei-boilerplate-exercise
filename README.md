@@ -49,3 +49,91 @@ yarn dev
 ```
 
 This will open the project on `localhost:3000`.
+
+## Project Structure
+
+### Pages
+Next.js automatically turns React components in `src/pages/` into pages, as long as the component is made the default export. It will also look for subfolders and create nested paths based on them. Dynamic pages are called `[id].js` inside a folder, to allow for dynamic routes. The routes need an extra '/' at the end, but if you forget them, redirects are set up.
+
+### Data
+Depending on the project, we use either a headless CMS for adding content or a `src/data` folder which includes `.json` files for pages and sections.
+
+### Styling
+There's two 'types' of styling we will use: global and scoped. In both cases we're using SCSS, with a mix CSS variables. For global styling, we will be using 'plain' SCSS inside  src/styles. For scoped styling, there will be a `*.module.scss` file inside every component folder. This is to make sure we don't have to overwrite global class names inside a component, and we also don't load compiled CSS from components we don't use on the page/section itself.
+
+### Components
+We've used [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) to sort our components and bring clarity to their utility. Components are split up into different categories: atoms, molecules & organisms, based on the human body. Organisms are a collection of molecules, molecules are a collection of atoms and atoms are the smallest parts in your body and thus your application.
+
+There's also a fourth folder called pages. In here there's page-specific components. The pages itself are a folder above, as mentioned before.
+
+A list of default components can be found in its [folder](./src/components/README.md).
+
+#### Component folder
+In a component folder, there's usually three files: `index.js`, `*.module.scss` and `*.stories.js`. The component function is written in `index.js`, with the styling imported, and applied to the right element(s). The `.module.scss` contains the component-specific styling, and the `.stories.js` file contains all the logic needed for the Storybook instance(s) of the component.
+
+#### Setting up a component
+When adding a component, make sure to add it to the right folder based on the Atomic Design principles. You can do it manually, or use the `new-component` script we've added.
+
+```sh
+node scripts/generate-component.js organisms Nav
+# or...
+npm run new-component organisms Nav
+```
+
+### Assets
+All assets are added to the `public` folder. In here you'll see different subfolders based on the file type. Assets won't get compressed when building, so make sure you've compressed them before adding.
+
+#### SVGs
+SVGs are a bit more complicated compared to other media types, because of the `Icon` component. It can be a bit confusing when a SVG should be added to the `public` folder and when it should be added as a component in atoms. This is how we decided whether it should be a component or a 'regular asset':
+
+Icons in the `Icon` component can be:
+- Used multiple times (e.g. the Watermelon logo)
+- Used in 'interactive' elements (e.g. a link, button etc.)
+
+If both aren't applicable to your item, it should be added as an asset to the `public` folder.
+
+#### Usage in code
+Files inside `public` can then be referenced by your code starting from the base URL (/). This is a built-in feature from Next, so it's preferred to not change the name of the folder.
+
+### Storybook
+The configuration of Storybook is done in the `.storybook` folder. It includes multiple [addons](https://storybook.js.org/addons/) (A11y check, light/dark mode, responsive viewport sizes and more), a custom Webpack config and a PostCSS config to automatically add prefixes to styles. The components themselves are defined in the `.stories.js` files.
+
+Miscellaneous Storybook files that aren't components, but still need to be available can be found in the `stories` folder.
+
+## Usage
+
+### Aliases
+There are [Webpack](https://webpack.js.org/) aliases that allow for easy imports. In JavaScript files you can import any component, without having to think about relative paths.
+```
+import Button from '@/components/atoms/Button'
+```
+
+But you can also import styles or utility functions without having to worry about the folder you're currently in.
+
+```sh
+# Import function
+import useWindowSize from '@/hooks/useWindowSize'
+```
+
+When you add or edit these aliases, make sure that you'll edit the aliases in these files; `jsconfig.json` and `.storybook/main.js`.
+
+### Commit
+To stay consistent with our commits, we've added `git-cz` to the project. When committing, a CLI script will run with the settings based on `changelog.config.js`.
+```sh
+git add -A
+git commit
+```
+
+### Releasing
+To release a new version you have to run `standard-version`. This can be done with the release script.
+```
+npm run release
+```
+This will update the version number based on your recent commit history.
+
+If you want to release a specific version, not based on your commits, you can add the number as an argument to the script.
+```
+npm run release -- --release-as 1.1.0
+```
+
+You will get version `1.1.0` rather than what would be the auto-generated version `1.0.1`.
