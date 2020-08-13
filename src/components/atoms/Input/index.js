@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Styles
-import styles from  './input.module.scss'
+import styles from  './Input.module.scss'
 
 function Input({
   id,
@@ -63,7 +63,7 @@ Input.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   isError: PropTypes.bool,
-  size: PropTypes.oneOf(['large', 'medium', 'small']).isRequired,
+  size: PropTypes.oneOf(['large', 'medium', 'small']),
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   spellCheck: PropTypes.bool,

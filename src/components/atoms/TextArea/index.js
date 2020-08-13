@@ -2,27 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Styles
-import './text-area.scss'
+import styles from './TextArea.module.scss'
 
 function TextArea({
   id,
   label,
-  size,
+  size = 'md',
   placeholder,
   isDisabled,
-  isSuccess,
   isError,
   type = 'text',
   isOptional,
   onChange,
   onFocus,
   onBlur,
+  autoComplete = 'on',
+  spellCheck = true,
   ...props
 }) {
   return (
-    <div className="text-area-wrapper">
+    <div className={styles['text-area']}>
       {label && (
-        <label htmlFor={id} className="label">
+        <label htmlFor={id} className={styles.label}>
           {label}
           {isError && (
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,20 +38,19 @@ function TextArea({
 
       <textarea
         className={`
-          text-area
-          ${size || ''}
-          ${isSuccess ? 'success' : ''}
-          ${isError ? 'error' : ''}
+          ${styles['text-area-element']}
+          ${styles[size]}
+          ${isError ? styles.error : null}
         `}
-        type={type}
         onChange={onChange}
+        type={type}
         id={id}
         placeholder={placeholder}
         disabled={isDisabled}
         onFocus={onFocus}
         onBlur={onBlur}
-        autoComplete="off"
-        spellCheck="false"
+        autoComplete={autoComplete}
+        spellCheck={spellCheck}
         tabIndex="-1"
         {...props}
       />
@@ -61,11 +61,12 @@ function TextArea({
 TextArea.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  isSuccess: PropTypes.bool,
   isError: PropTypes.bool,
-  size: PropTypes.oneOf(['large', 'medium', 'small']).isRequired,
+  size: PropTypes.oneOf(['large', 'medium', 'small']),
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  spellCheck: PropTypes.bool,
+  autoComplete: PropTypes.string,
   isDisabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
