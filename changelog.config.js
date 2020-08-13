@@ -26,7 +26,7 @@ module.exports = {
     },
     bug: {
       description: 'A bug fix',
-      emoji: '⚠',
+      emoji: '⁂',
       value: 'bug'
     },
     perf: {
