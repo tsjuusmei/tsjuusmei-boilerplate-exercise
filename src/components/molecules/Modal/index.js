@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // Helpers
-import useOnClickOutside from '@/hooks/outsideClick'
+import useOnClickOutside from '@/hooks/useOutsideClick'
 
 // Components
-import Icon from '../../atoms/Icon'
+import Icon from '@/components/atoms/Icon'
 
 // Styling
-import './modal.scss'
+import styles from './Modal.module.scss'
 
 function Modal({
   children,
@@ -41,7 +41,7 @@ function Modal({
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="modal"
+              className={styles.modal}
               role="dialog"
               aria-modal="true"
               initial={{ opacity: 0 }}
@@ -53,7 +53,7 @@ function Modal({
               }}
             >
               <motion.div
-                className="modal-wrapper"
+                className={styles['modal-wrapper']}
                 initial={{ scale: 0.92, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 ref={modalContentRef}
@@ -61,13 +61,10 @@ function Modal({
                 {children}
               </motion.div>
               <div
-                className="close"
+                className={styles.close}
                 onClick={closeModal}
               >
-                <Icon
-                  name="cross"
-                  size={32}
-                />
+                X
               </div>
             </motion.div>
           )}

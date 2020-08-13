@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './slice.module.scss'
+import styles from './Slice.module.scss'
 
 const Slice = ({
   size = 16,

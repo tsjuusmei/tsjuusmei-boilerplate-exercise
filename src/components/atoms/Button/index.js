@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Icon from '@/components/atoms/Icon'
 
 // Styles
-import styles from './button.module.scss'
+import styles from './Button.module.scss'
 
 const Button = ({
   variation = 'primary',
