@@ -7,6 +7,12 @@ import TextArea from '@/components/atoms/TextArea'
 import Select from '@/components/atoms/Select'
 import Modal from '@/components/molecules/Modal'
 
+const selectOptions = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+]
+
 function Homepage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   return (
@@ -52,14 +58,13 @@ function Homepage() {
 
             <Select
               name="select-name"
-              id="input"
+              id="custom-select"
               type="text"
               label="Select"
-              placeholder="Text goes here"
-            >
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-            </Select>
+              placeholder="Select option..."
+              options={selectOptions}
+              isCustom
+            />
           </div>
         </div>
       </div>
