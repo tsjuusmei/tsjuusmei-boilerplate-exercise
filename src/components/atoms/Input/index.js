@@ -17,6 +17,8 @@ function Input({
   onChange,
   onFocus,
   onBlur,
+  autoComplete = 'on',
+  spellCheck = true,
   ...props
 }) {
   return (
@@ -49,8 +51,8 @@ function Input({
         disabled={isDisabled}
         onFocus={onFocus}
         onBlur={onBlur}
-        autoComplete="off"
-        spellCheck="false"
+        autoComplete={autoComplete}
+        spellCheck={spellCheck}
         tabIndex="-1"
         {...props}
       />
@@ -66,6 +68,8 @@ Input.propTypes = {
   size: PropTypes.oneOf(['large', 'medium', 'small']).isRequired,
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  spellCheck: PropTypes.bool,
+  autoComplete: PropTypes.string,
   isDisabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
