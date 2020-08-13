@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y'
 import Icon from '.'
 
 export default {
-  title: 'Components | Atoms / Icon',
+  title: 'Components / Atoms / Icon',
   decorators: [withA11y],
 }
 
