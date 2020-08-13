@@ -1,0 +1,76 @@
+h1,
+.h1 {
+  @include h1;
+}
+
+h2,
+.h2 {
+  @include h2;
+}
+
+h3,
+.h3 {
+  @include h3;
+}
+
+h4,
+.h4 {
+  @include h4;
+}
+
+h5,
+.h5 {
+  @include h5;
+}
+
+h6,
+.h6 {
+  @include h6;
+}
+
+p {
+  @extend %paragraph;
+
+  &.body-lg {
+    @include body-lg;
+  }
+
+  &.body-md {
+    @include body-md;
+  }
+
+  &.body-sm {
+    @include body-sm;
+  }
+}
+
+.caption {
+  @include caption;
+}
+
+.eyebrow {
+  @include eyebrow;
+}
+
+.button-sm {
+  @include button-sm;
+}
+
+.button-md {
+  @include button-md;
+}
+
+.button-lg {
+  @include button-lg;
+}
+
+@mixin list-style {
+  content: '';
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 12px;
+  text-align: center;
+  width: 12px;
+}
