@@ -1,5 +1,9 @@
 const path = require('path')
 
+const importedFiles = [
+  path.resolve(__dirname, '../src/styles/config/_media-queries.scss'),
+]
+
 module.exports = {
   stories: [
     '../src/components/**/*.stories.js',
@@ -13,29 +17,58 @@ module.exports = {
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
-      test: /\.scss$/,
+      test: /\.module\.s(a|c)ss$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+          }
+        },
+        {
+          loader: 'resolve-url-loader',
+          options: {
+            root: path.resolve(__dirname, '../public')
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        },
+        {
+          loader: 'sass-resources-loader',
+          options: {
+            resources: importedFiles
+          }
+        }
+      ]
+    })
+
+    config.module.rules.push({
+      test: /\.s(a|c)ss$/,
+      exclude: /\.module.(s(a|c)ss)$/,
       use: [
         'style-loader',
         'css-loader',
         {
-          loader: 'postcss-loader',
+          loader: 'resolve-url-loader',
           options: {
-            config: {
-              path: './.storybook/',
-            }
+            root: path.resolve(__dirname, '../public')
           }
         },
-        'sass-loader',
         {
-          loader: 'sass-resources-loader',options: {
-            resources: [
-              path.resolve(__dirname, '../src/styles/base/_css-vars.scss'),
-              path.resolve(__dirname, '../src/styles/base/_variables.scss'),
-              path.resolve(__dirname, '../src/styles/base/_fonts.scss'),
-              path.resolve(__dirname, '../src/styles/base/_reset.scss'),
-              path.resolve(__dirname, '../src/styles/base/_base.scss'),
-              path.resolve(__dirname, '../src/styles/base/_typography.scss')
-            ]
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        },
+        {
+          loader: 'sass-resources-loader',
+          options: {
+            resources: importedFiles
           }
         }
       ]
@@ -45,7 +78,8 @@ module.exports = {
       '@/components': path.resolve(__dirname, '../src/components'),
       '@/styles': path.resolve(__dirname, '../src/styles'),
       '@/hooks': path.resolve(__dirname, '../src/helpers/hooks'),
-      '@/utils': path.resolve(__dirname, '../src/helpers/utils')
+      '@/utils': path.resolve(__dirname, '../src/helpers/utils'),
+      '@/data': path.resolve(__dirname, '../src/data')
     }
 
     // Return the altered config
