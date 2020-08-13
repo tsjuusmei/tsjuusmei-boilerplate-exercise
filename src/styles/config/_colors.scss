@@ -1,0 +1,106 @@
+@function to-rgb($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+$colors: (
+  // Skin — Greens
+  --skin-100: #f7fffb,
+  --skin-200: #d3ffeb,
+  --skin-300: #79f9c0,
+  --skin-400: #56e7a5,
+  --skin-500: #19d681,
+  --skin-600: #05ba6e,
+  --skin-700: #079d63,
+  --skin-800: #00784c,
+  --skin-900: #005d3c,
+
+  // Flesh — Reds
+  --flesh-100: #fef9fa,
+  --flesh-200: #ffced0,
+  --flesh-300: #ff9ba0,
+  --flesh-350: #ff626a,
+  --flesh-400: #ff5059,
+  --flesh-500: #ff2934,
+  --flesh-600: #d80d19,
+  --flesh-700: #a10a12,
+  --flesh-800: #7e0109,
+  --flesh-900: #610005,
+
+  // Seeds — Warm Greys
+  --seeds-200: #eaebec,
+  --seeds-300: #d8d9da,
+  --seeds-100: #f8f9fb,
+  --seeds-400: #c2c3c6,
+  --seeds-500: #94918f,
+  --seeds-600: #7a7573,
+  --seeds-700: #58514f,
+  --seeds-800: #382e2c,
+  --seeds-900: #170a07,
+
+  // Summer Sun — Yellows
+  --summer-sun-100: #fefcf4,
+  --summer-sun-200: #fff8d4,
+  --summer-sun-300: #ffefaa,
+  --summer-sun-400: #ffe87a,
+  --summer-sun-500: #fede48,
+  --summer-sun-600: #ffcd38,
+  --summer-sun-700: #ee9823,
+  --summer-sun-800: #dc6310,
+  --summer-sun-900: #b02900,
+
+  // Spray — Blues
+  --spray-100: #f7ffff,
+  --spray-200: #dcfffc,
+  --spray-300: #befef8,
+  --spray-400: #a2fbf3,
+  --spray-500: #88f6ec,
+  --spray-600: #56dfd7,
+  --spray-700: #2ab8ae,
+  --spray-800: #2a887f,
+  --spray-900: #1f615e,
+
+  // Error
+  --error-100: #fefcf4,
+  --error-200: #fff8d4,
+  --error-300: #ffefaa,
+  --error-400: #ffe87a,
+  --error-500: #fede48,
+  --error-600: #ffcd38,
+  --error-700: #ee9823,
+  --error-900: #b02900,
+  --error-800: #dc6310,
+
+  // Success
+  --success-100: #f7fffb,
+  --success-200: #d3ffeb,
+  --success-300: #79f9c0,
+  --success-400: #56e7a5,
+  --success-500: #19d681,
+  --success-600: #05ba6e,
+  --success-700: #079d63,
+  --success-800: #00784c,
+  --success-900: #005d3c,
+
+  // Misc
+  --white: #fff,
+  --black: #000
+);
+
+:root {
+  // Colors
+  @each $var, $color in $colors {
+    #{$var}: #{$color};
+    #{$var}-rgb: #{to-rgb($color)};
+  }
+
+  /*
+  USAGE:
+
+  Regular:
+  `color: var(--success-600),`
+
+  With opacity:
+  `color: rgba(var(--success-600-rgb), 0.15),`
+
+  */
+}
