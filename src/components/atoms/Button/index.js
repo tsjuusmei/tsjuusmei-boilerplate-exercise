@@ -5,7 +5,7 @@ import Link from 'next/link'
 // Components
 import Icon from '@/components/atoms/Icon'
 
-// Styling
+// Styles
 import styles from './button.module.scss'
 
 const Button = ({

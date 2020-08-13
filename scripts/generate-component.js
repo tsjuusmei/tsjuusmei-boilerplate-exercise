@@ -1,8 +1,12 @@
 const { outputFile } = require('fs-extra')
 const { join } = require('path')
-const { toKebabCase } = require('../src/helpers/utils/toKebabCase')
 
-console.log(toKebabCase)
+const toKebabCase = (string) => (
+  string
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase()
+)
 
 const folder = process.argv[2] || 'atoms'
 const fileName = process.argv[3] || 'example'
