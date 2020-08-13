@@ -23,7 +23,7 @@ The boilerplate provides a lot of features out of the box. Here's an overview of
 - [ ] **Cypress** - End to end testing
 
 ## Optimization
-- [ ] Sass aliases (e.g. `@import '@styles/pages/home';`)
+- [x] Sass aliases (e.g. `@import '@styles/pages/home';`)
 
 ### Components
 #### Atoms
