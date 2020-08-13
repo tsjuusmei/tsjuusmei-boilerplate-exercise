@@ -35,6 +35,7 @@ The boilerplate provides a lot of features out of the box. Here's an overview of
 - [x] Select
 - [ ] Checkbox
 - [ ] Radio
+- [ ] Toggle (switch)
 
 #### Molecules
 - [x] Modal
