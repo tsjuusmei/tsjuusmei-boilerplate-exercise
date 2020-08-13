@@ -51,7 +51,7 @@ module.exports = {
     },
     test: {
       description: 'Adding missing tests',
-      emoji: '💍',
+      emoji: '⎋',
       value: 'test'
     }
   }
