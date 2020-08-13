@@ -9,21 +9,21 @@ Refer to [main README](../../README.md) for usage.
 ### Atoms
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
-| Button         | Primary, Secondary, Tertiary | [x]             |
-| Version        | NA                           | [x]             |
-| Icon           | NA                           | [x]             |
-| Checkbox       | -                            | [ ]             |
-| Input          | -                            | [ ]             |
-| Radio          | -                            | [ ]             |
-| Textarea       | -                            | [ ]             |
-| Select         | -                            | [ ]             |
+| Button         | Primary, Secondary, Tertiary | ✅              |
+| Version        | NA                           | ✅              |
+| Icon           | NA                           | ✅              |
+| Checkbox       | -                            | ❌              |
+| Input          | -                            | ❌              |
+| Radio          | -                            | ❌              |
+| Textarea       | -                            | ❌              |
+| Select         | -                            | ❌              |
 
 ### Molecules
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
-|                |                              |                 |
+| Example        | -                            | ❌              |
 
 ### Organisms
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
-| Modal          | NA                           | [x]             |
+| Modal          | NA                           | ✅              |
