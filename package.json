@@ -7,10 +7,12 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "commit": "git cz",
     "release": "standard-version",
     "storybook": "start-storybook -p 6006",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "new-component": "node scripts/generate-component.js"
   },
   "repository": {
     "type": "git"
@@ -18,17 +20,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/yummygum/next-boilerplate#readme",
+  "homepage": "https://github.com/Yummygum/next-boilerplate#readme",
   "dependencies": {
-    "@zeit/next-sass": "^1.0.1",
-    "framer-motion": "^2.3.0",
+    "framer-motion": "^1.8.3",
     "glob": "^7.1.6",
-    "next": "^9.5.1",
-    "next-seo": "^4.7.3",
-    "node-sass": "^4.14.1",
+    "next": "^9.2.1",
+    "next-seo": "^4.1.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",

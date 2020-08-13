@@ -1,0 +1,16 @@
+.slice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  path,
+  g {
+    user-select: none;
+    pointer-events: none;
+  }
+
+  path#slice-path {
+    opacity: none;
+    display: none;
+  }
+}

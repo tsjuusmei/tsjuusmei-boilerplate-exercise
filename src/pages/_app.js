@@ -7,7 +7,7 @@ import { NextSeo } from 'next-seo'
 import Version from '@/components/atoms/Version'
 
 // Styling
-import '../styles/index.scss'
+import '../styles/master.scss'
 
 // Version number
 import { version } from '../../package.json'
@@ -17,7 +17,7 @@ const metaData = {
   description: 'This is a Next boilerplate'
 }
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   const { name, description } = metaData
 
   return (
@@ -60,9 +60,9 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-MyApp.propTypes = {
+App.propTypes = {
   Component: PropTypes.any,
   pageProps: PropTypes.any
 }
 
-export default MyApp
+export default App

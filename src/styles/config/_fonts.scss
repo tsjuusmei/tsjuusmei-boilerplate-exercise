@@ -1,0 +1,204 @@
+%heading {
+  font-weight: 700;
+  color: var(--seeds-900);
+}
+
+%paragraph {
+  font-weight: 400;
+  font-feature-settings: 'ss04' on;
+  color: var(--seeds-900);
+}
+
+@mixin h1 {
+  @extend %heading;
+  font-size: var(--heading-1-size);
+  line-height: var(--heading-1-line-height);
+  letter-spacing: var(--heading-1-letter-spacing);
+}
+
+@mixin h2 {
+  @extend %heading;
+  font-size: var(--heading-2-size);
+  line-height: var(--heading-2-line-height);
+  letter-spacing: var(--heading-2-letter-spacing);
+}
+
+@mixin h3 {
+  @extend %heading;
+  font-size: var(--heading-3-size);
+  line-height: var(--heading-3-line-height);
+  letter-spacing: var(--heading-3-letter-spacing);
+}
+
+@mixin h4 {
+  @extend %heading;
+  font-size: var(--heading-4-size);
+  line-height: var(--heading-4-line-height);
+  letter-spacing: var(--heading-4-letter-spacing);
+}
+
+@mixin h4quote {
+  @extend %heading;
+  font-size: var(--heading-4-size);
+  line-height: var(--heading-4-line-height);
+  letter-spacing: var(--heading-4-letter-spacing);
+  font-weight: 600;
+  font-style: italic;
+}
+
+@mixin h5 {
+  @extend %heading;
+  font-size: var(--heading-5-size);
+  line-height: var(--heading-5-line-height);
+  letter-spacing: var(--heading-5-letter-spacing);
+}
+
+@mixin h6 {
+  @extend %heading;
+  font-size: var(--heading-6-size);
+  line-height: var(--heading-6-line-height);
+  letter-spacing: var(--heading-6-letter-spacing);
+}
+
+@mixin body-lg {
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line-height);
+  letter-spacing: var(--body-lg-letter-spacing);
+}
+
+@mixin body-md {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line-height);
+  letter-spacing: var(--body-md-letter-spacing);
+}
+
+@mixin body-sm {
+  font-size: var(--body-sm-size);
+  line-height: var(--body-sm-line-height);
+  letter-spacing: var(--body-sm-letter-spacing);
+}
+
+@mixin caption {
+  font-size: var(--caption-size);
+  line-height: var(--caption-line-height);
+  font-weight: 400;
+}
+
+@mixin eyebrow {
+  font-size: var(--eyebrow-size);
+  line-height: var(--eyebrow-line-height);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@mixin button-lg {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+@mixin button-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+@mixin button-sm {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+// Bold
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-bold-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-bold-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-bolditalic-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-bolditalic-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-bolditalic-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+// SemiBold
+
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-semibold-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-semibold-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-semibold-webfont.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-semibolditalic-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-semibolditalic-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-semibolditalic-webfont.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Medium
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-medium-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-medium-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-medium-webfont.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-mediumitalic-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-mediumitalic-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-mediumitalic-webfont.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Regular
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-regular-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-regular-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basier Circle';
+  src:
+    url('/fonts/basiercircle-regularitalic-webfont.woff2') format('woff2'),
+    url('/fonts/basiercircle-regularitalic-webfont.woff') format('woff'),
+    url('/fonts/basiercircle-regularitalic-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
