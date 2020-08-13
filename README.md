@@ -25,7 +25,6 @@ The boilerplate provides a lot of features out of the box. Here's an overview of
 ## Optimization
 - [ ] Sass aliases (e.g. `@import '@styles/pages/home';`)
 
-
 ## Requirements
 This boilerplate recommends a node version of `12.16.0` or higher.
 
