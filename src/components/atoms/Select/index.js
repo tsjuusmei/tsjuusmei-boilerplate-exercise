@@ -126,7 +126,7 @@ function Select({
           </div>
 
           <div className="select-custom-options">
-            {options.map(({ label, value }, idx) => (
+            {options?.map(({ label, value }, idx) => (
               <div
                 key={idx}
                 className={`
