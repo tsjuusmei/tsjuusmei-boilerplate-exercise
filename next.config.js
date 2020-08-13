@@ -1,7 +1,6 @@
-const withSass = require('@zeit/next-sass')
-
-module.exports = withSass({
-  webpack(config) {
+module.exports = {
+  trailingSlash: true,
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
       use: {
@@ -12,17 +11,29 @@ module.exports = withSass({
       }
     })
 
-    const globalSass = ['./src/styles/base/_variables.scss']
-
-    config.module.rules.push({
-      enforce: 'pre',
-      test: /.scss$/,
-      loader: 'sass-resources-loader',
-      options: {
-        resources: globalSass
+    config.module.rules.map((rule) => {
+      if (rule.oneOf) {
+        rule.oneOf.find((configRule) => {
+          if (Array.isArray(configRule.use)) {
+            configRule.use.forEach((loaderItem) => {
+              const isSassRule = loaderItem.loader && loaderItem.loader.includes('sass-loader')
+              if (isSassRule) {
+                configRule.use.push({
+                  loader: 'sass-resources-loader',
+                  options: {
+                    resources: [
+                      './src/styles/config/_media-queries.scss',
+                      './src/styles/config/_fonts.scss'
+                    ]
+                  },
+                })
+              }
+            })
+          }
+        })
       }
     })
 
     return config
-  }
-})
+  },
+}
