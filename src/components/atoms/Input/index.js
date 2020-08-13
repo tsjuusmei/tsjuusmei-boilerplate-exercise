@@ -2,15 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Styles
-import './input.scss'
+import styles from  './input.module.scss'
 
 function Input({
   id,
   label,
-  size,
+  size = 'md',
   placeholder,
   isDisabled,
-  isSuccess,
   isError,
   type = 'text',
   isOptional,
@@ -21,10 +20,11 @@ function Input({
   spellCheck = true,
   ...props
 }) {
+  console.log(styles)
   return (
-    <div className="input-wrapper">
+    <div className={styles.input}>
       {label && (
-        <label htmlFor={id} className="label">
+        <label htmlFor={id} className={styles.label}>
           {label}
           {isError && (
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,10 +39,9 @@ function Input({
 
       <input
         className={`
-          input
-          ${size || ''}
-          ${isSuccess ? 'success' : ''}
-          ${isError ? 'error' : ''}
+          ${styles['input-element']}
+          ${styles[size]}
+          ${isError ? styles.error : null}
         `}
         onChange={onChange}
         type={type}
@@ -63,7 +62,6 @@ function Input({
 Input.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  isSuccess: PropTypes.bool,
   isError: PropTypes.bool,
   size: PropTypes.oneOf(['large', 'medium', 'small']).isRequired,
   type: PropTypes.string.isRequired,
