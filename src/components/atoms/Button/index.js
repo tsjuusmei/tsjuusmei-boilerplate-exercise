@@ -1,93 +1,110 @@
-import React from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import Link from 'next/link'
+
+// Components
+import Icon from '@/components/atoms/Icon'
 
 // Styles
-import './button.scss'
+import styles from './button.module.scss'
 
-function Button(props) {
-  const {
-    variation = 'primary',
-    target = '_blank',
-    size = 'm',
-    isDisabled,
-    isScroll,
-    children,
-    onClick,
-    href,
-    to
-  } = props
+const Button = ({
+  variation = 'primary',
+  size = 'md',
+  children,
+  label = '',
+  href = '',
+  isDisabled = false,
+  className = '',
+  contentClassName = '',
+  ...props
+}) => {
+  const [isHovered, setIsHovered] = useState(false)
 
-  const classNames = `
-    button
-    ${variation}
-    ${size}
-    ${isDisabled ? 'disabled' : ''}
-  `
+  const textLinkIconSize = size === 'sm' ? 8 : size === 'md' ? 12 : 16
 
-  if (href) {
-    return (
-      <a
-        {...props}
-        href={href}
-        rel="noopener noreferrer"
-        target={target}
-        className={classNames}
+  // Check if link is internal or external
+  const isInternalLink = href && !href.includes('http')
+
+  // When link is internal, Link > a > div
+  const LinkOrButton = href ? 'a' : 'button'
+
+  // Shared classNames (less duplicate code)
+  const sharedClassNames = `${styles[size]} ${styles[variation]} ${isDisabled ? styles.disabled : ''}`
+
+  const ButtonWrapper = React.forwardRef((_, ref) => (
+    <LinkOrButton
+      ref={ref}
+      className={`
+        ${styles.button}
+        ${sharedClassNames}
+        ${className}
+      `}
+      disabled={isDisabled}
+      aria-disabled={isDisabled}
+      aria-label={label}
+      href={(!isDisabled && href) && href}
+      {...(!isInternalLink && {
+        rel: 'noopener noreferrer',
+        target: '_blank'
+      })}
+      tabIndex={0}
+      onMouseOver={() => !isDisabled && setIsHovered(true)}
+      onMouseLeave={() => !isDisabled && setIsHovered(false)}
+      {...props}
+    >
+      <div
+        className={`${styles['button-content']} ${sharedClassNames}
+        ${contentClassName}`}
+        tabIndex={-1}
       >
-        <span className="button-content" tabIndex="-1">
-          {children}
-        </span>
-      </a>
-    )
-  } if (to) {
+        {children}
+        {
+          variation === 'text-link' && (
+            <Icon
+              name="slice"
+              size={textLinkIconSize}
+              isHovered={isHovered}
+            />
+          )
+        }
+      </div>
+    </LinkOrButton>
+  ))
+
+  if (isInternalLink) {
     return (
-      <Link
-        href={to}
-        scroll={isScroll}
-        passHref
-      >
-        <a
-          className={classNames}
-        >
-          <span className="button-content" tabIndex="-1">
-            {children}
-          </span>
-        </a>
+      <Link href={href}>
+        <ButtonWrapper />
       </Link>
     )
   }
-  return (
-    <button
-      className={classNames}
-      onClick={onClick}
-      disabled={isDisabled}
-    >
-      <span className="button-content" tabIndex="-1">
-        {children}
-      </span>
-    </button>
-  )
+
+  return (<ButtonWrapper {...props} />)
 }
 
 Button.propTypes = {
   variation: PropTypes.oneOf([
     'primary',
+    'primary-alt',
     'secondary',
-    'tertiary'
+    'text-link'
   ]),
   size: PropTypes.oneOf([
-    'm',
-    'l',
-    'xl'
+    'sm',
+    'md',
+    'lg'
   ]),
+  children: PropTypes.any.isRequired,
+  label: PropTypes.string,
+  href: PropTypes.string,
   isDisabled: PropTypes.bool,
-  isScroll: PropTypes.bool,
-  target: PropTypes.string,
   children: PropTypes.any,
   onClick: PropTypes.func,
   href: PropTypes.string,
-  url: PropTypes.string,
-  to: PropTypes.string
+  isDisabled: PropTypes.string,
+  className: PropTypes.string,
+  contentClassName: PropTypes.string
 }
 
 export default Button

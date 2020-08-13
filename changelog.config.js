@@ -6,52 +6,52 @@ module.exports = {
   types: {
     chore: {
       description: 'Build process or auxiliary tool changes',
-      emoji: '🤖',
+      emoji: '⌘',
       value: 'chore'
     },
     layout: {
       description: 'Layout related changes',
-      emoji: '📏',
+      emoji: '⬒',
       value: 'layout'
     },
     docs: {
       description: 'Documentation only changes',
-      emoji: '✏️',
+      emoji: '□',
       value: 'docs'
     },
     func: {
       description: 'A new feature',
-      emoji: '🎸',
+      emoji: '◇',
       value: 'func'
     },
     bug: {
       description: 'A bug fix',
-      emoji: '🐛',
+      emoji: '⁂',
       value: 'bug'
     },
     perf: {
       description: 'A code change that improves performance',
-      emoji: '⚡️',
+      emoji: ' ҉',
       value: 'perf'
     },
     component: {
       description: 'A code change that adds or modifies a component',
-      emoji: '🎛',
+      emoji: '❖',
       value: 'component'
     },
     release: {
       description: 'Create a release commit',
-      emoji: '🏹',
+      emoji: '↑',
       value: 'release'
     },
     style: {
       description: 'Markup, white-space, formatting, missing semi-colons...',
-      emoji: '💰',
+      emoji: '⇥',
       value: 'style'
     },
     test: {
       description: 'Adding missing tests',
-      emoji: '💍',
+      emoji: '⎋',
       value: 'test'
     }
   }

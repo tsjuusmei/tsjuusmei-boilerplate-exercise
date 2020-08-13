@@ -67,6 +67,9 @@ function Homepage() {
             />
           </div>
         </div>
+
+        <h2>Next Boilerplate</h2>
+        <Button>Click me</Button>
       </div>
     </main>
   )
