@@ -36,7 +36,7 @@ module.exports = {
     },
     component: {
       description: 'A code change that adds or modifies a component',
-      emoji: '🎛',
+      emoji: '❖',
       value: 'component'
     },
     release: {
