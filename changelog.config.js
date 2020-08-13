@@ -11,7 +11,7 @@ module.exports = {
     },
     layout: {
       description: 'Layout related changes',
-      emoji: '📏',
+      emoji: '⬒',
       value: 'layout'
     },
     docs: {
