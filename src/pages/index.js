@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Components
-import Button from '../components/atoms/Button'
+import Button from '../components/Buttonn
 
 function Homepage() {
   return (

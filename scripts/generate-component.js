@@ -1,7 +1,8 @@
-import { toKebabCase } from '@/utils/toKebabCase'
-
 const { outputFile } = require('fs-extra')
 const { join } = require('path')
+const { toKebabCase } = require('../src/helpers/utils/toKebabCase')
+
+console.log(toKebabCase)
 
 const folder = process.argv[2] || 'atoms'
 const fileName = process.argv[3] || 'example'
