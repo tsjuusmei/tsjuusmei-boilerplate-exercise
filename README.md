@@ -1,60 +1,51 @@
+![Meta image](./public/img/misc/cover.jpg)
+
 # Next.js boilerplate
 
-This is Yummygum's [Next.js](https://www.nextjs.org) boilerplate.
-
-## About
-Next.js is a framework for React that will make React apps very fast. It contains Pre-Rendering, Static Exporting and much more features. Have a quick look on [the features list](https://nextjs.org/#features) to have an better overview.
+This is Yummygum's [Next.js](https://www.nextjs.org) boilerplate. Next.js is a framework for React that will make React apps very fast. It contains Pre-Rendering, Static Exporting and much more features. Have a quick look on [the features list](https://nextjs.org/#features) to have an better overview.
 
 This boilerplate makes it easier to get up and running for every new project.
 
-## Features
-The boilerplate provides a lot of features out of the box. Here's an overview of the included tools and components.
+## Codebase
 
-### Tools
-- [x] **Next.js** - Minimalistic framework for server-rendered React applications.
-- [x] **Sass/Scss** - CSS preprocessor, which adds special features such as variables, nested rules and mixins (sometimes referred to as syntactic sugar) into regular CSS.
-- [x] **ESLint** - The pluggable linting utility.
-- [x] **Stylelint** - The linting utility for css.
-- [x] **Storybook** - A tool for developing UI components in isolation
-- [x] **Commitizen** - Formatting commit messages with versioning
-- [x] **Prettier** - Formatting code
-- [ ] **Formik** - https://jaredpalmer.com/formik/
-- [ ] **Grid** - *Updated* Grid with CSS Grid
-- [ ] **Cypress** - End to end testing
+### Technologies
+We use [Next](https://www.nextjs.org/) (v9.5), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation, without all the noise.
 
-## Optimization
-- [ ] Sass aliases (e.g. `@import '@styles/pages/home';`)
 
-## Requirements
-This boilerplate recommends a node version of `12.16.0` or higher.
+### Folder structure
+
+```sh
+wml-website/
+├── .storybook # Storybook-specific files
+├── scripts    # Miscellaneous scripts during development
+├── src        # Frontend code
+├── public     # Public files used on the frontend
+└── stories    # Miscellaneous Storybook files (e.g. Typography)
+```
+
+### Code Style
+We've used linters for both JavaScript and (S)CSS, to make sure we write code in a consistent and well-formatted style. The settings can be found in `.eslintrc` & `.stylelintrc`. To use them, make sure you've added the right linter extensions to your preferred code editor.
+
+### Miscellaneous packages
+- Add during development
+
+### Requirements
+This project recommends a Node version of `12.16.0` or higher.
 
 ## Setup
-```
+Install the packages.
+```sh
 npm i
-```
-or
-```
+# or...
 yarn
 ```
 
-## Use
-### Aliases
-There are webpack aliases that allow easy imports. In JavaScript files you can just use them like for example:
-```
-import Foo from '@components/Foo'
+And then run the `dev` script.
+
+```sh
+npm run dev
+# or...
+yarn dev
 ```
 
-In SCSS you use them like: `@import '~Styles/Foo'`.
-
-## Commit
-To commit use the underneath script, this will open up the commitizen CLI options.
-```
-npm run commit
-```
-
-
-## Releasing
-To release a new version you have to use
-```
-npm run release
-```
+This will open the project on `localhost:3000`.
