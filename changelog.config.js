@@ -21,7 +21,7 @@ module.exports = {
     },
     func: {
       description: 'A new feature',
-      emoji: '🎸',
+      emoji: '◇',
       value: 'func'
     },
     bug: {
