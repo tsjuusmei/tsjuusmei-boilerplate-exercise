@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Icon from '@/components/atoms/Icon'
 
 // Styles
-import styles from './button.module.scss'
+import styles from './Button.module.scss'
 
 const Button = ({
   variation = 'primary',
@@ -34,11 +34,12 @@ const Button = ({
 
   const ButtonWrapper = React.forwardRef((_, ref) => (
     <LinkOrButton
+      {...props}
       ref={ref}
       className={`
         ${styles.button}
-        ${sharedClassNames}
         ${className}
+        ${sharedClassNames}
       `}
       disabled={isDisabled}
       aria-disabled={isDisabled}
@@ -51,7 +52,6 @@ const Button = ({
       tabIndex={0}
       onMouseOver={() => !isDisabled && setIsHovered(true)}
       onMouseLeave={() => !isDisabled && setIsHovered(false)}
-      {...props}
     >
       <div
         className={`${styles['button-content']} ${sharedClassNames}
@@ -99,6 +99,7 @@ Button.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   isDisabled: PropTypes.bool,
+  onClick: PropTypes.func,
   className: PropTypes.string,
   contentClassName: PropTypes.string
 }
