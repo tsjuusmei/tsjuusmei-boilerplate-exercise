@@ -34,11 +34,12 @@ const Button = ({
 
   const ButtonWrapper = React.forwardRef((_, ref) => (
     <LinkOrButton
+      {...props}
       ref={ref}
       className={`
         ${styles.button}
-        ${sharedClassNames}
         ${className}
+        ${sharedClassNames}
       `}
       disabled={isDisabled}
       aria-disabled={isDisabled}
@@ -51,7 +52,6 @@ const Button = ({
       tabIndex={0}
       onMouseOver={() => !isDisabled && setIsHovered(true)}
       onMouseLeave={() => !isDisabled && setIsHovered(false)}
-      {...props}
     >
       <div
         className={`${styles['button-content']} ${sharedClassNames}
