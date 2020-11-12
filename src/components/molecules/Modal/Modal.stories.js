@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react'
 import { withA11y } from '@storybook/addon-a11y'
 import Button from '@/components/atoms/Button'

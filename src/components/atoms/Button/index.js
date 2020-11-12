@@ -99,10 +99,7 @@ Button.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   isDisabled: PropTypes.bool,
-  children: PropTypes.any,
   onClick: PropTypes.func,
-  href: PropTypes.string,
-  isDisabled: PropTypes.string,
   className: PropTypes.string,
   contentClassName: PropTypes.string
 }
