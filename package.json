@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
+    "preexport": "yarn build",
     "commit": "git cz",
     "release": "standard-version",
     "storybook": "start-storybook -p 6006 -s ./public",
