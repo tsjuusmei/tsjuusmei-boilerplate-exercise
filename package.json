@@ -10,7 +10,7 @@
     "commit": "git cz",
     "release": "standard-version",
     "storybook": "start-storybook -p 6006",
-    "convert-svg": "node scripts/convert-svg-to-jsx.mjs",
+    "convert-svg-to-jsx": "node scripts/convert-svg-to-jsx.mjs",
     "lint": "eslint ."
   },
   "repository": {
