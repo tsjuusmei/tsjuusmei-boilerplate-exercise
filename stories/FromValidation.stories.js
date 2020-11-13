@@ -1,11 +1,13 @@
 import React from 'react'
+// https://react-hook-form.com/
 import { useForm } from 'react-hook-form'
 
 export default {
   title: 'Guides / Form / Validation'
 }
 
-const ErrorMessage = (error) => {
+// check error type and return error value
+const ErrorMessage = error => {
   if (error) {
     switch (error.type) {
       case 'required':
@@ -27,16 +29,22 @@ const ErrorMessage = (error) => {
   return null
 }
 
-export const From = ({ onSubmit }) => {
+export const From = () => {
   const { register, handleSubmit, errors } = useForm();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
+  // Log all data from form on submit
+  const onSubmit = data => {
+    console.log(data)
+  }
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           <p>First name</p>
-          <input name="firstName"ref={register({ required: true, minLength: 2 })} />
+          <input name="firstName" ref={register({ required: true, minLength: 2 })} />
+          {/* Use name from input as variable */}
           {errors.firstName && ErrorMessage(errors.firstName)}
         </label>
 
