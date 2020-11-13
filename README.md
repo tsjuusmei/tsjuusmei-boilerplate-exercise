@@ -1,4 +1,4 @@
-![Meta image](./public/img/misc/cover.jpg)
+![Meta image](./public/img/misc/cover.png)
 
 # Chicle — Next.js boilerplate
 
@@ -35,7 +35,7 @@ We've used linters for both JavaScript and (S)CSS, to make sure we write code in
 - Add during development
 
 ### Components
-Refer to [default components list]("/src/components/README.md").
+Refer to [default components list](/src/components/README.md).
 
 ### Requirements
 This project recommends a Node version of `12.16.0` or higher.
