@@ -17,7 +17,7 @@ type Props = {
   to?: string
 }
 
-const Button: React.FunctionComponent<Props> = ({
+const Button: React.FC<Props> = ({
   variation = 'primary',
   size = 'md',
   children,

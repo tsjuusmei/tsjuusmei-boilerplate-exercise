@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { IconProps } from '../types'
 
-const Cross: React.FunctionComponent<IconProps> = ({
+const Cross: React.FC<IconProps> = ({
   color = '#fff',
-  size = 24,
-  ...props
+  size = 24
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +11,6 @@ const Cross: React.FunctionComponent<IconProps> = ({
     height={size}
     viewBox="0 0 48 48"
     className="icon icon-cross"
-    {...props}
   >
     <path
       fill={color}

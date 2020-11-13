@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { IconProps } from '../types'
 
-const Arrow: React.FunctionComponent<IconProps> = ({
+const Arrow: React.FC<IconProps> = ({
   color = '#fff',
   size = 24
 }) => (

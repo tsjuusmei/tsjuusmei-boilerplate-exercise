@@ -6,11 +6,10 @@ interface Props extends IconProps {
   direction?: 'up' | 'down' | 'left' | 'right'
 }
 
-const Chevron: React.FunctionComponent<Props> = ({
+const Chevron: React.FC<Props> = ({
   color = 'var(--seeds-900)',
   size = 20,
-  direction = 'down',
-  ...props
+  direction = 'down'
 }) => {
   const iconRotate = {
     up: '90deg',
@@ -26,7 +25,6 @@ const Chevron: React.FunctionComponent<Props> = ({
       height={size}
       viewBox="0 0 20 20"
       style={{ transform: `rotate(${iconRotate[direction]}` }}
-      {...props}
     >
       <path
         fill={color}

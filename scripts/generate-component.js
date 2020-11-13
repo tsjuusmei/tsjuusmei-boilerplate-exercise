@@ -27,10 +27,7 @@ type Props = {
 // Styling
 import styles from './${toKebabCase(name)}.module.scss'
 
-const ${funcName}: React.FunctionComponent<Props> = ({
-  name,
-  ...props
-}) => (
+const ${funcName}: React.FC<Props> = ({ name }) => (
   <div className={styles['${toKebabCase(name)}']}>
     <p>New component</p>
   </div>

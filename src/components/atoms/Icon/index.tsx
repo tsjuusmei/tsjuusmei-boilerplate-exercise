@@ -13,17 +13,14 @@ interface Props extends IconProps {
   name: string
 }
 
-const Icon: React.FunctionComponent<Props> = ({
-  name,
-  ...props
-}) => (
+const Icon: React.FC<Props> = ({ name }) => (
   <>
     {{
-      'menu': <Menu {...props} />,
-      'plus': <Plus {...props} />,
-      'cross': <Cross {...props} />,
-      'arrow': <Arrow {...props} />,
-      'play': <Play {...props} />
+      'menu': <Menu />,
+      'plus': <Plus />,
+      'cross': <Cross />,
+      'arrow': <Arrow />,
+      'play': <Play />
     }[name]}
   </>
 )

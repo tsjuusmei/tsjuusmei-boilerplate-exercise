@@ -21,7 +21,7 @@ const metaData = {
   description: 'This is a Next boilerplate'
 }
 
-const MyApp: React.FunctionComponent<Props> = ({
+const MyApp: React.FC<Props> = ({
   Component,
   pageProps
 }) => {

@@ -16,11 +16,7 @@ type IconProps = {
   name: string
 }
 
-const IconWrapper: React.FunctionComponent<IconProps> = ({
-  children,
-  name,
-  ...props
-}) => (
+const IconWrapper: React.FC<IconProps> = ({ name }) => (
   <div
     className="wrapper"
     style={{
@@ -29,7 +25,7 @@ const IconWrapper: React.FunctionComponent<IconProps> = ({
       paddingTop: 24
     }}
   >
-    {sizes.map((size, idx) => <Icon key={idx} name={name} size={size} {...props} />)}
+    {sizes.map((size, idx) => <Icon key={idx} name={name} size={size} />)}
   </div>
 )
 

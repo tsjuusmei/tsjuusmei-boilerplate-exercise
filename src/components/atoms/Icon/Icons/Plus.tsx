@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { IconProps } from '../types'
 
-const Plus: React.FunctionComponent<IconProps> = ({
+const Plus: React.FC<IconProps> = ({
   color = '#fff',
-  size = 16,
-  ...props
+  size = 16
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +11,6 @@ const Plus: React.FunctionComponent<IconProps> = ({
     height={size}
     viewBox="0 0 48 48"
     className="icon icon-plus"
-    {...props}
   >
     <path
       fill={color}

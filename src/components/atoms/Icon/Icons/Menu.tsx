@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { IconProps } from '../types'
 
-const Menu: React.FunctionComponent<IconProps> = ({
+const Menu: React.FC<IconProps> = ({
   color = '#fff',
   size = 16
 }) => (
