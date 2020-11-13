@@ -63,6 +63,26 @@ import Foo from '@components/Foo'
 
 In SCSS you use them like: `@import '~Styles/Foo'`.
 
+### NPM Scripts
+
+```
+convert-svg-to-jsx
+```
+
+This scripts converts a single `.svg` file to a `.js` react functional component with the use of [SVGR](https://react-svgr.com/).
+
+This script supports to arguments:
+
+`convert-svg-to-jsx *path to SVG* *icon name*`
+
+
+**todo**
+
+- [x] Read a single file and convert to React Component
+- [] Read a directory and convert all `.svg` files
+- [] Output file(s) in `.ts` extension
+
+
 ## Commit
 To commit use the underneath script, this will open up the commitizen CLI options.
 ```

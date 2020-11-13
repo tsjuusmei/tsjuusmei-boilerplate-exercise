@@ -10,6 +10,7 @@
     "commit": "git cz",
     "release": "standard-version",
     "storybook": "start-storybook -p 6006",
+    "convert-svg": "node scripts/convert-svg-to-jsx.mjs",
     "lint": "eslint ."
   },
   "repository": {
@@ -38,6 +39,10 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.3.19",
+    "@svgr/core": "^5.4.0",
+    "@svgr/plugin-jsx": "^5.4.0",
+    "@svgr/plugin-prettier": "^5.4.0",
+    "@svgr/plugin-svgo": "^5.4.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.1.1",
@@ -47,6 +52,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.5",
+    "fs-extra": "^9.0.1",
     "git-cz": "^4.7.0",
     "husky": "^4.2.5",
     "prettier-eslint": "^11.0.0",
