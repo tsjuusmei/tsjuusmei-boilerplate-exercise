@@ -21,20 +21,22 @@ div[class^='container'] {
   }
 }
 
-.container {
-  &-fluid {
-    width: 100%;
-  }
+.container-fluid,
+[data-container-fluid] {
+  width: 100%;
+}
 
-  &-lg {
-    max-width: 1304px;
-  }
+.container-lg,
+[data-container-lg] {
+  max-width: 1304px;
+}
 
-  &-md {
-    max-width: 1120px;
-  }
+.container-md,
+[data-container-md] {
+  max-width: 1120px;
+}
 
-  &-sm {
-    max-width: 992px;
-  }
+.container-sm,
+[data-container-sm] {
+  max-width: 992px;
 }

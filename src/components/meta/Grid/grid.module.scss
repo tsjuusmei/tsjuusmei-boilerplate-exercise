@@ -1,10 +1,5 @@
 
-.grid {
-  // Props
-  --cols: auto;
-  --rows: auto;
-  --gap: auto;
-  --align: stretch;
+[data-grid] {
 
   // Raster
   --grid-cols: var(--cols, auto);
@@ -12,10 +7,21 @@
   --grid-cs: 1;
   --grid-ce: -1;
 
-  min-width: 100%;
+  // min-width: 100%;
   display: grid;
-  grid-gap: var(--gap);
   place-items: var(--align);
-  grid-template-columns: repeat(var(--grid-cols, auto), 1fr);
-  grid-template-rows: repeat(var(--grid-rows, auto), 1fr);
+  grid-gap: var(--gap);
+
+  &[data-cols] {
+    grid-template-columns: repeat(var(--grid-cols, auto), 1fr);
+  }
+
+  &[data-gap] {
+    grid-template-columns: repeat(var(--grid-cols, auto), 1fr);
+  }
+
+  &[data-rows] {
+    grid-template-rows: repeat(var(--grid-rows, auto), 1fr);
+  }
+  // grid-template-rows: repeat(var(--grid-rows, auto), 1fr);
 }

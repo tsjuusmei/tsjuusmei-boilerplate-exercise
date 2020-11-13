@@ -1,11 +1,25 @@
-.cell {
-  grid-column: var(--span, auto);
-  // grid-column-span: var(--span, auto);
+[data-cell] {
   max-width: 100%;
 
-  &,
-  & > * {
-    align-self: var(--align, stretch);
-    justify-self: var(--justify, stretch);
+  &[data-span] {
+    grid-column: span var(--span);
   }
+
+  &[data-span='full'] {
+    grid-column: var(--span);
+  }
+
+  &[data-start] {
+    grid-column-start: var(--start);
+  }
+
+  &[data-end] {
+    grid-column-end: var(--end);
+  }
+  // grid-column-span: var(--span, auto);
+  // &,
+  // & > * {
+  //   align-self: var(--align, stretch);
+  //   justify-self: var(--justify, stretch);
+  // }
 }

@@ -14,13 +14,13 @@ import Cell from './Cell'
 // TODO: Use it as a GitHub package (https://github.com/features/packages)
 
 const Grid = ({
-  cols = 12,
-  container = false,
-  auto = false,
-  rows = 'auto',
-  gap = 'auto',
+  cols,
+  // auto = false,
+  rows,
+  gap,
   align,
   children,
+  container = false,
   size = 'lg',
   ...props
 }) => {
@@ -30,21 +30,32 @@ const Grid = ({
   ].join(' ')
 
   const properties = {
+    'data-grid': true,
+    ...(container ? [`data-container-${size}`] : []),
+    ...(cols ? { 'data-cols': true } : {}),
+    ...(rows ? { 'data-rows': true } : {}),
+    style: {
+      ...(cols ? { '--cols': cols } : {}),
+      ...(rows ? { '--rows': rows } : {}),
+      ...(gap ? { '--gap': gap } : {}),
+      ...(align ? { '--align': align } : {}),
+    }
+  }
 
+  const elements = React.Children.toArray(children)
+
+  if (elements.length === 1 && elements.some((child) => child.type.name !== 'Grid')) {
+    return React.cloneElement(children, {
+      ...properties, ...props, ...children.props
+    })
   }
 
   return (
     <div
-      className={classNames}
-      style={{
-        '--cols': cols,
-        '--rows': rows,
-        '--gap': gap,
-        '--align': align
-      }}
+      data-grid="true"
+      {...properties}
       {...props}
     >
-      {/* React.cloneElement(children, { className: "active" }) */}
       {children}
     </div>
   )
