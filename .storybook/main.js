@@ -82,6 +82,9 @@ module.exports = {
       '@/data': path.resolve(__dirname, '../src/data')
     }
 
+    // Reverts Next Images to regular images
+    config.resolve.alias['next/image'] = require.resolve('../__mocks__/Image/index.js');
+
     // Return the altered config
     return config
   }
