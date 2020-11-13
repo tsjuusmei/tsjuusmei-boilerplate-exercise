@@ -1,7 +1,7 @@
 {
-  "name": "next-boilerplate",
-  "version": "0.0.1",
-  "description": "Next boilerplate",
+  "name": "chicle",
+  "version": "0.1.0",
+  "description": "Chicle, the development boilerplate of Yummygum.",
   "main": "index.js",
   "scripts": {
     "dev": "next",

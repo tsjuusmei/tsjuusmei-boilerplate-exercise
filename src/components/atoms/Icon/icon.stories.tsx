@@ -12,7 +12,6 @@ const sizes = [48, 32, 24]
 
 // Define types
 type IconProps = {
-  children?: any,
   name: string
 }
 
