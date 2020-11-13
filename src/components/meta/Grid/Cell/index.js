@@ -51,12 +51,12 @@ const Cell = ({
   const elements = React.Children.toArray(children)
   // if (elements.length > 1 \\ elements.some((child) => child.type.name !== 'Grid')) { }
   // console.log(elements)
-  // if (elements.length === 1 && elements.some((child) => child.type.name !== 'Cell')) {
-  if (!wrap) {
+  if (!wrap && React.Children.count(children) === 1 && elements.some((child) => child.type.name !== 'Cell')) {
+  // if (!wrap) {
     return React.cloneElement(children, {
-      ...properties,
       ...props,
-      // ...children[0].props
+      ...properties,
+
     })
   }
 

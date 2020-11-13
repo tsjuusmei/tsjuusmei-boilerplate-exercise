@@ -21,29 +21,28 @@ const SampleComponent = ({ span = 'auto' }) => (
 )
 
 export const Default = () => (
-  <Grid gap="0 10px" container>
-    <Cell>
-      <SampleComponent />
-    </Cell>
-    <Cell>
-      <SampleComponent />
-    </Cell>
-    <Cell>
-      <SampleComponent />
-    </Cell>
-    <Cell>
-      <SampleComponent />
-    </Cell>
+  <Grid cols={1} gap="10px 0px" container wrap>
+    {[...Array(12)].map((_, idx) => (
+      <Grid key={idx} cols={idx + 1} gap="32px" wrap>
+        {/* {[...Array(idx + 1)].map((_, idx) => (
+          <Cell key={idx} span={idx + 1}>
+            */}
+        <SampleComponent />
+        {/*
+          </Cell>
+        ))} */}
+      </Grid>
+    ))}
   </Grid>
 )
 
 export const UnorderedList = () => (
   <div className="container-lg">
-    <Grid gap="0 10px">
+    <Grid gap="32px" cols={6}>
       <ul>
         {[...Array(12)].map((_, idx) => (
           <Cell key={idx}>
-            <li>List item {idx + 1}</li>
+            <li>List item {idx + 1} (renders as <code>&lt;li&gt;)</code></li>
           </Cell>
         ))}
       </ul>
@@ -52,7 +51,15 @@ export const UnorderedList = () => (
 )
 
 const SampleImage = () => (
-  <img style={{ objectFit: 'cover', maxWidth: '100%' }} src="//picsum.photos/400/400" alt="" />
+  <img
+    style={{
+      objectFit: 'cover',
+      width: '100%',
+      maxWidth: '100%'
+    }}
+    src="//picsum.photos/800/400"
+    alt=""
+  />
 )
 
 export const ImageGallery = () => (
@@ -64,9 +71,8 @@ export const ImageGallery = () => (
       <Cell span={1}>
         <SampleImage />
       </Cell>
-      <Cell>
+      <Cell span={2} wrap>
         <SampleImage />
-
       </Cell>
     </Grid>
   </div>
@@ -74,18 +80,42 @@ export const ImageGallery = () => (
 
 export const PredefinedCols = () => (
   <Grid gap="10px 0" container>
-    <Grid gap="0 10px" cols={2}>
-      <Cell span={2}>
-        <SampleComponent span={2} />
+    <Grid gap="0 10px" cols={1} wrap>
+      <Cell>
+        <SampleComponent />
       </Cell>
-      <Cell span={3}>
-        <SampleComponent span={3} />
+    </Grid>
+    <Grid gap="0 10px" cols={2} wrap>
+      <Cell>
+        <SampleComponent />
       </Cell>
       <Cell>
-        <SampleComponent span={3} />
+        <SampleComponent />
       </Cell>
-      <Cell span={2}>
-        <SampleComponent span={2} />
+    </Grid>
+    <Grid gap="0 10px" cols={3} wrap>
+      <Cell>
+        <SampleComponent />
+      </Cell>
+      <Cell>
+        <SampleComponent />
+      </Cell>
+      <Cell>
+        <SampleComponent />
+      </Cell>
+    </Grid>
+    <Grid gap="0 10px" cols={4} wrap>
+      <Cell>
+        <SampleComponent />
+      </Cell>
+      <Cell>
+        <SampleComponent />
+      </Cell>
+      <Cell>
+        <SampleComponent />
+      </Cell>
+      <Cell>
+        <SampleComponent />
       </Cell>
     </Grid>
   </Grid>
