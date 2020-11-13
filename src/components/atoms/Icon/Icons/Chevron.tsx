@@ -1,9 +1,8 @@
 import * as React from 'react'
+import { IconProps } from '../types'
 
 // Define types
-type Props = {
-  color?: string,
-  size?: number,
+interface Props extends IconProps {
   direction?: 'up' | 'down' | 'left' | 'right'
 }
 

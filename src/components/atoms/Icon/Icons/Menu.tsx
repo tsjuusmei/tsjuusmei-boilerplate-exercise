@@ -1,11 +1,7 @@
 import * as React from 'react'
+import { IconProps } from '../types'
 
-type Props = {
-  color?: string,
-  size?: number
-}
-
-const Menu: React.FunctionComponent<Props> = ({
+const Menu: React.FunctionComponent<IconProps> = ({
   color = '#fff',
   size = 16
 }) => (

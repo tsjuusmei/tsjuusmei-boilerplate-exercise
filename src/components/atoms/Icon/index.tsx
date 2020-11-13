@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { IconProps } from './types'
 
 // Icons
 import Menu from './Icons/Menu'
@@ -7,10 +8,9 @@ import Cross from './Icons/Cross'
 import Arrow from './Icons/Arrow'
 import Play from './Icons/Play'
 
-type Props = {
-  name: string,
-  size?: number,
-  color?: string
+// Types
+interface Props extends IconProps {
+  name: string
 }
 
 const Icon: React.FunctionComponent<Props> = ({
