@@ -1,28 +1,40 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
 // Styles
-import styles from  './Input.module.scss'
+import styles from  './Textarea.module.scss'
 
-function Input({
+type Props = {
+  id?: string,
+  label?: string,
+  isError?: boolean,
+  size?: Sizes,
+  placeholder?: string,
+  spellCheck?: boolean,
+  autoComplete?: string,
+  isDisabled?: boolean,
+  name: string,
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
+  onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void,
+  onBlur?: (e: React.FormEvent<HTMLTextAreaElement>) => void,
+  isOptional?: boolean
+}
+
+const Textarea: React.FC<Props> = ({
   id,
   label,
   size = 'md',
   placeholder,
   isDisabled,
   isError,
-  type = 'text',
   isOptional,
   onChange,
   onFocus,
   onBlur,
   autoComplete = 'on',
-  spellCheck = true,
-  ...props
-}) {
-  console.log(styles)
+  spellCheck = true
+}) => {
   return (
-    <div className={styles.input}>
+    <div className={styles.textarea}>
       {label && (
         <label htmlFor={id} className={styles.label}>
           {label}
@@ -37,14 +49,13 @@ function Input({
         </label>
       )}
 
-      <input
+      <textarea
         className={`
-          ${styles['input-element']}
+          ${styles.element}
           ${styles[size]}
           ${isError ? styles.error : null}
         `}
         onChange={onChange}
-        type={type}
         id={id}
         placeholder={placeholder}
         disabled={isDisabled}
@@ -52,28 +63,10 @@ function Input({
         onBlur={onBlur}
         autoComplete={autoComplete}
         spellCheck={spellCheck}
-        tabIndex="-1"
-        {...props}
+        tabIndex={-1}
       />
     </div>
   )
 }
 
-Input.propTypes = {
-  id: PropTypes.string,
-  label: PropTypes.string,
-  isError: PropTypes.bool,
-  size: PropTypes.oneOf(['large', 'medium', 'small']),
-  type: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  spellCheck: PropTypes.bool,
-  autoComplete: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  isOptional: PropTypes.bool
-}
-
-export default Input
+export default Textarea

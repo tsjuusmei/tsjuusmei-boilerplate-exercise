@@ -1,65 +1,51 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import Link from 'next/link'
 
-// Components
-import Icon from '@/components/atoms/Icon'
-
 // Styles
-import styles from './button.module.scss'
+import styles from './Button.module.scss'
 
 type Props = {
-  variation: 'primary' | 'secondary' | 'tertiary',
-  size: 's' | 'm' | 'l',
-  isDisabled?: boolean,
+  variation: 'primary' | 'secondary' | 'text-link',
+  size: Sizes,
   children?: any,
+  label?: string,
+  href?: string,
+  isDisabled?: boolean,
   onClick?: React.MouseEventHandler<HTMLElement>,
-  url?: string,
-  to?: string
+  className?: string,
+  contentClassName?: string
 }
 
 const Button: React.FC<Props> = ({
   variation = 'primary',
   size = 'md',
   children,
-  onClick,
-  url,
-  to
-}) => (
-  to ? (
-    <Link href={to}>
-      <button
-        type="button"
-        onClick={onClick}
-        className={`
-          button
-          ${variation}
-          ${size}
-          ${isDisabled ? 'disabled' : ''}
-        `}
-        disabled={isDisabled}
-      >
-        {children}
-      </button>
-    </Link>
-  ) : url ? (
-    <a
-      href={url}
-      onClick={onClick}
-      className={`
-        button
-        ${variation || 'primary'}
-        ${size || 'medium'}
-        ${isDisabled ? 'disabled' : ''}
-      `}
-    >
-      {children}
-    </a>
-  ) : (
-    <button
+  label = '',
+  href = '',
+  isDisabled = false,
+  className = '',
+  contentClassName = '',
+  ...props
+}) => {
+  // Check if link is internal or external
+  const isInternalLink = href && !href.includes('http')
+
+  // When link is internal, Link > a > div
+  const LinkOrButton = href ? 'a' : 'button'
+
+  // Shared classNames (less duplicate code)
+  const sharedClassNames = `${styles[size]} ${styles[variation]} ${isDisabled ? styles.disabled : ''}`
+
+  type ButtonProps = {}
+
+  const ButtonWrapper = React.forwardRef<any, ButtonProps>((ref) => (
+    <LinkOrButton
+      {...props}
+      ref={ref}
       className={`
         ${styles.button}
-        ${sharedClassNames}
         ${className}
+        ${sharedClassNames}
       `}
       disabled={isDisabled}
       aria-disabled={isDisabled}
@@ -70,13 +56,26 @@ const Button: React.FC<Props> = ({
         target: '_blank'
       })}
       tabIndex={0}
-      onMouseOver={() => !isDisabled && setIsHovered(true)}
-      onMouseLeave={() => !isDisabled && setIsHovered(false)}
-      {...props}
     >
-      {children}
-    </button>
-  )
-)
+      <div
+        className={`${styles['button-content']} ${sharedClassNames}
+        ${contentClassName}`}
+        tabIndex={-1}
+      >
+        {children}
+      </div>
+    </LinkOrButton>
+  ))
+
+  if (isInternalLink) {
+    return (
+      <Link href={href}>
+        <ButtonWrapper />
+      </Link>
+    )
+  }
+
+  return (<ButtonWrapper {...props} />)
+}
 
 export default Button

@@ -1,10 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
 // Styles
-import styles from './TextArea.module.scss'
+import styles from  './Input.module.scss'
 
-function TextArea({
+type Props = {
+  id?: string,
+  label?: string,
+  isError?: boolean,
+  size?: Sizes,
+  type?: string,
+  placeholder?: string,
+  spellCheck?: boolean,
+  autoComplete?: string,
+  isDisabled?: boolean,
+  name: string,
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
+  onBlur?: (e: React.FormEvent<HTMLInputElement>) => void,
+  isOptional?: boolean
+}
+
+const Input: React.FC<Props> = ({
   id,
   label,
   size = 'md',
@@ -17,11 +33,10 @@ function TextArea({
   onFocus,
   onBlur,
   autoComplete = 'on',
-  spellCheck = true,
-  ...props
-}) {
+  spellCheck = true
+}) => {
   return (
-    <div className={styles['text-area']}>
+    <div className={styles.input}>
       {label && (
         <label htmlFor={id} className={styles.label}>
           {label}
@@ -36,9 +51,9 @@ function TextArea({
         </label>
       )}
 
-      <textarea
+      <input
         className={`
-          ${styles['text-area-element']}
+          ${styles['input-element']}
           ${styles[size]}
           ${isError ? styles.error : null}
         `}
@@ -51,28 +66,10 @@ function TextArea({
         onBlur={onBlur}
         autoComplete={autoComplete}
         spellCheck={spellCheck}
-        tabIndex="-1"
-        {...props}
+        tabIndex={-1}
       />
     </div>
   )
 }
 
-TextArea.propTypes = {
-  id: PropTypes.string,
-  label: PropTypes.string,
-  isError: PropTypes.bool,
-  size: PropTypes.oneOf(['large', 'medium', 'small']),
-  type: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  spellCheck: PropTypes.bool,
-  autoComplete: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  isOptional: PropTypes.bool
-}
-
-export default TextArea
+export default Input

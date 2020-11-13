@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "checkJs": false,
     "alwaysStrict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -23,7 +24,8 @@
       "@/components/*": ["./src/components/*"],
       "@/hooks/*": ["./src/helpers/hooks/*"],
       "@/utils/*": ["./src/helpers/utils/*"],
-      "@/styles/*": ["./src/styles/*"]
+      "@/styles/*": ["./src/styles/*"],
+      "*": ["./src/typings/*.d.ts"]
     },
   },
   "include": ["**/*.ts", "**/*.tsx"],

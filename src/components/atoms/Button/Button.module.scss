@@ -65,27 +65,6 @@
     }
   }
 
-  &.primary-alt {
-    background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--seeds-200);
-
-    &:hover {
-      color: var(--seeds-300);
-      border-color: var(--seeds-400);
-    }
-
-    &:active {
-      background-color: var(--seeds-800);
-    }
-
-    &.disabled {
-      color: var(--seeds-400);
-      background-color: var(--seeds-700);
-      border-color: var(--seeds-700);
-    }
-  }
-
   &.secondary {
     background-color: var(--white);
     color: var(--seeds-900);

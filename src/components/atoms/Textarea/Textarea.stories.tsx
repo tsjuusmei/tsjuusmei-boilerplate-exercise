@@ -1,6 +1,6 @@
 import React from 'react'
 import { withA11y } from '@storybook/addon-a11y'
-import TextArea from '.'
+import Textarea from '.'
 
 const sizes = {
   sm: 'Small',
@@ -10,28 +10,31 @@ const sizes = {
 
 export default {
   title: 'Components / Atoms / TextArea',
-  component: TextArea,
+  component: Textarea,
   decorators: [withA11y]
 }
 
 export const Default = () => (
   <div className="input-wrapper">
-    {Object.entries(sizes).map(([key, val], idx) => (
-      <TextArea
+    {Object.entries(sizes).map(([key], idx) => (
+      <Textarea
+        name={`textarea-${key}`}
         key={idx}
-        size={key}
+        size={key as Sizes}
         placeholder="Doe is"
-        label="TextArea field with label"
+        label="Textarea field with label"
       />
     ))}
 
-    <TextArea
+    <Textarea
+      name="disabled"
       placeholder="Doe is"
-      label="TextArea field with label"
+      label="Textarea field with label"
       isDisabled
     />
 
-    <TextArea
+    <Textarea
+      name="error"
       placeholder="Doe is"
       label="Input field with label"
       isError
