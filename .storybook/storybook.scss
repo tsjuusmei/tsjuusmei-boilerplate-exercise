@@ -1,3 +1,17 @@
-#root {
+@import '../src/styles/master.scss';
 
+body {
+  background-color: unset;
+
+  * {
+    font-family: inherit;
+  }
+}
+
+#root {
+  padding: 24px;
+
+  @media screen and (max-width: $bp-tablet-sm) {
+    padding: 0;
+  }
 }

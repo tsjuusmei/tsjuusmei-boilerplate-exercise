@@ -7,10 +7,13 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "commit": "git cz",
     "release": "standard-version",
-    "storybook": "start-storybook -p 6006",
-    "lint": "eslint src/**/*.tsx  && stylelint src/**/*.scss"
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook -c .storybook -s ./public -o build",
+    "lint": "eslint src/**/*.tsx  && stylelint src/**/*.scss",
+    "new-component": "node scripts/generate-component.js"
   },
   "repository": {
     "type": "git"
@@ -18,16 +21,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/yummygum/next-boilerplate#readme",
+  "homepage": "https://github.com/Yummygum/next-boilerplate#readme",
   "dependencies": {
-    "@zeit/next-sass": "^1.0.1",
     "framer-motion": "^1.8.3",
     "glob": "^7.1.6",
-    "next": "^9.2.1",
-    "next-seo": "^4.1.0",
-    "node-sass": "^4.13.1",
+    "next": "^9.5.1",
+    "next-seo": "^4.7.3",
+    "postcss-preset-env": "^6.7.0",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
@@ -71,7 +75,12 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "git-cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   }
 }

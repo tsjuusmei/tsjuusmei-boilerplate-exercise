@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 // Styling
-import './version.scss'
+import styles from './version.module.scss'
 
 type Props = {
   currentVersion?: string

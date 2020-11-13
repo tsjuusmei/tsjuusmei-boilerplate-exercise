@@ -1,8 +1,11 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
+// Components
+import Icon from '@/components/atoms/Icon'
+
 // Styles
-import './button.scss'
+import styles from './button.module.scss'
 
 type Props = {
   variation: 'primary' | 'secondary' | 'tertiary',
@@ -16,8 +19,7 @@ type Props = {
 
 const Button: React.FunctionComponent<Props> = ({
   variation = 'primary',
-  size = 'm',
-  isDisabled,
+  size = 'md',
   children,
   onClick,
   url,
@@ -55,13 +57,22 @@ const Button: React.FunctionComponent<Props> = ({
   ) : (
     <button
       className={`
-        button
-        ${variation}
-        ${size}
-        ${isDisabled ? 'disabled' : ''}
+        ${styles.button}
+        ${sharedClassNames}
+        ${className}
       `}
       disabled={isDisabled}
-      onClick={onClick}
+      aria-disabled={isDisabled}
+      aria-label={label}
+      href={(!isDisabled && href) && href}
+      {...(!isInternalLink && {
+        rel: 'noopener noreferrer',
+        target: '_blank'
+      })}
+      tabIndex={0}
+      onMouseOver={() => !isDisabled && setIsHovered(true)}
+      onMouseLeave={() => !isDisabled && setIsHovered(false)}
+      {...props}
     >
       {children}
     </button>

@@ -2,12 +2,14 @@ import * as React from 'react'
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 
-// Verion number
-import Version from '../components/atoms/Version'
-import { version } from '../../package.json'
+// Components
+import Version from '@/components/atoms/Version'
 
 // Styling
-import '../styles/index.scss'
+import '../styles/master.scss'
+
+// Version number
+import { version } from '../../package.json'
 
 type Props = {
   Component: any,
