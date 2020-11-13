@@ -18,7 +18,7 @@ describe('truncateString', () => {
     expect(expected).toEqual(result)
   })
 
-  it.each([undefined, null])(
+  it.each([undefined!, null!])(
     'throws an error if it is called with %s',
     (badArgument) => {
       // WHEN
@@ -27,7 +27,7 @@ describe('truncateString', () => {
       // THEN
       // I expect an error to have been thrown
       expect(() => {
-        truncateString(badArgument)
+        truncateString(badArgument, 0)
       }).toThrow()
     }
   )
