@@ -1,0 +1,11 @@
+.cell {
+  grid-column: var(--span, auto);
+  // grid-column-span: var(--span, auto);
+  max-width: 100%;
+
+  &,
+  & > * {
+    align-self: var(--align, stretch);
+    justify-self: var(--justify, stretch);
+  }
+}

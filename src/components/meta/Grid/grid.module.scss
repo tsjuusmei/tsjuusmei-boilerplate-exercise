@@ -1,0 +1,21 @@
+
+.grid {
+  // Props
+  --cols: auto;
+  --rows: auto;
+  --gap: auto;
+  --align: stretch;
+
+  // Raster
+  --grid-cols: var(--cols, auto);
+  --grid-rows: var(--rows, auto);
+  --grid-cs: 1;
+  --grid-ce: -1;
+
+  min-width: 100%;
+  display: grid;
+  grid-gap: var(--gap);
+  place-items: var(--align);
+  grid-template-columns: repeat(var(--grid-cols, auto), 1fr);
+  grid-template-rows: repeat(var(--grid-rows, auto), 1fr);
+}

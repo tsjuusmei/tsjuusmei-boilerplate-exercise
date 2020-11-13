@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y'
 const headings = ['1', '2', '3', '4', '5', '6']
 
 export default {
-  title: 'Elements / Typography',
+  title: 'Meta / Typography',
   decorators: [withA11y]
 }
 
