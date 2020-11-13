@@ -1,6 +1,6 @@
 ![Meta image](./public/img/misc/cover.jpg)
 
-# Next.js boilerplate
+# Chicle — Next.js boilerplate
 
 This is Yummygum's [Next.js](https://www.nextjs.org) boilerplate. Next.js is a framework for React that will make React apps very fast. It contains Pre-Rendering, Static Exporting and much more features. Have a quick look on [the features list](https://nextjs.org/#features) to have an better overview.
 
