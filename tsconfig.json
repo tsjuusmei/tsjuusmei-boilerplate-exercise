@@ -23,6 +23,7 @@
       "@/components/*": ["./src/components/*"],
       "@/hooks/*": ["./src/helpers/hooks/*"],
       "@/utils/*": ["./src/helpers/utils/*"],
+      "@/styles/*": ["./src/styles/*"]
     },
   },
   "include": ["**/*.ts", "**/*.tsx"],
