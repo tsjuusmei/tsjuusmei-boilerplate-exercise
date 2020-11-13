@@ -9,7 +9,7 @@ This boilerplate makes it easier to get up and running for every new project.
 ## Codebase
 
 ### Technologies
-We use [Next](https://www.nextjs.org/) (v9.5), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation, without all the noise.
+We use [Next](https://www.nextjs.org/) (v10.0.1), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation, without all the noise.
 
 ### Folder structure
 ```sh
@@ -91,6 +91,9 @@ npm run new-component organisms Nav
 ### Assets
 All assets are added to the `public` folder. In here you'll see different subfolders based on the file type. Assets won't get compressed when building, so make sure you've compressed them before adding.
 
+#### Next Image Component
+Images use the Next [Image Component](https://nextjs.org/docs/api-reference/next/image) featured since version `10.0.0`. The Next.js Image Component, `next/image`, is an extension of the HTML `<img>` element, evolved for the modern web.
+
 #### SVGs
 SVGs are a bit more complicated compared to other media types, because of the `Icon` component. It can be a bit confusing when a SVG should be added to the `public` folder and when it should be added as a component in atoms. This is how we decided whether it should be a component or a 'regular asset':
 
@@ -107,6 +110,8 @@ Files inside `public` can then be referenced by your code starting from the base
 The configuration of Storybook is done in the `.storybook` folder. It includes multiple [addons](https://storybook.js.org/addons/) (A11y check, light/dark mode, responsive viewport sizes and more), a custom Webpack config and a PostCSS config to automatically add prefixes to styles. The components themselves are defined in the `.stories.js` files.
 
 Miscellaneous Storybook files that aren't components, but still need to be available can be found in the `stories` folder.
+
+Since Next.js version `10.0.0`, Next.js has a built-in [Image Component](https://nextjs.org/docs/api-reference/next/image) and Automatic Image Optimization. Storybook won't accept this image, so we implemented a mock for this in `__mocks__/Image/index.js`.
 
 ## Usage
 
