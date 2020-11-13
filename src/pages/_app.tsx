@@ -61,6 +61,7 @@ const MyApp: React.FC<Props> = ({
           cardType: 'summary_large_image',
         }}
       />
+      <div id="modal-root" />
       <Version currentVersion={version} />
       <Component {...pageProps} />
     </>

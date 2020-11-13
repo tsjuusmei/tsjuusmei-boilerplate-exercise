@@ -12,13 +12,19 @@ This boilerplate makes it easier to get up and running for every new project.
 We use [Next](https://www.nextjs.org/) (v9.5), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation, without all the noise.
 
 ### Folder structure
-
 ```sh
-wml-website/
+project-name/
 ├── .storybook # Storybook-specific files
-├── scripts    # Miscellaneous scripts during development
-├── src        # Frontend code
 ├── public     # Public files used on the frontend
+├── scripts    # node scripts
+├── src        # Client
+  ├── components    # Components
+    ├── atoms
+    ├── molecules
+    └── organisms
+  ├── helpers       # utils and hooks
+  ├── pages         # app route pages
+  └── styles        # Global styling
 └── stories    # Miscellaneous Storybook files (e.g. Typography)
 ```
 
@@ -27,6 +33,9 @@ We've used linters for both JavaScript and (S)CSS, to make sure we write code in
 
 ### Miscellaneous packages
 - Add during development
+
+### Components
+Refer to [default components list]("/src/components/README.md").
 
 ### Requirements
 This project recommends a Node version of `12.16.0` or higher.
