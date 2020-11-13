@@ -18,20 +18,23 @@ const generateComponent = (name) => {
   return (
     `
 import React from 'react'
-import PropTypes from 'prop-types'
+
+// Types
+type Props = {
+  name?: string
+}
 
 // Styling
 import styles from './${toKebabCase(name)}.module.scss'
 
-const ${funcName} = ({
+const ${funcName}: React.FunctionComponent<Props> = ({
+  name,
   ...props
 }) => (
   <div className={styles['${toKebabCase(name)}']}>
     <p>New component</p>
   </div>
 )
-
-${funcName}.propTypes = {}
 
 export default ${funcName}
 `
@@ -68,7 +71,7 @@ const generateCss = (name) => (
 `
 )
 
-const filePath = join('src/components', folder, fileName, 'index.js')
+const filePath = join('src/components', folder, fileName, 'index.tsx')
 const content = generateComponent(fileName)
 
 outputFile(filePath, content, 'utf8')
@@ -78,7 +81,7 @@ outputFile(filePath, content, 'utf8')
 
     outputFile(sassPath, sassContent, 'utf8')
       .then(() => {
-        const storiesPath = join('src/components', folder, fileName, `${fileName}.stories.js`)
+        const storiesPath = join('src/components', folder, fileName, `${fileName}.stories.tsx`)
         const storiesContent = generateStories(fileName)
 
         outputFile(storiesPath, storiesContent, 'utf8')

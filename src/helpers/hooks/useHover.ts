@@ -5,15 +5,16 @@ import {
 } from 'react'
 
 function useHover() {
-  const [value, setValue] = useState(false)
+  const [value, setValue] = useState<Boolean>(false)
 
-  const ref = useRef(null)
+  const ref = useRef<HTMLInputElement>(null)
 
   const handleMouseOver = () => setValue(true)
   const handleMouseOut = () => setValue(false)
 
   useEffect(() => {
     const node = ref.current
+
     if (node) {
       node.addEventListener('mouseover', handleMouseOver)
       node.addEventListener('mouseout', handleMouseOut)
@@ -24,7 +25,7 @@ function useHover() {
       }
     }
 
-    return null
+    return
   }, [ref])
 
   return [ref, value]

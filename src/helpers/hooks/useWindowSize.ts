@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 
 function useWindowSize() {
-  const [windowSize, setWindowSize] = useState(getSize)
-
   function getSize() {
     return {
       width: typeof window !== 'undefined' ? window.innerWidth : undefined,
       height: typeof window !== 'undefined' ? window.innerHeight : undefined
     }
   }
+
+  const [windowSize, setWindowSize] = useState(getSize)
 
   useEffect(() => {
     function handleResize() {

@@ -1,12 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
-function Chevron({
+// Define types
+type Props = {
+  color?: string,
+  size?: number,
+  direction?: 'up' | 'down' | 'left' | 'right'
+}
+
+const Chevron: React.FunctionComponent<Props> = ({
   color = 'var(--seeds-900)',
   size = 20,
   direction = 'down',
   ...props
-}) {
+}) => {
   const iconRotate = {
     up: '90deg',
     right: '180deg',
@@ -29,17 +35,6 @@ function Chevron({
       />
     </svg>
   )
-}
-
-Chevron.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.number,
-  direction: PropTypes.oneOf([
-    'up',
-    'down',
-    'left',
-    'right'
-  ])
 }
 
 export default Chevron

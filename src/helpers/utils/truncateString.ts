@@ -1,13 +1,13 @@
-export const truncateString = (string, max) => (
-  string.length >= max
+export const truncateString = (str: string, max: number) => (
+  str.length >= max
     ? (
       `${
-        string
+        str
           .substring(0, max)
           .trim()
           .replace(/([&])$/, '')
           .trim()}...`
     ) : (
-      string
+      str
     )
 )

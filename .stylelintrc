@@ -27,19 +27,7 @@
       ]
     ],
     "plugin/8-point-grid": {
-      "base": 4,
-      "allowlist": ["-6px", "-2px", "-1px", "0px", "1px", "2px", "6px", "10px", "14px", "22px"],
-      "ignorelist": [
-        "width",
-        "height",
-        "max-height",
-        "min-height",
-        "max-width",
-        "min-width",
-        "top",
-        "right",
-        "left"
-      ]
+      "base": 4
     },
     "rule-empty-line-before": [
       "always-multi-line",

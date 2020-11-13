@@ -19,11 +19,11 @@ const Icon: React.FunctionComponent<Props> = ({
 }) => (
   <>
     {{
-      menu: <Menu {...props} />,
-      plus: <Plus {...props} />,
-      cross: <Cross {...props} />,
-      arrow: <Arrow {...props} />,
-      play: <Play {...props} />
+      'menu': <Menu {...props} />,
+      'plus': <Plus {...props} />,
+      'cross': <Cross {...props} />,
+      'arrow': <Arrow {...props} />,
+      'play': <Play {...props} />
     }[name]}
   </>
 )
