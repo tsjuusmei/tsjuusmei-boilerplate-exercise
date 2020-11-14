@@ -7,7 +7,6 @@ import styles from './Button.module.scss'
 type Props = {
   variation: 'primary' | 'secondary' | 'text-link',
   size: Sizes,
-  children?: any,
   label?: string,
   href?: string,
   isDisabled?: boolean,

@@ -13,8 +13,7 @@ import styles from './Modal.module.scss'
 
 // Types
 type Props = {
-  children: any,
-  closeModal: any,
+  closeModal: () => void,
   isOpen: boolean
 }
 
