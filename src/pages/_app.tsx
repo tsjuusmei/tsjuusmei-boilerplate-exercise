@@ -1,4 +1,5 @@
 import * as React from 'react'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 
@@ -11,20 +12,12 @@ import '../styles/master.scss'
 // Version number
 import { version } from '../../package.json'
 
-type Props = {
-  Component: any,
-  pageProps: any
-}
-
 const metaData = {
   name: `Next boilerplate ${version}`,
   description: 'This is a Next boilerplate'
 }
 
-const MyApp: React.FC<Props> = ({
-  Component,
-  pageProps
-}) => {
+export default function MyApp({ Component, pageProps }: AppProps) {
   const { name, description } = metaData
 
   return (
@@ -67,5 +60,3 @@ const MyApp: React.FC<Props> = ({
     </>
   )
 }
-
-export default MyApp

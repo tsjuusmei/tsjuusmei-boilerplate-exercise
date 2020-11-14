@@ -36,9 +36,7 @@ const Button: React.FC<Props> = ({
   // Shared classNames (less duplicate code)
   const sharedClassNames = `${styles[size]} ${styles[variation]} ${isDisabled ? styles.disabled : ''}`
 
-  type ButtonProps = {}
-
-  const ButtonWrapper = React.forwardRef<any, ButtonProps>((ref) => (
+  const ButtonWrapper = React.forwardRef<any, Props>((_, ref) => (
     <LinkOrButton
       {...props}
       ref={ref}
@@ -50,7 +48,7 @@ const Button: React.FC<Props> = ({
       disabled={isDisabled}
       aria-disabled={isDisabled}
       aria-label={label}
-      href={(!isDisabled && href) && href}
+      href={href}
       {...(!isInternalLink && {
         rel: 'noopener noreferrer',
         target: '_blank'
@@ -70,12 +68,12 @@ const Button: React.FC<Props> = ({
   if (isInternalLink) {
     return (
       <Link href={href}>
-        <ButtonWrapper />
+        <ButtonWrapper variation={variation} size={size} />
       </Link>
     )
   }
 
-  return (<ButtonWrapper {...props} />)
+  return (<ButtonWrapper variation={variation} size={size} {...props} />)
 }
 
 export default Button

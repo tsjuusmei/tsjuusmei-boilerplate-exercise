@@ -59,7 +59,7 @@ export const TextLink = () => (
         key={idx}
         variation="text-link"
         size={key as Sizes}
-        label="Secondary button"
+        label="Text Link"
       >
         More information
       </Button>

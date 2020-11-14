@@ -9,7 +9,7 @@ const sizes = {
 }
 
 export default {
-  title: 'Components / Atoms / TextArea',
+  title: 'Components / Atoms / Textarea',
   component: Textarea,
   decorators: [withA11y]
 }

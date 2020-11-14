@@ -1,9 +1,6 @@
-import React, { useRef } from 'react'
-import ReactDOM from 'react-dom'
+import React, { useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
-
-// Components
-import Button from '@/components/atoms/Button'
 
 // Helpers
 import useOnClickOutside from '@/hooks/useOutsideClick'
@@ -14,19 +11,35 @@ import useKeyUp from '@/hooks/useKeyUp'
 // Styling
 import styles from './Modal.module.scss'
 
-const Modal = (props) => {
-  const {
-    children, closeModal, isOpen
-  } = props
+// Types
+type Props = {
+  children: any,
+  closeModal: any,
+  isOpen: boolean
+}
 
-  const ref = useRef()
+const modalRoot = document.querySelector("#modal-root") as HTMLElement
+
+const Modal: React.FC<Props> = ({
+  children,
+  closeModal,
+  isOpen
+}) => {
+  const el = useRef(document.createElement("div"))
+  const ref = useRef(null)
 
   useFocusLock(ref)
   useKeyUp('Escape', closeModal)
   useLockBodyScroll()
   useOnClickOutside(ref, closeModal)
 
-  return ReactDOM.createPortal(
+  useEffect(() => {
+    // We assume `modalRoot` exists with '!'
+    modalRoot!.appendChild(el.current)
+    return () => void modalRoot!.removeChild(el.current)
+  }, [])
+
+  return createPortal(
     <>
       {isOpen && (
         <div
@@ -51,7 +64,7 @@ const Modal = (props) => {
         </div>
       )}
     </>,
-    document.getElementById('modal-root')
+    el.current
   )
 }
 
