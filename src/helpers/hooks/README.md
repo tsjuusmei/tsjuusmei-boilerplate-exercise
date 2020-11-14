@@ -23,19 +23,14 @@ const Example = () => {
 - `KeyboardEvent["key"]`: Which event should trigger the callback?
 - `handler: () => void`: Callback function that is executed whenever the targetKey is triggered
 
-## useOnClickOutside()
+## useOutsideClick()
 
 Trigger a callback whenever we click outside a given target.
-
-### Arguments
-
-- `targetRef: React.ref`: Reference to a dom node in which any events clicked outside of that particular node will trigger a callback.
-- `handler: () => void`: Callback function that is executed when clicking outside.
 
 ### Example
 
 ```jsx
-import { useOnClickOutside } from '@lightspeed/flame/hooks'
+import useOutsideClick from '@/hooks/useOutsideClick'
 
 const doSomething = () => {
   console.log('do something')
@@ -43,7 +38,7 @@ const doSomething = () => {
 
 const Example = () => {
   const targetRef = React.createRef()
-  useOnClickOutside(targetRef, doSomething)
+  useOutsideClick(targetRef, doSomething)
 
   return (
     <div>
@@ -53,3 +48,8 @@ const Example = () => {
   )
 }
 ```
+
+### Arguments
+
+- `targetRef: React.ref`: Reference to a DOM node in which any events clicked outside of that particular node will trigger a callback.
+- `handler: () => void`: Callback function that is executed when clicking outside.

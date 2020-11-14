@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-function useOnClickOutside<T extends HTMLElement = HTMLElement>(
+export default function useOutsideClick<T extends HTMLElement = HTMLElement>(
   ref: React.RefObject<T>,
   handler: (e: Event) => void
 ) {
@@ -26,5 +26,3 @@ function useOnClickOutside<T extends HTMLElement = HTMLElement>(
     [ref, handler]
   )
 }
-
-export default useOnClickOutside

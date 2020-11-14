@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 
 // Helpers
-import useOnClickOutside from '@/hooks/useOutsideClick'
+import useOutsideClick from '@/hooks/useOutsideClick'
 import useFocusLock from '@/hooks/useFocusLock'
 import useLockBodyScroll from '@/hooks/useLockBodyScroll'
 import useKeyUp from '@/hooks/useKeyUp'
@@ -30,7 +30,7 @@ const Modal: React.FC<Props> = ({
   useFocusLock(ref)
   useKeyUp('Escape', closeModal)
   useLockBodyScroll()
-  useOnClickOutside(ref, closeModal)
+  useOutsideClick(ref, closeModal)
 
   useEffect(() => {
     // We assume `modalRoot` exists with '!'
