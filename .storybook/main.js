@@ -84,7 +84,7 @@ module.exports = {
     }
 
     // Reverts Next Images to regular images
-    config.resolve.alias['next/image'] = require.resolve('../__mocks__/Image/index.js')
+    config.resolve.alias['next/image'] = require.resolve('../__mocks__/Image/index.tsx')
 
     // Return the altered config
     return config

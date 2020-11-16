@@ -13,50 +13,20 @@ interface Props extends IconProps {
   name: string
 }
 
-const Icon: React.FC<Props> = ({ name }) => (
+const iconElements = (props?: React.PropsWithChildren<IconProps>) => ({
+  'menu': <Menu {...props} />,
+  'plus': <Plus {...props} />,
+  'cross': <Cross {...props} />,
+  'arrow': <Arrow {...props} />,
+  'play': <Play {...props} />
+})
+
+const Icon: React.FC<Props> = ({ name, ...props }) => (
   <>
-    {{
-      'menu': <Menu />,
-      'plus': <Plus />,
-      'cross': <Cross />,
-      'arrow': <Arrow />,
-      'play': <Play />
-    }[name]}
+    {iconElements(props)[name]}
   </>
 )
 
-export default Icon
+export const icons = Object.keys(iconElements())
 
-// import * as React from 'react'
-// import { IconProps } from './types'
-//
-// // Icons
-// import Menu from './Icons/Menu'
-// import Plus from './Icons/Plus'
-// import Cross from './Icons/Cross'
-// import Arrow from './Icons/Arrow'
-// import Play from './Icons/Play'
-//
-// // Types
-// interface Props extends IconProps {
-//   name: string,
-//   color?: string
-// }
-//
-// const IconElements = (props?: Props) => ({
-//   'menu': <Menu {...props} />,
-//   'plus': <Plus {...props} />,
-//   'cross': <Cross {...props} />,
-//   'arrow': <Arrow {...props} />,
-//   'play': <Play {...props} />
-// })
-//
-// const Icon: React.FC<Props> = ({ name, ...props }) => (
-//   <>
-//     {IconElements(props)[name]}
-//   </>
-// )
-//
-// export const icons = Object.keys(IconElements())
-//
-// export default Icon
+export default Icon
