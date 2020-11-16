@@ -1,6 +1,7 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react'
 import { withA11y } from '@storybook/addon-a11y'
+
+// Components
 import Button from '@/components/atoms/Button'
 import Modal from '.'
 
@@ -15,7 +16,11 @@ export const Default = () => {
 
   return (
     <div className="input-wrapper">
-      <Button onClick={() => setIsModalOpen(!isModalOpen)}>
+      <Button
+        variation="primary"
+        size="md"
+        onClick={() => setIsModalOpen(!isModalOpen)}
+      >
         Open Modal here!
       </Button>
 

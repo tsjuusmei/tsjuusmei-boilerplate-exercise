@@ -1,10 +1,14 @@
-![Meta image](./public/img/misc/cover.jpg)
+[![Meta image](./public/img/misc/cover.png)](https://chl.yummygum.dev/storybook/)
 
 # Chicle — Next.js boilerplate
 
 This is Yummygum's [Next.js](https://www.nextjs.org) boilerplate. Next.js is a framework for React that will make React apps very fast. It contains Pre-Rendering, Static Exporting and much more features. Have a quick look on [the features list](https://nextjs.org/#features) to have an better overview.
 
 This boilerplate makes it easier to get up and running for every new project.
+
+[🔗 Storybook](https://chl.yummygum.dev/storybook/)
+
+[🔗 Website](https://chl.yummygum.dev/)
 
 ## Codebase
 
@@ -35,7 +39,7 @@ We've used linters for both JavaScript and (S)CSS, to make sure we write code in
 - Add during development
 
 ### Components
-Refer to [default components list]("/src/components/README.md").
+Refer to [default components list](/src/components/README.md).
 
 ### Requirements
 This project recommends a Node version of `12.16.0` or higher.

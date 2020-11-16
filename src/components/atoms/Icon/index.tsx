@@ -13,16 +13,20 @@ interface Props extends IconProps {
   name: string
 }
 
-const Icon: React.FC<Props> = ({ name }) => (
+const iconElements = (props?: React.PropsWithChildren<IconProps>) => ({
+  'menu': <Menu {...props} />,
+  'plus': <Plus {...props} />,
+  'cross': <Cross {...props} />,
+  'arrow': <Arrow {...props} />,
+  'play': <Play {...props} />
+})
+
+const Icon: React.FC<Props> = ({ name, ...props }) => (
   <>
-    {{
-      'menu': <Menu />,
-      'plus': <Plus />,
-      'cross': <Cross />,
-      'arrow': <Arrow />,
-      'play': <Play />
-    }[name]}
+    {iconElements(props)[name]}
   </>
 )
+
+export const icons = Object.keys(iconElements())
 
 export default Icon

@@ -2,8 +2,8 @@ import * as React from 'react'
 import { IconProps } from '../types'
 
 const Plus: React.FC<IconProps> = ({
-  color = '#fff',
-  size = 16
+  color = 'var(--black)',
+  size = 24
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -19,4 +19,4 @@ const Plus: React.FC<IconProps> = ({
   </svg>
 )
 
-export default Plus
+export default React.memo(Plus)

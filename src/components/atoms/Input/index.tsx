@@ -67,7 +67,6 @@ const Input: React.FC<Props> = ({
         onBlur={onBlur}
         autoComplete={autoComplete}
         spellCheck={spellCheck}
-        tabIndex={-1}
         aria-labelledby={label}
         {...props}
       />
