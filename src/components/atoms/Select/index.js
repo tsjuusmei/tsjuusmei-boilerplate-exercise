@@ -4,7 +4,7 @@
 // import PropTypes from 'prop-types'
 
 // // Helpers
-// import useOnClickOutside from '@/hooks/useOutsideClick'
+// import useOutsideClick from '@/hooks/useOutsideClick'
 
 // // Styles
 // import styles from './Select.module.scss'
@@ -35,7 +35,7 @@
 //   const [selectedLabel, setSelectedLabel] = useState(null)
 //   const [selectedValue, setSelectedValue] = useState('placeholder')
 
-//   useOnClickOutside(selectCustomRef, closeSelectCustom)
+//   useOutsideClick(selectCustomRef, closeSelectCustom)
 
 //   function handleChange(e) {
 //     setIsFilled(true)

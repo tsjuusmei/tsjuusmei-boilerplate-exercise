@@ -42,7 +42,7 @@
     font-size: 20px;
     line-height: 1.4;
     padding: 0 44px;
-    height: 66px;
+    height: 64px;
     min-width: 140px;
   }
 
@@ -62,27 +62,6 @@
     &.disabled {
       color: var(--seeds-400);
       background-color: var(--seeds-200);
-    }
-  }
-
-  &.primary-alt {
-    background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--seeds-200);
-
-    &:hover {
-      color: var(--seeds-300);
-      border-color: var(--seeds-400);
-    }
-
-    &:active {
-      background-color: var(--seeds-800);
-    }
-
-    &.disabled {
-      color: var(--seeds-400);
-      background-color: var(--seeds-700);
-      border-color: var(--seeds-700);
     }
   }
 
@@ -114,7 +93,7 @@
     height: auto;
 
     svg {
-      margin-left: 10px;
+      margin-left: 8px;
     }
 
     &.disabled {

@@ -1,29 +1,44 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 7,
+    "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    }
+      "jsx": true
+    },
   },
-  "plugins": [
-    "react",
-    "import"
-  ],
+  "plugins": ["react", "react-hooks", "import"],
+
   "env": {
     "node": true,
     "browser": true
   },
-  "root": true,
-  "globals": {},
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "airbnb"
+    "plugin:react/recommended"
   ],
   "rules": {
+    "react/jsx-pascal-case": 2,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "prefer-arrow-callback": 2,
+    "no-sequences": "error",
+    "no-eval": "error",
+    "no-return-await": "error",
+    "no-shadow": "error",
+    "no-throw-literal": "error",
+    "no-extra-bind": "error",
+    "no-var": "error",
+    "prefer-const": 1,
+    "eqeqeq": "error",
+    "use-isnan": "error",
     "jsx-a11y": 0,
+    "indent": ["error", 2],
     "semi": [
       2,
       "never"
@@ -35,13 +50,11 @@
         "allowSingleLine": true
       }
     ],
-    "camelcase": 2,
     "comma-style": [
       2,
       "last"
     ],
     "curly": 2,
-    "eqeqeq": 2,
     "func-names": 2,
     "space-before-function-paren": [
       "error",
@@ -50,7 +63,6 @@
     "guard-for-in": 2,
     "wrap-iife": 2,
     "no-undef": 2,
-
     "new-cap": 2,
     "quotes": [
       2,
@@ -71,29 +83,15 @@
     ],
     "no-underscore-dangle": 0,
     "strict": 0,
-    "no-shadow": 0,
-    "no-var": 2,
     "no-useless-rename": 2,
     "no-new-object": 2,
     "no-array-constructor": 2,
-    "no-unused-vars": 1,
     "global-require": 0,
     "prefer-spread": 1,
-    "prefer-arrow-callback": 2,
-    "prefer-const": 1,
-    "react/prop-types": 2,
-    "react/boolean-prop-naming": [
-      "warn",
-      {
-        "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+"
-      }
-    ],
     "react/button-has-type": 0,
     "react/self-closing-comp": 1,
-    "react/default-props-match-prop-types": 1,
     "react/no-deprecated": 1,
     "react/require-default-props": 0,
-    "react/jsx-pascal-case": 2,
     "react/jsx-key": 1,
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-props-no-spreading": 0,
@@ -104,7 +102,21 @@
       2,
       "never"
     ],
-
+    "react/boolean-prop-naming": [
+      "warn",
+      {
+        "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".tsx"
+        ]
+      }
+    ],
     "import/prefer-default-export": 0,
     "import/no-unresolved": 0,
     "react/no-array-index-key": 0,
@@ -115,14 +127,6 @@
       }
     ],
     "no-extend-native": 2,
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js"
-        ]
-      }
-    ],
     "react/jsx-max-props-per-line": [
       2,
       {
@@ -153,15 +157,20 @@
     "jsx-a11y/anchor-is-valid": 0,
     "react/no-did-update-set-state": 0,
     "react/jsx-one-expression-per-line": 0,
-    "no-use-before-define": 0,
-    "react/forbid-prop-types": 0,
-    "import/no-extraneous-dependencies": [
-    "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": false,
-        "peerDependencies": false
+    "no-use-before-define": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.ts","*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "@typescript-eslint/no-use-before-define": "warn",
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "react/prop-types": "off"
       }
-    ]
-  }
+    }
+  ]
 }

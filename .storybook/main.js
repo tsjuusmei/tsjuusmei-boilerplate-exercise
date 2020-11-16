@@ -7,10 +7,11 @@ const importedFiles = [
 module.exports = {
   stories: [
     '../src/components/**/*.stories.js',
-    '../stories/**/*.stories.js'
+    '../stories/**/*.stories.js',
+    '../src/components/**/*.stories.tsx',
+    '../stories/**/*.stories.tsx'
   ],
   addons: [
-    '@storybook/addon-actions',
     '@storybook/addon-backgrounds',
     '@storybook/addon-viewport',
     '@storybook/addon-a11y'
@@ -83,7 +84,7 @@ module.exports = {
     }
 
     // Reverts Next Images to regular images
-    config.resolve.alias['next/image'] = require.resolve('../__mocks__/Image/index.js');
+    config.resolve.alias['next/image'] = require.resolve('../__mocks__/Image/index.tsx')
 
     // Return the altered config
     return config
