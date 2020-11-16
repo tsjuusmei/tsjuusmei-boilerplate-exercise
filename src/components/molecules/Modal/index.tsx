@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 // Helpers
 import useOutsideClick from '@/hooks/useOutsideClick'
-import useFocusLock from '@/hooks/useFocusLock'
 import useLockBodyScroll from '@/hooks/useLockBodyScroll'
 import useKeyUp from '@/hooks/useKeyUp'
 
@@ -17,17 +16,16 @@ type Props = {
   isOpen: boolean
 }
 
-const modalRoot = document.querySelector("#modal-root") as HTMLElement
+const modalRoot = document.querySelector('#modal-root') as HTMLElement
 
 const Modal: React.FC<Props> = ({
   children,
   closeModal,
   isOpen
 }) => {
-  const el = useRef(document.createElement("div"))
+  const el = useRef(document.createElement('div'))
   const ref = useRef(null)
 
-  useFocusLock(ref)
   useKeyUp('Escape', closeModal)
   useLockBodyScroll()
   useOutsideClick(ref, closeModal)

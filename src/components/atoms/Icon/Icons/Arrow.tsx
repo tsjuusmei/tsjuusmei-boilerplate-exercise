@@ -2,7 +2,7 @@ import * as React from 'react'
 import { IconProps } from '../types'
 
 const Arrow: React.FC<IconProps> = ({
-  color = '#fff',
+  color = 'var(--black)',
   size = 24
 }) => (
   <svg
@@ -19,4 +19,4 @@ const Arrow: React.FC<IconProps> = ({
   </svg>
 )
 
-export default Arrow
+export default React.memo(Arrow)

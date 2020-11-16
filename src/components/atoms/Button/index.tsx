@@ -52,17 +52,17 @@ const Button: React.FC<Props> = ({
         rel: 'noopener noreferrer',
         target: '_blank'
       })}
-      tabIndex={0}
     >
       <div
         className={`${styles['button-content']} ${sharedClassNames}
         ${contentClassName}`}
-        tabIndex={-1}
       >
         {children}
       </div>
     </LinkOrButton>
   ))
+
+  ButtonWrapper.displayName = 'ButtonWrapper'
 
   if (isInternalLink) {
     return (

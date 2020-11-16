@@ -16,8 +16,7 @@ const generateComponent = (name) => {
   const funcName = sub.charAt(0).toUpperCase() + sub.slice(1)
 
   return (
-    `
-import React from 'react'
+    `import React from 'react'
 
 // Types
 type Props = {

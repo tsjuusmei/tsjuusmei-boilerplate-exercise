@@ -14,8 +14,8 @@ enum iconRotate {
 }
 
 const Chevron: React.FC<Props> = ({
-  color = 'var(--seeds-900)',
-  size = 20,
+  color = 'var(--black)',
+  size = 24,
   direction = 'down'
 }) => (
   <svg
@@ -32,4 +32,4 @@ const Chevron: React.FC<Props> = ({
   </svg>
 )
 
-export default Chevron
+export default React.memo(Chevron)

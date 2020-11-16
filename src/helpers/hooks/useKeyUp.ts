@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react'
 
 export default function useKeyUp(
-  targetKey: KeyboardEvent["key"],
+  targetKey: KeyboardEvent['key'],
   handler: () => void
 ) {
   const upHandler = useCallback(
@@ -10,18 +10,18 @@ export default function useKeyUp(
         handler()
       }
     },
-    [targetKey],
+    [targetKey, handler]
   )
 
   useEffect(() => {
-    if (typeof window !== "object") {
-      return;
+    if (typeof window !== 'object') {
+      return
     }
 
-    window.addEventListener("keyup", upHandler)
+    window.addEventListener('keyup', upHandler)
 
     return () => {
-      window.removeEventListener("keyup", upHandler)
+      window.removeEventListener('keyup', upHandler)
     }
   }, [upHandler])
 }
