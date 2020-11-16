@@ -24,7 +24,7 @@ describe('Input component', () => {
   // DOM Node tests
   it('should render an input of type text by default', () => {
     const { getByTestId } = render(<Input {...baseProps} data-testid="input" />)
-    const domNode: any = getByTestId('input')
+    const domNode = getByTestId('input') as HTMLInputElement
 
     expect(domNode.nodeName).toBe('INPUT')
     expect(domNode.type).toBe('text')
@@ -32,14 +32,14 @@ describe('Input component', () => {
 
   it('should render an input with a custom type', () => {
     const { getByTestId } = render(<Input {...baseProps} type="email" data-testid="input" />)
-    const domNode: any = getByTestId('input')
+    const domNode = getByTestId('input') as HTMLInputElement
 
     expect(domNode.type).toBe('email')
   })
 
   it('should render a disabled input', () => {
     const { getByTestId } = render(<Input {...baseProps} isDisabled data-testid="input" />)
-    const domNode: any = getByTestId('input')
+    const domNode = getByTestId('input') as HTMLInputElement
 
     expect(domNode.disabled).toBeTruthy()
   })

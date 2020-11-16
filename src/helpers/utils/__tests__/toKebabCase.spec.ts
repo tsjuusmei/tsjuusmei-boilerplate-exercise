@@ -16,7 +16,7 @@ describe('toKebabCase', () => {
     expect(expected).toEqual(after)
   })
 
-  it.each([undefined!, null!])(
+  it.each([undefined, null])(
     'throws an error if it is called with %s',
     (badArgument: string) => {
       // WHEN
