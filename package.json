@@ -15,7 +15,8 @@
     "build-storybook": "build-storybook -c .storybook -s ./public -o build",
     "lint": "eslint src/**/*.tsx  && stylelint src/**/*.scss",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "new-component": "node scripts/generate-component.js"
+    "new-component": "node scripts/generate-component.js",
+    "new-ts-component": "node scripts/generate-ts-component.js"
   },
   "repository": {
     "type": "git"
