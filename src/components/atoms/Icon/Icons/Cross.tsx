@@ -2,7 +2,7 @@ import * as React from 'react'
 import { IconProps } from '../types'
 
 const Cross: React.FC<IconProps> = ({
-  color = 'var(--black)',
+  color = 'var(--black-000)',
   size = 24
 }) => (
   <svg
