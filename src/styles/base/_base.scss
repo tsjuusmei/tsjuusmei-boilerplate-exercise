@@ -1,6 +1,6 @@
 body {
   font-family: var(--font-stack-base);
-  background-color: var(--white);
+  background-color: var(--white-000);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   color: var(--spray-900);
@@ -9,7 +9,7 @@ body {
 
 ::selection {
   background-color: var(--flesh-600);
-  color: var(--white);
+  color: var(--white-000);
 }
 
 /*

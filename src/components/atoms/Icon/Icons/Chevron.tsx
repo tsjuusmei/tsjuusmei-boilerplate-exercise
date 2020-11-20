@@ -14,7 +14,7 @@ enum iconRotate {
 }
 
 const Chevron: React.FC<Props> = ({
-  color = 'var(--black)',
+  color = 'var(--black-000)',
   size = 24,
   direction = 'down'
 }) => (

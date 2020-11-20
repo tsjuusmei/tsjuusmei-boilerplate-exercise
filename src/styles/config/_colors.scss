@@ -3,87 +3,54 @@
 }
 
 $colors: (
-  // Skin — Greens
-  --skin-100: #f7fffb,
-  --skin-200: #d3ffeb,
-  --skin-300: #79f9c0,
-  --skin-400: #56e7a5,
-  --skin-500: #19d681,
-  --skin-600: #05ba6e,
-  --skin-700: #079d63,
-  --skin-800: #00784c,
-  --skin-900: #005d3c,
-
-  // Flesh — Reds
-  --flesh-100: #fef9fa,
-  --flesh-200: #ffced0,
-  --flesh-300: #ff9ba0,
-  --flesh-350: #ff626a,
-  --flesh-400: #ff5059,
-  --flesh-500: #ff2934,
-  --flesh-600: #d80d19,
-  --flesh-700: #a10a12,
-  --flesh-800: #7e0109,
-  --flesh-900: #610005,
-
-  // Seeds — Warm Greys
-  --seeds-200: #eaebec,
-  --seeds-300: #d8d9da,
-  --seeds-100: #f8f9fb,
-  --seeds-400: #c2c3c6,
-  --seeds-500: #94918f,
-  --seeds-600: #7a7573,
-  --seeds-700: #58514f,
-  --seeds-800: #382e2c,
-  --seeds-900: #170a07,
-
-  // Summer Sun — Yellows
-  --summer-sun-100: #fefcf4,
-  --summer-sun-200: #fff8d4,
-  --summer-sun-300: #ffefaa,
-  --summer-sun-400: #ffe87a,
-  --summer-sun-500: #fede48,
-  --summer-sun-600: #ffcd38,
-  --summer-sun-700: #ee9823,
-  --summer-sun-800: #dc6310,
-  --summer-sun-900: #b02900,
-
-  // Spray — Blues
-  --spray-100: #f7ffff,
-  --spray-200: #dcfffc,
-  --spray-300: #befef8,
-  --spray-400: #a2fbf3,
-  --spray-500: #88f6ec,
-  --spray-600: #56dfd7,
-  --spray-700: #2ab8ae,
-  --spray-800: #2a887f,
-  --spray-900: #1f615e,
-
+  // Color 1
+  --color-100: #F9FBFE,
+  --color-200: #EAF2FE,
+  --color-250: #D9E8FE,
+  --color-300: #93BEFF,
+  --color-400: #5A9BFF,
+  --color-500: #0A6BFF,
+  --color-600: #065DD8,
+  --color-700: #044DB0,
+  --color-800: #013C88,
+  --color-900: #002C61,
+  // Color 2
+  --color2-100: #F9FDFE,
+  --color2-200: #E6F8FD,
+  --color2-250: #CDF2FC,
+  --color2-300: #A2E9FC,
+  --color2-400: #67DEFF,
+  --color2-500: #2BD5FF,
+  --color2-600: #1DB8DE,
+  --color2-700: #0F93B8,
+  --color2-800: #016E8F,
+  --color2-900: #014B61,
+  // Color 3
+  --color3-100: #F8F9FB,
+  --color3-200: #C8D2E1,
+  --color3-250: #A4B1C4,
+  --color3-300: #8290A5,
+  --color3-400: #68778D,
+  --color3-500: #56667D,
+  --color3-600: #47556A,
+  --color3-700: #394558,
+  --color3-800: #2B3545,
+  --color3-900: #1E2632,
   // Error
-  --error-100: #fefcf4,
-  --error-200: #fff8d4,
-  --error-300: #ffefaa,
-  --error-400: #ffe87a,
-  --error-500: #fede48,
-  --error-600: #ffcd38,
-  --error-700: #ee9823,
-  --error-900: #b02900,
-  --error-800: #dc6310,
-
+  --error-100: #FFF7F8,
+  --error-300: #FFA0AC,
+  --error-500: #E8374C,
+  --error-700: #720B18,
+  --error-900: #410008,
   // Success
-  --success-100: #f7fffb,
-  --success-200: #d3ffeb,
-  --success-300: #79f9c0,
-  --success-400: #56e7a5,
-  --success-500: #19d681,
-  --success-600: #05ba6e,
-  --success-700: #079d63,
-  --success-800: #00784c,
-  --success-900: #005d3c,
-
+  --success-100: #FBFFF7,
+  --success-300: #D0FFA0,
+  --success-500: #8FDA44,
+  --success-700: #438006,
+  --success-900: #204100,
   // Misc
-  --white: #fff,
-  --black: #000
+  --white-000: #FFF,
+  --black-000: #000
 );
 
 :root {
