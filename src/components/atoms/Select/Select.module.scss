@@ -77,24 +77,24 @@
 //       top: calc(100% + 10px);
 //       left: 0;
 //       width: 100%;
-//       background: var(--white);
+//       background: var(--white-000);
 //       display: none;
 
 //       &-item {
 //         position: relative;
 //         padding: 12px 16px;
-//         color: var(--black);
+//         color: var(--black-000);
 //         cursor: default;
 
 //         &:not(.is-active):hover,
 //         &.is-hovered {
 //           background-color: var(--ec-200);
-//           color: var(--black);
+//           color: var(--black-000);
 //         }
 
 //         &.is-active {
 //           background-color: var(--ec-500);
-//           color: var(--white);
+//           color: var(--white-000);
 //         }
 //       }
 //     }
@@ -148,9 +148,9 @@
 //       // Arrow
 //       background-image:
 //         linear-gradient(
-//           45deg, var(--black) 50%, transparent 50%
+//           45deg, var(--black-000) 50%, transparent 50%
 //         ),
-//         linear-gradient(135deg, transparent 50%, var(--black) 50%);
+//         linear-gradient(135deg, transparent 50%, var(--black-000) 50%);
 //       background-position: calc(100% - 14px) 50%, calc(100% - 19px) 50%;
 //     }
 //   }
