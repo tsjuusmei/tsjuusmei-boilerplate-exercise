@@ -7,7 +7,7 @@ const target = process.argv[2]
 
 // Variables
 const iconFolderPath = './src/components/atoms/Icon/Icons/'
-const extension = 'js'
+const extension = 'tsx'
 
 // Helper function
 const convertToKebabCase = (string) => string.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/[\s_]+/g, '-').toLowerCase()
@@ -79,8 +79,11 @@ function exportSvg(dirName, fileName) {
           width: '{size || width || 32}',
           height: '{size || height || 32}',
           className: `icon icon-${convertToKebabCase(svgName)}`,
-          fill: '{fill || none}'
-        }
+          fill: '{fill || "none"}'
+        },
+        typescript: true,
+        prettierConfig: { semi: false, singleQuote: true},
+        template: customTemplate
       },
       {
         componentName,
@@ -93,7 +96,55 @@ function exportSvg(dirName, fileName) {
         'utf8'
       )
     })
+
+
+    fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', (err, index) => {
+      if (err) {
+        console.log(err)
+      }
+      const identifier = '// Add Import Above'
+      const insert = `import ${componentName} from './Icons/${componentName}'`
+      const split = index.split(identifier)
+      const newIndex = `${split[0]}${insert}
+${identifier}${split[1]}`
+
+      fs.outputFile('./src/components/atoms/Icon/index.tsx', newIndex, 'utf8')
+    })
+
+    //     fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', (compErr, compIndex) => {
+    //       if (compErr) {
+    //         console.log(compErr)
+    //       }
+    //       const identifier = '})// Add Icon Above'
+    //       const insert = `\'${svgName}\': <${componentName} {...props} />,`
+    //       const split = compIndex.split(identifier)
+    //       const newIndex = `${split[0]}  ${insert}
+    // ${identifier}${split[1]}`
+
+    //       fs.outputFile('./src/components/atoms/Icon/index.tsx', newIndex, 'utf8')
+    //     })
   })
 
   console.log(` ${fileName} -> ${componentName}.${extension}`)
+}
+
+function customTemplate(
+  { template },
+  opts,
+  {
+    imports, interfaces, componentName, props, jsx, exports
+  },
+) {
+  const plugins = ['jsx']
+  if (opts.typescript) {
+    plugins.push('typescript')
+  }
+  const typeScriptTpl = template.smart({ plugins })
+  return typeScriptTpl.ast`${imports}
+${interfaces}
+function ${componentName}(size: number, width: number, height: number, color: string, fill: string, ${props}) {
+  return ${jsx};
+}
+${exports}
+  `
 }

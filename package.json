@@ -12,7 +12,7 @@
     "commit": "git cz",
     "release": "standard-version",
     "storybook": "start-storybook -p 6006",
-    "convert-svg-to-jsx": "node scripts/convert-svg-to-jsx.mjs",
+    "convert-svg": "node scripts/convert-svg-to-tsx.mjs",
     "build-storybook": "build-storybook -c .storybook -s ./public -o build",
     "lint": "eslint src/**/*.tsx  && stylelint src/**/*.scss",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
