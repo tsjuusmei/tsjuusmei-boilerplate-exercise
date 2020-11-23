@@ -1,7 +1,27 @@
 body {
-  font-family: $base-font;
-  background-color: var(--black);
+  font-family: var(--font-stack-base);
+  background-color: var(--white-000);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  color: var(--white);
+  color: var(--spray-900);
+  font-feature-settings: 'ss02' on;
+}
+
+::selection {
+  background-color: var(--flesh-600);
+  color: var(--white-000);
+}
+
+/*
+  This will hide the focus indicator if the element receives focus via the mouse,
+  but it will still show up on keyboard focus.
+*/
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.js-focus-visible .focus-visible {
+  outline: 2px solid var(--flesh-500);
+  outline-offset: 2px;
 }
