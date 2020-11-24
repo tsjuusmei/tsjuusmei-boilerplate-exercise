@@ -23,7 +23,7 @@ const customViewports = {
       width: '414px',
       height: '812px'
     }
-  }
+  },
   tabletMd: {
     name: 'Tablet Md (768x1024)',
     styles: {

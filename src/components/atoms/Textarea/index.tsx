@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 // Styles
-import styles from  './Textarea.module.scss'
+import styles from  './TextArea.module.scss'
 
 type Props = {
   id?: string,
