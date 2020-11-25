@@ -2,6 +2,7 @@ const path = require('path')
 
 const importedFiles = [
   path.resolve(__dirname, '../src/styles/config/_media-queries.scss'),
+  path.resolve(__dirname, '../src/styles/config/_fonts.scss'),
 ]
 
 module.exports = {
