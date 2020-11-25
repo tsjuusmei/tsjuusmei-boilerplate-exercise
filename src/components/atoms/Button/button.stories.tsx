@@ -1,72 +1,62 @@
 import * as React from 'react'
 import { withA11y } from '@storybook/addon-a11y'
+import {
+  withKnobs, text, boolean, select
+} from '@storybook/addon-knobs'
 import Button from '.'
 
-const sizes = {
-  sm: 'Small',
-  md: 'Medium',
-  lg: 'Large'
-}
+const variationOptions = ['primary', 'secondary', 'tertiary', 'text-link']
+const sizeOptions = ['sm', 'md', 'lg']
+const sizeDefault = 'md'
 
 export default {
   title: 'Components / Atoms / Button',
   component: Button,
-  decorators: [withA11y]
+  decorators: [withA11y, withKnobs]
 }
 
 export const Primary = () => (
-  <div className="buttons-preview">
-    {Object.entries(sizes).map(([key, val], idx) => (
-      <Button
-        key={idx}
-        variation="primary"
-        size={key as Sizes}
-        label="Primary button"
-      >
-        Primary {val}
-      </Button>
-    ))}
-
-    <Button variation="primary" size="md" label="Primary button" isDisabled>
-      Disabled
-    </Button>
-  </div>
+  <Button
+  label="Primary Button"
+    variation={select('Variation', variationOptions, 'primary')}
+    size={select('Size', sizeOptions, sizeDefault)}
+    isDisabled={boolean('Disabled', false)}
+    isFullWidth={boolean('Full Width', false)}
+  >
+    {text('Button Text', 'Primary Button')}
+  </Button>
 )
 
 export const Secondary = () => (
-  <div className="buttons-preview">
-    {Object.entries(sizes).map(([key, val], idx) => (
-      <Button
-        key={idx}
-        variation="secondary"
-        size={key as Sizes}
-        label="Secondary button"
-      >
-        Secondary {val}
-      </Button>
-    ))}
+  <Button
+    label="Secondary Button"
+    variation={select('Variation', variationOptions, 'secondary')}
+    size={select('Size', sizeOptions, sizeDefault)}
+    isDisabled={boolean('Disabled', false)}
+    isFullWidth={boolean('Full Width', false)}
+  >
+    {text('Button Text', 'Secondary Button')}
+  </Button>
+)
 
-    <Button variation="secondary" size="md" label="Secondary button" isDisabled>
-      Disabled
-    </Button>
-  </div>
+export const Tertiary = () => (
+  <Button
+    label="Tertiary Button"
+    variation={select('Variation', variationOptions, 'tertiary')}
+    size={select('Size', sizeOptions, sizeDefault)}
+    isDisabled={boolean('Disabled', false)}
+  >
+    {text('Button Text', 'Tertiary Button')}
+  </Button>
 )
 
 export const TextLink = () => (
-  <div className="buttons-preview">
-    {Object.entries(sizes).map(([key], idx) => (
-      <Button
-        key={idx}
-        variation="text-link"
-        size={key as Sizes}
-        label="Text Link"
-      >
-        More information
-      </Button>
-    ))}
-
-    <Button variation="text-link" size="md" label="Secondary button" isDisabled>
-      Disabled
-    </Button>
-  </div>
+  <Button
+    label="Text Link"
+    variation={select('Variation', variationOptions, 'text-link')}
+    size={select('Size', sizeOptions, sizeDefault)}
+    isDisabled={boolean('Disabled', false)}
+  >
+    {text('Button Text', 'Text Link')}
+  </Button>
 )
