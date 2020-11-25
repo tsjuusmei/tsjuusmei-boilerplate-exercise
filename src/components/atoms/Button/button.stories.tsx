@@ -17,10 +17,11 @@ export default {
 
 export const Primary = () => (
   <Button
+  label="Primary Button"
     variation={select('Variation', variationOptions, 'primary')}
     size={select('Size', sizeOptions, sizeDefault)}
     isDisabled={boolean('Disabled', false)}
-    label="Primary Button"
+    isFullWidth={boolean('Full Width', false)}
   >
     {text('Button Text', 'Primary Button')}
   </Button>
@@ -28,10 +29,11 @@ export const Primary = () => (
 
 export const Secondary = () => (
   <Button
+    label="Secondary Button"
     variation={select('Variation', variationOptions, 'secondary')}
     size={select('Size', sizeOptions, sizeDefault)}
     isDisabled={boolean('Disabled', false)}
-    label="Secondary Button"
+    isFullWidth={boolean('Full Width', false)}
   >
     {text('Button Text', 'Secondary Button')}
   </Button>
@@ -39,10 +41,10 @@ export const Secondary = () => (
 
 export const Tertiary = () => (
   <Button
+    label="Tertiary Button"
     variation={select('Variation', variationOptions, 'tertiary')}
     size={select('Size', sizeOptions, sizeDefault)}
     isDisabled={boolean('Disabled', false)}
-    label="Tertiary Button"
   >
     {text('Button Text', 'Tertiary Button')}
   </Button>
@@ -50,10 +52,10 @@ export const Tertiary = () => (
 
 export const TextLink = () => (
   <Button
+    label="Text Link"
     variation={select('Variation', variationOptions, 'text-link')}
     size={select('Size', sizeOptions, sizeDefault)}
     isDisabled={boolean('Disabled', false)}
-    label="Text Link"
   >
     {text('Button Text', 'Text Link')}
   </Button>
