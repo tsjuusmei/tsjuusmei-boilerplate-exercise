@@ -45,7 +45,6 @@ const Button: React.FC<Props> = ({
         ${styles.button}
         ${className}
         ${sharedClassNames}
-        ${isFullWidth ? styles.fullwidth : ''}
       `}
       disabled={isDisabled}
       aria-disabled={isDisabled}
