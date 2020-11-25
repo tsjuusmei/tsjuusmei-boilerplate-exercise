@@ -28,7 +28,7 @@ export const Primary = () => (
     ))}
 
     <Button variation="primary" size="md" label="Primary button" isDisabled>
-      Disabled
+      Primary Disabled
     </Button>
   </div>
 )
@@ -47,7 +47,26 @@ export const Secondary = () => (
     ))}
 
     <Button variation="secondary" size="md" label="Secondary button" isDisabled>
-      Disabled
+      Secondary Disabled
+    </Button>
+  </div>
+)
+
+export const Tertiary = () => (
+  <div className="buttons-preview">
+    {Object.entries(sizes).map(([key, val], idx) => (
+      <Button
+        key={idx}
+        variation="tertiary"
+        size={key as Sizes}
+        label="tertiary button"
+      >
+        Tertiary {val}
+      </Button>
+    ))}
+
+    <Button variation="tertiary" size="md" label="tertiary button" isDisabled>
+      Tertiary Disabled
     </Button>
   </div>
 )
@@ -61,12 +80,12 @@ export const TextLink = () => (
         size={key as Sizes}
         label="Text Link"
       >
-        More information
+        Text Link
       </Button>
     ))}
 
     <Button variation="text-link" size="md" label="Secondary button" isDisabled>
-      Disabled
+      Text Link Disabled
     </Button>
   </div>
 )
