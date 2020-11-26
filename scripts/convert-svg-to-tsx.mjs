@@ -37,6 +37,7 @@ if (isAFile) {
     if (err) {
       console.log(err)
     }
+
     // filter files in folder for only .svg files
     const svgFiles = files.filter((file) => file.endsWith('.svg'))
 
@@ -46,15 +47,23 @@ if (isAFile) {
       console.log(`${svgFiles.length} SVG file(s) found!`)
 
       // Export each file
-      svgFiles.forEach((file) => {
-        console.log('Converting svg file to component:')
-        exportSvg(dir, file)
-      })
+      exportSvgFiles(dir, svgFiles)
     }
   })
 }
 
-function exportSvg(dirName, fileName) {
+async function exportSvgFiles(dir, svgFiles) {
+  for (let i = 0; i < svgFiles.length; i += 1) {
+    console.log('Converting svg file to component:')
+    await exportWithPromise(dir, svgFiles[i])
+  }
+}
+
+function exportWithPromise(dirName, fileName) {
+  return new Promise(resolve => exportSvg(dirName, fileName, resolve))
+}
+
+async function exportSvg(dirName, fileName, resolve) {
   const currentSvgPath = path.join(dirName, fileName) // Join dir and file for a full path
   const svgName = fileName.split('.')[0] // is fileName without file extension
   // Split on dashes, capitalize each first letter
@@ -95,10 +104,11 @@ function exportSvg(dirName, fileName) {
         iconComponent,
         'utf8'
       ).then(()=> {
-        fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', (importErr, index) => {
+        fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', async (importErr, index) => {
           if (err) {
             console.log(err)
           }
+
           const identifier = '// Add Import Above'
           const insert = `import ${componentName} from './Icons/${componentName}'`
           const newIndex = index.replace(identifier, `${insert}\n${identifier}`)
@@ -107,7 +117,8 @@ function exportSvg(dirName, fileName) {
           const componentInsert = `'${svgName}': <${componentName} {...props} />,`
           const componentIndex = newIndex.replace(componentIdentifier, `  ${componentInsert}\n${componentIdentifier}`)
 
-          fs.writeFile('./src/components/atoms/Icon/index.tsx', componentIndex, 'utf8')
+          await fs.writeFile('./src/components/atoms/Icon/index.tsx', componentIndex, 'utf8')
+          resolve('Done')
           console.log(`Added ${componentInsert} to index.tsx`)
         })
       })
