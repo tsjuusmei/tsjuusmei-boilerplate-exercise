@@ -20,19 +20,62 @@ const SampleComponent = ({ span = 'auto' }) => (
   </div>
 )
 
+// export const Default = () => (
+//   <Grid cols={1} gap="10px 0px" container wrap>
+//     {[...Array(12)].map((_, idx) => (
+//       <Grid key={idx} cols={idx + 1} gap="32px" wrap>
+//         {/* {[...Array(idx + 1)].map((_, idx) => (
+//           <Cell key={idx} span={idx + 1}>
+//             */}
+//         <SampleComponent />
+//         {/*
+//           </Cell>
+//         ))} */}
+//       </Grid>
+//     ))}
+//   </Grid>
+// )
+
 export const Default = () => (
-  <Grid cols={1} gap="10px 0px" container wrap>
-    {[...Array(12)].map((_, idx) => (
-      <Grid key={idx} cols={idx + 1} gap="32px" wrap>
-        {/* {[...Array(idx + 1)].map((_, idx) => (
-          <Cell key={idx} span={idx + 1}>
-            */}
+  <Grid gap="10px 0" container>
+    <Grid gap="0 10px" cols={1} wrap>
+      <Cell>
         <SampleComponent />
-        {/*
-          </Cell>
-        ))} */}
-      </Grid>
-    ))}
+      </Cell>
+    </Grid>
+    <Grid gap="0 10px" cols={2} wrap>
+      <Cell>
+        <SampleComponent span="1/2" />
+      </Cell>
+      <Cell>
+        <SampleComponent span="1/2" />
+      </Cell>
+    </Grid>
+    <Grid gap="0 10px" cols={3} wrap>
+      <Cell>
+        <SampleComponent span="1/3" />
+      </Cell>
+      <Cell>
+        <SampleComponent span="1/3" />
+      </Cell>
+      <Cell>
+        <SampleComponent span="1/3" />
+      </Cell>
+    </Grid>
+    <Grid gap="0 10px" cols={4} wrap>
+      <Cell>
+        <SampleComponent span="1/4" />
+      </Cell>
+      <Cell>
+        <SampleComponent span="1/4" />
+      </Cell>
+      <Cell>
+        <SampleComponent span="1/4" />
+      </Cell>
+      <Cell>
+        <SampleComponent span="1/4" />
+      </Cell>
+    </Grid>
   </Grid>
 )
 
@@ -42,7 +85,7 @@ export const UnorderedList = () => (
       <ul>
         {[...Array(12)].map((_, idx) => (
           <Cell key={idx}>
-            <li>List item {idx + 1} (renders as <code>&lt;li&gt;)</code></li>
+            <li>Lorem ipsum dolor sit List Item — {idx + 1} (renders as <code>&lt;li&gt;)</code></li>
           </Cell>
         ))}
       </ul>
@@ -57,6 +100,7 @@ const SampleImage = () => (
       width: '100%',
       maxWidth: '100%'
     }}
+    height={400}
     src="//picsum.photos/800/400"
     alt=""
   />
@@ -78,56 +122,14 @@ export const ImageGallery = () => (
   </div>
 )
 
-export const PredefinedCols = () => (
-  <Grid gap="10px 0" container>
-    <Grid gap="0 10px" cols={1} wrap>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-    </Grid>
-    <Grid gap="0 10px" cols={2} wrap>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-    </Grid>
-    <Grid gap="0 10px" cols={3} wrap>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-    </Grid>
-    <Grid gap="0 10px" cols={4} wrap>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-      <Cell>
-        <SampleComponent />
-      </Cell>
-    </Grid>
-  </Grid>
-)
-
 export const BlogPost = () => (
   <Grid gap="24px" container cols={3}>
     <Cell span="full">
       <img style={{ width: '100%' }} src="//picsum.photos/1920/480" alt="" />
     </Cell>
     <Cell span="full" start={2}>
-      <h1>Why Grids matter</h1>
+      <h1>Grid Systems</h1>
+      <h2 className="h5">Raster Systeme für die Visuelle Gestaltung</h2>
     </Cell>
     <Cell span={1}>
       <aside>

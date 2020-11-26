@@ -1,18 +1,18 @@
 .version {
   display: flex;
   align-items: center;
-  padding: 8px;
-  border-radius: 18px;
+  padding: 8px 10px;
+  border-radius: 20px;
   bottom: 16px;
   left: 16px;
   position: fixed;
   z-index: 999;
-  background-color: #2e2e2e;
+  background-color: var(--black);
 
   span {
     font-size: 20px;
     color: var(--white);
     text-align: center;
-    margin-left: 8px;
+    margin: 0 4px 0 8px;
   }
 }
