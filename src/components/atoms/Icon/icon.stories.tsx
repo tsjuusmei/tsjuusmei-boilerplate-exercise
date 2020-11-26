@@ -1,11 +1,9 @@
 import * as React from 'react'
-import { withA11y } from '@storybook/addon-a11y'
-
 import Icon from '.'
 
 export default {
   title: 'Components / Atoms / Icon',
-  decorators: [withA11y],
+  component: Icon
 }
 
 const sizes = [48, 32, 24]
