@@ -129,23 +129,24 @@ But you can also import styles or utility functions without having to worry abou
 
 ### NPM Scripts
 
+### Convert-SVG
+
+This script converts a single `.svg` file to a `.js` or `.tsx` react functional component with the use of [SVGR](https://react-svgr.com/).
+
+#### How to use
+This script can either be used to convert a single svg file or an entire directory. As a best practice, this directory must be **outside** of the project.
+
 ```
-convert-svg-to-jsx
+convert-svg ../folder-with-svgs
 ```
 
-This scripts converts a single `.svg` file to a `.js` react functional component with the use of [SVGR](https://react-svgr.com/).
+Alternatively you can target a single svg file.
 
-This script supports to arguments:
+```
+convert-svg ../folder-with-svg/example.svg
+```
 
-`convert-svg-to-jsx *path to SVG* *icon name*`
-
-
-**todo**
-
-- [x] Read a single file and convert to React Component
-- [] Read a directory and convert all `.svg` files
-- [] Output file(s) in `.ts` extension
-
+This adds the svg as a `.tsx` file to the `src/components/atoms/Icon/Icons` folder. In the future, this should also update `Icon/index.tsx` to import the icon and add it to the `icons` object.
 
 ## Commit
 To commit use the underneath script, this will open up the commitizen CLI options.
