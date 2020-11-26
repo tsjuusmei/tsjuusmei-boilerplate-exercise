@@ -94,35 +94,24 @@ function exportSvg(dirName, fileName) {
         `${iconFolderPath}${componentName}.${extension}`,
         iconComponent,
         'utf8'
-      )
+      ).then(()=> {
+        fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', (importErr, index) => {
+          if (err) {
+            console.log(err)
+          }
+          const identifier = '// Add Import Above'
+          const insert = `import ${componentName} from './Icons/${componentName}'`
+          const newIndex = index.replace(identifier, `${insert}\n${identifier}`)
+
+          const componentIdentifier = '})// Add Icon Above'
+          const componentInsert = `'${svgName}': <${componentName} {...props} />,`
+          const componentIndex = newIndex.replace(componentIdentifier, `  ${componentInsert}\n${componentIdentifier}`)
+
+          fs.writeFile('./src/components/atoms/Icon/index.tsx', componentIndex, 'utf8')
+          console.log(`Added ${componentInsert} to index.tsx`)
+        })
+      })
     })
-
-
-    fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', (err, index) => {
-      if (err) {
-        console.log(err)
-      }
-      const identifier = '// Add Import Above'
-      const insert = `import ${componentName} from './Icons/${componentName}'`
-      const split = index.split(identifier)
-      const newIndex = `${split[0]}${insert}
-${identifier}${split[1]}`
-
-      fs.outputFile('./src/components/atoms/Icon/index.tsx', newIndex, 'utf8')
-    })
-
-    //     fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', (compErr, compIndex) => {
-    //       if (compErr) {
-    //         console.log(compErr)
-    //       }
-    //       const identifier = '})// Add Icon Above'
-    //       const insert = `\'${svgName}\': <${componentName} {...props} />,`
-    //       const split = compIndex.split(identifier)
-    //       const newIndex = `${split[0]}  ${insert}
-    // ${identifier}${split[1]}`
-
-    //       fs.outputFile('./src/components/atoms/Icon/index.tsx', newIndex, 'utf8')
-    //     })
   })
 
   console.log(` ${fileName} -> ${componentName}.${extension}`)
@@ -142,7 +131,7 @@ function customTemplate(
   const typeScriptTpl = template.smart({ plugins })
   return typeScriptTpl.ast`${imports}
 ${interfaces}
-function ${componentName}(size: number, width: number, height: number, color: string, fill: string, ${props}) {
+function ${componentName}(size?: number, width?: number, height?: number, color?: string, fill?: string, ${props}) {
   return ${jsx};
 }
 ${exports}
