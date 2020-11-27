@@ -157,6 +157,17 @@ yarn convert-svg ../folder-with-svg/example.svg
 
 This adds the svg as a `.tsx` file to the `src/components/atoms/Icon/Icons` folder. This also updates `Icon/index.tsx` to import the icon and adds it to the `icons` object. Please double check the changes made by the script and commit these changes in a separate commit.
 
+#### Naming
+This script derives the Icon name from SVG filename, which means the file name **has** to follow the following pattern, in order to work correctly. The SVG file name delimiter must be either a space (` `), a dash (`-`), a combination or have none at all:
+```
+folder-with-svg/file example.svg
+folder-with-svg/file-example.svg
+folder-with-svg/file example-dark.svg
+folder-with-svg/example.svg
+```
+
+The script will apply `PascalCase` to the component (file)name, and `kebab-case` for the `name` of the Icon. In the example  above, this will return the file `FileExample.tsx` which can be used as `<Icon name="file-example" />`
+
 #### Template
 The output file is based on a custom template, defined at the end of the script. The custom template can be adjusted to fit your project's specific needs. Simply edit the return value of the `customTemplate` function at the end of the script. You can find more info regarding custom templates [here](https://react-svgr.com/docs/custom-templates/).
 
