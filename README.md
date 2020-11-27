@@ -131,22 +131,34 @@ But you can also import styles or utility functions without having to worry abou
 
 ### Convert-SVG
 
-This script converts a single `.svg` file to a `.js` or `.tsx` react functional component with the use of [SVGR](https://react-svgr.com/).
+This script uses [SVGR](https://react-svgr.com/) to convert the svg to a react component. As the boilerplate uses Typescript, the output file will be a `.tsx`.
+
+#### Options
+SVGR has quite a few options to be added/tweaked. You can find the documentation and additional options [here](https://react-svgr.com/docs/options/).The current features that are used are:
+* Use the plugins `@svgr/plugin-svgo`, `@svgr/plugin-jsx`, `@svgr/plugin-prettier` to format the output file.
+* `svgProps` to pass a list of props inside of the SVG element.
+* `typescript: true` to give it typescript specific features.
+* `prettierConfig` is passed so it matches the prettier style of the project
+* a custom `template` is passed
+
 
 #### How to use
 This script can either be used to convert a single svg file or an entire directory. As a best practice, this directory must be **outside** of the project.
 
 ```
-convert-svg ../folder-with-svgs
+yarn convert-svg ../folder-with-svgs
 ```
 
 Alternatively you can target a single svg file.
 
 ```
-convert-svg ../folder-with-svg/example.svg
+yarn convert-svg ../folder-with-svg/example.svg
 ```
 
 This adds the svg as a `.tsx` file to the `src/components/atoms/Icon/Icons` folder. This also updates `Icon/index.tsx` to import the icon and adds it to the `icons` object. Please double check the changes made by the script and commit these changes in a separate commit.
+
+#### Template
+The output file is based on a custom template, defined at the end of the script. The custom template can be adjusted to fit your project's specific needs. Simply edit the return value of the `customTemplate` function at the end of the script. You can find more info regarding custom templates [here](https://react-svgr.com/docs/custom-templates/).
 
 ## Commit
 To commit use the underneath script, this will open up the commitizen CLI options.

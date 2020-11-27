@@ -66,9 +66,8 @@ function exportWithPromise(dirName, fileName) {
 async function exportSvg(dirName, fileName, resolve) {
   const currentSvgPath = path.join(dirName, fileName) // Join dir and file for a full path
   const svgName = fileName.split('.')[0] // is fileName without file extension
-  // Split on dashes, capitalize each first letter
-  const componentName = svgName.split('-').map((x) => `${x.charAt(0).toUpperCase()}${x.slice(1)}`).join('') || svgName.charAt(0).toUpperCase()
-
+  // Split on dashes/spaces, remove dashes/spaces, capitalize each first letter
+  const componentName = svgName.split(/(-|\s+)/g).filter(x => x !== '-' && x !== ' ').map((x) => `${x.charAt(0).toUpperCase()}${x.slice(1)}`).join('') || svgName.charAt(0).toUpperCase()
   // Read targeted file
   fs.readFile(currentSvgPath, 'utf8', (err, svg) => {
     if (err) {
@@ -90,9 +89,15 @@ async function exportSvg(dirName, fileName, resolve) {
           className: `icon icon-${convertToKebabCase(svgName)}`,
           fill: '{fill || "none"}'
         },
+        svgoConfig:{
+          plugins: [
+            { removeViewBox: false }
+          ]
+        },
         typescript: true,
         prettierConfig: { semi: false, singleQuote: true},
-        template: customTemplate
+        template: customTemplate,
+        expandProps: false
       },
       {
         componentName,
@@ -104,7 +109,7 @@ async function exportSvg(dirName, fileName, resolve) {
         iconComponent,
         'utf8'
       ).then(()=> {
-        fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', async (importErr, index) => {
+        fs.readFile('./src/components/atoms/Icon/index.tsx', 'utf8', async(importErr, index) => {
           if (err) {
             console.log(err)
           }
@@ -119,7 +124,7 @@ async function exportSvg(dirName, fileName, resolve) {
 
           await fs.writeFile('./src/components/atoms/Icon/index.tsx', componentIndex, 'utf8')
           resolve('Done')
-          console.log(`Added ${componentInsert} to index.tsx`)
+          console.log(` Added ${componentInsert} to index.tsx`)
         })
       })
     })
@@ -141,8 +146,9 @@ function customTemplate(
   }
   const typeScriptTpl = template.smart({ plugins })
   return typeScriptTpl.ast`${imports}
+import { IconProps } from '../types'
 ${interfaces}
-function ${componentName}(size?: number, width?: number, height?: number, color?: string, fill?: string, ${props}) {
+function ${componentName}({size, width, height, color, fill}: IconProps) {
   return ${jsx};
 }
 ${exports}
