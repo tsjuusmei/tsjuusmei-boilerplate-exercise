@@ -146,7 +146,7 @@ Alternatively you can target a single svg file.
 convert-svg ../folder-with-svg/example.svg
 ```
 
-This adds the svg as a `.tsx` file to the `src/components/atoms/Icon/Icons` folder. In the future, this should also update `Icon/index.tsx` to import the icon and add it to the `icons` object.
+This adds the svg as a `.tsx` file to the `src/components/atoms/Icon/Icons` folder. This also updates `Icon/index.tsx` to import the icon and adds it to the `icons` object. Please double check the changes made by the script and commit these changes in a separate commit.
 
 ## Commit
 To commit use the underneath script, this will open up the commitizen CLI options.
