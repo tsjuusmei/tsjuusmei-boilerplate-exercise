@@ -1,11 +1,11 @@
 %heading {
   font-weight: 700;
-  color: var(--seeds-900);
+  color: var(--black-000);
 }
 
 %paragraph {
   font-weight: 400;
-  color: var(--seeds-900);
+  color: var(--black-000);
 }
 
 @mixin h1 {
@@ -93,18 +93,18 @@
 
 @mixin button-lg {
   font-size: 20px;
-  line-height: 28px;
-  font-weight: 700;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 @mixin button-md {
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 700;
+  line-height: 16px;
+  font-weight: 600;
 }
 
 @mixin button-sm {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 14px;
   font-weight: 600;
 }
