@@ -38,16 +38,16 @@ const generateStories = (name) => {
 
   return (
     `import React from 'react'
-import { withA11y } from '@storybook/addon-a11y'
 
 import ${funcName} from '.'
 
 export default {
   title: 'Components / ${folderName} / ${funcName}',
-  decorators: [withA11y],
+  component: ${funcName}
 }
 
-export const Default = () => <${funcName} />
+export const Default = (args) => <${funcName} {...args} />
+Default.args = {}
 `
   )
 }

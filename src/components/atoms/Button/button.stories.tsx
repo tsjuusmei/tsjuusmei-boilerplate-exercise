@@ -1,62 +1,78 @@
 import * as React from 'react'
-import { withA11y } from '@storybook/addon-a11y'
-import {
-  withKnobs, text, boolean, select
-} from '@storybook/addon-knobs'
 import Button from '.'
 
-const variationOptions = ['primary', 'secondary', 'tertiary', 'text-link']
 const sizeOptions = ['sm', 'md', 'lg']
 const sizeDefault = 'md'
 
 export default {
   title: 'Components / Atoms / Button',
   component: Button,
-  decorators: [withA11y, withKnobs]
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: sizeOptions
+      }
+    }
+  }
 }
 
-export const Primary = () => (
+export const Primary = (args) => (
   <Button
-  label="Primary Button"
-    variation={select('Variation', variationOptions, 'primary')}
-    size={select('Size', sizeOptions, sizeDefault)}
-    isDisabled={boolean('Disabled', false)}
-    isFullWidth={boolean('Full Width', false)}
+    label="Primary Button"
+    {...args}
   >
-    {text('Button Text', 'Primary Button')}
+    {args.buttonText}
   </Button>
 )
 
-export const Secondary = () => (
+Primary.args = {
+  variation: 'primary',
+  size: sizeDefault,
+  buttonText: 'Primary Button'
+}
+
+export const Secondary = (args) => (
   <Button
     label="Secondary Button"
-    variation={select('Variation', variationOptions, 'secondary')}
-    size={select('Size', sizeOptions, sizeDefault)}
-    isDisabled={boolean('Disabled', false)}
-    isFullWidth={boolean('Full Width', false)}
+    {...args}
   >
-    {text('Button Text', 'Secondary Button')}
+    {args.buttonText}
   </Button>
 )
 
-export const Tertiary = () => (
+Secondary.args = {
+  variation: 'secondary',
+  size: sizeDefault,
+  buttonText: 'Secondary Button'
+}
+
+export const Tertiary = (args) => (
   <Button
     label="Tertiary Button"
-    variation={select('Variation', variationOptions, 'tertiary')}
-    size={select('Size', sizeOptions, sizeDefault)}
-    isDisabled={boolean('Disabled', false)}
+    {...args}
   >
-    {text('Button Text', 'Tertiary Button')}
+    {args.buttonText}
   </Button>
 )
 
-export const TextLink = () => (
+Tertiary.args = {
+  variation: 'tertiary',
+  size: sizeDefault,
+  buttonText: 'Tertiary Button'
+}
+
+export const TextLink = (args) => (
   <Button
     label="Text Link"
-    variation={select('Variation', variationOptions, 'text-link')}
-    size={select('Size', sizeOptions, sizeDefault)}
-    isDisabled={boolean('Disabled', false)}
+    {...args}
   >
-    {text('Button Text', 'Text Link')}
+    {args.buttonText}
   </Button>
 )
+
+TextLink.args = {
+  variation: 'text-link',
+  size: sizeDefault,
+  buttonText: 'Text Link'
+}
