@@ -120,14 +120,22 @@ Since Next.js version `10.0.0`, Next.js has a built-in [Image Component](https:/
 ## Usage
 
 ### Aliases
-There are [Webpack](https://webpack.js.org/) aliases that allow for easy imports. In JavaScript files you can import any component, without having to think about relative paths.
+There are [Webpack](https://webpack.js.org/) aliases that allow for easy imports. In JavaScript files you can import any component or helper, without having to think about relative paths.
 ```
 import Button from '@/components/atoms/Button'
 ```
 
-But you can also import styles or utility functions without having to worry about the folder you're currently in.
+But you can also import styles, utility functions or data without having to worry about the folder you're currently in.
 
-### NPM Scripts
+```sh
+# Import data
+import { content } from '@/data/nav.json'
+
+# Import function
+import useWindowSize from '@/hooks/useWindowSize'
+```
+
+When you add or edit these aliases, make sure that you'll edit the aliases in these files; `jsconfig.json` and `.storybook/main.js`.
 
 ### Convert-SVG
 
@@ -170,17 +178,6 @@ The script will apply `PascalCase` to the component (file)name, and `kebab-case`
 
 #### Template
 The output file is based on a custom template, defined at the end of the script. The custom template can be adjusted to fit your project's specific needs. Simply edit the return value of the `customTemplate` function at the end of the script. You can find more info regarding custom templates [here](https://react-svgr.com/docs/custom-templates/).
-
-## Commit
-To commit use the underneath script, this will open up the commitizen CLI options.
-```
-npm run commit
-```sh
-# Import function
-import useWindowSize from '@/hooks/useWindowSize'
-```
-
-When you add or edit these aliases, make sure that you'll edit the aliases in these files; `jsconfig.json` and `.storybook/main.js`.
 
 ### Commit
 To stay consistent with our commits, we've added `git-cz` to the project. When committing, a CLI script will run with the settings based on `changelog.config.js`.
