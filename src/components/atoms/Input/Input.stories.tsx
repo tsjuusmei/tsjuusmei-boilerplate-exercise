@@ -1,5 +1,4 @@
 import React from 'react'
-import { withA11y } from '@storybook/addon-a11y'
 import Input from '.'
 
 const sizes = {
@@ -10,8 +9,7 @@ const sizes = {
 
 export default {
   title: 'Components / Atoms / Input',
-  component: Input,
-  decorators: [withA11y]
+  component: Input
 }
 
 export const Default = () => (
