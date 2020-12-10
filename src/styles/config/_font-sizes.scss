@@ -1,7 +1,52 @@
+@import '../functions/all';
+
+// Design width
+$design-size: 375;
+$design-size-desktop: 1440;
+
+// Mobile
+// Heading sizes mobile
+$heading-sizes:
+  30,
+  24,
+  22,
+  20,
+  18,
+  17;
+
+// Quote sizes mobile
+$quote-sizes-mobile:
+  24,
+  20;
+
+// Tablet
+$heading-sizes-tablet:
+  40,
+  32,
+  28;
+
+// Desktop-xs
+// Heading sizes desktop-xs
+$heading-sizes-desktop-xs:
+  48,
+  36,
+  28,
+  22;
+
+// Desktop
+// Heading sizes desktop
+$heading-sizes-desktop:
+  52,
+  40,
+  32,
+  24,
+  16,
+  14;
+
 :root {
+  // Define font
   --font-stack-base:
     'Basier Circle',
-    -apple-system,
     'BlinkMacSystemFont',
     'Helvetica',
     'Lato',
@@ -10,96 +55,112 @@
     'Verdana',
     sans-serif;
 
-  // Headings
-  --heading-1-size: 60px;
-  --heading-1-line-height: 72px;
-  --heading-1-letter-spacing: 0;
+  // Define heading size mobile
+  @each $size in $heading-sizes {
+    $i: index($heading-sizes, $size);
+
+    --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
+  }
+
+  // Mobile
+  // h1
+  --heading-1-line-height: '1.2';
+  --heading-1-letter-spacing: -2%;
 
   // h2
-  --heading-2-size: 44px;
-  --heading-2-line-height: 56px;
-  --heading-2-letter-spacing: 0;
+  --heading-2-line-height: '1.166';
+  --heading-2-letter-spacing: -2%;
 
   // h3
-  --heading-3-size: 36px;
-  --heading-3-line-height: 44px;
-  --heading-3-letter-spacing: 0;
+  --heading-3-line-height: '1.272';
+  --heading-3-letter-spacing: -1%;
 
   // h4
-  --heading-4-size: 28px;
-  --heading-4-line-height: 32px;
-  --heading-4-letter-spacing: 0;
+  --heading-4-line-height: '1.4';
+  --heading-4-letter-spacing: -1%;
 
   // h5
-  --heading-5-size: 20px;
-  --heading-5-line-height: 28px;
-  --heading-5-letter-spacing: 0;
+  --heading-5-line-height: '1.333';
+  --heading-5-letter-spacing: -1%;
 
   // h6
-  --heading-6-size: 16px;
-  --heading-6-line-height: 24px;
-  --heading-6-letter-spacing: 0;
+  --heading-6-line-height: '1.411';
+  --heading-6-letter-spacing: -1%;
 
-  // body
-  --body-lg-size: 20px;
-  --body-lg-line-height: 28px;
-  --body-lg-letter-spacing: 0;
+  // // streamer
+  // --streamer-line-height: '1.3';
+  // --streamer-letter-spacing: 0;
 
-  // body-md
-  --body-md-size: 16px;
-  --body-md-line-height: 24px;
-  --body-md-letter-spacing: 0;
+  // quote lg
+  --quote-line-height: '1.166';
+  --quote-letter-spacing: 0;
 
-  // body-sm
-  --body-sm-size: 14px;
-  --body-sm-line-height: 20px;
-  --body-sm-letter-spacing: 0;
+  // quote md
+  --quote-line-height: '1.166';
+  --quote-letter-spacing: 0;
 
-  // caption
-  --caption-size: 14px;
-  --caption-line-height: 20px;
+  @media screen and (min-width: $bp-tablet-md) {
+    // Define heading size mobile
+    @each $size in $heading-sizes-tablet {
+      $i: index($heading-sizes-tablet, $size);
 
-  // eyebrow
-  --eyebrow-size: 12px;
-  --eyebrow-line-height: 16px;
-}
+      --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
+    }
 
-@media screen and (max-width: $bp-tablet-md) {
-  :root {
     // h1
-    --heading-1-size: 44px;
-    --heading-1-line-height: 56px;
-  }
-}
+    --heading-1-line-height: '1.025';
+    --heading-1-letter-spacing: -1%;
 
-@media screen and (max-width: $bp-tablet-sm) {
-  :root {
-    // h1
-    --heading-1-size: 36px;
-    --heading-1-line-height: 44px;
-    --heading-1-letter-spacing: 0;
     // h2
-    --heading-2-size: 32px;
-    --heading-2-line-height: 38px;
-    --heading-2-letter-spacing: 0;
+    --heading-2-line-height: '1.125';
+    --heading-2-letter-spacing: -1%;
+
     // h3
-    --heading-3-size: 28px;
-    --heading-3-line-height: 33px;
-    --heading-3-letter-spacing: 0;
+    --heading-3-line-height: '1.285';
+    --heading-3-letter-spacing: -1%;
+  }
+
+  // Desktop-xs
+  @media screen and (min-width: $bp-desktop-xs) {
+    @each $size in $heading-sizes-desktop-xs {
+      $i: index($heading-sizes-desktop-xs, $size);
+
+      @if ($i < 5) {
+        --heading-#{$i}-size: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+      }
+    }
+
+    // h1
+    --heading-1-line-height: '1.25';
+    --heading-1-letter-spacing: -.02em;
+
+    // h2
+    --heading-2-line-height: '1.333';
+    --heading-2-letter-spacing: -.01em;
+
     // h4
-    --heading-4-size: 22px;
-    --heading-4-line-height: 30px;
-    --heading-4-letter-spacing: 0;
-    // h5
-    --heading-5-size: 18px;
-    --heading-5-line-height: 22px;
-    --heading-5-letter-spacing: 0;
-    // h6
-    --heading-6-size: 16;
-    --heading-6-line-height: 18px;
-    --heading-6-letter-spacing: 0;
-    // body
-    --body-lg-size: 18px;
-    --body-lg-line-height: 28px;
+    --heading-4-line-height: '1.272';
+    --heading-4-letter-spacing: -.01em;
+  }
+
+  // Desktop
+  @media screen and (min-width: $bp-desktop-lg) {
+    @each $size in $heading-sizes-desktop {
+      $i: index($heading-sizes-desktop, $size);
+
+      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+    }
+
+    // // h1
+    // --heading-1-line-height: '1.25';
+    // --heading-1-letter-spacing: -.02em;
+
+    // // h2
+    // --heading-2-line-height: '1.333';
+    // --heading-2-letter-spacing: -.01em;
+
+    // // h4
+    // --heading-4-line-height: '1.272';
+    // --heading-4-letter-spacing: -.01em;
   }
 }

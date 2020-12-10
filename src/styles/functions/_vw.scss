@@ -13,13 +13,13 @@ $design-size: 375;
 $design-size-desktop: 1440;
 
 // Mobile
-@mixin get-vw($target) {
-  font-size: (($target / $design-size) * 100) * 1vw;
-}
-
-// Desktop
-@mixin get-vw-desktop($target) {
-  font-size: ((#{$target} / #{$design-size-desktop}) * 100) * 1vw;
+@function get-vw($target) {
+  @return (($target / $design-size) * 100) * 1vw;
 }
 
 // Tablet?
+
+// Desktop
+@function get-vw-desktop($target) {
+  @return (($target / $design-size-desktop) * 100) * 1vw;
+}
