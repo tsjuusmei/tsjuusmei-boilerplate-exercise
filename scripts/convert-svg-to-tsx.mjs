@@ -25,7 +25,7 @@ if (isAFile) {
     const dir = target.split(fileName)[0]
 
     // Pass it to export function
-    exportSvg(dir, fileName)
+    exportWithPromise(dir, fileName)
   } else {
     console.log(`Target is not an svg file: ${target}`)
   }
@@ -124,13 +124,13 @@ async function exportSvg(dirName, fileName, resolve) {
 
           await fs.writeFile('./src/components/atoms/Icon/index.tsx', componentIndex, 'utf8')
           resolve('Done')
-          console.log(` Added ${componentInsert} to index.tsx`)
+          console.log(`⇨ Added ${componentInsert} to index.tsx`)
         })
       })
     })
   })
 
-  console.log(` ${fileName} -> ${componentName}.${extension}`)
+  console.log(`⇨ ${fileName} -> ${componentName}.${extension}`)
 }
 
 function customTemplate(
@@ -148,7 +148,7 @@ function customTemplate(
   return typeScriptTpl.ast`${imports}
 import { IconProps } from '../types'
 ${interfaces}
-function ${componentName}({size, width, height, color, fill}: IconProps) {
+function ${componentName}({size, width, height, color}: IconProps) {
   return ${jsx};
 }
 ${exports}
