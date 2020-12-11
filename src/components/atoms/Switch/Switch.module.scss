@@ -1,0 +1,137 @@
+.switch {
+  --size: 4;
+  --factor: 1;
+  --default-blue: #0A6BFF;
+  --hover-blue: #065DD8;
+  --gray: #8290A5;
+  --default-gray: #68778D;
+  --hover-gray: #56667D;
+  --white: #fff;
+
+  position: relative;
+  display: inline-block;
+  width: calc(var(--size) * var(--factor) * 12px);
+  height: calc(var(--size) * var(--factor) * 6px);
+
+  // Sizes
+  &.large {
+    --factor: 1.2;
+  }
+
+  &.small {
+    --factor: .8;
+  }
+
+  // States
+  &:focus:not(.disabled) {
+    outline: none;
+
+    .slider {
+      border-color: var(--hover-blue);
+      box-shadow: 0 0 0 2px var(--default-blue);
+    }
+
+    input:checked + .slider {
+      border-color: var(--white);
+    }
+
+    &:hover input:checked + .slider {
+      border-color: var(--white);
+      box-shadow: 0 0 0 2px var(--hover-blue);
+    }
+  }
+
+  &:hover:not(.disabled) {
+    .slider {
+      border-color: var(--hover-gray);
+
+      &::before {
+        background-color: var(--hover-gray);
+      }
+    }
+
+    input:checked + .slider {
+      border-color: var(--hover-blue);
+      background-color: var(--hover-blue);
+
+      &::before {
+        background-color: var(--white);
+      }
+    }
+  }
+
+  &.disabled {
+    outline: none;
+
+    .slider {
+      cursor: not-allowed;
+    }
+
+    input {
+      & + .slider {
+        background: #F8F9FB;
+        border-color: #C8D2E1;
+
+        &::before {
+          background-color: #C8D2E1;
+        }
+      }
+
+      &:checked + .slider {
+        background: #C8D2E1;
+        border-color: #C8D2E1;
+
+        &::before {
+          background-color: #8290A5;
+        }
+      }
+    }
+  }
+
+  // Children
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      border-color: var(--default-blue);
+      background-color: var(--default-blue);
+    }
+
+    &:checked + .slider::before {
+      background-color: var(--white);
+      -webkit-transform: translateX(calc(var(--size) * var(--factor) * 5px));
+      -ms-transform: translateX(calc(var(--size) * var(--factor) * 5px));
+      transform: translateX(calc(var(--size) * var(--factor) * 5px));
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--white);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+    border: 1px solid var(--gray);
+    box-sizing: border-box;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: calc(var(--size) * var(--factor) * 4px);
+      width: calc(var(--size) * var(--factor) * 4px);
+      left: 4px;
+      background-color: var(--gray);
+      bottom: calc(var(--size) * var(--factor) * .75px);
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+  }
+}
