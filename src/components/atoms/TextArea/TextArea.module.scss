@@ -7,23 +7,23 @@
     margin-bottom: 6px;
     display: inline-flex;
     align-items: center;
-    color: var(--black);
+    color: var(--black-000);
 
     svg {
       margin-left: 8px;
     }
 
     span {
-      color: var(--black);
+      color: var(--black-000);
       margin-left: 12px;
     }
   }
 }
 
 .element {
-  color: var(--black);
-  background: var(--white);
-  border: 1px solid var(--black);
+  color: var(--black-000);
+  background: var(--white-000);
+  border: 1px solid var(--black-000);
   outline: none;
   transition: border-color var(--fast-transition) var(--ease);
   resize: vertical;
@@ -34,12 +34,12 @@
   }
 
   &:hover {
-    border-color: var(--black);
+    border-color: var(--black-000);
   }
 
   &:focus {
-    border: 1px solid var(--black);
-    caret-color: var(--black);
+    border: 1px solid var(--black-000);
+    caret-color: var(--black-000);
   }
 
   &:disabled {

@@ -2,6 +2,7 @@ const path = require('path')
 
 const importedFiles = [
   path.resolve(__dirname, '../src/styles/config/_media-queries.scss'),
+  path.resolve(__dirname, '../src/styles/config/_fonts.scss'),
 ]
 
 module.exports = {
@@ -12,9 +13,8 @@ module.exports = {
     '../stories/**/*.stories.tsx'
   ],
   addons: [
-    '@storybook/addon-backgrounds',
-    '@storybook/addon-viewport',
-    '@storybook/addon-a11y'
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({

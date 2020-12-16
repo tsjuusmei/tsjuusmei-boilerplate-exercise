@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { withA11y } from '@storybook/addon-a11y'
 
 // Components
 import Button from '@/components/atoms/Button'
@@ -7,8 +6,7 @@ import Modal from '.'
 
 export default {
   title: 'Components / Molecules / Modal',
-  component: Modal,
-  decorators: [withA11y]
+  component: Modal
 }
 
 export const Default = () => {
