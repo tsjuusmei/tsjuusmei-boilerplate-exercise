@@ -5,7 +5,7 @@ import {
 } from 'react'
 
 function useHover() {
-  const [value, setValue] = useState<Boolean>(false)
+  const [value, setValue] = useState<boolean>(false)
 
   const ref = useRef<HTMLInputElement>(null)
 
