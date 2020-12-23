@@ -1,11 +1,9 @@
 import * as React from 'react'
-import { withA11y } from '@storybook/addon-a11y'
-
-import Icon from '.'
+import Icon, { icons } from '.'
 
 export default {
   title: 'Components / Atoms / Icon',
-  decorators: [withA11y],
+  component: Icon
 }
 
 const sizes = [48, 32, 24]
@@ -28,7 +26,13 @@ const IconWrapper: React.FC<IconProps> = ({ name }) => (
   </div>
 )
 
-export const Team = () => <IconWrapper name="team" />
-export const Onboarding = () => <IconWrapper name="onboarding" />
-export const Seed = () => <IconWrapper name="seed" />
-export const Helpdesk = () => <IconWrapper name="helpdesk" />
+export const All = () => (
+  <div>
+    {icons.map((icon, idx) => (
+      <div key={idx} style={{ marginBottom: '48px' }}>
+        <p>{icon}</p>
+        <IconWrapper name={icon} />
+      </div>
+    ))}
+  </div>
+)

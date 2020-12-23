@@ -1,72 +1,78 @@
 import * as React from 'react'
-import { withA11y } from '@storybook/addon-a11y'
 import Button from '.'
 
-const sizes = {
-  sm: 'Small',
-  md: 'Medium',
-  lg: 'Large'
-}
+const sizeOptions = ['sm', 'md', 'lg']
+const sizeDefault = 'md'
 
 export default {
   title: 'Components / Atoms / Button',
   component: Button,
-  decorators: [withA11y]
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: sizeOptions
+      }
+    }
+  }
 }
 
-export const Primary = () => (
-  <div className="buttons-preview">
-    {Object.entries(sizes).map(([key, val], idx) => (
-      <Button
-        key={idx}
-        variation="primary"
-        size={key as Sizes}
-        label="Primary button"
-      >
-        Primary {val}
-      </Button>
-    ))}
-
-    <Button variation="primary" size="md" label="Primary button" isDisabled>
-      Disabled
-    </Button>
-  </div>
+export const Primary = (args) => (
+  <Button
+    label="Primary Button"
+    {...args}
+  >
+    {args.buttonText}
+  </Button>
 )
 
-export const Secondary = () => (
-  <div className="buttons-preview">
-    {Object.entries(sizes).map(([key, val], idx) => (
-      <Button
-        key={idx}
-        variation="secondary"
-        size={key as Sizes}
-        label="Secondary button"
-      >
-        Secondary {val}
-      </Button>
-    ))}
+Primary.args = {
+  variation: 'primary',
+  size: sizeDefault,
+  buttonText: 'Primary Button'
+}
 
-    <Button variation="secondary" size="md" label="Secondary button" isDisabled>
-      Disabled
-    </Button>
-  </div>
+export const Secondary = (args) => (
+  <Button
+    label="Secondary Button"
+    {...args}
+  >
+    {args.buttonText}
+  </Button>
 )
 
-export const TextLink = () => (
-  <div className="buttons-preview">
-    {Object.entries(sizes).map(([key], idx) => (
-      <Button
-        key={idx}
-        variation="text-link"
-        size={key as Sizes}
-        label="Text Link"
-      >
-        More information
-      </Button>
-    ))}
+Secondary.args = {
+  variation: 'secondary',
+  size: sizeDefault,
+  buttonText: 'Secondary Button'
+}
 
-    <Button variation="text-link" size="md" label="Secondary button" isDisabled>
-      Disabled
-    </Button>
-  </div>
+export const Tertiary = (args) => (
+  <Button
+    label="Tertiary Button"
+    {...args}
+  >
+    {args.buttonText}
+  </Button>
 )
+
+Tertiary.args = {
+  variation: 'tertiary',
+  size: sizeDefault,
+  buttonText: 'Tertiary Button'
+}
+
+export const TextLink = (args) => (
+  <Button
+    label="Text Link"
+    {...args}
+  >
+    {args.buttonText}
+  </Button>
+)
+
+TextLink.args = {
+  variation: 'text-link',
+  size: sizeDefault,
+  buttonText: 'Text Link'
+}

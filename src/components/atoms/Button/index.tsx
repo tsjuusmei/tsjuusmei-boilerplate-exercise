@@ -5,10 +5,11 @@ import Link from 'next/link'
 import styles from './Button.module.scss'
 
 type Props = {
-  variation: 'primary' | 'secondary' | 'text-link',
+  variation: 'primary' | 'secondary' | 'tertiary' | 'text-link',
   size: Sizes,
   label?: string,
   href?: string,
+  isFullWidth?: boolean,
   isDisabled?: boolean,
   onClick?: React.MouseEventHandler<HTMLElement>,
   className?: string,
@@ -21,6 +22,7 @@ const Button: React.FC<Props> = ({
   children,
   label = '',
   href = '',
+  isFullWidth = false,
   isDisabled = false,
   className = '',
   contentClassName = '',
@@ -33,7 +35,7 @@ const Button: React.FC<Props> = ({
   const LinkOrButton = href ? 'a' : 'button'
 
   // Shared classNames (less duplicate code)
-  const sharedClassNames = `${styles[size]} ${styles[variation]} ${isDisabled ? styles.disabled : ''}`
+  const sharedClassNames = `${styles[size]} ${styles[variation]} ${isFullWidth ? styles.fullwidth : ''} ${isDisabled ? styles.disabled : ''}`
 
   const ButtonWrapper = React.forwardRef<any, Props>((_, ref) => (
     <LinkOrButton

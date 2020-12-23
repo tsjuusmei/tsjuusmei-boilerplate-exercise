@@ -33,7 +33,8 @@ const Input: React.FC<Props> = ({
   onFocus,
   onBlur,
   autoComplete = 'on',
-  spellCheck = true
+  spellCheck = true,
+  ...props
 }) => {
   return (
     <div className={styles.input}>
@@ -66,6 +67,8 @@ const Input: React.FC<Props> = ({
         onBlur={onBlur}
         autoComplete={autoComplete}
         spellCheck={spellCheck}
+        aria-labelledby={label}
+        {...props}
       />
     </div>
   )

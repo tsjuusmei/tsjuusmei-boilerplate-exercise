@@ -7,11 +7,17 @@
       "jsx": true
     },
   },
-  "plugins": ["react", "react-hooks", "import"],
-
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "import",
+    "jest"
+  ],
   "env": {
     "node": true,
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
   "settings": {
     "react": {
@@ -157,6 +163,11 @@
     "jsx-a11y/anchor-is-valid": 0,
     "react/no-did-update-set-state": 0,
     "react/jsx-one-expression-per-line": 0,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
     "no-use-before-define": 0
   },
   "overrides": [
