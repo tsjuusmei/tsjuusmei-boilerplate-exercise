@@ -28,7 +28,6 @@ const Checkbox: React.FC<Props> = ({
       className={`
         ${styles.checkbox}
         ${styles[size]}
-        ${isDisabled ? styles['is-disabled'] : ''}
         ${hasError ? styles['has-error'] : ''}
         ${className}
       `}

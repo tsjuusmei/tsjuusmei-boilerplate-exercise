@@ -6,7 +6,7 @@
   cursor: pointer;
   user-select: none;
 
-  &.is-disabled {
+  &:disabled {
     color: var(--color3-250);
     cursor: not-allowed;
 
