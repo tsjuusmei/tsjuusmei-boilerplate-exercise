@@ -53,3 +53,32 @@ export const Overview = () => (
     ) )}
   </div>
 )
+
+
+export const Error = () => (
+  <div style={{display: 'flex'}}>
+    {variants.map((variant, idx) => (
+      <div style={style} key={idx}>
+        <h5>{variant.title}</h5>
+        <Switch {...variant.options} error size="large" />
+        <Switch {...variant.options} error />
+        <Switch {...variant.options} error size="small" />
+      </div>
+    ) )}
+  </div>
+)
+
+
+
+export const Label = () => (
+  <div style={{display: 'flex'}}>
+    {variants.map((variant, idx) => (
+      <div style={style} key={idx}>
+        <h5>{variant.title}</h5>
+        <Switch {...variant.options} label="Label" size="large" />
+        <Switch {...variant.options} label="Label" />
+        <Switch {...variant.options} label="Label" size="small" />
+      </div>
+    ) )}
+  </div>
+)
