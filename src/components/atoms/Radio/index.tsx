@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from '@/components/atoms/Icon'
 
 // Types
 type Props = {
@@ -42,6 +43,9 @@ const Radio: React.FC<Props> = ({
     </div>
 
     {label}
+    {hasError && (
+      <Icon name="warning" />
+    )}
   </label>
 )
 

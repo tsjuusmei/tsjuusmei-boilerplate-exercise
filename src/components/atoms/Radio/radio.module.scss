@@ -4,6 +4,8 @@
   --label-size: 12px;
   --label-spacing: 8px;
   --radio-size: 16px;
+  --icon-size: 16px;
+  --icon-spacing: 8px;
 
   align-items: center;
   color: var(--color3-600);
@@ -26,6 +28,7 @@
     &:disabled + .radio {
       background: var(--color3-100);
       border-color: var(--color3-200);
+      cursor: not-allowed;
 
       .dot {
         background: var(--color3-100);
@@ -61,6 +64,8 @@
     --label-size: 12px;
     --label-spacing: 8px;
     --radio-size: 16px;
+    --icon-size: 16px;
+    --icon-spacing: 8px;
   }
 
   &.md {
@@ -68,6 +73,8 @@
     --label-size: 14px;
     --label-spacing: 8px;
     --radio-size: 20px;
+    --icon-size: 20px;
+    --icon-spacing: 8px;
   }
 
   &.lg {
@@ -75,11 +82,19 @@
     --label-size: 16px;
     --label-spacing: 12px;
     --radio-size: 24px;
+    --icon-size: 24px;
+    --icon-spacing: 12px;
   }
 
   &.has-error {
     .radio {
       border-color: var(--error-500);
+    }
+
+    svg {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      margin-left: var(--icon-spacing);
     }
 
     &:focus,
