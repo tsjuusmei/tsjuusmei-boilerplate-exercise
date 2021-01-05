@@ -29,7 +29,7 @@ export const Small = (args) => (
 Small.args = {
   size: 'sm',
   label: 'Label small',
-  group: 'small-default'
+  name: 'small-default'
 }
 
 export const Medium = (args) => (
@@ -39,7 +39,7 @@ export const Medium = (args) => (
 Medium.args = {
   size: 'md',
   label: 'Label medium',
-  group: 'medium-default'
+  name: 'medium-default'
 }
 
 export const Large = (args) => (
@@ -49,7 +49,7 @@ export const Large = (args) => (
 Large.args = {
   size: 'lg',
   label: 'Label large',
-  group: 'large-default'
+  name: 'large-default'
 }
 
 export const SmallDisabled = (args) => (
@@ -59,7 +59,7 @@ export const SmallDisabled = (args) => (
 SmallDisabled.args = {
   size: 'sm',
   label: 'Label small',
-  group: 'small-default',
+  name: 'small-default',
   isDisabled: true
 }
 
@@ -70,7 +70,7 @@ export const MediumDisabled = (args) => (
 MediumDisabled.args = {
   size: 'md',
   label: 'Label medium',
-  group: 'medium-default',
+  name: 'medium-default',
   isDisabled: true
 }
 
@@ -81,7 +81,7 @@ export const LargeDisabled = (args) => (
 LargeDisabled.args = {
   size: 'lg',
   label: 'Label large',
-  group: 'large-default',
+  name: 'large-default',
   isDisabled: true
 }
 
@@ -93,7 +93,7 @@ export const SmallError = (args) => (
 SmallError.args = {
   size: 'sm',
   label: 'Label small error',
-  group: 'small-error',
+  name: 'small-error',
   hasError: true
 }
 
@@ -104,7 +104,7 @@ export const MediumError = (args) => (
 MediumError.args = {
   size: 'md',
   label: 'Label medium error',
-  group: 'medium-error',
+  name: 'medium-error',
   hasError: true
 }
 
@@ -115,7 +115,7 @@ export const LargeError = (args) => (
 LargeError.args = {
   size: 'lg',
   label: 'Label large error',
-  group: 'large-error',
+  name: 'large-error',
   hasError: true
 }
 
@@ -126,7 +126,7 @@ export const SmallErrorDisabled = (args) => (
 SmallErrorDisabled.args = {
   size: 'sm',
   label: 'Label small error',
-  group: 'small-error',
+  name: 'small-error',
   hasError: true,
   isDisabled: true
 }
@@ -138,7 +138,7 @@ export const MediumErrorDisabled = (args) => (
 MediumErrorDisabled.args = {
   size: 'md',
   label: 'Label medium error',
-  group: 'medium-error',
+  name: 'medium-error',
   hasError: true,
   isDisabled: true
 }
@@ -150,7 +150,7 @@ export const LargeErrorDisabled = (args) => (
 LargeErrorDisabled.args = {
   size: 'lg',
   label: 'Label large error',
-  group: 'large-error',
+  name: 'large-error',
   hasError: true,
   isDisabled: true
 }
