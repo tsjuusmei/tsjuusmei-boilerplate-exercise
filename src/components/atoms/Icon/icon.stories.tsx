@@ -6,7 +6,7 @@ export default {
   component: Icon
 }
 
-const sizes = [48, 32, 24]
+const sizes = [24, 20, 16]
 
 // Define types
 type IconProps = {
