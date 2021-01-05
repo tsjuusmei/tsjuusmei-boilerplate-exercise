@@ -3,7 +3,7 @@ import Icon from '@/components/atoms/Icon'
 
 // Types
 type Props = {
-  group: string,
+  name: string,
   label: string,
   size?: Sizes,
   isDisabled?: boolean,
@@ -16,7 +16,7 @@ type Props = {
 import styles from './radio.module.scss'
 
 const Radio: React.FC<Props> = ({
-  group,
+  name,
   label,
   size = 'md',
   isDisabled,
@@ -33,7 +33,7 @@ const Radio: React.FC<Props> = ({
   >
     <input
       type="radio"
-      name={group}
+      name={name}
       value={value}
       defaultChecked={defaultChecked}
       disabled={isDisabled}
