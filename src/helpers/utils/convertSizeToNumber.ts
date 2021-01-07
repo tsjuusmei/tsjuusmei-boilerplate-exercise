@@ -9,5 +9,7 @@ export const convertSizeToNumber = (convertibleSize: string): number => {
   case 'lg':
     return 24
     break
+  default:
+    throw new Error('err')
   }
 }

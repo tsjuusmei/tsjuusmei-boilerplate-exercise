@@ -3,6 +3,9 @@ import * as React from 'react'
 // Components
 import Icon from '@/components/atoms/Icon'
 
+// Utils
+import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
+
 // Styles
 import styles from  './Input.module.scss'
 
@@ -39,11 +42,15 @@ const Input: React.FC<Props> = ({
   spellCheck = true,
   ...props
 }) => {
-  // const convertedSize = convertSize(size)
-  const convertedSize = 24
+  const convertedSize = convertSizeToNumber(size)
+
+  console.log(styles)
 
   return (
-    <div className={styles.input}>
+    <div className={`
+      ${[styles.input]}
+      ${styles[size]}
+    `}>
       {label && (
         <label htmlFor={id} className={styles.label}>
           {label}
@@ -71,7 +78,10 @@ const Input: React.FC<Props> = ({
       />
 
       {isError && (
-        <Icon size={convertedSize} name="warning" color="var(--error-500)" />
+        <Icon
+          size={convertedSize}
+          name="warning"
+          color="var(--error-500)" />
       )}
     </div>
   )

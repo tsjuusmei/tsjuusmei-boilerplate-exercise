@@ -15,9 +15,9 @@ describe('convertSizeToNumber', () => {
     expect(expected).toEqual(after)
   })
 
-  it.each([undefined])(
+  it.each([undefined, null])(
     'throws an error if it is called with %s',
-    (badArgument: string) => {
+    (badArgument) => {
       // WHEN
       // I call convertSizeToNumber with a bad argument
 

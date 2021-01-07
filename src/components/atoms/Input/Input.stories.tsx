@@ -35,6 +35,7 @@ export const Default = () => (
 
     <Input
       id="input-4"
+      size="lg"
       name="error"
       placeholder="Doe is"
       label="Input field with label"
@@ -43,6 +44,14 @@ export const Default = () => (
 
     <Input
       id="input-5"
+      name="error"
+      placeholder="Doe is"
+      label="Input field with label"
+      isError
+    />
+
+    <Input
+      id="input-6"
       size="sm"
       name="error"
       placeholder="Doe is"
