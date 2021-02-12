@@ -120,19 +120,64 @@ Since Next.js version `10.0.0`, Next.js has a built-in [Image Component](https:/
 ## Usage
 
 ### Aliases
-There are [Webpack](https://webpack.js.org/) aliases that allow for easy imports. In JavaScript files you can import any component, without having to think about relative paths.
+There are [Webpack](https://webpack.js.org/) aliases that allow for easy imports. In JavaScript files you can import any component or helper, without having to think about relative paths.
 ```
 import Button from '@/components/atoms/Button'
 ```
 
-But you can also import styles or utility functions without having to worry about the folder you're currently in.
+But you can also import styles, utility functions or data without having to worry about the folder you're currently in.
 
 ```sh
+# Import data
+import { content } from '@/data/nav.json'
+
 # Import function
 import useWindowSize from '@/hooks/useWindowSize'
 ```
 
 When you add or edit these aliases, make sure that you'll edit the aliases in these files; `jsconfig.json` and `.storybook/main.js`.
+
+### Convert-SVG
+
+This script uses [SVGR](https://react-svgr.com/) to convert the svg to a react component. As the boilerplate uses Typescript, the output file will be a `.tsx`.
+
+#### Options
+SVGR has quite a few options to be added/tweaked. You can find the documentation and additional options [here](https://react-svgr.com/docs/options/).The current features that are used are:
+* Use the plugins `@svgr/plugin-svgo`, `@svgr/plugin-jsx`, `@svgr/plugin-prettier` to format the output file.
+* `svgProps` to pass a list of props inside of the SVG element.
+* `typescript: true` to give it typescript specific features.
+* `prettierConfig` is passed so it matches the prettier style of the project
+* a custom `template` is passed
+
+
+#### How to use
+This script can either be used to convert a single svg file or an entire directory. As a best practice, this directory must be **outside** of the project.
+
+```
+yarn convert-svg ../folder-with-svgs
+```
+
+Alternatively you can target a single svg file.
+
+```
+yarn convert-svg ../folder-with-svg/example.svg
+```
+
+This adds the svg as a `.tsx` file to the `src/components/atoms/Icon/Icons` folder. This also updates `Icon/index.tsx` to import the icon and adds it to the `icons` object. Please double check the changes made by the script and commit these changes in a separate commit.
+
+#### Naming
+This script derives the Icon name from SVG filename, which means the file name **has** to follow the following pattern, in order to work correctly. The SVG file name delimiter must be either a space (` `), a dash (`-`), a combination or have none at all:
+```
+folder-with-svg/file example.svg
+folder-with-svg/file-example.svg
+folder-with-svg/file example-dark.svg
+folder-with-svg/example.svg
+```
+
+The script will apply `PascalCase` to the component (file)name, and `kebab-case` for the `name` of the Icon. In the example  above, this will return the file `FileExample.tsx` which can be used as `<Icon name="file-example" />`
+
+#### Template
+The output file is based on a custom template, defined at the end of the script. The custom template can be adjusted to fit your project's specific needs. Simply edit the return value of the `customTemplate` function at the end of the script. You can find more info regarding custom templates [here](https://react-svgr.com/docs/custom-templates/).
 
 ### Commit
 To stay consistent with our commits, we've added `git-cz` to the project. When committing, a CLI script will run with the settings based on `changelog.config.js`.
