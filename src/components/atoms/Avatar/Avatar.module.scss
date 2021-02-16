@@ -1,0 +1,38 @@
+.avatar {
+  --size: 24px;
+
+  img {
+    border-radius: 100%;
+    height: var(--size);
+    width: var(--size);
+    object-fit: cover;
+  }
+
+  &.xxxlg {
+    --size: 152px;
+  }
+
+  &.xxlg {
+    --size: 112px;
+  }
+
+  &.xlg {
+    --size: 80px;
+  }
+
+  &.lg {
+    --size: 56px;
+  }
+
+  &.md {
+    --size: 48px;
+  }
+
+  &.sm {
+    --size: 32px;
+  }
+
+  &.xs {
+    --size: 24px;
+  }
+}

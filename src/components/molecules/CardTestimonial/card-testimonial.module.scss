@@ -1,0 +1,52 @@
+.card-testimonial {
+  padding: 32px 32px 56px;
+  background: var(--white-000);
+
+  @media screen and (max-width: $bp-tablet-sm) {
+    padding: 12px 12px 8px;
+  }
+}
+
+.logo-wrapper {
+  margin-bottom: 24px;
+
+  @media screen and (max-width: $bp-tablet-sm) {
+    margin-bottom: 20px;
+  }
+}
+
+.logo {
+  max-height: 42px;
+  object-fit: contain;
+}
+
+.quote {
+  color: var(--raven-gray-600);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  quotes: '“' '”' '‘' '’';
+
+  &::before {
+    color: var(--adt-brand-green-500);
+    content: open-quote;
+  }
+
+  &::after {
+    color: var(--adt-brand-green-500);
+    content: close-quote;
+  }
+
+  @media screen and (max-width: $bp-tablet-sm) {
+    padding-left: 8px;
+    line-height: 24px;
+  }
+}
+
+.author {
+  margin-top: 24px;
+
+  @media screen and (max-width: $bp-tablet-sm) {
+    margin-top: 20px;
+  }
+}
