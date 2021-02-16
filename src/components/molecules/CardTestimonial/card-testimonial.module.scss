@@ -21,19 +21,19 @@
 }
 
 .quote {
-  color: var(--raven-gray-600);
+  color: var(--color3-600);
   font-size: 20px;
   font-weight: 500;
   line-height: 32px;
   quotes: '“' '”' '‘' '’';
 
   &::before {
-    color: var(--adt-brand-green-500);
+    color: var(--color-500);
     content: open-quote;
   }
 
   &::after {
-    color: var(--adt-brand-green-500);
+    color: var(--color-500);
     content: close-quote;
   }
 
