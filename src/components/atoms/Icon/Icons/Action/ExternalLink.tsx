@@ -16,9 +16,10 @@ function ExternalLink({
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M4 12L12 4M12 4V11M12 4H5"
-        stroke={color}
-        strokeWidth={2}
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.0001 11V5V3H11.0001H5.00008V5H9.58586L3.29297 11.2929L4.70718 12.7071L11.0001 6.41421V11H13.0001Z"
+        fill={color}
       />
     </svg>
   )
