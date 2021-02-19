@@ -82,12 +82,12 @@ $heading-sizes-desktop-xs:
   --body-lg-line-height: '1.555';
 
   // body-md
-  --body-lg-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  --body-lg-line-height: '1.555';
+  --body-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-md-line-height: '1.555';
 
   // body-sm
-  --body-lg-size: calc(((17 / #{$design-size}) * 100) * 1vw);
-  --body-lg-line-height: '1.41';
+  --body-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
+  --body-sm-line-height: '1.41';
 
   // streamer
   --streamer-size: calc(((20 / #{$design-size}) * 100) * 1vw);
@@ -162,10 +162,10 @@ $heading-sizes-desktop-xs:
     --body-lg-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
 
     // body-md
-    --body-lg-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
+    --body-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
 
     // body-sm
-    --body-lg-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
+    --body-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
 
     // streamer
     --streamer-size: calc(((22 / #{$design-size-tablet}) * 100) * 1vw);
@@ -224,10 +224,10 @@ $heading-sizes-desktop-xs:
     --body-lg-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
 
     // body-md
-    --body-lg-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
+    --body-md-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
 
     // body-sm
-    --body-lg-size: calc(((17 / #{$design-size-desktop}) * 100) * 1vw);
+    --body-sm-size: calc(((17 / #{$design-size-desktop}) * 100) * 1vw);
 
     // streamer
     --streamer-size: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
@@ -300,12 +300,12 @@ $heading-sizes-desktop-xs:
     --body-lg-line-height: '1.4';
 
     // body-md
-    --body-lg-size: 16px;
-    --body-lg-line-height: '1.5';
+    --body-md-size: 16px;
+    --body-md-line-height: '1.5';
 
     // body-sm
-    --body-lg-size: 14px;
-    --body-lg-line-height: '1.714';
+    --body-sm-size: 14px;
+    --body-sm-line-height: '1.714';
 
     // streamer
     --streamer-size: 26px;
