@@ -72,7 +72,7 @@
 
     input {
       & + .slider {
-        background: var(--color3-100);
+        background-color: var(--color3-100);
         border-color: var(--color3-200);
 
         &::before {
@@ -81,7 +81,7 @@
       }
 
       &:checked + .slider {
-        background: var(--color3-200);
+        background-color: var(--color3-200);
         border-color: var(--color3-200);
 
         &::before {
@@ -139,7 +139,7 @@
 
       input {
         & + .slider {
-          background: var(--error-100);
+          background-color: var(--error-100);
           border-color: var(--error-500);
 
           &::before {
@@ -148,7 +148,7 @@
         }
 
         &:checked + .slider {
-          background: var(--error-300);
+          background-color: var(--error-300);
           border-color: var(--error-500);
 
           &::before {
@@ -202,7 +202,7 @@
     right: 0;
     bottom: 0;
     background-color: var(--white);
-    transition: 200ms;
+    transition: border-color 200ms, background-color 200ms;
     border-radius: 34px;
     border: 1px solid var(--gray);
     box-sizing: border-box;
@@ -215,7 +215,7 @@
       left: 4px;
       background-color: var(--gray);
       bottom: calc(var(--size) * var(--factor) * .75px);
-      transition: 200ms;
+      transition: background-color 200ms, transform 200ms;
       border-radius: 50%;
     }
   }
