@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Icon from '.'
+import Icon, { icons } from '.'
 
 export default {
   title: 'Components / Atoms / Icon',
@@ -26,7 +26,13 @@ const IconWrapper: React.FC<IconProps> = ({ name }) => (
   </div>
 )
 
-export const Team = () => <IconWrapper name="team" />
-export const Onboarding = () => <IconWrapper name="onboarding" />
-export const Seed = () => <IconWrapper name="seed" />
-export const Helpdesk = () => <IconWrapper name="helpdesk" />
+export const All = () => (
+  <div>
+    {icons.map((icon, idx) => (
+      <div key={idx} style={{ marginBottom: '48px' }}>
+        <p>{icon}</p>
+        <IconWrapper name={icon} />
+      </div>
+    ))}
+  </div>
+)
