@@ -30,7 +30,7 @@ interface Slide {
 }
 
 // Types
-type TestimonialsProps = {
+export type TestimonialsProps = {
   title: string,
   eyebrow: string,
   description?: string
