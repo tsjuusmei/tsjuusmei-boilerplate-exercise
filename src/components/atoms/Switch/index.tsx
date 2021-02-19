@@ -5,7 +5,6 @@ import styles from './Switch.module.scss'
 import Icon from '@/components/atoms/Icon'
 
 type Props = {
-  props?: any,
   size?: string
   disabled?: boolean,
   checked?: boolean,
@@ -18,8 +17,7 @@ const Switch: React.FC<Props> = ({
   disabled = false,
   checked = false,
   error,
-  label,
-  props
+  label
 }) => {
   return (
     <label
