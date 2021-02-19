@@ -28,12 +28,11 @@ const Checkbox: React.FC<Props> = ({
       className={`
         ${styles.checkbox}
         ${styles[size]}
-        ${isDisabled ? styles['is-disabled'] : ''}
         ${hasError ? styles['has-error'] : ''}
         ${className}
       `}
     >
-      <input type="checkbox" disabled={isDisabled} checked={isChecked} />
+      <input type="checkbox" disabled={isDisabled} defaultChecked={isChecked} />
       <span className={styles.checkmark}>
         <Icon name="check" />
       </span>

@@ -3,13 +3,12 @@ import { IconProps } from '../types'
 
 const Check: React.FC<IconProps> = ({
   color = 'var(--white-000)',
-  width = 22,
-  height = 20
+  size = '22'
 }) => {
   return (
     <svg
-      width={width}
-      height={height}
+      width={size}
+      height={size}
       viewBox="0 0 22 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

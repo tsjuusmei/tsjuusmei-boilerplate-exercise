@@ -6,9 +6,9 @@
   cursor: pointer;
   user-select: none;
 
-  &.is-disabled {
+  &:disabled {
     color: var(--color3-250);
-    cursor: initial;
+    cursor: not-allowed;
 
     // Default
     .checkmark {
