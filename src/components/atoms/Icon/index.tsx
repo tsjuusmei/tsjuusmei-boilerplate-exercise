@@ -8,6 +8,7 @@ import Cross from './Icons/Cross'
 import Arrow from './Icons/Arrow'
 import Play from './Icons/Play'
 import Check from './Icons/Check'
+// Add Import Above
 
 // Types
 interface Props extends IconProps {
@@ -22,6 +23,7 @@ const iconElements = (props?: React.PropsWithChildren<IconProps>) => ({
   'play': <Play {...props} />,
   'check': <Check {...props} />
 })
+// Add Icon Above
 
 const Icon: React.FC<Props> = ({ name, ...props }) => (
   <>
