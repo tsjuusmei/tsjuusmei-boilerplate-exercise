@@ -13,7 +13,7 @@
     "export": "next export",
     "preexport": "yarn build",
     "commit": "git cz",
-    "release": "standard-version",
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version",
     "storybook": "start-storybook -p 6006 -s ./public",
     "convert-svg": "node scripts/convert-svg-to-tsx.mjs",
     "build-storybook": "build-storybook -c .storybook -s ./public -o build",
