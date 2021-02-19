@@ -8,13 +8,8 @@ export default {
   component: SlideIndicator
 }
 
-function handleSelect(index: number) {
-  console.log({ index })
-}
-
 export const Default = (args: Props) => <SlideIndicator {...args} />
 Default.args = {
   active: 0,
   total: 8,
-  onSelect: handleSelect
 }
