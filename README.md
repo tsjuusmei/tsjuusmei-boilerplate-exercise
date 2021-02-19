@@ -13,7 +13,7 @@ This boilerplate makes it easier to get up and running for every new project.
 ## Codebase
 
 ### Technologies
-We use [Next](https://www.nextjs.org/) (v10.0.1), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation, without all the noise.
+We use [Next](https://www.nextjs.org/) (v10.0.1), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation without all the noise.
 
 ### Folder structure
 ```sh
