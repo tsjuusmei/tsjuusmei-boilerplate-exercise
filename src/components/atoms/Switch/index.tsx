@@ -30,7 +30,7 @@ const Switch: React.FC<Props> = ({
     >
       <input
         type="checkbox"
-        checked={checked ? checked : undefined}
+        defaultChecked={checked}
         disabled={disabled}
       />
       <span className={styles.slider}/>
