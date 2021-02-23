@@ -44,8 +44,6 @@ const Input: React.FC<Props> = ({
 }) => {
   const convertedSize = convertSizeToNumber(size)
 
-  console.log(styles)
-
   return (
     <div className={`
       ${[styles.input]}

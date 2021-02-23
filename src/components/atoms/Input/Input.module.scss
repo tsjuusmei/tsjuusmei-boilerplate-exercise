@@ -9,11 +9,23 @@
     right: 0;
   }
 
-  &.sm {
+  &.sm, &.md {
     :global(.icon-warning) {
       right: 12px;
     }
   }
+
+  &-lg {
+    :global(.icon-warning){
+      right: 14px;
+    }
+  }
+
+  // &.md {
+  //   :global(.icon-warning){
+  //     right: 14px;
+  //   }
+  // }
 
   .label {
     margin-bottom: 6px;
