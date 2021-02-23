@@ -47,6 +47,13 @@ This project recommends a Node version of `12.16.0` or higher.
 ## Setup
 Install the packages.
 ```sh
+#install or update nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+#use needed nvm version for this project
+nvm use
+
 npm i
 # or...
 yarn
