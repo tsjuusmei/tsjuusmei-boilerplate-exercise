@@ -15,9 +15,10 @@
     }
   }
 
-  &-lg {
+  &.lg {
     :global(.icon-warning){
       right: 14px;
+      bottom: 13px;
     }
   }
 
@@ -61,6 +62,7 @@
 
   &.error {
     border-color: var(--error-500);
+    background: var(--error-100);
   }
 
   &.lg {
@@ -83,7 +85,7 @@
 
   &:focus {
     border-color: var(--color-500);
-    outline: 1px solid var(--color-500);
+    outline: 2px solid var(--color-500);
     caret-color: var(--black-000);
   }
 
