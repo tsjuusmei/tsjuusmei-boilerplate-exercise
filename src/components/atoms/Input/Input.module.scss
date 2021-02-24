@@ -62,7 +62,6 @@
 
   &.error {
     border-color: var(--error-500);
-    background: var(--error-100);
   }
 
   &.lg {
@@ -93,5 +92,10 @@
     background: var(--color3-100);
     border-color: var(--color3-200);
     cursor: not-allowed;
+    
+    &.error {
+      background: var(--error-100);
+      border-color: var(--error-500);
+    }  
   }
 }
