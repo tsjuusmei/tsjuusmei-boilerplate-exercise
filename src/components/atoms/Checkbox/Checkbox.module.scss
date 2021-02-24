@@ -1,0 +1,150 @@
+.checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color3-600);
+  cursor: pointer;
+  user-select: none;
+
+  &:disabled {
+    color: var(--color3-250);
+    cursor: not-allowed;
+
+    // Default
+    .checkmark {
+      background-color: rgba(var(--color3-100-rgb), .5);
+      border-color: var(--color3-200);
+    }
+
+    // Checked
+    input:checked ~ .checkmark {
+      background-color: rgba(var(--color3-300-rgb), .5);
+      border-color: var(--color3-600);
+
+      ~ svg path {
+        stroke: var(--color3-300);
+      }
+    }
+
+    svg path {
+      stroke: var(--color3-300);
+    }
+  }
+
+  &.has-error {
+    color: var(--color3-250);
+
+    // Checked
+    input:checked ~ .checkmark {
+      background-color: var(--error-500);
+      border-color: var(--error-500);
+    }
+
+    // Checked & is-disabled
+    &.is-disabled input:checked ~ .checkmark {
+      background-color: rgba(var(--error-300-rgb), .5);
+      border-color: var(--error-500);
+
+      svg path {
+        stroke: var(--error-500);
+      }
+    }
+
+    // Default
+    .checkmark {
+      background-color: var(--error-100);
+      border-color: var(--error-500);
+    }
+
+    svg path {
+      stroke: var(--white-000);
+    }
+  }
+
+  &.sm {
+    height: 16px;
+    padding: 0 0 0 24px;
+
+    .checkmark {
+      width: 16px;
+    }
+
+    svg {
+      height: 10px;
+      width: 12px;
+    }
+  }
+
+  &.md {
+    height: 20px;
+    padding: 0 0 0 24px;
+
+    .checkmark {
+      width: 20px;
+    }
+
+    svg {
+      height: 13px;
+      width: 16px;
+    }
+  }
+
+  &.lg {
+    height: 24px;
+    padding: 0 0 0 36px;
+    font-size: 16px;
+    line-height: 1.125;
+
+    .checkmark {
+      width: 24px;
+    }
+
+    svg {
+      height: 16px;
+      width: 19px;
+    }
+  }
+
+  input {
+    cursor: pointer;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background-color: var(--color-500);
+      border-color: var(--color-500);
+
+      svg {
+        opacity: 1;
+      }
+    }
+
+    &:focus ~ .checkmark {
+      box-shadow: 0 0 0 2px var(--color-500);
+    }
+
+    &:focus:checked ~ .checkmark {
+      border-color: var(--white-000);
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-000);
+    border: 1px solid var(--color3-400);
+    height: 100%;
+    transition: .2s background-color;
+  }
+
+  svg {
+    opacity: 0;
+    transition: .25s opacity;
+  }
+}

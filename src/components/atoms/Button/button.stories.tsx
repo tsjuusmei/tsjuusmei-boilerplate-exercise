@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Button from '.'
+import Button, { Props } from '.'
 
 const sizeOptions = ['sm', 'md', 'lg']
 const sizeDefault = 'md'
@@ -17,62 +17,58 @@ export default {
   }
 }
 
-export const Primary = (args) => (
+export const Primary = (args: Props) => (
   <Button
     label="Primary Button"
     {...args}
   >
-    {args.buttonText}
+    Primary Button
   </Button>
 )
 
 Primary.args = {
   variation: 'primary',
-  size: sizeDefault,
-  buttonText: 'Primary Button'
+  size: sizeDefault
 }
 
-export const Secondary = (args) => (
+export const Secondary = (args: Props) => (
   <Button
     label="Secondary Button"
     {...args}
   >
-    {args.buttonText}
+    Secondary Button
   </Button>
 )
 
 Secondary.args = {
   variation: 'secondary',
-  size: sizeDefault,
-  buttonText: 'Secondary Button'
+  size: sizeDefault
 }
 
-export const Tertiary = (args) => (
+export const Tertiary = (args: Props) => (
   <Button
     label="Tertiary Button"
     {...args}
   >
-    {args.buttonText}
+    Tertiary Button
   </Button>
 )
 
 Tertiary.args = {
   variation: 'tertiary',
-  size: sizeDefault,
-  buttonText: 'Tertiary Button'
+  size: sizeDefault
 }
 
-export const TextLink = (args) => (
+export const TextLink = (args: Props) => (
   <Button
     label="Text Link"
     {...args}
   >
-    {args.buttonText}
+    Text Link
   </Button>
 )
 
 TextLink.args = {
   variation: 'text-link',
-  size: sizeDefault,
-  buttonText: 'Text Link'
+  size: sizeDefault
 }

@@ -1,0 +1,22 @@
+.slide-indicator {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  background-color: var(--color3-200);
+  margin: 0 12px;
+  cursor: pointer;
+
+  &.active {
+    background-color: var(--color-500);
+  }
+
+  &:nth-last-child(1) {
+    margin-right: 0;
+  }
+}

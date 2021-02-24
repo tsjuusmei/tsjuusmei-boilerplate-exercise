@@ -6,7 +6,7 @@ export default {
   component: Icon
 }
 
-const sizes = [24, 20, 16]
+const sizes = [16, 20, 24]
 
 // Define types
 type IconProps = {
@@ -19,7 +19,8 @@ const IconWrapper: React.FC<IconProps> = ({ name }) => (
     style={{
       display: 'flex',
       alignItems: 'center',
-      paddingTop: 24
+      justifyContent: 'space-between',
+      width: 128
     }}
   >
     {sizes.map((size, idx) => <Icon key={idx} name={name} size={size} />)}
@@ -29,8 +30,15 @@ const IconWrapper: React.FC<IconProps> = ({ name }) => (
 export const All = () => (
   <div>
     {icons.map((icon, idx) => (
-      <div key={idx} style={{ marginBottom: '48px' }}>
-        <p>{icon}</p>
+      <div
+        key={idx}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          marginBottom: 32
+        }}
+      >
+        <p style={{width: '128px'}}>{icon}</p>
         <IconWrapper name={icon} />
       </div>
     ))}
