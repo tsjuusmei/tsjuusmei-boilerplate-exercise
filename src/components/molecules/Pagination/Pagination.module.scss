@@ -1,0 +1,29 @@
+.btn {
+  &-hidden {
+    visibility: hidden;
+  }
+  visibility: visible;
+  margin: 4px;
+  display: block;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 48px;
+  left: 40%;
+
+  p {
+    display: block;
+    margin: 8px;
+  }
+}
+
+.active {
+  background-color: skyblue;
+  padding: 8px;
+  border-radius: 8px;
+}
