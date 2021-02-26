@@ -1,5 +1,5 @@
 import React from 'react'
-import Switch from '.'
+import Switch, { Props } from '.'
 
 const sizeOptions = ['lg', 'md', 'sm']
 
@@ -55,28 +55,36 @@ export const Default = () => (
   </div>
 )
 
-export const Error = () => (
+export const Error = (args: Props) => (
   <div style={{display: 'flex'}}>
     {variants.map((variant, idx) => (
       <div style={style} key={idx}>
         <h5>{variant.title}</h5>
         {sizeOptions.map((size, idx) => (
-          <Switch {...variant.options} key={idx} size={size} isError />
+          <Switch {...variant.options} key={idx} {...args} size={size} />
         ))}
       </div>
     ) )}
   </div>
 )
 
-export const Label = () => (
+Error.args = {
+  isError: true
+}
+
+export const Label = (args: Props) => (
   <div style={{display: 'flex'}}>
     {variants.map((variant, idx) => (
       <div style={style} key={idx}>
         <h5>{variant.title}</h5>
         {sizeOptions.map((size, idx) => (
-          <Switch {...variant.options} key={idx} size={size} label="Label" />
+          <Switch {...variant.options} key={idx} {...args} size={size} />
         ))}
       </div>
     ) )}
   </div>
 )
+
+Label.args = {
+  label: 'label'
+}
