@@ -4,42 +4,48 @@ import * as React from 'react'
 import styles from './Switch.module.scss'
 import Icon from '@/components/atoms/Icon'
 
-type Props = {
-  size?: string
-  disabled?: boolean,
-  checked?: boolean,
-  error?: boolean,
-  label?: string
+export type Props = {
+  size: Sizes,
+  isDisabled?: boolean,
+  isChecked?: boolean,
+  isError?: boolean,
+  label?: string,
+  className?: string
 }
 
 const Switch: React.FC<Props> = ({
-  size = 'medium',
-  disabled = false,
-  checked = false,
-  error,
-  label
+  size = 'md',
+  isDisabled = false,
+  isChecked = false,
+  isError = false,
+  label = '',
+  className = '',
+  ...props
 }) => {
   return (
     <label
+      {...props}
       className={`
-      ${styles.switch}
-      ${error ? styles.error : ''}
-      ${disabled ? styles.disabled : ''}
-      ${styles[size]}`}
+        ${styles.switch}
+        ${isError ? styles.error : ''}
+        ${isDisabled ? styles.disabled : ''}
+        ${styles[size]}
+        ${className}
+      `}
       tabIndex={0}
     >
       <input
         type="checkbox"
-        defaultChecked={checked}
-        disabled={disabled}
+        defaultChecked={isChecked}
+        disabled={isDisabled}
       />
       <span className={styles.slider}/>
 
       {label && (
-        <span className={styles.label}>{label}</span>
+        <label className={styles.label}>{label}</label>
       )}
 
-      {error && (
+      {isError && (
         <Icon name="error" />
       )}
     </label>

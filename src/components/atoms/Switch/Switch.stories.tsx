@@ -1,19 +1,7 @@
 import React from 'react'
 import Switch from '.'
 
-
-export default {
-  title: 'Components / Atoms / Switch',
-  component: Switch
-}
-
-const style = {
-  height: '150px',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  margin: '40px'
-}
+const sizeOptions = ['lg', 'md', 'sm']
 
 const variants = [
   {
@@ -23,61 +11,71 @@ const variants = [
   {
     title: 'checked',
     options: {
-      checked: true,
+      isChecked: true,
     }
   },
   {
     title: 'disabled',
     options: {
-      disabled: true,
+      isDisabled: true,
     }
   },
   {
     title: 'disabled + checked',
     options: {
-      disabled: true,
-      checked: true
+      isDisabled: true,
+      isChecked: true
     }
   }
 ]
 
-export const Overview = () => (
+const style = {
+  height: '150px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  margin: '40px'
+}
+
+export default {
+  title: 'Components / Atoms / Switch',
+  component: Switch
+}
+
+export const Default = () => (
   <div style={{display: 'flex'}}>
     {variants.map((variant, idx) => (
       <div style={style} key={idx}>
         <h5>{variant.title}</h5>
-        <Switch {...variant.options} size="large" />
-        <Switch {...variant.options} />
-        <Switch {...variant.options} size="small" />
+        {sizeOptions.map((size, idx) => (
+          <Switch {...variant.options} key={idx} size={size} />
+        ))}
       </div>
     ) )}
   </div>
 )
-
 
 export const Error = () => (
   <div style={{display: 'flex'}}>
     {variants.map((variant, idx) => (
       <div style={style} key={idx}>
         <h5>{variant.title}</h5>
-        <Switch {...variant.options} error size="large" />
-        <Switch {...variant.options} error />
-        <Switch {...variant.options} error size="small" />
+        {sizeOptions.map((size, idx) => (
+          <Switch {...variant.options} key={idx} size={size} isError />
+        ))}
       </div>
     ) )}
   </div>
 )
-
-
 
 export const Label = () => (
   <div style={{display: 'flex'}}>
     {variants.map((variant, idx) => (
       <div style={style} key={idx}>
         <h5>{variant.title}</h5>
-        <Switch {...variant.options} label="Label" size="large" />
-        <Switch {...variant.options} label="Label" />
-        <Switch {...variant.options} label="Label" size="small" />
+        {sizeOptions.map((size, idx) => (
+          <Switch {...variant.options} key={idx} size={size} label="Label" />
+        ))}
       </div>
     ) )}
   </div>
