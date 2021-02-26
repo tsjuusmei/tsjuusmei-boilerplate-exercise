@@ -3,7 +3,6 @@ import React, {useState, useEffect } from 'react'
 import Pagination from '.'
 import type { PaginationProps } from '.'
 import CardTestimonial from '@/components/molecules/CardTestimonial'
-import { ReactComponentLike } from 'prop-types'
 
 export default {
   title: 'Components / Molecules / Pagination',
@@ -25,13 +24,13 @@ export const Default = (args: PaginationProps) => {
   ]
 
   const [current, setCurrent] = useState(1)
+  const itemsPerPage = 2
 
-  const numPages = () => {
-    return Math.ceil(componentList.length / 4)
+  function numPages() {
+    return Math.ceil(componentList.length / itemsPerPage)
   }
 
-  const changePage = (page: number) => {
-
+  function changePage(page: number) {
     if (page < 1){
       setCurrent(1)
     }
@@ -39,6 +38,12 @@ export const Default = (args: PaginationProps) => {
       setCurrent(numPages())
     }
   }
+
+  function goTo(page: number){
+    changePage(page)
+    setCurrent(page)
+  }
+
   function nextPage() {
     if (current < numPages()) {
       setCurrent(current + 1)
@@ -59,14 +64,16 @@ export const Default = (args: PaginationProps) => {
   return (
     <>
       {componentList.filter(component => (
-        componentList.indexOf(component) < (current * 4)
-        && componentList.indexOf(component) >= (current - 1) * 4
+        componentList.indexOf(component) < (current * itemsPerPage)
+        && componentList.indexOf(component) >= (current - 1) * itemsPerPage
       )).map(component => (
         <div key={component[componentList.indexOf(component)]}>
           {component}
         </div>
       ))}
       <Pagination {...args}
+        handleFirst={()=> goTo(1)}
+        handleLast={()=> goTo(numPages())}
         numPages={numPages()}
         nextPage={nextPage}
         prevPage={prevPage}
