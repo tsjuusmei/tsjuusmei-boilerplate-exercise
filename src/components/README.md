@@ -12,18 +12,21 @@ Refer to [main README](../../README.md) for usage.
 | Button         | Primary, Secondary, Tertiary | ✅              |
 | Version        | NA                           | ✅              |
 | Icon           | NA                           | ✅              |
-| Checkbox       | -                            | ❌              |
-| Input          | -                            | ❌              |
-| Radio          | -                            | ❌              |
-| Textarea       | -                            | ❌              |
+| Checkbox       | -                            | ✅              |
+| Input          | -                            | ✅              |
+| Radio          | -                            | ✅               |
+| Textarea       | -                            | ✅              |
 | Select         | -                            | ❌              |
+| Switch         | -                            | ✅              |
 
 ### Molecules
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
-| Example        | -                            | ❌              |
+| ButtonGroup    | Horizontal, Vertical         | ✅              |
+| Pagination     |                              | ✅              |
 
 ### Organisms
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
 | Modal          | NA                           | ✅              |
+| Testimonials   | NA                           | ✅              |
