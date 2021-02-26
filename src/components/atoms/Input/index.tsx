@@ -9,7 +9,7 @@ import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
 // Styles
 import styles from  './Input.module.scss'
 
-export type Props = {
+export type InputProps = {
   id?: string,
   label?: string,
   isError?: boolean,
@@ -26,7 +26,7 @@ export type Props = {
   isOptional?: boolean
 }
 
-const Input: React.FC<Props> = ({
+const Input: React.FC<InputProps> = ({
   id,
   label,
   size = 'md',
