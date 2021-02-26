@@ -9,7 +9,7 @@ import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
 // Styles
 import styles from  './Input.module.scss'
 
-type Props = {
+export type Props = {
   id?: string,
   label?: string,
   isError?: boolean,
@@ -46,7 +46,7 @@ const Input: React.FC<Props> = ({
 
   return (
     <div className={`
-      ${[styles.input]}
+      ${styles.input}
       ${styles[size]}
     `}>
       {label && (

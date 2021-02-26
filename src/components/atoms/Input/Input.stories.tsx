@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '.'
+import Input, {Props} from '.'
 
 const sizes = {
   sm: 'Small',
@@ -12,7 +12,8 @@ export default {
   component: Input
 }
 
-export const Default = () => (
+
+export const Default = (args: Props) => (
   <div className="input-wrapper">
     {Object.entries(sizes).map(([key], idx) => (
       <Input
@@ -22,41 +23,51 @@ export const Default = () => (
         size={key as Sizes}
         placeholder="Doe is"
         label="Input field with label"
+        {...args}
       />
     ))}
-
-    <Input
-      id="input-3"
-      name="disabled"
-      placeholder="Doe is"
-      label="Input field with label"
-      isDisabled
-    />
-
-    <Input
-      id="input-4"
-      size="lg"
-      name="error"
-      placeholder="Doe is"
-      label="Input field with label"
-      isError
-    />
-
-    <Input
-      id="input-5"
-      name="error"
-      placeholder="Doe is"
-      label="Input field with label"
-      isError
-    />
-
-    <Input
-      id="input-6"
-      size="sm"
-      name="error"
-      placeholder="Doe is"
-      label="Input field with label"
-      isError
-    />
   </div>
 )
+
+Default.args = {
+  placeholder: 'Doe is',
+}
+
+export const Disabled = (args: Props) => (
+  <div className="input-wrapper">
+    {Object.entries(sizes).map(([key], idx) => (
+      <Input
+        id={`input-${idx}`}
+        name={`input-${key}`}
+        key={idx}
+        size={key as Sizes}
+        placeholder="Doe is"
+        label="Input field with label"
+        {...args}
+        isDisabled
+      />
+    ))}
+  </div>
+)
+
+export const Error = (args: Props) => (
+  <div className="input-wrapper">
+    {Object.entries(sizes).map(([key], idx) => (
+      <Input
+        id={`input-${idx}`}
+        name={`input-${key}`}
+        key={idx}
+        size={key as Sizes}
+        placeholder="Doe is"
+        label="Input field with label"
+        {...args}
+        isError />
+    ))}
+  </div>
+)
+
+
+Default.args = {
+  placeholder: 'Doe is'
+}
+
