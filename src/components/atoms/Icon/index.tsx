@@ -27,8 +27,6 @@ import LinkedIn from './Icons/Social/LinkedIn'
 import Dribbble from './Icons/Social/Dribbble'
 import Reddit from './Icons/Social/Reddit'
 
-// Add Import Above
-
 // Types
 interface Props extends IconProps {
   name: string
