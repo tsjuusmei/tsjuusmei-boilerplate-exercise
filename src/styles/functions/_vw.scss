@@ -1,0 +1,25 @@
+/*
+  Convert px to vw value, example:
+  Mobile:
+  font-size: get-vw(20);
+
+  Desktop:
+  font-size: get-vw-desktop(24);
+
+  Formula: (size element / design width * 100) = size in VW
+*/
+
+$design-size: 375;
+$design-size-desktop: 1440;
+
+// Mobile
+@function get-vw($target) {
+  @return (($target / $design-size) * 100) * 1vw;
+}
+
+// Tablet?
+
+// Desktop
+@function get-vw-desktop($target) {
+  @return (($target / $design-size-desktop) * 100) * 1vw;
+}
