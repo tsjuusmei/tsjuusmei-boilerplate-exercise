@@ -23,10 +23,11 @@ export type InputProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLInputElement>) => void,
-  isOptional?: boolean
+  isOptional?: boolean,
+  forwardRef?: any
 }
 
-const Input: React.FC<InputProps> = ({
+const Input = React.forwardRef<any, InputProps>(({
   id,
   label,
   size = 'md',
@@ -35,13 +36,14 @@ const Input: React.FC<InputProps> = ({
   isError,
   type = 'text',
   isOptional,
+  name,
   onChange,
   onFocus,
   onBlur,
   autoComplete = 'on',
   spellCheck = true,
   ...props
-}) => {
+}, ref) => {
   const convertedSize = convertSizeToNumber(size)
 
   return (
@@ -57,6 +59,7 @@ const Input: React.FC<InputProps> = ({
       )}
 
       <input
+        ref={ref}
         className={`
           ${styles['input-element']}
           ${styles[size]}
@@ -65,6 +68,7 @@ const Input: React.FC<InputProps> = ({
         onChange={onChange}
         type={type}
         id={id}
+        name={name}
         placeholder={placeholder}
         disabled={isDisabled}
         onFocus={onFocus}
@@ -83,6 +87,6 @@ const Input: React.FC<InputProps> = ({
       )}
     </div>
   )
-}
+})
 
 export default Input
