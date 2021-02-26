@@ -9,24 +9,29 @@ Refer to [main README](../../README.md) for usage.
 ### Atoms
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
+| Avatar         | -                            | ✅              |
 | Button         | Primary, Secondary, Tertiary | ✅              |
-| Version        | NA                           | ✅              |
-| Icon           | NA                           | ✅              |
 | Checkbox       | -                            | ✅              |
-| Input          | -                            | ✅              |
-| Radio          | -                            | ✅               |
-| Textarea       | -                            | ✅              |
+| Icon           | -                            | ✅              |
+| Input          | -                            | ❌              |
+| Radio          | -                            | ❌              |
 | Select         | -                            | ❌              |
-| Switch         | -                            | ✅              |
+| Switch         | -                            | ❌              |
+| Textarea       | -                            | ✅              |
+| Version        | -                            | ✅              |
 
 ### Molecules
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
+| Author         | -                            | ✅              |
 | ButtonGroup    | Horizontal, Vertical         | ✅              |
-| Pagination     |                              | ✅              |
+| CardTestimonials -                            | ✅              |
+| ImageTestimonials-                            | ✅              |
+| Modal          | -                            | ✅              |
+| Pagination     | -                            | ❌              |
+| SlideIndicator | -                            | ✅              |
 
 ### Organisms
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
-| Modal          | NA                           | ✅              |
-| Testimonials   | NA                           | ✅              |
+| Testimonials   | -                            | ✅              |
