@@ -1,10 +1,10 @@
 import React from 'react'
-import Input from '.'
+import Input, {InputProps} from '.'
 
 const sizes = {
-  sm: 'Small',
-  md: 'Medium',
-  lg: 'Large'
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg'
 }
 
 export default {
@@ -12,30 +12,61 @@ export default {
   component: Input
 }
 
-export const Default = () => (
-  <div className="input-wrapper">
-    {Object.entries(sizes).map(([key], idx) => (
-      <Input
-        name={`input-${key}`}
-        key={idx}
-        size={key as Sizes}
-        placeholder="Doe is"
-        label="Input field with label"
-      />
-    ))}
 
-    <Input
-      name="disabled"
-      placeholder="Doe is"
-      label="Input field with label"
-      isDisabled
-    />
+export const Default = (args: InputProps) => (
+  <Input
+    id='input-1'
+    name='input-1'
+    {...args}
+  />
 
-    <Input
-      name="error"
-      placeholder="Doe is"
-      label="Input field with label"
-      isError
-    />
-  </div>
 )
+
+Default.args = {
+  placeholder: 'Doe is',
+  type:'text',
+  label: 'Input field with label',
+  isError: false,
+  isOptional: true,
+  isDisabled: false,
+  size: sizes.sm
+}
+
+export const Disabled = (args: InputProps) => (
+  <Input
+    id='input-2'
+    name='input-2'
+    {...args}
+  />
+)
+
+Disabled.args = {
+  placeholder: 'Doe is',
+  type:'text',
+  label: 'Input field with label',
+  isError: false,
+  isOptional: false,
+  isDisabled: true,
+  size: sizes.md
+}
+
+export const Error = (args: InputProps) => (
+  <Input
+    id='input-3'
+    name='input-3'
+    {...args}/>
+
+)
+
+Error.args = {
+  placeholder: 'Doe is',
+  type:'text',
+  label: 'Input field with label',
+  isError: true,
+  isOptional: false,
+  isDisabled: false,
+  size: sizes.lg
+}
+
+
+
