@@ -2,6 +2,8 @@ import * as React from 'react'
 
 // Styles
 import styles from  './TextArea.module.scss'
+//Components
+import Icon from '@/components/atoms/Icon'
 
 type Props = {
   id?: string,
@@ -39,11 +41,7 @@ const Textarea: React.FC<Props> = ({
         <label htmlFor={id} className={styles.label}>
           {label}
           {isError && (
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="8" r="7.5" fill="black" stroke="black" />
-              <path d="M7 3H9L8.8 10H7.2L7 3Z" fill="white" />
-              <circle cx="8" cy="12" r="1" fill="white" />
-            </svg>
+            <Icon name="warning" color="var(--error-500)"/>
           )}
           {isOptional && <span>Optional</span>}
         </label>

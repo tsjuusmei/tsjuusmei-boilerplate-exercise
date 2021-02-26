@@ -36,7 +36,7 @@ $heading-sizes-desktop-xs:
 :root {
   // Define font
   --font-stack-base:
-    'Basier Circle',
+    'SF Pro Display',
     'BlinkMacSystemFont',
     'Helvetica',
     'Lato',
@@ -51,6 +51,9 @@ $heading-sizes-desktop-xs:
 
     --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
   }
+
+  --heading-1-font-family: 'IBM Plex Mono';
+  --heading-3-font-family: 'IBM Plex Mono';
 
   // Mobile
   // h1
