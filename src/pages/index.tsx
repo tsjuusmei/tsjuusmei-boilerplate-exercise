@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { NextPage } from 'next'
-import Pagination from '@/components/molecules/Pagination'
 
 const Homepage: NextPage = () => (
   <main className="home">

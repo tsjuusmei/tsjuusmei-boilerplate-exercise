@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react'
 
 import Pagination from '.'
-import type { Props } from '.'
+import type { PaginationProps } from '.'
 import CardTestimonial from '@/components/molecules/CardTestimonial'
 import { ReactComponentLike } from 'prop-types'
 
@@ -10,7 +10,7 @@ export default {
   component: Pagination
 }
 
-export const Default = (args: Props) => {
+export const Default = (args: PaginationProps) => {
   const componentList = [
     <CardTestimonial key="1" quote="The best way to predict the future is to invent it." />,
     <CardTestimonial key="2" quote="If I am not for myself, who is for me? And if I am only for myself, what am I? And if not now, when?" />,
@@ -33,22 +33,20 @@ export const Default = (args: Props) => {
   const changePage = (page: number) => {
 
     if (page < 1){
-      page = 1
-      setCurrent(page)
+      setCurrent(1)
     }
     if (page > numPages()){
-      page = numPages()
-      setCurrent(page)
+      setCurrent(numPages())
     }
   }
-  const nextPage = () => {
+  function nextPage() {
     if (current < numPages()) {
       setCurrent(current + 1)
       changePage(current + 1)
     }
   }
 
-  const prevPage = () => {
+  function prevPage() {
     if (current > 1) {
       setCurrent(current - 1)
       changePage(current - 1)
@@ -75,8 +73,4 @@ export const Default = (args: Props) => {
         current={current}/>
     </>
   )
-}
-
-
-Default.componentList = {
 }

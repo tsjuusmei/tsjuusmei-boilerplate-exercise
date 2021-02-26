@@ -11,30 +11,29 @@ interface prevPageFunc {
   (): void
 }
 
-export interface Props{
+export interface PaginationProps{
   current: number
   nextPage: nextPageFunc
   prevPage: prevPageFunc
   numPages: number
 }
 
-const Pagination: React.FunctionComponent<Props> = ({
+const Pagination: React.FunctionComponent<PaginationProps> = ({
   current, nextPage, prevPage, numPages
 }) => {
-  console.log(numPages)
   return (
     <>
       <div className={styles.flex}>
         {
           current > 1 &&
-            <p>1</p>
+            <a>1</a>
         }
         <button onClick={prevPage}> ◀︎ </button>
-        <p className={styles.active}>{current}</p>
+        <a className={styles.active}>{current}</a>
         <button onClick={nextPage}> ▶︎ </button>
         {
           current < numPages &&
-          <p>{numPages}</p>
+          <a>{numPages}</a>
         }
       </div>
     </>
