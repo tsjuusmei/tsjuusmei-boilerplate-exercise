@@ -4,7 +4,7 @@ import Link from 'next/link'
 // Styles
 import styles from './Button.module.scss'
 
-type Props = {
+export type Props = {
   variation: 'primary' | 'secondary' | 'tertiary' | 'text-link',
   size: Sizes,
   label?: string,
