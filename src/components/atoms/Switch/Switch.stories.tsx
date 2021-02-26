@@ -1,7 +1,7 @@
 import React from 'react'
 import Switch, { Props } from '.'
 
-const sizeOptions = ['lg', 'md', 'sm']
+const sizeOptions = ['sm', 'md', 'lg']
 
 const variants = [
   {
@@ -30,11 +30,12 @@ const variants = [
 ]
 
 const style = {
-  height: '150px',
+  height: 150,
+  width: 160,
+  marginRight: 40,
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
-  margin: '40px'
+  justifyContent: 'space-between'
 }
 
 export default {
@@ -42,18 +43,22 @@ export default {
   component: Switch
 }
 
-export const Default = () => (
+export const Default = (args: Props) => (
   <div style={{display: 'flex'}}>
     {variants.map((variant, idx) => (
       <div style={style} key={idx}>
         <h5>{variant.title}</h5>
         {sizeOptions.map((size, idx) => (
-          <Switch {...variant.options} key={idx} size={size} />
+          <Switch {...variant.options} key={idx} {...args} size={size} />
         ))}
       </div>
-    ) )}
+    ))}
   </div>
 )
+
+Default.args = {
+  label: 'Label'
+}
 
 export const Error = (args: Props) => (
   <div style={{display: 'flex'}}>
@@ -64,27 +69,11 @@ export const Error = (args: Props) => (
           <Switch {...variant.options} key={idx} {...args} size={size} />
         ))}
       </div>
-    ) )}
+    ))}
   </div>
 )
 
 Error.args = {
-  isError: true
-}
-
-export const Label = (args: Props) => (
-  <div style={{display: 'flex'}}>
-    {variants.map((variant, idx) => (
-      <div style={style} key={idx}>
-        <h5>{variant.title}</h5>
-        {sizeOptions.map((size, idx) => (
-          <Switch {...variant.options} key={idx} {...args} size={size} />
-        ))}
-      </div>
-    ) )}
-  </div>
-)
-
-Label.args = {
-  label: 'label'
+  isError: true,
+  label: 'Label'
 }

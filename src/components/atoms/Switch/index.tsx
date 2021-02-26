@@ -42,11 +42,19 @@ const Switch: React.FC<Props> = ({
       <span className={styles.slider}/>
 
       {label && (
-        <label className={styles.label}>{label}</label>
-      )}
-
-      {isError && (
-        <Icon name="error" />
+        <label
+          className={`
+            ${styles.label}
+            ${styles[size]}
+          `}>
+          {label}
+          {isError && (
+            <Icon
+              name="warning"
+              color="var(--error-500)"
+            />
+          )}
+        </label>
       )}
     </label>
   )

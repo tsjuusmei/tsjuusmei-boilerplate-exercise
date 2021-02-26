@@ -185,13 +185,33 @@
     }
   }
 
-  .label {
+  label {
     position: absolute;
     z-index: 2;
     color: var(--color3-600);
     left: calc(var(--size) * var(--factor) * 12px + 8px);
     top: 3px;
     font-size: var(--font-size);
+    display: flex;
+    align-items: center;
+
+    &.sm svg {
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+    }
+
+    &.md svg {
+      width: 20px;
+      height: 20px;
+      margin-left: 8px;
+    }
+
+    &.lg svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 12px;
+    }
   }
 
   .slider {
