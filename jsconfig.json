@@ -6,7 +6,8 @@
       "@/styles/*": ["src/styles/*"],
       "@/hooks/*": ["src/helpers/hooks/*"],
       "@/utils/*": ["src/helpers/utils/*"],
-      "@/data/*": ["src/data/*"]
+      "@/data/*": ["src/data/*"],
+      "@/lib/*": ["src/lib/*"],
     }
   }
 }

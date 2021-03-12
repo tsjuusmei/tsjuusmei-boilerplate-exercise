@@ -26,6 +26,7 @@
       "@/hooks/*": ["./src/helpers/hooks/*"],
       "@/utils/*": ["./src/helpers/utils/*"],
       "@/styles/*": ["./src/styles/*"],
+      "@/lib/*": ["./src/lib/*"],
       "*": ["./src/typings/*.d.ts"]
     },
   },

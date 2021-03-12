@@ -80,7 +80,8 @@ module.exports = {
       '@/styles': path.resolve(__dirname, '../src/styles'),
       '@/hooks': path.resolve(__dirname, '../src/helpers/hooks'),
       '@/utils': path.resolve(__dirname, '../src/helpers/utils'),
-      '@/data': path.resolve(__dirname, '../src/data')
+      '@/data': path.resolve(__dirname, '../src/data'),
+      '@/lib': path.resolve(__dirname, '../src/lib')
     }
 
     // Reverts Next Images to regular images
