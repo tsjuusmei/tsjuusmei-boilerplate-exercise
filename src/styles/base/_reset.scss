@@ -130,17 +130,6 @@ table {
   border-spacing: 0;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-
-  > p,
-  > input,
-  > select {
-    align-self: flex-start;
-  }
-}
-
 img {
   vertical-align: middle;
 }
