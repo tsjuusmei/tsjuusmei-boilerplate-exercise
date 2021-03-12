@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Button, { ButtonProps } from '.'
 
-const sizeOptions = ['sm', 'md', 'lg']
 const sizeDefault = 'md'
 
 export default {
@@ -11,7 +10,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: sizeOptions
+        options: ['sm', 'md', 'lg']
       }
     }
   }

@@ -1,9 +1,6 @@
 import React from 'react'
 import Checkbox, { CheckboxProps } from '.'
 
-const sizeOptions = ['sm', 'md', 'lg']
-const sizeDefault = 'md'
-
 export default {
   title: 'Components / Atoms / Checkbox',
   component: Checkbox,
@@ -11,17 +8,15 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: sizeOptions
+        options: ['sm', 'md', 'lg']
       }
     }
   }
 }
 
-export const Primary = (args: CheckboxProps) => (
-  <Checkbox {...args} />
-)
+export const Primary = (args: CheckboxProps) => <Checkbox {...args} />
 
 Primary.args = {
-  size: sizeDefault,
+  size: 'md',
   label: 'Label'
 }
