@@ -1,9 +1,15 @@
 import * as React from 'react'
 
+// Components
+import Icon from '@/components/atoms/Icon'
+
+// Utils
+import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
+
 // Styles
 import styles from  './Input.module.scss'
 
-type Props = {
+export type InputProps = {
   id?: string,
   label?: string,
   isError?: boolean,
@@ -20,7 +26,7 @@ type Props = {
   isOptional?: boolean
 }
 
-const Input: React.FC<Props> = ({
+const Input: React.FC<InputProps> = ({
   id,
   label,
   size = 'md',
@@ -36,18 +42,16 @@ const Input: React.FC<Props> = ({
   spellCheck = true,
   ...props
 }) => {
+  const convertedSize = convertSizeToNumber(size)
+
   return (
-    <div className={styles.input}>
+    <div className={`
+      ${styles.input}
+      ${styles[size]}
+    `}>
       {label && (
         <label htmlFor={id} className={styles.label}>
           {label}
-          {isError && (
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="8" r="7.5" fill="black" stroke="black" />
-              <path d="M7 3H9L8.8 10H7.2L7 3Z" fill="white" />
-              <circle cx="8" cy="12" r="1" fill="white" />
-            </svg>
-          )}
           {isOptional && <span>Optional</span>}
         </label>
       )}
@@ -70,6 +74,13 @@ const Input: React.FC<Props> = ({
         aria-labelledby={label}
         {...props}
       />
+
+      {isError && (
+        <Icon
+          size={convertedSize}
+          name="warning"
+          color="var(--error-500)" />
+      )}
     </div>
   )
 }

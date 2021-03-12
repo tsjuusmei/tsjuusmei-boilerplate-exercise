@@ -9,21 +9,29 @@ Refer to [main README](../../README.md) for usage.
 ### Atoms
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
+| Avatar         | -                            | ✅              |
 | Button         | Primary, Secondary, Tertiary | ✅              |
-| Version        | NA                           | ✅              |
-| Icon           | NA                           | ✅              |
-| Checkbox       | -                            | ❌              |
+| Checkbox       | -                            | ✅              |
+| Icon           | -                            | ✅              |
 | Input          | -                            | ❌              |
 | Radio          | -                            | ❌              |
-| Textarea       | -                            | ❌              |
 | Select         | -                            | ❌              |
+| Switch         | -                            | ❌              |
+| Textarea       | -                            | ✅              |
+| Version        | -                            | ✅              |
 
 ### Molecules
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
-| Example        | -                            | ❌              |
+| Author         | -                            | ✅              |
+| ButtonGroup    | Horizontal, Vertical         | ✅              |
+| CardTestimonials -                            | ✅              |
+| ImageTestimonials-                            | ✅              |
+| Modal          | -                            | ✅              |
+| Pagination     | -                            | ❌              |
+| SlideIndicator | -                            | ✅              |
 
 ### Organisms
 | Component Name | Variations                   | Ready for usage |
 |----------------|------------------------------|-----------------|
-| Modal          | NA                           | ✅              |
+| Testimonials   | -                            | ✅              |
