@@ -15,8 +15,3 @@ export default {
 }
 
 export const Primary = (args: CheckboxProps) => <Checkbox {...args} />
-
-Primary.args = {
-  size: 'md',
-  label: 'Label'
-}
