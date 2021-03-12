@@ -4,7 +4,7 @@ import * as React from 'react'
 import styles from './Switch.module.scss'
 import Icon from '@/components/atoms/Icon'
 
-export type SelectProps = {
+export type SwitchProps = {
   size: Sizes,
   isDisabled?: boolean,
   isChecked?: boolean,
@@ -14,7 +14,7 @@ export type SelectProps = {
   className?: string
 }
 
-const Switch: React.FC<SelectProps> = ({
+const Switch: React.FC<SwitchProps> = ({
   size = 'md',
   isDisabled = false,
   isChecked = false,
