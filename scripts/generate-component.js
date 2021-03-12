@@ -13,14 +13,14 @@ const generateComponent = (name) => {
     `import React from 'react'
 
 // Types
-type Props = {
+type ${funcName}Props = {
   name?: string
 }
 
 // Styling
 import styles from './${convertToKebabCase(name)}.module.scss'
 
-const ${funcName}: React.FC<Props> = ({ name }) => (
+const ${funcName}: React.FC<${funcName}Props> = ({ name }) => (
   <div className={styles['${convertToKebabCase(name)}']}>
     <p>{name}</p>
   </div>
