@@ -6,7 +6,7 @@ import Icon from '@/components/atoms/Icon'
 // Styles
 import styles from './Checkbox.module.scss'
 
-type Props = {
+export type CheckboxProps = {
   size: Sizes,
   label?: string,
   isDisabled?: boolean,
@@ -15,7 +15,7 @@ type Props = {
   className?: string
 }
 
-const Checkbox: React.FC<Props> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   size = 'md',
   label = '',
   isDisabled = false,

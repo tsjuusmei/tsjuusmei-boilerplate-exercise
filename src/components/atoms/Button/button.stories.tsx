@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Button, { Props } from '.'
+import Button, { ButtonProps } from '.'
 
 const sizeOptions = ['sm', 'md', 'lg']
 const sizeDefault = 'md'
@@ -17,7 +17,7 @@ export default {
   }
 }
 
-export const Primary = (args: Props) => (
+export const Primary = (args: ButtonProps) => (
   <Button
     label="Primary Button"
     {...args}
@@ -31,7 +31,7 @@ Primary.args = {
   size: sizeDefault
 }
 
-export const Secondary = (args: Props) => (
+export const Secondary = (args: ButtonProps) => (
   <Button
     label="Secondary Button"
     {...args}
@@ -45,7 +45,7 @@ Secondary.args = {
   size: sizeDefault
 }
 
-export const Tertiary = (args: Props) => (
+export const Tertiary = (args: ButtonProps) => (
   <Button
     label="Tertiary Button"
     {...args}
@@ -59,7 +59,7 @@ Tertiary.args = {
   size: sizeDefault
 }
 
-export const TextLink = (args: Props) => (
+export const TextLink = (args: ButtonProps) => (
   <Button
     label="Text Link"
     {...args}
