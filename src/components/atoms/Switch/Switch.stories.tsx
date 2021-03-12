@@ -15,8 +15,3 @@ export default {
 }
 
 export const Default = (args: SwitchProps) => <Switch {...args} />
-
-Default.args = {
-  label: 'Label',
-  size: 'sm'
-}
