@@ -1,5 +1,5 @@
 import React from 'react'
-import Switch, { SelectProps } from '.'
+import Switch, { SwitchProps } from '.'
 
 export default {
   title: 'Components / Atoms / Switch',
@@ -14,7 +14,7 @@ export default {
   }
 }
 
-export const Default = (args: SelectProps) => <Switch {...args} />
+export const Default = (args: SwitchProps) => <Switch {...args} />
 
 Default.args = {
   label: 'Label',
