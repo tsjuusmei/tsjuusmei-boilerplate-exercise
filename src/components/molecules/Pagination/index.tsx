@@ -1,5 +1,4 @@
-import { array } from 'prop-types'
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 import styles from './Pagination.module.scss'
 
