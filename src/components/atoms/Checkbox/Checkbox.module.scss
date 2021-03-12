@@ -6,12 +6,12 @@
   cursor: pointer;
   user-select: none;
 
-  input:disabled {
+  &.is-disabled {
     color: var(--color3-250);
     cursor: not-allowed;
 
     // Default
-    ~ .checkmark {
+    .checkmark {
       background-color: var(--color3-100);
       border-color: var(--color3-200);
 
@@ -21,7 +21,7 @@
     }
 
     // Checked
-    &:checked ~ .checkmark {
+    input:checked ~ .checkmark {
       background-color: rgba(var(--color3-300-rgb), .5);
       border: none;
 
