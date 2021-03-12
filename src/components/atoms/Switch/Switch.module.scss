@@ -196,20 +196,20 @@
     align-items: center;
 
     &.sm svg {
+      width: 14px;
+      height: 14px;
+      margin-left: 8px;
+    }
+
+    &.md svg {
       width: 16px;
       height: 16px;
       margin-left: 8px;
     }
 
-    &.md svg {
+    &.lg svg {
       width: 20px;
       height: 20px;
-      margin-left: 8px;
-    }
-
-    &.lg svg {
-      width: 24px;
-      height: 24px;
       margin-left: 12px;
     }
   }
