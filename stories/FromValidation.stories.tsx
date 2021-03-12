@@ -1,43 +1,16 @@
 import React from 'react'
+// See https://react-hook-form.com/
 import { useForm } from 'react-hook-form'
 
 // Components
 import Input from '@/components/atoms/Input'
-import Select from '@/components/atoms/Select'
 
 export default {
   title: 'Guides / Form / Validation'
 }
 
-type Props = {
-  error: string
-}
-
-// Need this in case it does not work out
-// check error type and return error value
-// const ErrorMessage = (error): React.FC<Props> => {
-//   if (error) {
-//     switch (error.type) {
-//       case 'required':
-//         return ''
-//       case 'min':
-//         return ''
-//       case 'max':
-//         return 'This is not a valid age'
-//       case 'minLength':
-//         return 'This value needs to be at least 2 letters long'
-//       case 'maxLength':
-//         return 'This value is too long'
-//       case 'pattern':
-//         return 'Please enter a valid email address'
-//       default:
-//         return null
-//     }
-//   }
-//   return null
-// }
-
 export const From = () => {
+  // Functions from react-hook-form
   const { register, handleSubmit, errors } = useForm();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
@@ -48,38 +21,97 @@ export const From = () => {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        label="First name:"
+        id="firstName"
+        name="firstName"
+        // You will need to push the data to the component in order to make it work. The component should be created with a `React.forwardRef`
+        // See: https://reactjs.org/docs/forwarding-refs.html
+        ref={register({
+          required: {
+            // It's not required to provide a message, you will then only need `required: true/false`
+            value: true,
+            message: 'Please provide a value'
+          },
+          minLength: {
+            value: 2,
+            message: 'Please provide a first name'
+          }}
+        )}
+      />
+      {/* Use name from input as variable */}
+      {errors.firstName && errors.firstName.message}
 
-        {/* TODO: forwardRef is not recognized. Make sure it is, and passed to component */}
-        <Input label="First name:" id="firstName" name="firstName" forwardRef={register({ required: true, minLength: { value: 2, message: 'String error' }})} />
-        {/* Use name from input as variable */}
-        {errors.firstName && errors.firstName.message}
+      <Input
+        label="Last name:"
+        id="lastName"
+        name="lastName"
+        ref={register({
+          required: false,
+          minLength: {
+            value: 2,
+            message: 'Please provide a valid last name'
+          }}
+        )}
+      />
+      {errors.lastName && errors.lastName.message}
 
+      <Input
+        label="Age:"
+        name="age"
+        type="number"
+        ref={register({
+          required: {
+            value: true,
+            message: 'This value is required'
+          },
+          min: {
+            value: 18,
+            message: 'Minimum age is 18'
+          },
+          max: {
+            value: 110,
+            message: 'Maximum age is 110'
+          },
+        })}
+      />
+      {errors.age && errors.age.message}
 
-        {/* Keep the mess here :D */}
-        {/* <Input label="Last name:" id="lastName" name="lastName" forwardref={register({ required: true, minLength: 2 })} /> */}
-        {/* {errors.lastName && ErrorMessage(errors.lastName)} */}
+      {/* TODO: Uncomment Select example when there is a working Select component */}
+      {/* <Select
+        label="Gender:"
+        name="gender"
+        ref={register({
+            required: true
+          })
+        }
+      >
+        <option value="">Select...</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </Select>
+      {errors.gender && errors.gender.message} */}
 
-        {/* <Input label="Age:" name="age" type="number" forwardref={register({ required: true, min: 4, max: 110, message: 'Minmium age is 18' })} /> */}
-        {/* {errors.age && ErrorMessage(errors.age)} */}
+      <Input
+        label="Email:"
+        id="Email"
+        name="Email"
+        ref={register({
+          required: {
+            value: true,
+            message: 'Please provide an email address'
+          },
+          pattern: {
+            value: emailPattern,
+            message: 'Please provide a valid email address.'
+          }}
+        )}
+      />
+      {errors.Email && errors.Email.message}
 
-        {/* <Select label="Gender:" name="gender" forwardref={register({ required: true })}>
-          <option value="">Select...</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </Select> */}
-        {/* {errors.gender && ErrorMessage(errors.gender)} */}
-
-        {/* <label>
-          <p>Email:</p> */}
-          {/* <Input name="email" forwardref={register({ required: true, minLength: 5, pattern: emailPattern })} /> */}
-          {/* {errors.email && ErrorMessage(errors.email)}
-        </label> */}
-
-        <input type="submit" />
-      </form>
-    </>
+      <input type="submit" />
+    </form>
   )
 }
