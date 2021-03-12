@@ -4,19 +4,21 @@ import * as React from 'react'
 import styles from './Switch.module.scss'
 import Icon from '@/components/atoms/Icon'
 
-export type Props = {
+export type SelectProps = {
   size: Sizes,
   isDisabled?: boolean,
   isChecked?: boolean,
+  isDefaultChecked?: boolean,
   isError?: boolean,
   label?: string,
   className?: string
 }
 
-const Switch: React.FC<Props> = ({
+const Switch: React.FC<SelectProps> = ({
   size = 'md',
   isDisabled = false,
   isChecked = false,
+  isDefaultChecked = false,
   isError = false,
   label = '',
   className = '',
@@ -36,7 +38,8 @@ const Switch: React.FC<Props> = ({
     >
       <input
         type="checkbox"
-        defaultChecked={isChecked}
+        defaultChecked={isDefaultChecked}
+        checked={isChecked}
         disabled={isDisabled}
       />
       <span className={styles.slider}/>
