@@ -1,12 +1,14 @@
 import React from 'react'
 
-import styles from './Disclosure.styles.scss'
+// Components
+import Icon from '@/components/atoms/Icon'
 
-import Icon from  '@/components/atoms/Icon'
+// Styles
+import styles from './Disclosure.styles.scss'
 
 export type DisclosureProps = {
   summary: string,
-  body: string,
+  body: string
 }
 
 const Disclosure: React.FC<DisclosureProps> = ({
@@ -15,11 +17,11 @@ const Disclosure: React.FC<DisclosureProps> = ({
 }) => (
   <details className={styles.details}>
     <summary>
-      <Icon name="plus"/>
+      <Icon name="plus" />
       <Icon name="minus" />
       <div>
         <h5>{summary}</h5>
-        <Icon name="chevron" size={18}/>
+        <Icon name="chevron" size={24} />
       </div>
     </summary>
     <p>{body}</p>

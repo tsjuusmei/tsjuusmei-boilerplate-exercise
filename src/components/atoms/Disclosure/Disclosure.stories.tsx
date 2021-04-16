@@ -1,9 +1,8 @@
 import React from 'react'
-
 import Disclosure, { DisclosureProps } from '.'
 
 export default {
-  title: 'Components / Molecules / Disclosure',
+  title: 'Components / Atoms / Disclosure',
   component: Disclosure
 }
 
