@@ -30,7 +30,7 @@ const Chevron: React.FC<Props> = ({
     <path
       d="M14 5L8 11L2 5"
       stroke={color}
-      strokeWidth={3}
+      strokeWidth={2}
     />
   </svg>
 )
