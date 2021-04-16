@@ -9,13 +9,13 @@ import styles from './Disclosure.styles.scss'
 export type DisclosureProps = {
   summary: string,
   body: string,
-  hasIcon: boolean
+  hasIcon?: boolean
 }
 
 const Disclosure: React.FC<DisclosureProps> = ({
   summary,
   body,
-  hasIcon
+  hasIcon = false,
 }) => (
   <details className={styles.details}>
     <summary>
@@ -30,7 +30,7 @@ const Disclosure: React.FC<DisclosureProps> = ({
         <Icon name="chevron" size={24} />
       </h5>
     </summary>
-    <p>{body}</p>
+    <p className={`${hasIcon ? 'has-icon' : ''}`}>{body}</p>
   </details>
 )
 
