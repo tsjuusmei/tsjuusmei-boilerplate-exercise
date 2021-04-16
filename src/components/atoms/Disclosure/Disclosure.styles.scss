@@ -24,10 +24,7 @@ details {
       background-color: var(--color-200);
     }
 
-    &::-webkit-details-marker {
-      display: none;
-    }
-
+    &::-webkit-details-marker,
     &::marker {
       display: none;
     }
