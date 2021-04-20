@@ -1,8 +1,5 @@
 import React from 'react'
 
-// Styling
-import './col.module.scss'
-
 type Props = {
   span: number,
   start?: number,

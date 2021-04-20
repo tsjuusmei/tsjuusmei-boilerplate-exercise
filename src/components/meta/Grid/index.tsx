@@ -3,7 +3,7 @@ import React from 'react'
 import Col from './Col/'
 
 // Styling
-import './grid.module.scss'
+// import './grid.module.scss'
 
 export type GridProps = {
   cols?: number,
