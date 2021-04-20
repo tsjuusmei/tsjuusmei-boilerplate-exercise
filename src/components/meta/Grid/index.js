@@ -24,11 +24,6 @@ const Grid = ({
   size = 'lg',
   ...props
 }) => {
-  const classNames = [
-    ...(container ? [`container-${size}`] : []),
-    styles.grid
-  ].join(' ')
-
   const properties = {
     'data-grid': true,
     ...(container ? [`data-container-${size}`] : []),

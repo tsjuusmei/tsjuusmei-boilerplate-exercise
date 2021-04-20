@@ -2,13 +2,8 @@ div[class^='container'] {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  padding-right: 48px;
-  padding-left: 48px;
-
-  @media screen and (max-width: $bp-desktop-sm) {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
+  padding-right: 32px;
+  padding-left: 32px;
 
   @media screen and (max-width: $bp-tablet-md) {
     padding-right: 24px;
@@ -16,8 +11,8 @@ div[class^='container'] {
   }
 
   @media screen and (max-width: $bp-mobile-lg) {
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -27,8 +22,8 @@ div[class^='container'] {
 }
 
 .container-lg,
-[data-container-lg] {
-  max-width: 1304px;
+[data-container-size='lg'] {
+  max-width: 1440px;
 }
 
 .container-md,

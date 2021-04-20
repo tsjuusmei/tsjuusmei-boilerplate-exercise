@@ -133,7 +133,7 @@ export const BlogPost = () => (
     </Cell>
     <Cell span={1}>
       <aside>
-        <p>I'm an aside — Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, voluptatum!</p>
+        <p>I am an aside — Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, voluptatum!</p>
       </aside>
     </Cell>
     <Cell span={2}>

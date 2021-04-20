@@ -1,0 +1,17 @@
+[data-col] {
+  max-width: 100%;
+}
+
+@for $i from 1 through 12 {
+  [data-span="#{$i}"] {
+    grid-column: span #{$i} / span #{$i};
+  }
+
+  [data-start="#{$i}"] {
+    grid-column-start: #{$i};
+  }
+
+  [data-end="#{$i}"] {
+    grid-column-end: #{$i};
+  }
+}
