@@ -25,9 +25,14 @@ const Col = React.forwardRef<HTMLDivElement, Props>((
   const properties = {
     'data-col': true,
     ...(span ? { 'data-span': span } : {}),
-    ...(start ? { 'data-start': start } : {}),
-    ...(end ? { 'data-end': end } : {}),
+    ...(end ? { 'data-end': true } : {}),
   }
+
+  const style = {
+    ...(span ? { '--span': span } : {}),
+    ...(start ? { '--start': start } : {}),
+    ...(end ? { '--end': end } : {}),
+  } as React.CSSProperties
 
   return (
     <div
@@ -35,6 +40,7 @@ const Col = React.forwardRef<HTMLDivElement, Props>((
       {...properties}
       className={`${className || ''}`}
       {...props}
+      style={style}
     >
       {children}
     </div>
