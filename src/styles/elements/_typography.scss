@@ -31,6 +31,18 @@ h6,
 p {
   @extend %paragraph;
 
+  &.streamer {
+    @include streamer;
+  }
+
+  &.quote-lg {
+    @include quote-lg;
+  }
+
+  &.quote-md {
+    @include quote-md;
+  }
+
   &.body-lg {
     @include body-lg;
   }
@@ -44,12 +56,32 @@ p {
   }
 }
 
+.textlink-lg {
+  @include textlink-lg;
+}
+
+.textlink-md {
+  @include textlink-md;
+}
+
+.textlink-sm {
+  @include textlink-sm;
+}
+
 .caption {
   @include caption;
 }
 
 .eyebrow {
   @include eyebrow;
+}
+
+.footerlink-md {
+  @include footerlink-md;
+}
+
+.footerlink-sm {
+  @include footerlink-sm;
 }
 
 .button-sm {

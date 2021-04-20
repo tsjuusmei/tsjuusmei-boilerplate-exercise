@@ -2,18 +2,19 @@ const path = require('path')
 
 const importedFiles = [
   path.resolve(__dirname, '../src/styles/config/_media-queries.scss'),
+  path.resolve(__dirname, '../src/styles/config/_fonts.scss'),
 ]
 
 module.exports = {
   stories: [
     '../src/components/**/*.stories.js',
-    '../stories/**/*.stories.js'
+    '../stories/**/*.stories.js',
+    '../src/components/**/*.stories.tsx',
+    '../stories/**/*.stories.tsx'
   ],
   addons: [
-    '@storybook/addon-actions',
-    '@storybook/addon-backgrounds',
-    '@storybook/addon-viewport',
-    '@storybook/addon-a11y'
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
@@ -81,6 +82,9 @@ module.exports = {
       '@/utils': path.resolve(__dirname, '../src/helpers/utils'),
       '@/data': path.resolve(__dirname, '../src/data')
     }
+
+    // Reverts Next Images to regular images
+    config.resolve.alias['next/image'] = require.resolve('../__mocks__/Image/index.tsx')
 
     // Return the altered config
     return config

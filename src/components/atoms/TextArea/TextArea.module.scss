@@ -1,50 +1,68 @@
-.text-area {
+.textarea {
   display: flex;
   flex-direction: column;
   contain: layout;
+  position: relative;
 
   label {
     margin-bottom: 6px;
     display: inline-flex;
     align-items: center;
-    color: var(--black);
+    color: var(--black-000);
 
     svg {
       margin-left: 8px;
+      position: absolute;
+      right: 17px;
+      top: 40px;
     }
 
     span {
-      color: var(--black);
+      color: var(--black-000);
       margin-left: 12px;
     }
   }
 }
 
-.text-area-element {
-  color: var(--black);
-  background: var(--white);
-  border: 1px solid var(--black);
+.element {
+  color: var(--color3-900);
+  background: var(--white-000);
+  border: 2px solid var(--color3-300);
   outline: none;
   transition: border-color var(--fast-transition) var(--ease);
-  resize: vertical;
-  min-height: 128px;
+  resize: none;
+  min-height: 120px;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
 
   &::placeholder {
-    color: grey;
+    color: var(--color3-400);
   }
 
   &:hover {
-    border-color: var(--black);
+    border-color: var(--color3-400);
   }
 
   &:focus {
-    border: 1px solid var(--black);
-    caret-color: var(--black);
+    border: 2px solid var(--color-500);
+    caret-color: var(--color3-900);
   }
 
   &:disabled {
-    opacity: .5;
     cursor: not-allowed;
+    background: var(--color3-100);
+    border: 2px solid var(--color3-200);
+    color: var(--color3-300);
+
+    &::placeholder {
+      color: var(--color3-250);
+    }
+
+    &.error {
+      background-color: var(--error-100);
+      border: 2px solid var(--error-300);
+    }
   }
 
   &.error {
@@ -52,26 +70,26 @@
   }
 
   &.lg {
-    font-size: 19px;
-    line-height: 24px;
-    padding: 12px 16px;
+    font-size: 18px;
+    line-height: 20px;
+    min-width: 320px;
 
     @media screen and (max-width: $bp-mobile-lg) {
       font-size: 17px;
       line-height: 22px;
-      padding: 8px 12px;
     }
   }
 
   &.md {
     font-size: 16px;
-    line-height: 24px;
-    padding: 12px 16px;
+    line-height: 20px;
+    min-width: 280px;
   }
 
   &.sm {
-    font-size: 16px;
-    line-height: 16px;
-    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 18px;
+    min-height: 100px;
+    min-width: 240px;
   }
 }

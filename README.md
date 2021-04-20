@@ -1,15 +1,19 @@
-![Meta image](./public/img/misc/cover.jpg)
+[![Meta image](./public/img/misc/cover.png)](https://chl.yummygum.dev/storybook/)
 
-# Next.js boilerplate
+# Chicle — Next.js boilerplate
 
 This is Yummygum's [Next.js](https://www.nextjs.org) boilerplate. Next.js is a framework for React that will make React apps very fast. It contains Pre-Rendering, Static Exporting and much more features. Have a quick look on [the features list](https://nextjs.org/#features) to have an better overview.
 
 This boilerplate makes it easier to get up and running for every new project.
 
+[🔗 Storybook](https://chl.yummygum.dev/storybook/)
+
+[🔗 Website](https://chl.yummygum.dev/)
+
 ## Codebase
 
 ### Technologies
-We use [Next](https://www.nextjs.org/) (v9.5), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation, without all the noise.
+We use [Next](https://www.nextjs.org/) (v10.0.1), in combination with [React](https://reactjs.org/) for the frontend. The styling is a mix of Sass Modules & 'regular' SCSS. To make sure our components are pixel-perfect, we use [Storybook](https://storybook.js.org/) to present different variations and check them in isolation without all the noise.
 
 ### Folder structure
 ```sh
@@ -35,7 +39,7 @@ We've used linters for both JavaScript and (S)CSS, to make sure we write code in
 - Add during development
 
 ### Components
-Refer to [default components list]("/src/components/README.md").
+Refer to [default components list](/src/components/README.md).
 
 ### Requirements
 This project recommends a Node version of `12.16.0` or higher.
@@ -43,6 +47,13 @@ This project recommends a Node version of `12.16.0` or higher.
 ## Setup
 Install the packages.
 ```sh
+#install or update nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+#use needed nvm version for this project
+nvm use
+
 npm i
 # or...
 yarn
@@ -91,6 +102,9 @@ npm run new-component organisms Nav
 ### Assets
 All assets are added to the `public` folder. In here you'll see different subfolders based on the file type. Assets won't get compressed when building, so make sure you've compressed them before adding.
 
+#### Next Image Component
+Images use the Next [Image Component](https://nextjs.org/docs/api-reference/next/image) featured since version `10.0.0`. The Next.js Image Component, `next/image`, is an extension of the HTML `<img>` element, evolved for the modern web.
+
 #### SVGs
 SVGs are a bit more complicated compared to other media types, because of the `Icon` component. It can be a bit confusing when a SVG should be added to the `public` folder and when it should be added as a component in atoms. This is how we decided whether it should be a component or a 'regular asset':
 
@@ -108,22 +122,69 @@ The configuration of Storybook is done in the `.storybook` folder. It includes m
 
 Miscellaneous Storybook files that aren't components, but still need to be available can be found in the `stories` folder.
 
+Since Next.js version `10.0.0`, Next.js has a built-in [Image Component](https://nextjs.org/docs/api-reference/next/image) and Automatic Image Optimization. Storybook won't accept this image, so we implemented a mock for this in `__mocks__/Image/index.js`.
+
 ## Usage
 
 ### Aliases
-There are [Webpack](https://webpack.js.org/) aliases that allow for easy imports. In JavaScript files you can import any component, without having to think about relative paths.
+There are [Webpack](https://webpack.js.org/) aliases that allow for easy imports. In JavaScript files you can import any component or helper, without having to think about relative paths.
 ```
 import Button from '@/components/atoms/Button'
 ```
 
-But you can also import styles or utility functions without having to worry about the folder you're currently in.
+But you can also import styles, utility functions or data without having to worry about the folder you're currently in.
 
 ```sh
+# Import data
+import { content } from '@/data/nav.json'
+
 # Import function
 import useWindowSize from '@/hooks/useWindowSize'
 ```
 
 When you add or edit these aliases, make sure that you'll edit the aliases in these files; `jsconfig.json` and `.storybook/main.js`.
+
+### Convert-SVG
+
+This script uses [SVGR](https://react-svgr.com/) to convert the svg to a react component. As the boilerplate uses Typescript, the output file will be a `.tsx`.
+
+#### Options
+SVGR has quite a few options to be added/tweaked. You can find the documentation and additional options [here](https://react-svgr.com/docs/options/).The current features that are used are:
+* Use the plugins `@svgr/plugin-svgo`, `@svgr/plugin-jsx`, `@svgr/plugin-prettier` to format the output file.
+* `svgProps` to pass a list of props inside of the SVG element.
+* `typescript: true` to give it typescript specific features.
+* `prettierConfig` is passed so it matches the prettier style of the project
+* a custom `template` is passed
+
+
+#### How to use
+This script can either be used to convert a single svg file or an entire directory. As a best practice, this directory must be **outside** of the project.
+
+```
+yarn convert-svg ../folder-with-svgs
+```
+
+Alternatively you can target a single svg file.
+
+```
+yarn convert-svg ../folder-with-svg/example.svg
+```
+
+This adds the svg as a `.tsx` file to the `src/components/atoms/Icon/Icons` folder. This also updates `Icon/index.tsx` to import the icon and adds it to the `icons` object. Please double check the changes made by the script and commit these changes in a separate commit.
+
+#### Naming
+This script derives the Icon name from SVG filename, which means the file name **has** to follow the following pattern, in order to work correctly. The SVG file name delimiter must be either a space (` `), a dash (`-`), a combination or have none at all:
+```
+folder-with-svg/file example.svg
+folder-with-svg/file-example.svg
+folder-with-svg/file example-dark.svg
+folder-with-svg/example.svg
+```
+
+The script will apply `PascalCase` to the component (file)name, and `kebab-case` for the `name` of the Icon. In the example  above, this will return the file `FileExample.tsx` which can be used as `<Icon name="file-example" />`
+
+#### Template
+The output file is based on a custom template, defined at the end of the script. The custom template can be adjusted to fit your project's specific needs. Simply edit the return value of the `customTemplate` function at the end of the script. You can find more info regarding custom templates [here](https://react-svgr.com/docs/custom-templates/).
 
 ### Commit
 To stay consistent with our commits, we've added `git-cz` to the project. When committing, a CLI script will run with the settings based on `changelog.config.js`.

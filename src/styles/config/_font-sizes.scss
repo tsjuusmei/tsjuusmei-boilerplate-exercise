@@ -1,7 +1,42 @@
+@import '../functions/all';
+
+// Design width
+$design-size: 375;
+$design-size-tablet: 768;
+$design-size-desktop: 1440;
+
+// Heading sizes mobile
+$heading-sizes:
+  30,
+  24,
+  22,
+  20,
+  18,
+  17;
+
+// Heading sizes tablet
+$heading-sizes-tablet:
+  40,
+  32,
+  28,
+  20,
+  18,
+  17;
+
+// Heading sizes desktop-xs
+$heading-sizes-desktop-xs:
+  48,
+  36,
+  28,
+  22,
+  18,
+  17;
+
+// Heading sizes desktop defined at media breakpoint
 :root {
+  // Define font
   --font-stack-base:
-    'Basier Circle',
-    -apple-system,
+    'SF Pro Display',
     'BlinkMacSystemFont',
     'Helvetica',
     'Lato',
@@ -10,96 +45,308 @@
     'Verdana',
     sans-serif;
 
-  // Headings
-  --heading-1-size: 60px;
-  --heading-1-line-height: 72px;
-  --heading-1-letter-spacing: 0;
+  // Define heading size mobile
+  @each $size in $heading-sizes {
+    $i: index($heading-sizes, $size);
+
+    --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
+  }
+
+  --heading-1-font-family: 'IBM Plex Mono';
+  --heading-3-font-family: 'IBM Plex Mono';
+
+  // Mobile
+  // h1
+  --heading-1-line-height: '1.2';
+  --heading-1-letter-spacing: -.02em;
 
   // h2
-  --heading-2-size: 44px;
-  --heading-2-line-height: 56px;
-  --heading-2-letter-spacing: 0;
+  --heading-2-line-height: '1.166';
+  --heading-2-letter-spacing: -.02em;
 
   // h3
-  --heading-3-size: 36px;
-  --heading-3-line-height: 44px;
-  --heading-3-letter-spacing: 0;
+  --heading-3-line-height: '1.272';
+  --heading-3-letter-spacing: -.01em;
 
   // h4
-  --heading-4-size: 28px;
-  --heading-4-line-height: 32px;
-  --heading-4-letter-spacing: 0;
+  --heading-4-line-height: '1.4';
+  --heading-4-letter-spacing: -.01em;
 
   // h5
-  --heading-5-size: 20px;
-  --heading-5-line-height: 28px;
-  --heading-5-letter-spacing: 0;
+  --heading-5-line-height: '1.333';
+  --heading-5-letter-spacing: -.01em;
 
   // h6
-  --heading-6-size: 16px;
-  --heading-6-line-height: 24px;
-  --heading-6-letter-spacing: 0;
+  --heading-6-line-height: '1.411';
+  --heading-6-letter-spacing: -.01em;
 
-  // body
-  --body-lg-size: 20px;
-  --body-lg-line-height: 28px;
-  --body-lg-letter-spacing: 0;
+  // body-lg
+  --body-lg-size: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-lg-line-height: '1.555';
 
   // body-md
-  --body-md-size: 16px;
-  --body-md-line-height: 24px;
-  --body-md-letter-spacing: 0;
+  --body-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-md-line-height: '1.555';
 
   // body-sm
-  --body-sm-size: 14px;
-  --body-sm-line-height: 20px;
-  --body-sm-letter-spacing: 0;
+  --body-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
+  --body-sm-line-height: '1.41';
+
+  // streamer
+  --streamer-size: calc(((20 / #{$design-size}) * 100) * 1vw);
+  --streamer-line-height: '1.3';
+  --streamer-letter-spacing: 0;
+
+  // quote lg
+  --quote-lg-size: calc(((24 / #{$design-size}) * 100) * 1vw);
+  --quote-lg-line-height: '1.166';
+  --quote-lg-letter-spacing: 0;
+
+  // quote md
+  --quote-md-size: calc(((20 / #{$design-size}) * 100) * 1vw);
+  --quote-md-line-height: '1.2';
+  --quote-md-letter-spacing: 0;
+
+  // textlink-lg
+  --textlink-lg-size: calc(((20 / #{$design-size}) * 100) * 1vw);
+  --textlink-lg-line-height: '1.4';
+  --textlink-lg-letter-spacing: -.02em;
+
+  // textlink-md
+  --textlink-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --textlink-md-line-height: '1.555';
+  --textlink-md-letter-spacing: -.02em;
+
+  // textlink-sm
+  --textlink-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
+  --textlink-sm-line-height: '1.411';
+  --textlink-sm-letter-spacing: -.02em;
 
   // caption
-  --caption-size: 14px;
-  --caption-line-height: 20px;
+  --caption-size: calc(((10 / #{$design-size}) * 100) * 1vw);
+  --caption-line-height: '1.2';
 
   // eyebrow
-  --eyebrow-size: 12px;
-  --eyebrow-line-height: 16px;
-}
+  --eyebrow-size: calc(((10 / #{$design-size}) * 100) * 1vw);
+  --eyebrow-line-height: '1.2';
+  --eyebrow-letter-spacing: .1em;
 
-@media screen and (max-width: $bp-tablet-md) {
-  :root {
-    // h1
-    --heading-1-size: 44px;
-    --heading-1-line-height: 56px;
-  }
-}
+  // footerlink-md
+  --footerlink-md-size: calc(((16 / #{$design-size}) * 100) * 1vw);
+  --footerlink-md-line-height: '1';
+  --footerlink-md-letter-spacing: 0;
 
-@media screen and (max-width: $bp-tablet-sm) {
-  :root {
+  // footerlink-sm
+  --footerlink-sm-size: calc(((12 / #{$design-size}) * 100) * 1vw);
+  --footerlink-sm-line-height: '1';
+  --footerlink-sm-letter-spacing: 0;
+
+  @media screen and (min-width: $bp-tablet-md) {
+    // Define heading size tablet-md
+    @each $size in $heading-sizes-tablet {
+      $i: index($heading-sizes-tablet, $size);
+
+      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
+    }
+
     // h1
-    --heading-1-size: 36px;
-    --heading-1-line-height: 44px;
-    --heading-1-letter-spacing: 0;
+    --heading-1-line-height: '1.025';
+    --heading-1-letter-spacing: -.01em;
+
     // h2
-    --heading-2-size: 32px;
-    --heading-2-line-height: 38px;
-    --heading-2-letter-spacing: 0;
+    --heading-2-line-height: '1.125';
+    --heading-2-letter-spacing: -.01em;
+
     // h3
-    --heading-3-size: 28px;
-    --heading-3-line-height: 33px;
-    --heading-3-letter-spacing: 0;
+    --heading-3-line-height: '1.285';
+    --heading-3-letter-spacing: -.01em;
+
+    // body-lg
+    --body-lg-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // body-md
+    --body-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // body-sm
+    --body-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // streamer
+    --streamer-size: calc(((22 / #{$design-size-tablet}) * 100) * 1vw);
+    --streamer-line-height: '1.363';
+
+    // quote lg
+    --quote-lg-size: calc(((24 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // quote md
+    --quote-md-size: calc(((20 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // textlink-lg
+    --textlink-lg-size: calc(((20 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // textlink-md
+    --textlink-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // textlink-sm
+    --textlink-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // caption
+    --caption-size: calc(((10 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // eyebrow
+    --eyebrow-size: calc(((10 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // footerlink-md
+    --footerlink-md-size: calc(((16 / #{$design-size-tablet}) * 100) * 1vw);
+
+    // footerlink-sm
+    --footerlink-sm-size: calc(((12 / #{$design-size-tablet}) * 100) * 1vw);
+  }
+
+  // Desktop-xs
+  @media screen and (min-width: $bp-desktop-xs) {
+    // Define heading size desktop-xs
+    @each $size in $heading-sizes-desktop-xs {
+      $i: index($heading-sizes-desktop-xs, $size);
+
+      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+    }
+
+    // h1
+    --heading-1-line-height: '1.25';
+    --heading-1-letter-spacing: -.02em;
+
+    // h2
+    --heading-2-line-height: '1.333';
+    --heading-2-letter-spacing: -.01em;
+
     // h4
-    --heading-4-size: 22px;
-    --heading-4-line-height: 30px;
-    --heading-4-letter-spacing: 0;
+    --heading-4-line-height: '1.272';
+    --heading-4-letter-spacing: -.01em;
+
+    // body-lg
+    --body-lg-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // body-md
+    --body-md-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // body-sm
+    --body-sm-size: calc(((17 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // streamer
+    --streamer-size: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
+    --streamer-line-height: '1.25';
+
+    // quote lg
+    --quote-lg-size: calc(((36 / #{$design-size-desktop}) * 100) * 1vw);
+    --quote-lg-line-height: '1.111';
+
+    // quote md
+    --quote-md-size: calc(((28 / #{$design-size-desktop}) * 100) * 1vw);
+    --quote-md-line-height: '1.285';
+
+    // textlink-lg
+    --textlink-lg-size: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // textlink-md
+    --textlink-md-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // textlink-sm
+    --textlink-sm-size: calc(((17 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // caption
+    --caption-size: calc(((10 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // eyebrow
+    --eyebrow-size: calc(((10 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // footerlink-md
+    --footerlink-md-size: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
+
+    // footerlink-sm
+    --footerlink-sm-size: calc(((12 / #{$design-size-desktop}) * 100) * 1vw);
+  }
+
+  // Desktop
+  @media screen and (min-width: $bp-desktop-lg) {
+    // h1
+    --heading-1-size: 52px;
+    --heading-1-line-height: '1.25';
+    --heading-1-letter-spacing: -.02em;
+
+    // h2
+    --heading-2-size: 40px;
+    --heading-2-line-height: '1.333';
+    --heading-2-letter-spacing: -.01em;
+
+    // h3
+    --heading-3-size: 32px;
+    --heading-3-line-height: '1.375';
+    --heading-4-letter-spacing: -.01em;
+
+    // h4
+    --heading-4-size: 24px;
+    --heading-4-line-height: '1.272';
+    --heading-4-letter-spacing: -.01em;
+
     // h5
-    --heading-5-size: 18px;
-    --heading-5-line-height: 22px;
-    --heading-5-letter-spacing: 0;
+    --heading-5-size: 16px;
+    --heading-5-line-height: '1.5';
+    --heading-5-letter-spacing: -.01em;
+
     // h6
-    --heading-6-size: 16;
-    --heading-6-line-height: 18px;
-    --heading-6-letter-spacing: 0;
-    // body
-    --body-lg-size: 18px;
-    --body-lg-line-height: 28px;
+    --heading-6-size: 14px;
+    --heading-5-line-height: '1.5';
+    --heading-5-letter-spacing: 0;
+
+    // body-lg
+    --body-lg-size: 20px;
+    --body-lg-line-height: '1.4';
+
+    // body-md
+    --body-md-size: 16px;
+    --body-md-line-height: '1.5';
+
+    // body-sm
+    --body-sm-size: 14px;
+    --body-sm-line-height: '1.714';
+
+    // streamer
+    --streamer-size: 26px;
+    --streamer-line-height: '1.23';
+
+    // quote lg
+    --quote-lg-size: 40px;
+    --quote-lg-line-height: '1.1';
+
+    // quote md
+    --quote-md-size: 32px;
+    --quote-md-line-height: '1.25';
+
+    // textlink-lg
+    --textlink-lg-size: 20px;
+    --textlink-lg-line-height: '1.4';
+    --textlink-lg-letter-spacing: -.02em;
+
+    // textlink-md
+    --textlink-md-size: 16px;
+    --textlink-md-line-height: '1.5';
+    --textlink-md-letter-spacing: -.02em;
+
+    // textlink-sm
+    --textlink-sm-size: 14px;
+    --textlink-sm-line-height: '1.714';
+    --textlink-sm-letter-spacing: -.02em;
+
+    // caption
+    --caption-size: 10px;
+
+    // eyebrow
+    --eyebrow-size: 10px;
+
+    // footerlink-md
+    --footerlink-md-size: 16px;
+
+    // footerlink-sm
+    --footerlink-sm-size: 12px;
   }
 }
