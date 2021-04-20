@@ -2,9 +2,6 @@ import React from 'react'
 
 import Col from './Col/'
 
-// Styling
-// import './grid.module.scss'
-
 export type GridProps = {
   cols?: number,
   className?: string,
@@ -27,20 +24,18 @@ const Grid: React.FC<GridProps> = ({
     'data-container-size': size,
     ...(cols ? { 'data-cols': cols } : {}),
     ...(align ? { 'data-align': true } : {}),
-    ...(gap ? { 'data-gap': gap } : {})
+    ...(gap ? { 'data-gap': gap } : {}),
+    style: {
+      ...(gap ? { '--gap': gap } : {}),
+      ...(align ? { '--align': align } : {}),
+    } as React.CSSProperties
   }
-
-  const style = {
-    ...(gap ? { '--gap': gap } : {}),
-    ...(align ? { '--align': align } : {}),
-  } as React.CSSProperties
 
   return (
     <div
       {...properties}
       className={`${className || ''}`}
       {...props}
-      style={style}
     >
       {children}
     </div>
