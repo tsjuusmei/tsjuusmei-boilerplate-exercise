@@ -48,7 +48,7 @@ const TextArea: React.FC<Props> = ({
         </label>
       )}
 
-      <textArea
+      <TextArea
         className={`
           ${styles.element}
           ${styles[size]}
