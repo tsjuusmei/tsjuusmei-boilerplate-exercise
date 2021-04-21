@@ -22,7 +22,7 @@ type Props = {
   isOptional?: boolean
 }
 
-const Textarea: React.FC<Props> = ({
+const TextArea: React.FC<Props> = ({
   id,
   label,
   size = 'md',
@@ -67,4 +67,4 @@ const Textarea: React.FC<Props> = ({
   )
 }
 
-export default Textarea
+export default TextArea
