@@ -1,10 +1,13 @@
 import * as React from 'react'
 import { NextPage } from 'next'
 
+// Components
+import Grid, { Col } from '@/components/meta/Grid'
+
 const Homepage: NextPage = () => (
   <main className="home">
-    <div className="grid">
-      <div className="container-sm">
+    <Grid cols={12} size="sm">
+      <Col span={12}>
         <h1>h1: The face of the moon was in shadow.</h1>
         <h2>h2: The face of the moon was in shadow.</h2>
         <h3>h3: The face of the moon was in shadow.</h3>
@@ -24,8 +27,8 @@ const Homepage: NextPage = () => (
         <p className="eyebrow">Eyebrow: The face of the moon was in shadow.</p>
         <a className="footerlink-md" href="/" >Footerlink MD: The face of the moon was in shadow.</a><br/>
         <a className="footerlink-sm" href="/" >Footerlink SM: The face of the moon was in shadow.</a><br/>
-      </div>
-    </div>
+      </Col>
+    </Grid>
   </main>
 )
 
