@@ -25,7 +25,7 @@ export type TextAreaProps = {
 const TextArea: React.FC<TextAreaProps> = ({
   id,
   label,
-  name ='',
+  name,
   size = 'md',
   placeholder = 'placeholder',
   isDisabled,

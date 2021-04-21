@@ -30,7 +30,8 @@ const Input: React.FC<InputProps> = ({
   id,
   label,
   size = 'md',
-  placeholder = 'Placeholder',
+  name,
+  placeholder,
   isDisabled,
   hasError,
   type = 'text',
@@ -60,8 +61,9 @@ const Input: React.FC<InputProps> = ({
         className={`
           ${styles['input-element']}
           ${styles[size]}
-          ${hasError ? styles.error : null}
+          ${hasError ? styles.error : ''}
         `}
+        name={name}
         onChange={onChange}
         type={type}
         id={id}

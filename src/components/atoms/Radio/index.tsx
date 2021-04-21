@@ -18,7 +18,7 @@ export type RadioProps = {
 }
 
 const Radio: React.FC<RadioProps> = ({
-  name = '',
+  name,
   label = 'label',
   size = 'md',
   isDisabled,
