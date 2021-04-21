@@ -10,9 +10,13 @@ export default {
         type: 'select',
         options: ['xsm', 'sm', 'md', 'lg', 'xlg', 'xxlg', 'xxxlg']
       }
-    },
-    className: { control: { disable: true } }
+    }
   }
 }
 
 export const Default = (args: AvatarProps) => <Avatar {...args} />
+
+Default.args = {
+  src: 'https://source.unsplash.com/random/800x600',
+  alt: 'Alternative text'
+}

@@ -12,10 +12,10 @@ export type AvatarProps = {
 }
 
 const Avatar: React.FC<AvatarProps> = ({
-  src = 'https://source.unsplash.com/random/800x600',
-  alt = '',
+  src,
+  alt,
   size = 'md',
-  className = '',
+  className,
   ...props
 }) => (
   <div className={`${styles.avatar} ${styles[size]} ${className}`} {...props}>
