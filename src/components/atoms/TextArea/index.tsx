@@ -6,8 +6,9 @@ import Icon from '@/components/atoms/Icon'
 // Styles
 import styles from  './TextArea.module.scss'
 
-type Props = {
+export type TextAreaProps = {
   id?: string,
+  name: string,
   label?: string,
   isError?: boolean,
   size?: Sizes,
@@ -15,18 +16,18 @@ type Props = {
   spellCheck?: boolean,
   autoComplete?: string,
   isDisabled?: boolean,
-  name: string,
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
   onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLTextAreaElement>) => void,
   isOptional?: boolean
 }
 
-const TextArea: React.FC<Props> = ({
+const TextArea: React.FC<TextAreaProps> = ({
   id,
   label,
+  name ='',
   size = 'md',
-  placeholder,
+  placeholder = 'placeholder',
   isDisabled,
   isError,
   isOptional,
@@ -54,6 +55,7 @@ const TextArea: React.FC<Props> = ({
           ${styles[size]}
           ${isError ? styles.error : null}
         `}
+        name={name}
         onChange={onChange}
         id={id}
         placeholder={placeholder}
