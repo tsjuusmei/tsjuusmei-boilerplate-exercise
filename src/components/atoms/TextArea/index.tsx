@@ -1,9 +1,10 @@
 import * as React from 'react'
 
-// Styles
-import styles from  './TextArea.module.scss'
 //Components
 import Icon from '@/components/atoms/Icon'
+
+// Styles
+import styles from  './TextArea.module.scss'
 
 type Props = {
   id?: string,
@@ -21,7 +22,7 @@ type Props = {
   isOptional?: boolean
 }
 
-const Textarea: React.FC<Props> = ({
+const TextArea: React.FC<Props> = ({
   id,
   label,
   size = 'md',
@@ -66,4 +67,4 @@ const Textarea: React.FC<Props> = ({
   )
 }
 
-export default Textarea
+export default TextArea

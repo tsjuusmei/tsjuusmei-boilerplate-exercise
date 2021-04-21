@@ -1,5 +1,5 @@
 import React from 'react'
-import Textarea from '.'
+import TextArea from '.'
 
 const sizes = {
   sm: 'Small',
@@ -8,30 +8,30 @@ const sizes = {
 }
 
 export default {
-  title: 'Components / Atoms / Textarea',
-  component: Textarea
+  title: 'Components / Atoms / TextArea',
+  component: TextArea
 }
 
 export const Default = () => (
   <div className="input-wrapper">
     {Object.entries(sizes).map(([key], idx) => (
-      <Textarea
+      <TextArea
         name={`textarea-${key}`}
         key={idx}
         size={key as Sizes}
         placeholder="Doe is"
-        label="Textarea field with label"
+        label="TextArea field with label"
       />
     ))}
 
-    <Textarea
+    <TextArea
       name="disabled"
       placeholder="Doe is"
-      label="Textarea field with label"
+      label="TextArea field with label"
       isDisabled
     />
 
-    <Textarea
+    <TextArea
       name="error"
       placeholder="Doe is"
       label="Input field with label"
