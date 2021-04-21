@@ -1,11 +1,11 @@
 import React from 'react'
 
 // Components
-import Button, { Props } from '@/components/atoms/Button'
+import Button, { ButtonProps } from '@/components/atoms/Button'
 
 // Types
 export type GroupProps = {
-  data: Props[],
+  data: ButtonProps[],
   direction: 'horizontal' | 'vertical'
 }
 
@@ -21,7 +21,7 @@ const ButtonGroup: React.FC<GroupProps> = ({
       ${styles['button-group']}
       ${styles[direction]}
   `}>
-    {data.map((buttonItem: Props, idx: number) => (
+    {data.map((buttonItem: ButtonProps, idx: number) => (
       <Button
         className={`
           ${styles[`button-${idx}`]}
