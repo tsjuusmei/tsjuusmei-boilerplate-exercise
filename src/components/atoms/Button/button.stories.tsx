@@ -1,6 +1,7 @@
 import * as React from 'react'
-import Button, { ButtonProps } from '.'
+import Button, { Props } from '.'
 
+const sizeOptions = ['sm', 'md', 'lg']
 const sizeDefault = 'md'
 
 export default {
@@ -10,13 +11,13 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg']
+        options: sizeOptions
       }
     }
   }
 }
 
-export const Primary = (args: ButtonProps) => (
+export const Primary = (args: Props) => (
   <Button
     label="Primary Button"
     {...args}
@@ -30,7 +31,7 @@ Primary.args = {
   size: sizeDefault
 }
 
-export const Secondary = (args: ButtonProps) => (
+export const Secondary = (args: Props) => (
   <Button
     label="Secondary Button"
     {...args}
@@ -44,7 +45,7 @@ Secondary.args = {
   size: sizeDefault
 }
 
-export const Tertiary = (args: ButtonProps) => (
+export const Tertiary = (args: Props) => (
   <Button
     label="Tertiary Button"
     {...args}
@@ -58,7 +59,7 @@ Tertiary.args = {
   size: sizeDefault
 }
 
-export const TextLink = (args: ButtonProps) => (
+export const TextLink = (args: Props) => (
   <Button
     label="Text Link"
     {...args}

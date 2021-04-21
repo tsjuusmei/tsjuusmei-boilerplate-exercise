@@ -4,7 +4,7 @@ import Link from 'next/link'
 // Styles
 import styles from './Button.module.scss'
 
-export type ButtonProps = {
+export type Props = {
   variation: 'primary' | 'secondary' | 'tertiary' | 'text-link',
   size: Sizes,
   label?: string,
@@ -16,7 +16,7 @@ export type ButtonProps = {
   contentClassName?: string
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<Props> = ({
   variation = 'primary',
   size = 'md',
   children,
