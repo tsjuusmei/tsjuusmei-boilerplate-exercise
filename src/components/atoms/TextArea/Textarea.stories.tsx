@@ -8,7 +8,7 @@ const sizes = {
 }
 
 export default {
-  title: 'Components / Atoms / Textarea',
+  title: 'Components / Atoms / TextArea',
   component: TextArea
 }
 
@@ -20,14 +20,14 @@ export const Default = () => (
         key={idx}
         size={key as Sizes}
         placeholder="Doe is"
-        label="Textarea field with label"
+        label="TextArea field with label"
       />
     ))}
 
     <TextArea
       name="disabled"
       placeholder="Doe is"
-      label="Textarea field with label"
+      label="TextArea field with label"
       isDisabled
     />
 
