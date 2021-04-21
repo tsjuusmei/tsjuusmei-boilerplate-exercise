@@ -27,7 +27,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   label,
   name,
   size = 'md',
-  placeholder = 'placeholder',
+  placeholder,
   isDisabled,
   hasError,
   isOptional,
