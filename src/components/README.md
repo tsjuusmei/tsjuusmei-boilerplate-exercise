@@ -17,7 +17,7 @@ Refer to [main README](../../README.md) for usage.
 | Radio          | -                            | ❌              |
 | Select         | -                            | ❌              |
 | Switch         | -                            | ❌              |
-| Textarea       | -                            | ✅              |
+| TextArea       | -                            | ✅              |
 | Version        | -                            | ✅              |
 
 ### Molecules
