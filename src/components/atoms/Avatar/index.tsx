@@ -4,16 +4,16 @@ import Image from 'next/image'
 // Styling
 import styles from './Avatar.module.scss'
 
-export type Props = {
+export type AvatarProps = {
   src: string
-  size?: string,
   alt: string,
+  size?: string,
   className?: string
 }
 
-const Avatar: React.FC<Props> = ({
-  src,
-  alt,
+const Avatar: React.FC<AvatarProps> = ({
+  src = 'https://source.unsplash.com/random/800x600',
+  alt = '',
   size = 'md',
   className = '',
   ...props
