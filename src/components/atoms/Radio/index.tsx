@@ -1,8 +1,13 @@
 import React from 'react'
+
+//Components
 import Icon from '@/components/atoms/Icon'
 
+// Styling
+import styles from './radio.module.scss'
+
 // Types
-type Props = {
+export type RadioProps = {
   name: string,
   label: string,
   size?: Sizes,
@@ -12,12 +17,9 @@ type Props = {
   hasError?: boolean
 }
 
-// Styling
-import styles from './radio.module.scss'
-
-const Radio: React.FC<Props> = ({
-  name,
-  label,
+const Radio: React.FC<RadioProps> = ({
+  name = 'name',
+  label = 'label',
   size = 'md',
   isDisabled,
   hasError,
@@ -44,7 +46,10 @@ const Radio: React.FC<Props> = ({
 
     {label}
     {hasError && (
-      <Icon name="warning" />
+      <Icon
+        name="warning"
+        color="var(--error-500)"
+      />
     )}
   </label>
 )
