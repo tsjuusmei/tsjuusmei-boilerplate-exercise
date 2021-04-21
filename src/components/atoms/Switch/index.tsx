@@ -1,8 +1,10 @@
 import * as React from 'react'
 
+//Components
+import Icon from '@/components/atoms/Icon'
+
 // Styles
 import styles from './Switch.module.scss'
-import Icon from '@/components/atoms/Icon'
 
 export type SwitchProps = {
   size: Sizes,
