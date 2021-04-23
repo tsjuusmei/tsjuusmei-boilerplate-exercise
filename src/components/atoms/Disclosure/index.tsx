@@ -40,7 +40,7 @@ const Disclosure: React.FC<DisclosureProps> = ({
           {summary}
           <Icon
             name="chevron"
-            direction={isOpen ? 'down' : 'up'}
+            direction={isOpen ? 'up' : 'down'}
             size={24}
           />
         </h5>

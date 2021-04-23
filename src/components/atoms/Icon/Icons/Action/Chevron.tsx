@@ -8,7 +8,7 @@ interface Props extends IconProps {
 
 // eslint-disable-next-line no-shadow
 enum iconRotate {
-  up = '-180deg',
+  up = '180deg',
   right = '-90deg',
   down = '0deg',
   left = '90deg'
