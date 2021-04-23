@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Button, { ButtonProps } from '.'
+import Button, { ButtonProps, ButtonSizes } from '.'
 
 export default {
   title: 'Components / Atoms / Button',
@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg']
+        options: ButtonSizes
       }
     }
   }

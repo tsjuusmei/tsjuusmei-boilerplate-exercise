@@ -16,6 +16,12 @@ export type ButtonProps = {
   contentClassName?: string
 }
 
+export enum ButtonSizes {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 const Button: React.FC<ButtonProps> = ({
   variation = 'primary',
   size = 'md',

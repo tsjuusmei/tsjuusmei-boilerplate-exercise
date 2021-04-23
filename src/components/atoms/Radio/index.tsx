@@ -17,6 +17,12 @@ export type RadioProps = {
   hasError?: boolean
 }
 
+export enum RadioSizes {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 const Radio: React.FC<RadioProps> = ({
   name,
   label = 'label',

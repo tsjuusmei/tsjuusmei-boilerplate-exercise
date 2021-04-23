@@ -26,6 +26,12 @@ export type InputProps = {
   isOptional?: boolean
 }
 
+export enum InputSizes {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 const Input: React.FC<InputProps> = ({
   id,
   label,

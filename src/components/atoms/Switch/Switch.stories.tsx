@@ -1,5 +1,5 @@
 import React from 'react'
-import Switch, { SwitchProps } from '.'
+import Switch, { SwitchProps, SwitchSizes } from '.'
 
 export default {
   title: 'Components / Atoms / Switch',
@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg']
+        options: SwitchSizes
       }
     }
   }

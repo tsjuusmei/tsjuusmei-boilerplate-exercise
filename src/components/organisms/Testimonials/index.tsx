@@ -7,7 +7,6 @@ import Slider from 'react-slick'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useVisible } from 'react-hooks-visible'
 
-
 // Components
 import CardTestimonial from '@/components/molecules/CardTestimonial'
 import ImageTestimonial from '@/components/molecules/ImageTestimonial'

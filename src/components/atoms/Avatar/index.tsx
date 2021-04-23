@@ -5,10 +5,20 @@ import Image from 'next/image'
 import styles from './Avatar.module.scss'
 
 export type AvatarProps = {
-  src: string
+  src: string,
   alt: string,
   size?: string,
   className?: string
+}
+
+export enum AvatarSizes {
+  ExtraSmall = 'xsm',
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg',
+  ExtraLarge = 'xlg',
+  ExtraExtraLarge = 'xxlg',
+  ExtraExtraExtraLarge = 'xxxlg'
 }
 
 const Avatar: React.FC<AvatarProps> = ({

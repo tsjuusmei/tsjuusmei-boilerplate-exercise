@@ -1,5 +1,5 @@
 import React from 'react'
-import Radio, { RadioProps } from '.'
+import Radio, { RadioProps, RadioSizes } from '.'
 
 export default {
   title: 'Components / Atoms / Radio',
@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg']
+        options: RadioSizes
       }
     }
   }

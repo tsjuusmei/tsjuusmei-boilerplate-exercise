@@ -1,5 +1,5 @@
 import React from 'react'
-import Avatar, { AvatarProps } from '.'
+import Avatar, { AvatarProps, AvatarSizes } from '.'
 
 export default {
   title: 'Components / Atoms / Avatar',
@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['xsm', 'sm', 'md', 'lg', 'xlg', 'xxlg', 'xxxlg']
+        options: AvatarSizes
       }
     }
   }

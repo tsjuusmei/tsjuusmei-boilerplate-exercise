@@ -1,5 +1,5 @@
 import React from 'react'
-import TextArea, { TextAreaProps } from '.'
+import TextArea, { TextAreaProps, TextAreaSizes } from '.'
 
 export default {
   title: 'Components / Atoms / TextArea',
@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg']
+        options: TextAreaSizes
       }
     }
   }

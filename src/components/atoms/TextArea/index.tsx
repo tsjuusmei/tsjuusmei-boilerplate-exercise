@@ -22,6 +22,12 @@ export type TextAreaProps = {
   isOptional?: boolean
 }
 
+export enum TextAreaSizes {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 const TextArea: React.FC<TextAreaProps> = ({
   id,
   label,

@@ -1,5 +1,5 @@
 import React from 'react'
-import Input, { InputProps } from '.'
+import Input, { InputProps, InputSizes } from '.'
 
 export default {
   title: 'Components / Atoms / Input',
@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg']
+        options: InputSizes
       }
     }
   }
