@@ -1,12 +1,12 @@
 import * as React from 'react'
-import Icon, { icons, IconActionSize } from '.'
+import Icon, { icons } from '.'
 
 export default {
   title: 'Components / Atoms / Icon',
   component: Icon
 }
 
-const sizes = IconActionSize
+const sizes = [16, 20, 24]
 
 // Define types
 type IconProps = {
