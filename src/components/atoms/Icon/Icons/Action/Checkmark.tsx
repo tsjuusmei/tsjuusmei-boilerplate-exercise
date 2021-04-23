@@ -3,9 +3,12 @@ import * as React from 'react'
 // Types
 import type { IconProps } from '../../types'
 
+// Enums
+import { IconActionSize } from '../../index'
+
 function Checkmark({
-  color = 'var(--white-000)',
-  size = 16,
+  color = 'var(--color3-500)',
+  size = IconActionSize.Small,
   className
 }: IconProps) {
   return (

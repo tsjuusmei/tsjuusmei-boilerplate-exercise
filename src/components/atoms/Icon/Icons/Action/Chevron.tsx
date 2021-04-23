@@ -6,6 +6,9 @@ interface Props extends IconProps {
   direction?: 'up' | 'down' | 'left' | 'right'
 }
 
+// Enums
+import { IconActionSize } from '../../index'
+
 // eslint-disable-next-line no-shadow
 enum iconRotate {
   up = '180deg',
@@ -17,7 +20,7 @@ enum iconRotate {
 const Chevron: React.FC<Props> = ({
   color = 'var(--color3-500)',
   direction = 'down',
-  size = 16
+  size = IconActionSize.Small
 }) => (
   <svg
     width={size}

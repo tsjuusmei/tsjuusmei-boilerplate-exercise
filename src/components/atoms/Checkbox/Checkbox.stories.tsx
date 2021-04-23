@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkbox, { CheckboxProps } from '.'
+import Checkbox, { CheckboxProps, CheckBoxSizes } from '.'
 
 export default {
   title: 'Components / Atoms / Checkbox',
@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg']
+        options: CheckBoxSizes
       }
     }
   }

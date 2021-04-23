@@ -3,9 +3,12 @@ import * as React from 'react'
 // Types
 import type { IconProps } from '../../types'
 
+// Enums
+import { IconActionSize } from '../../index'
+
 function Placeholder({
   color = 'var(--color3-500)',
-  size = 16
+  size = IconActionSize.Small
 }: IconProps) {
   return (
     <svg

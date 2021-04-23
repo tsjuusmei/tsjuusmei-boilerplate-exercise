@@ -1,9 +1,12 @@
 import * as React from 'react'
 import { IconProps } from '../../types'
 
+// Enums
+import { IconActionSize } from '../../index'
+
 const Warning: React.FC<IconProps> = ({
   color = 'var(--color3-500)',
-  size = 16,
+  size = IconActionSize.Small,
   className
 }) => (
   <svg

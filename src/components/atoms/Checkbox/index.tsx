@@ -12,16 +12,22 @@ export type CheckboxProps = {
   isDisabled?: boolean,
   isChecked?: boolean,
   isDefaultChecked?: boolean,
-  isError?: boolean,
+  hasError?: boolean,
   className?: string,
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
+}
+
+export enum CheckBoxSizes {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
   size = 'md',
   label = '',
   isDisabled = false,
-  isError = false,
+  hasError = false,
   isChecked,
   isDefaultChecked = false,
   onChange,
@@ -32,7 +38,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       className={`
         ${styles.checkbox}
         ${styles[size]}
-        ${isError ? styles['has-error'] : ''}
+        ${hasError ? styles['has-error'] : ''}
         ${isDisabled ? styles['is-disabled'] : ''}
         ${className}
       `}
@@ -45,12 +51,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
         onChange={onChange}
       />
       <span className={styles.checkmark}>
-        <Icon className={styles['icon-check']} name="checkmark" />
+        <Icon className={styles['icon-checkmark']} name="checkmark" />
       </span>
       {label && (
         label
       )}
-      {isError && (
+      {hasError && (
         <Icon className={styles['icon-warning']} name="warning" />
       )}
     </label>
