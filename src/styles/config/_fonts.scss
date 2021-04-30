@@ -73,6 +73,12 @@
   letter-spacing: var(--heading-6-letter-spacing);
 }
 
+@mixin fluid {
+  font-size: var(--fluid-size);
+  line-height: 1.75;
+  letter-spacing: 0;
+}
+
 @mixin streamer {
   @extend %paragraph;
   font-size: var(--streamer-size);
@@ -185,24 +191,23 @@
 
 // Bold
 @font-face {
-  font-family: 'SF Pro Display';
+  font-family: 'Dazzed';
   src:
-    url('/fonts/SF-Pro-Display-Bold.woff2') format('woff2'),
-    url('/fonts/SF-Pro-Display-Bold.woff') format('woff'),
-    url('/fonts/SF-Pro-Display-Bold.ttf') format('truetype');
+    url('/fonts/Dazzed-Bold.woff2') format('woff2'),
+    url('/fonts/Dazzed-Bold.woff') format('woff'),
+    url('/fonts/Dazzed-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 // SemiBold
-
 @font-face {
-  font-family: 'SF Pro Display';
+  font-family: 'Dazzed';
   src:
-    url('/fonts/SF-Pro-Display-Semibold.woff2') format('woff2'),
-    url('/fonts/SF-Pro-Display-Semibold.woff') format('woff'),
-    url('/fonts/SF-Pro-Display-Semibold.ttf') format('truetype');
+    url('/fonts/Dazzed-SemiBold.woff2') format('woff2'),
+    url('/fonts/Dazzed-SemiBold.woff') format('woff'),
+    url('/fonts/Dazzed-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -210,11 +215,11 @@
 
 // Medium
 @font-face {
-  font-family: 'SF Pro Display';
+  font-family: 'Dazzed';
   src:
-    url('/fonts/SF-Pro-Display-Medium.woff2') format('woff2'),
-    url('/fonts/SF-Pro-Display-Medium.woff') format('woff'),
-    url('/fonts/SF-Pro-Display-Medium.ttf') format('truetype');
+    url('/fonts/Dazzed-Medium.woff2') format('woff2'),
+    url('/fonts/Dazzed-Medium.woff') format('woff'),
+    url('/fonts/Dazzed-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -222,11 +227,11 @@
 
 // Regular
 @font-face {
-  font-family: 'SF Pro Display';
+  font-family: 'Dazzed';
   src:
-    url('/fonts/SF-Pro-Display-Regular.woff2') format('woff2'),
-    url('/fonts/SF-Pro-Display-Regular.woff') format('woff'),
-    url('/fonts/SF-Pro-Display-Regular.ttf') format('truetype');
+    url('/fonts/Dazzed-Regular.woff2') format('woff2'),
+    url('/fonts/Dazzed-Regular.woff') format('woff'),
+    url('/fonts/Dazzed-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

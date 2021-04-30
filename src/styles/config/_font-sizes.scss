@@ -36,7 +36,7 @@ $heading-sizes-desktop-xs:
 :root {
   // Define font
   --font-stack-base:
-    'SF Pro Display',
+    'Dazzed',
     'BlinkMacSystemFont',
     'Helvetica',
     'Lato',
@@ -51,9 +51,6 @@ $heading-sizes-desktop-xs:
 
     --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
   }
-
-  --heading-1-font-family: 'IBM Plex Mono';
-  --heading-3-font-family: 'IBM Plex Mono';
 
   // Mobile
   // h1
@@ -348,5 +345,27 @@ $heading-sizes-desktop-xs:
 
     // footerlink-sm
     --footerlink-sm-size: 12px;
+  }
+
+  $fluid-sizes:
+    12
+    14
+    16
+    20
+    24
+    32
+    40
+    48
+    64
+    76
+    96
+    120
+    148;
+
+  // Fluid
+  @each $size in $fluid-sizes {
+    $i: index($fluid-sizes, $size);
+
+    --fluid-#{$i}-xl-size: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
   }
 }

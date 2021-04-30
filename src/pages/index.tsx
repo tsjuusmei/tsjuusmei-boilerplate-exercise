@@ -27,6 +27,7 @@ const Homepage: NextPage = () => (
         <p className="eyebrow">Eyebrow: The face of the moon was in shadow.</p>
         <a className="footerlink-md" href="/" >Footerlink MD: The face of the moon was in shadow.</a><br/>
         <a className="footerlink-sm" href="/" >Footerlink SM: The face of the moon was in shadow.</a><br/>
+        <p className="fluid">Fluid: The face of the moon was in shadow.</p>
       </Col>
     </Grid>
   </main>
