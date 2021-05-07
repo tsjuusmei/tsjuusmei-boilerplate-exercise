@@ -1,4 +1,30 @@
 .button {
+  // Button primary tokens
+  --button-primary-default-background-color: var(--primary-default-background-color);
+  --button-primary-default-foreground-color: var(--primary-default-foreground-color);
+  --button-primary-hover-background-color: var(--primary-hover-background-color);
+  --button-primary-hover-foreground-color: var(--primary-hover-foreground-color);
+  --button-primary-active-background-color: var(--primary-active-background-color);
+  --button-primary-active-foreground-color: var(--primary-active-foreground-color);
+  --button-primary-disabled-background-color: var(--primary-disabled-background-color);
+  --button-primary-disabled-foreground-color: var(--primary-disabled-foreground-color);
+
+  // Button secondary tokens
+  --button-secondary-default-background-color: var(--secondary-default-background-color);
+  --button-secondary-default-foreground-color: var(--secondary-default-foreground-color);
+  --button-secondary-hover-background-color: var(--secondary-hover-background-color);
+  --button-secondary-hover-foreground-color: var(--secondary-hover-foreground-color);
+  --button-secondary-active-background-color: var(--secondary-active-background-color);
+  --button-secondary-active-foreground-color: var(--secondary-active-foreground-color);
+  --button-secondary-disabled-background-color: var(--secondary-disabled-background-color);
+  --button-secondary-disabled-foreground-color: var(--secondary-disabled-foreground-color);
+
+  // Button tertiary tokens
+  --button-tertiary-default-foreground-color: var(--tertiary-default-foreground-color);
+  --button-tertiary-hover-foreground-color: var(--tertiary-hover-foreground-color);
+  --button-tertiary-active-foreground-color: var(--tertiary-active-foreground-color);
+  --button-tertiary-disabled-foreground-color: var(--tertiary-disabled-foreground-color);
+
   font-family: var(--font-stack-base);
   display: inline-block;
   background: none;
@@ -48,57 +74,59 @@
   }
 
   &.primary {
-    background-color: var(--color-500);
-    color: var(--white-000);
+    background-color: var(--button-primary-default-background-color);
+    color: var(--button-primary-default-foreground-color);
 
     &:hover {
-      background-color: var(--color-600);
+      background-color: var(--button-primary-hover-background-color);
+      color: var(--button-primary-hover-foreground-color);
     }
 
     &:active {
-      background-color: var(--color-600);
-      color: var(--color-100);
+      background-color: var(--button-primary-active-background-color);
+      color: var(--button-primary-active-foreground-color);
     }
 
     &.disabled {
-      background-color: var(--color-500);
-      color: var(--color-300);
+      background-color: var(--button-primary-disabled-background-color);
+      color: var(--button-primary-disabled-foreground-color);
     }
   }
 
   &.secondary {
-    background-color: var(--color3-300);
-    color: var(--white-000);
+    background-color: var(--button-secondary-default-background-color);
+    color: var(--button-secondary-default-foreground-color);
 
     &:hover {
-      background-color: var(--color3-600);
+      background-color: var(--button-secondary-hover-background-color);
+      color: var(--secondary-hover-foreground-color);
     }
 
     &:active {
-      background-color: var(--color3-600);
-      color: var(--color3-100);
+      background-color: var(--button-secondary-active-background-color);
+      color: var(--button-secondary-active-foreground-color);
     }
 
     &.disabled {
-      background-color: var(--color3-250);
-      color: var(--color3-500);
+      background-color: var(--button-secondary-disabled-background-color);
+      color: var(--button-secondary-disabled-foreground-color);
     }
   }
 
   &.tertiary {
-    color: var(--color3-600);
+    color: var(--button-tertiary-default-foreground-color);
     padding: 0;
 
     &:hover {
-      color: var(--color3-800);
+      color: var(--button-tertiary-hover-foreground-color);
     }
 
     &:active {
-      color: var(--color3-900);
+      color: var(--button-tertiary-active-foreground-color);
     }
 
     &.disabled {
-      color: var(--color3-300);
+      color: var(--tertiary-disabled-foreground-color);
     }
   }
 

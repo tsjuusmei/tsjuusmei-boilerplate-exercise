@@ -1,4 +1,12 @@
 .input {
+  // Input border tokens
+  --input-default-border-color: var(--default-border-color);
+  --input-hover-border-color: var(--hover-border-color);
+  --input-active-border-color: var(--active-border-color);
+  --input-focus-border-color: var(--focus-border-color);
+  --input-disabled-border-color: var(--disabled-border-color);
+  --input-invalid-border-color: var(--invalid-border-color);
+
   display: inline-flex;
   flex-direction: column;
   contain: layout;
@@ -42,7 +50,7 @@
 .input-element {
   color: var(--color3-900);
   background: var(--white-000);
-  border: 1px solid var(--color3-300);
+  border: 1px solid var(--input-default-border-color);
   outline: none;
   transition: border-color var(--fast-transition) var(--ease);
 
@@ -51,11 +59,11 @@
   }
 
   &:hover {
-    border-color: var(--color3-400);
+    border-color: var(--input-hover-border-color);
   }
 
   &.error {
-    border-color: var(--error-500);
+    border-color: var(--input-invalid-border-color);
   }
 
   &.lg {
@@ -77,19 +85,19 @@
   }
 
   &:focus {
-    border-color: var(--color-500);
+    border-color: var(--input-focus-border-color);
     outline: 2px solid var(--color-500);
     caret-color: var(--black-000);
   }
 
   &:disabled {
     background: var(--color3-100);
-    border-color: var(--color3-200);
+    border-color: var(--input-disabled-border-color);
     cursor: not-allowed;
 
     &.error {
       background: var(--error-100);
-      border-color: var(--error-500);
+      border-color: var(--input-invalid-border-color);
     }
   }
 }

@@ -1,42 +1,84 @@
-$spacing-size: 4px;
+:root {
+  // CHL Tokens - Alias tokens
 
-// Spacing units
-$spacing-sizes: (
-  'xxs': 2,
-  'xs': 4,
-  's': 6,
-  'm': 8,
-  'l': 12,
-  'xl': 16,
-  'xxl': 22,
-  'xxxl': 32
-);
+  // Primary background colors
+  --primary-default-background-color: var(--color-500);
+  --primary-hover-background-color: var(--color-600);
+  --primary-active-background-color: var(--color-600);
+  --primary-disabled-background-color: var(--color-500);
 
-$spacing-sizes-tablet: (
-  'xxs': 2,
-  'xs': 3,
-  's': 5,
-  'm': 6,
-  'l': 8,
-  'xl': 12,
-  'xxl': 16,
-  'xxxl': 24
-);
+  // Primary foreground colors
+  --primary-default-foreground-color: var(--white-000);
+  --primary-hover-foreground-color: var(--white-000);
+  --primary-active-foreground-color: var(--white-000);
+  --primary-disabled-foreground-color: var(--color-300);
 
-$spacing-sizes-mobile: (
-  'xxs': 1,
-  'xs': 2,
-  's': 4,
-  'm': 5,
-  'l': 7,
-  'xl': 10,
-  'xxl': 12,
-  'xxxl': 16
-);
+  // Secondary background colors
+  --secondary-default-background-color: var(--color3-300);
+  --secondary-hover-background-color: var(--color3-600);
+  --secondary-active-background-color: var(--color3-600);
+  --secondary-disabled-background-color: var(--color3-250);
 
-$spacing-sides: (
-  'top',
-  'right',
-  'bottom',
-  'left'
-);
+  // Secondary foreground colors
+  --secondary-default-foreground-color: var(--white-000);
+  --secondary-hover-foreground-color: var(--white-000);
+  --secondary-active-foreground-color: var(--color3-100);
+  --secondary-disabled-foreground-color: var(--color3-500);
+
+  // Tertiary foreground colors
+  --tertiary-default-foreground-color: var(--color3-600);
+  --tertiary-hover-foreground-color: var(--color3-800);
+  --tertiary-active-foreground-color: var(--color3-800);
+  --tertiary-disabled-foreground-color: var(--color3-300);
+
+  // Border colors
+  --default-border-color: var(--error-300);
+  --hover-border-color: var(--color3-400);
+  --active-border-color: var(--color3-500);
+  --focus-border-color: var(--color-600);
+  --disabled-border-color: var(--color3-200);
+  --invalid-border-color: var(--error-500);
+}
+
+// $spacing-size: 4px;
+
+// // Spacing units
+// $spacing-sizes: (
+//   'xxs': 2,
+//   'xs': 4,
+//   's': 6,
+//   'm': 8,
+//   'l': 12,
+//   'xl': 16,
+//   'xxl': 22,
+//   'xxxl': 32
+// );
+
+// $spacing-sizes-tablet: (
+//   'xxs': 2,
+//   'xs': 3,
+//   's': 5,
+//   'm': 6,
+//   'l': 8,
+//   'xl': 12,
+//   'xxl': 16,
+//   'xxxl': 24
+// );
+
+// $spacing-sizes-mobile: (
+//   'xxs': 1,
+//   'xs': 2,
+//   's': 4,
+//   'm': 5,
+//   'l': 7,
+//   'xl': 10,
+//   'xxl': 12,
+//   'xxxl': 16
+// );
+
+// $spacing-sides: (
+//   'top',
+//   'right',
+//   'bottom',
+//   'left'
+// );
