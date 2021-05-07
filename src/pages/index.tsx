@@ -27,7 +27,19 @@ const Homepage: NextPage = () => (
         <p className="eyebrow">Eyebrow: The face of the moon was in shadow.</p>
         <a className="footerlink-md" href="/" >Footerlink MD: The face of the moon was in shadow.</a><br/>
         <a className="footerlink-sm" href="/" >Footerlink SM: The face of the moon was in shadow.</a><br/>
-        <p className="fluid">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-1-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-2-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-3-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-4-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-5-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-6-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-7-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-8-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-9-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-10-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-11-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-12-xl-size">Fluid: The face of the moon was in shadow.</p>
+        <p className="fluid-13-xl-size">Fluid: The face of the moon was in shadow.</p>
       </Col>
     </Grid>
   </main>

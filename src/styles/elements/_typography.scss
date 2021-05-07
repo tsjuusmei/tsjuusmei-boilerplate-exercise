@@ -28,6 +28,58 @@ h6,
   @include h6;
 }
 
+.fluid-1-xl-size {
+  font-size: var(--fluid-1-xl-size);
+}
+
+.fluid-2-xl-size {
+  font-size: var(--fluid-2-xl-size);
+}
+
+.fluid-3-xl-size {
+  font-size: var(--fluid-3-xl-size);
+}
+
+.fluid-4-xl-size {
+  font-size: var(--fluid-4-xl-size);
+}
+
+.fluid-5-xl-size {
+  font-size: var(--fluid-5-xl-size);
+}
+
+.fluid-6-xl-size {
+  font-size: var(--fluid-6-xl-size);
+}
+
+.fluid-7-xl-size {
+  font-size: var(--fluid-7-xl-size);
+}
+
+.fluid-8-xl-size {
+  font-size: var(--fluid-8-xl-size);
+}
+
+.fluid-9-xl-size {
+  font-size: var(--fluid-9-xl-size);
+}
+
+.fluid-10-xl-size {
+  font-size: var(--fluid-10-xl-size);
+}
+
+.fluid-11-xl-size {
+  font-size: var(--fluid-11-xl-size);
+}
+
+.fluid-12-xl-size {
+  font-size: var(--fluid-12-xl-size);
+}
+
+.fluid-13-xl-size {
+  font-size: var(--fluid-13-xl-size);
+}
+
 p {
   @extend %paragraph;
 
