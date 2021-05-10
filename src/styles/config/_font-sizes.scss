@@ -7,41 +7,23 @@ $design-size: 375;
 $design-size-tablet: 768;
 $design-size-desktop: 1440;
 
-// Heading sizes mobile
-$heading-sizes:
-  30,
-  24,
-  22,
-  20,
-  18,
-  17;
-
-// Heading sizes tablet
-$heading-sizes-tablet:
-  40,
-  32,
-  28,
-  20,
-  18,
-  17;
-
-// Heading sizes desktop-xs
-$heading-sizes-desktop-xs:
-  76,
-  40,
-  32,
-  24,
-  20,
-  16;
-
-// Heading sizes with a 1.25 scale factor as defined by design
+// 1.25 scale factor as defined by design
 // The order of these sizes should be taken into consideration since that is the order of the classNames
 // Example: 14 = --fluid-2-xl-size, it's the second value in the row
+// Heading sizes - mobile (heading/XL)
 $fluid-sizes:
-  12
-  14
-  16
-  20
+  20,
+  22,
+  26,
+  28,
+  32,
+  36,
+  40,
+  46,
+  50; // heading-9XL
+
+// Heading sizes - desktop (heading/XL)
+$fluid-sizes-desktop:
   24
   32
   40
@@ -50,9 +32,8 @@ $fluid-sizes:
   76
   96
   120
-  148;
+  148; // heading-9XL
 
-// Heading sizes desktop defined at media breakpoint
 :root {
   // Define font
   --font-stack-base:
@@ -65,248 +46,139 @@ $fluid-sizes:
     'Verdana',
     sans-serif;
 
+  // Define line-height
+  // Based on TailWindCss: https://tailwindcss.com/docs/line-height
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  // Define letter-spacing
+  // Based on TailWindCss: https://tailwindcss.com/docs/letter-spacing
+  --tracking-tighter: -.05em;
+  --tracking-tight: -.025em;
+  --tracking-normal: 0;
+  --tracking-wide: .025em;
+  --tracking-wider: .05em;
+  --tracking-widest: .1em;
+
   // Define heading size mobile
   // $i is the value from top to bottom, starting at 1, creating a variable that will be used for each heading size
-  // Example: --heading-#{$i}-size = --heading-3-size. this value is used for the h3
-  @each $size in $heading-sizes {
-    $i: index($heading-sizes, $size);
-
-    --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
-  }
-
+  // Example: --heading-#{$i}-xl = --heading-3-xl. this value is used for the h3
   // Fluid
   @each $size in $fluid-sizes {
     $i: index($fluid-sizes, $size);
 
-    --fluid-#{$i}-xl-size: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+    --heading-#{$i}-xl: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
   }
 
-  // Mobile
-  // h1
-  --heading-1-line-height: 1.25;
-  --heading-1-letter-spacing: 0;
+  // Heading sizes
+  // Heading S
+  --heading-s: calc(((14 / #{$design-size}) * 100) * 1vw);
 
-  // h2
-  --heading-2-line-height: 1.25;
-  --heading-2-letter-spacing: 0;
+  // Heading M
+  --heading-m: calc(((16 / #{$design-size}) * 100) * 1vw);
 
-  // h3
-  --heading-3-line-height: 1.25;
-  --heading-3-letter-spacing: 0;
+  // Heading L
+  --heading-l: calc(((18 / #{$design-size}) * 100) * 1vw);
 
-  // h4
-  --heading-4-line-height: 1.25;
-  --heading-4-letter-spacing: 0;
+  // Body sizes mobile
+  // Body S
+  --body-sm: calc(((14 / #{$design-size}) * 100) * 1vw);
 
-  // h5
-  --heading-5-line-height: 1.25;
-  --heading-5-letter-spacing: 0;
+  // Body M
+  --body-md: calc(((16 / #{$design-size}) * 100) * 1vw);
 
-  // h6
-  --heading-6-line-height: 1.25;
-  --heading-6-letter-spacing: 0;
+  // Body L
+  --body-l: calc(((18 / #{$design-size}) * 100) * 1vw);
 
-  // body-lg
-  --body-lg-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  --body-lg-line-height: 1.555;
+  // Body XL
+  --body-1-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
 
-  // body-md
-  --body-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  --body-md-line-height: 1.555;
+  // Body 2XL
+  --body-2-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
 
-  // body-sm
-  --body-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
-  --body-sm-line-height: 1.41;
+  // TODO: Design needs to define tabled sizes
+  // @media screen and (min-width: $bp-tablet-md) {
+  //   // Define fluid heading size tablet-md
+  //   @each $size in $fluid-sizes {
+  //     $i: index($fluid-sizes, $size);
 
-  // streamer
-  --streamer-size: calc(((20 / #{$design-size}) * 100) * 1vw);
-  --streamer-line-height: 1.3;
-  --streamer-letter-spacing: 0;
-
-  // quote lg
-  --quote-lg-size: calc(((24 / #{$design-size}) * 100) * 1vw);
-  --quote-lg-line-height: 1.166;
-  --quote-lg-letter-spacing: 0;
-
-  // quote md
-  --quote-md-size: calc(((20 / #{$design-size}) * 100) * 1vw);
-  --quote-md-line-height: 1.2;
-  --quote-md-letter-spacing: 0;
-
-  // textlink-lg
-  --textlink-lg-size: calc(((20 / #{$design-size}) * 100) * 1vw);
-  --textlink-lg-line-height: 1.4;
-  --textlink-lg-letter-spacing: -.02em;
-
-  // textlink-md
-  --textlink-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  --textlink-md-line-height: 1.555;
-  --textlink-md-letter-spacing: -.02em;
-
-  // textlink-sm
-  --textlink-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
-  --textlink-sm-line-height: 1.411;
-  --textlink-sm-letter-spacing: -.02em;
-
-  // caption
-  --caption-size: calc(((10 / #{$design-size}) * 100) * 1vw);
-  --caption-line-height: 1.2;
-
-  // eyebrow
-  --eyebrow-size: calc(((10 / #{$design-size}) * 100) * 1vw);
-  --eyebrow-line-height: 1.2;
-  --eyebrow-letter-spacing: .1em;
-
-  // footerlink-md
-  --footerlink-md-size: calc(((16 / #{$design-size}) * 100) * 1vw);
-  --footerlink-md-line-height: 1;
-  --footerlink-md-letter-spacing: 0;
-
-  // footerlink-sm
-  --footerlink-sm-size: calc(((12 / #{$design-size}) * 100) * 1vw);
-  --footerlink-sm-line-height: 1;
-  --footerlink-sm-letter-spacing: 0;
-
-  @media screen and (min-width: $bp-tablet-md) {
-    // Define heading size tablet-md
-    @each $size in $heading-sizes-tablet {
-      $i: index($heading-sizes-tablet, $size);
-
-      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
-    }
-
-    // body-lg
-    --body-lg-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // body-md
-    --body-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // body-sm
-    --body-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // streamer
-    --streamer-size: calc(((22 / #{$design-size-tablet}) * 100) * 1vw);
-    --streamer-line-height: 1.363;
-
-    // quote lg
-    --quote-lg-size: calc(((24 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // quote md
-    --quote-md-size: calc(((20 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // textlink-lg
-    --textlink-lg-size: calc(((20 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // textlink-md
-    --textlink-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // textlink-sm
-    --textlink-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // caption
-    --caption-size: calc(((10 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // eyebrow
-    --eyebrow-size: calc(((10 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // footerlink-md
-    --footerlink-md-size: calc(((16 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // footerlink-sm
-    --footerlink-sm-size: calc(((12 / #{$design-size-tablet}) * 100) * 1vw);
-  }
+  //     --heading-#{$i}-xl: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
+  //   }
+  // }
 
   // Desktop-xs
   @media screen and (min-width: $bp-desktop-xs) {
     // Define heading size desktop-xs
-    @each $size in $heading-sizes-desktop-xs {
-      $i: index($heading-sizes-desktop-xs, $size);
+    @each $size in $fluid-sizes-desktop {
+      $i: index($fluid-sizes-desktop, $size);
 
-      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+      --heading-#{$i}-xl: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
     }
 
-    // body-lg
-    --body-lg-size: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
+    // Heading sizes desktop
+    // Heading S
+    --heading-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
 
-    // body-md
-    --body-md-size: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
+    // Heading M
+    --heading-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
 
-    // body-sm
-    --body-sm-size: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
+    // Heading L
+    --heading-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
 
-    // streamer
-    --streamer-size: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
-    --streamer-line-height: 1.25;
+    // Body sizes desktop
+    // Body S
+    --body-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
 
-    // quote lg
-    --quote-lg-size: calc(((36 / #{$design-size-desktop}) * 100) * 1vw);
-    --quote-lg-line-height: 1.111;
+    // Body M
+    --body-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
 
-    // quote md
-    --quote-md-size: calc(((28 / #{$design-size-desktop}) * 100) * 1vw);
-    --quote-md-line-height: 1.285;
+    // Body L
+    --body-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
 
-    // textlink-lg
-    --textlink-lg-size: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
+    // Body XL
+    --body-1-xl: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
 
-    // textlink-md
-    --textlink-md-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // textlink-sm
-    --textlink-sm-size: calc(((17 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // caption
-    --caption-size: calc(((10 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // eyebrow
-    --eyebrow-size: calc(((10 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // footerlink-md
-    --footerlink-md-size: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // footerlink-sm
-    --footerlink-sm-size: calc(((12 / #{$design-size-desktop}) * 100) * 1vw);
+    // Body 2XL
+    --body-2-xl: calc(((32 / #{$design-size-desktop}) * 100) * 1vw);
   }
 
   // Desktop
+  // Define max sizes for 1440px and above
   @media screen and (min-width: $bp-desktop-lg) {
-    // streamer
-    --streamer-size: 26px;
-    --streamer-line-height: 1.23;
+    @each $size in $fluid-sizes-desktop {
+      $i: index($fluid-sizes-desktop, $size);
 
-    // quote lg
-    --quote-lg-size: 40px;
-    --quote-lg-line-height: 1.1;
+      --heading-#{$i}-xl: #{$size}px;
+    }
 
-    // quote md
-    --quote-md-size: 32px;
-    --quote-md-line-height: 1.25;
+    // Heading sizes
+    // Heading S
+    --heading-s: 14px;
 
-    // textlink-lg
-    --textlink-lg-size: 20px;
-    --textlink-lg-line-height: 1.4;
-    --textlink-lg-letter-spacing: -.02em;
+    // Heading M
+    --heading-m: 16px;
 
-    // textlink-md
-    --textlink-md-size: 16px;
-    --textlink-md-line-height: 1.5;
-    --textlink-md-letter-spacing: -.02em;
+    // Heading L
+    --heading-l: 20px;
 
-    // textlink-sm
-    --textlink-sm-size: 14px;
-    --textlink-sm-line-height: 1.714;
-    --textlink-sm-letter-spacing: -.02em;
+    // Body sizes
+    // Body S
+    --body-sm-size: 14px;
 
-    // caption
-    --caption-size: 10px;
+    // Body M
+    --body-md-size: 16px;
 
-    // eyebrow
-    --eyebrow-size: 10px;
+    // Body L
+    --body-lg-size: 20px;
 
-    // footerlink-md
-    --footerlink-md-size: 16px;
+    // Body XL
+    --body-lg-size: 24px;
 
-    // footerlink-sm
-    --footerlink-sm-size: 12px;
+    // Body 2XL
+    --body-lg-size: 32px;
   }
 }
