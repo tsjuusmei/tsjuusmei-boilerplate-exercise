@@ -1,31 +1,29 @@
 @import '../functions/all';
 
-// Any content to be made has // TODO: above.
-
 // Design width
+// These values will be used to calculate the font size per design size
+// Example: 18 (font size for a paragraph) / 1440 (design width) * 100 (to get a vw value) = 1,25(vw)
 $design-size: 375;
 $design-size-tablet: 768;
 $design-size-desktop: 1440;
 
-// TODO:
 // Heading sizes mobile
-// $heading-sizes:
-//   30,
-//   24,
-//   22,
-//   20,
-//   18,
-//   17;
+$heading-sizes:
+  30,
+  24,
+  22,
+  20,
+  18,
+  17;
 
-// TODO:
 // Heading sizes tablet
-// $heading-sizes-tablet:
-//   40,
-//   32,
-//   28,
-//   20,
-//   18,
-//   17;
+$heading-sizes-tablet:
+  40,
+  32,
+  28,
+  20,
+  18,
+  17;
 
 // Heading sizes desktop-xs
 $heading-sizes-desktop-xs:
@@ -36,7 +34,9 @@ $heading-sizes-desktop-xs:
   20,
   16;
 
-// Heading sizes with a 1.25 scale factor
+// Heading sizes with a 1.25 scale factor as defined by design
+// The order of these sizes should be taken into consideration since that is the order of the classNames
+// Example: 14 = --fluid-2-xl-size, it's the second value in the row
 $fluid-sizes:
   12
   14
@@ -65,13 +65,14 @@ $fluid-sizes:
     'Verdana',
     sans-serif;
 
-  // TODO:
   // Define heading size mobile
-  // @each $size in $heading-sizes {
-  //   $i: index($heading-sizes, $size);
+  // $i is the value from top to bottom, starting at 1, creating a variable that will be used for each heading size
+  // Example: --heading-#{$i}-size = --heading-3-size. this value is used for the h3
+  @each $size in $heading-sizes {
+    $i: index($heading-sizes, $size);
 
-  //   --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
-  // }
+    --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
+  }
 
   // Fluid
   @each $size in $fluid-sizes {
@@ -105,20 +106,17 @@ $fluid-sizes:
   --heading-6-line-height: '1.25';
   --heading-6-letter-spacing: 0;
 
-  // TODO:
   // body-lg
-  // --body-lg-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  // --body-lg-line-height: '1.555';
+  --body-lg-size: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-lg-line-height: '1.555';
 
-  // TODO:
   // body-md
-  // --body-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  // --body-md-line-height: '1.555';
+  --body-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-md-line-height: '1.555';
 
-  // TODO:
   // body-sm
-  // --body-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
-  // --body-sm-line-height: '1.41';
+  --body-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
+  --body-sm-line-height: '1.41';
 
   // streamer
   --streamer-size: calc(((20 / #{$design-size}) * 100) * 1vw);
@@ -170,25 +168,21 @@ $fluid-sizes:
   --footerlink-sm-letter-spacing: 0;
 
   @media screen and (min-width: $bp-tablet-md) {
-    // TODO:
     // Define heading size tablet-md
-    // @each $size in $heading-sizes-tablet {
-    //   $i: index($heading-sizes-tablet, $size);
+    @each $size in $heading-sizes-tablet {
+      $i: index($heading-sizes-tablet, $size);
 
-    //   --heading-#{$i}-size: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
-    // }
+      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
+    }
 
-    // TODO:
     // body-lg
-    // --body-lg-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
+    --body-lg-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
 
-    // TODO:
     // body-md
-    // --body-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
+    --body-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
 
-    // TODO:
     // body-sm
-    // --body-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
+    --body-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
 
     // streamer
     --streamer-size: calc(((22 / #{$design-size-tablet}) * 100) * 1vw);
