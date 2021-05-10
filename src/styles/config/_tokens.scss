@@ -31,7 +31,16 @@
   --tertiary-active-foreground-color: var(--color3-800);
   --tertiary-disabled-foreground-color: var(--color3-300);
 
-  // Border colors
+  // Input background colors
+  --default-input-background-color: var(--white-000);
+  --checked-input-background-color: var(--color-500);
+  --checked-disabled-input-background-color: var(--color3-200);
+  --checked-error-input-background-color: var(--error-500);
+  --disabled-input-background-color: var(--color3-100);
+  --disabled-error-input-background-color: var(--error-100);
+  --disabled-error-checked-input-background-color: var(--error-300);
+
+  // Input Border colors
   --default-border-color: var(--color3-300);
   --hover-border-color: var(--color3-400);
   --active-border-color: var(--color3-500);

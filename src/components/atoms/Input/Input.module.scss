@@ -1,5 +1,10 @@
 .input {
-  // Input tokens
+  // Input background tokens
+  --input-default-background-color: var(--default-input-background-color);
+  --input-disabled-background-color: var(--disabled-input-background-color);
+  --input-disabled-error-background-color: var(--disabled-error-input-background-color);
+
+  // Input border tokens
   --input-default-border-color: var(--default-border-color);
   --input-hover-border-color: var(--hover-border-color);
   --input-active-border-color: var(--active-border-color);
@@ -49,7 +54,7 @@
 
 .input-element {
   color: var(--color3-900);
-  background: var(--white-000);
+  background: var(--input-default-background-color);
   border: 1px solid var(--input-default-border-color);
   outline: none;
   transition: border-color var(--fast-transition) var(--ease);
@@ -91,12 +96,12 @@
   }
 
   &:disabled {
-    background: var(--color3-100);
+    background: var(--input-disabled-background-color);
     border-color: var(--input-disabled-border-color);
     cursor: not-allowed;
 
     &.error {
-      background: var(--error-100);
+      background: var(--input-error-background-color);
       border-color: var(--input-error-border-color);
     }
   }

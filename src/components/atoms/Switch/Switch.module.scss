@@ -1,5 +1,14 @@
 .switch {
-  // Switch tokens
+  // Switch background tokens
+  --switch-default-background-color: var(--default-input-background-color);
+  --switch-checked-background-color: var(--checked-input-background-color);
+  --switch-checked-disabled-background-color: var(--checked-disabled-input-background-color);
+  --switch-checked-error-background-color: var(--checked-error-input-background-color);
+  --switch-disabled-background-color: var(--disabled-input-background-color);
+  --switch-disabled-error-background-color: var(--disabled-error-input-background-color);
+  --switch-disabled-error-checked-background-color: var(--disabled-error-checked-input-background-color);
+
+  // Switch border tokens
   --switch-default-border-color: var(--default-border-color);
   --switch-hover-border-color: var(--hover-border-color);
   --switch-active-border-color: var(--active-border-color);
@@ -82,7 +91,7 @@
 
     input {
       & + .slider {
-        background-color: var(--color3-100);
+        background-color: var(--switch-disabled-background);
         border-color: var(--switch-disabled-border-color);
 
         &::before {
@@ -132,7 +141,7 @@
 
       input:checked + .slider {
         border-color: var(--switch-error-border-color);
-        background-color: var(--error-500);
+        background-color: var(--switch-checked-error-background-color);
 
         &::before {
           background-color: var(--white);
@@ -149,7 +158,7 @@
 
       input {
         & + .slider {
-          background-color: var(--error-100);
+          background-color: var(--switch-disabled-background-color);
           border-color: var(--switch-error-border-color);
 
           &::before {
@@ -158,7 +167,7 @@
         }
 
         &:checked + .slider {
-          background-color: var(--error-300);
+          background-color: var(--switch-disabled-error-checked-background-color);
           border-color: var(--switch-error-border-color);
 
           &::before {
@@ -173,8 +182,8 @@
     }
 
     input:checked + .slider {
-      border-color: var(--switch-inverroralid-border-color);
-      background-color: var(--error-500);
+      border-color: var(--switch-error-border-color);
+      background-color: var(--switch-checked-error-background-color);
     }
   }
 
@@ -231,7 +240,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--white);
+    background-color: var(--switch-default-background-color);
     transition: border-color 200ms, background-color 200ms;
     border-radius: 34px;
     border: 1px solid var(--switch-default-border-color);
