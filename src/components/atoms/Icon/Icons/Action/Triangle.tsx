@@ -1,22 +1,12 @@
 import * as React from 'react'
-import { IconProps } from '../../types'
 
-// Define types
-interface Props extends IconProps {
-  direction?: 'up' | 'down'
-}
+import {
+  IconProps, IconActionSize, IconRotate
+} from '@/components/atoms/Icon/types'
 
-// Enums
-import { IconActionSize } from '../../index'
-
-enum iconRotate {
-  up = '180deg',
-  down = '0deg',
-}
-
-const Chevron: React.FC<Props> = ({
+const Trianlge: React.FC<IconProps> = ({
   color = 'var(--color3-500)',
-  direction = iconRotate.down,
+  direction = IconRotate.Down,
   size = IconActionSize.Small
 }) => (
   <svg
@@ -25,7 +15,7 @@ const Chevron: React.FC<Props> = ({
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ transform: `rotate(${iconRotate[direction]}` }}
+    style={{ transform: `rotate(${IconRotate[direction]}` }}
   >
     <path
       d="M2 5H14L8 12L2 5Z"
@@ -34,4 +24,4 @@ const Chevron: React.FC<Props> = ({
   </svg>
 )
 
-export default React.memo(Chevron)
+export default React.memo(Trianlge)

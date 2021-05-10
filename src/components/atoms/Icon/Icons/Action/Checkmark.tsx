@@ -1,10 +1,7 @@
 import * as React from 'react'
 
 // Types
-import type { IconProps } from '../../types'
-
-// Enums
-import { IconActionSize } from '../../index'
+import { IconProps, IconActionSize } from '@/components/atoms/Icon/types'
 
 function Checkmark({
   color = 'var(--color3-500)',

@@ -1,8 +1,6 @@
 import * as React from 'react'
-import { IconProps } from '../../types'
 
-// Enums
-import { IconActionSize } from '../../index'
+import { IconProps, IconActionSize } from '@/components/atoms/Icon/types'
 
 const Warning: React.FC<IconProps> = ({
   color = 'var(--color3-500)',

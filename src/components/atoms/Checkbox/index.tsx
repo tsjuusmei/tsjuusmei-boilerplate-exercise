@@ -6,8 +6,15 @@ import Icon from '@/components/atoms/Icon'
 // Styles
 import styles from './Checkbox.module.scss'
 
+// Types
+export enum CheckboxSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 export type CheckboxProps = {
-  size: Sizes,
+  size: CheckboxSize,
   label?: string,
   isDisabled?: boolean,
   isChecked?: boolean,
@@ -17,14 +24,8 @@ export type CheckboxProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
-export enum CheckBoxSizes {
-  Small = 'sm',
-  Medium = 'md',
-  Large = 'lg'
-}
-
 const Checkbox: React.FC<CheckboxProps> = ({
-  size = 'md',
+  size = CheckboxSize.Small,
   label = '',
   isDisabled = false,
   hasError = false,

@@ -1,7 +1,4 @@
 import * as React from 'react'
-import { IconProps } from './types'
-
-// Icons Imports
 
 // Action
 import Checkmark from './Icons/Action/Checkmark'
@@ -25,23 +22,14 @@ import Pinterest from './Icons/Social/Pinterest'
 import Reddit from './Icons/Social/Reddit'
 import Snapchat from './Icons/Social/Snapchat'
 import Twitter from './Icons/Social/Twitter'
-import Youtube from './Icons/Social/Youtube'
+import YouTube from './Icons/Social/Youtube'
 
 // Types
+import { IconProps, IconRotate } from '@/components/atoms/Icon/types'
+
 interface Props extends IconProps {
-  name: string
-}
-
-export enum IconActionSize {
-  Small = 16,
-  Medium = 20,
-  Large = 24
-}
-
-export enum IconSocialSize {
-  Small = 20,
-  Medium = 32,
-  Large = 48
+  name: string;
+  direction?: IconRotate;
 }
 
 const iconElements = (props?: React.PropsWithChildren<IconProps>) => ({
@@ -64,7 +52,7 @@ const iconElements = (props?: React.PropsWithChildren<IconProps>) => ({
   'reddit': <Reddit {...props} />,
   'snapchat': <Snapchat {...props} />,
   'twitter': <Twitter {...props} />,
-  'youtube': <Youtube {...props} />,
+  'youtube': <YouTube {...props} />,
 })// Add Icon Above
 
 const Icon: React.FC<Props> = ({ name, ...props }) => (

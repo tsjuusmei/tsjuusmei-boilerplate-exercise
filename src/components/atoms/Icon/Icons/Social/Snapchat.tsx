@@ -1,10 +1,9 @@
 import * as React from 'react'
 
 // Types
-import type { IconProps } from '../../types'
-
-// Enums
-import { IconSocialSize } from '../../index'
+import {
+  IconProps, IconSocialSize
+} from '@/components/atoms/Icon/types'
 
 function Snapchat({
   color = 'var(--color3-500)',

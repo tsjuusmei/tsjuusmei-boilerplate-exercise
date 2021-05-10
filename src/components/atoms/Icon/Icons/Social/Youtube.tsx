@@ -1,12 +1,11 @@
 import * as React from 'react'
 
 // Types
-import type { IconProps } from '../../types'
+import {
+  IconProps, IconSocialSize
+} from '@/components/atoms/Icon/types'
 
-// Enums
-import { IconSocialSize } from '../../index'
-
-function Youtube({
+function YouTube({
   color = 'var(--color3-500)',
   size = IconSocialSize.Small
 }: IconProps) {
@@ -26,4 +25,4 @@ function Youtube({
   )
 }
 
-export default React.memo(Youtube)
+export default React.memo(YouTube)

@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkbox, { CheckboxProps, CheckBoxSizes } from '.'
+import Checkbox, { CheckboxProps, CheckboxSize } from '.'
 
 export default {
   title: 'Components / Atoms / Checkbox',
@@ -8,10 +8,15 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: CheckBoxSizes
+        options: CheckboxSize
       }
     }
   }
 }
 
 export const Default = (args: CheckboxProps) => <Checkbox {...args} />
+
+Default.args = {
+  size: CheckboxSize.Small,
+  label: 'This is a label'
+}
