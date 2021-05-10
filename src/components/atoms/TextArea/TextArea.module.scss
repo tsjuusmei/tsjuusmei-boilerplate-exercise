@@ -1,4 +1,12 @@
 .textarea {
+  // TextArea tokens
+  --textarea-default-border-color: var(--default-border-color);
+  --textarea-hover-border-color: var(--hover-border-color);
+  --textarea-active-border-color: var(--active-border-color);
+  --textarea-focus-border-color: var(--focus-border-color);
+  --textarea-disabled-border-color: var(--disabled-border-color);
+  --textarea-error-border-color: var(--error-border-color);
+
   display: flex;
   flex-direction: column;
   contain: layout;
@@ -27,7 +35,7 @@
 .element {
   color: var(--color3-900);
   background: var(--white-000);
-  border: 2px solid var(--color3-300);
+  border: 2px solid var(--textarea-default-border-color);
   outline: none;
   transition: border-color var(--fast-transition) var(--ease);
   resize: none;
@@ -41,18 +49,18 @@
   }
 
   &:hover {
-    border-color: var(--color3-400);
+    border-color: var(--textarea-hover-border-color);
   }
 
   &:focus {
-    border: 2px solid var(--color-500);
+    border-color: var(--textarea-focus-border-color);
     caret-color: var(--color3-900);
   }
 
   &:disabled {
     cursor: not-allowed;
     background: var(--color3-100);
-    border: 2px solid var(--color3-200);
+    border-color: var(--textarea-disabled-border-color);
     color: var(--color3-300);
 
     &::placeholder {
@@ -61,12 +69,12 @@
 
     &.error {
       background-color: var(--error-100);
-      border: 2px solid var(--error-300);
+      border-color: var(--textarea-error-border-color);
     }
   }
 
   &.error {
-    border-color: red;
+    border-color: var(--textarea-error-border-color);
   }
 
   &.lg {

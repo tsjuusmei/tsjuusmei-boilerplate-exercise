@@ -1,12 +1,12 @@
 .wrapper {
-  // Radio border tokens
+  // Radio tokens
   --radio-default-border-color: var(--default-border-color);
   --radio-hover-border-color: var(--hover-border-color);
   --radio-active-border-color: var(--active-border-color);
   --radio-focus-border-color: var(--focus-border-color);
   --radio-disabled-border-color: var(--disabled-border-color);
-  --radio-invalid-border-color: var(--invalid-border-color);
-  --radio-checked-border-color: var(--color-500);
+  --radio-error-border-color: var(--error-border-color);
+  --radio-checked-border-color: var(--primary-default-background-color);
 
   --dot-size: 6px;
   --label-size: 12px;
@@ -100,7 +100,7 @@
 
   &.has-error {
     .radio {
-      border-color: var(--radio-invalid-border-color);
+      border-color: var(--radio-error-border-color);
     }
 
     svg {
@@ -112,7 +112,7 @@
     &:focus,
     &:focus-within {
       .radio {
-        border-color: var(--radio-invalid-border-color);
+        border-color: var(--radio-error-border-color);
       }
 
       input[type='radio']:checked + .radio {
@@ -123,12 +123,12 @@
     input[type='radio'] {
       &:checked + .radio {
         background: var(--error-500);
-        border-color: var(--radio-invalid-border-color);
+        border-color: var(--radio-error-border-color);
       }
 
       &:disabled + .radio {
         background: var(--error-100);
-        border-color: var(--radio-invalid-border-color);
+        border-color: var(--radio-error-border-color);
 
         .dot {
           background: var(--error-100);
@@ -137,7 +137,7 @@
 
       &:checked:disabled + .radio {
         background: var(--error-300);
-        border-color: var(--radio-invalid-border-color);
+        border-color: var(--radio-error-border-color);
 
         .dot {
           background: var(--error-500);

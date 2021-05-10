@@ -1,4 +1,14 @@
 .switch {
+  // Switch tokens
+  --switch-default-border-color: var(--default-border-color);
+  --switch-hover-border-color: var(--hover-border-color);
+  --switch-active-border-color: var(--active-border-color);
+  --switch-focus-border-color: var(--focus-border-color);
+  --switch-disabled-border-color: var(--disabled-border-color);
+  --switch-error-border-color: var(--error-border-color);
+  --switch-checked-border-color: var(--primary-default-background-color);
+  --switch-checked-background-color: var(--primary-default-background-color);
+
   --size: 4;
   --factor: 1;
   --default-blue: var(--color-500);
@@ -30,7 +40,7 @@
     outline: 0;
 
     .slider {
-      border-color: var(--hover-blue);
+      border-color: var(--switch-focus-border-color);
       box-shadow: 0 0 0 2px var(--default-blue);
     }
 
@@ -46,7 +56,7 @@
 
   &:hover:not(.disabled) {
     .slider {
-      border-color: var(--hover-gray);
+      border-color: var(--switch-hover-border-color);
 
       &::before {
         background-color: var(--hover-gray);
@@ -54,7 +64,7 @@
     }
 
     input:checked + .slider {
-      border-color: var(--hover-blue);
+      border-color: var(--switch-hover-border-color);
       background-color: var(--hover-blue);
 
       &::before {
@@ -73,7 +83,7 @@
     input {
       & + .slider {
         background-color: var(--color3-100);
-        border-color: var(--color3-200);
+        border-color: var(--switch-disabled-border-color);
 
         &::before {
           background-color: var(--color3-200);
@@ -82,7 +92,7 @@
 
       &:checked + .slider {
         background-color: var(--color3-200);
-        border-color: var(--color3-200);
+        border-color: var(--switch-disabled-border-color);
 
         &::before {
           background-color: var(--gray);
@@ -97,7 +107,7 @@
       outline: 0;
 
       .slider {
-        border-color: var(--default-blue);
+        border-color: var(--switch-active-border-color);
         box-shadow: 0 0 0 2px var(--default-blue);
       }
 
@@ -113,7 +123,7 @@
 
     &:hover:not(.disabled) {
       .slider {
-        border-color: var(--hover-gray);
+        border-color: var(--switch-hover-border-color);
 
         &::before {
           background-color: var(--hover-gray);
@@ -121,7 +131,7 @@
       }
 
       input:checked + .slider {
-        border-color: var(--error-500);
+        border-color: var(--switch-error-border-color);
         background-color: var(--error-500);
 
         &::before {
@@ -140,7 +150,7 @@
       input {
         & + .slider {
           background-color: var(--error-100);
-          border-color: var(--error-500);
+          border-color: var(--switch-error-border-color);
 
           &::before {
             background-color: var(--error-300);
@@ -149,7 +159,7 @@
 
         &:checked + .slider {
           background-color: var(--error-300);
-          border-color: var(--error-500);
+          border-color: var(--switch-error-border-color);
 
           &::before {
             background-color: var(--white);
@@ -159,11 +169,11 @@
     }
 
     .slider {
-      border-color: var(--error-500);
+      border-color: var(--switch-error-border-color);
     }
 
     input:checked + .slider {
-      border-color: var(--error-500);
+      border-color: var(--switch-inverroralid-border-color);
       background-color: var(--error-500);
     }
   }
@@ -175,8 +185,8 @@
     height: 0;
 
     &:checked + .slider {
-      border-color: var(--default-blue);
-      background-color: var(--default-blue);
+      border-color: var(--switch-focus-border-color);
+      background-color: var(--switch-checked-background-color);
     }
 
     &:checked + .slider::before {
@@ -224,7 +234,7 @@
     background-color: var(--white);
     transition: border-color 200ms, background-color 200ms;
     border-radius: 34px;
-    border: 1px solid var(--gray);
+    border: 1px solid var(--switch-default-border-color);
     box-sizing: border-box;
 
     &::before {

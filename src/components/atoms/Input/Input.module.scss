@@ -1,11 +1,11 @@
 .input {
-  // Input border tokens
+  // Input tokens
   --input-default-border-color: var(--default-border-color);
   --input-hover-border-color: var(--hover-border-color);
   --input-active-border-color: var(--active-border-color);
   --input-focus-border-color: var(--focus-border-color);
   --input-disabled-border-color: var(--disabled-border-color);
-  --input-invalid-border-color: var(--invalid-border-color);
+  --input-error-border-color: var(--error-border-color);
 
   display: inline-flex;
   flex-direction: column;
@@ -63,7 +63,7 @@
   }
 
   &.error {
-    border-color: var(--input-invalid-border-color);
+    border-color: var(--input-error-border-color);
   }
 
   &.lg {
@@ -97,7 +97,7 @@
 
     &.error {
       background: var(--error-100);
-      border-color: var(--input-invalid-border-color);
+      border-color: var(--input-error-border-color);
     }
   }
 }
