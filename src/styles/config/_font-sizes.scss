@@ -86,10 +86,10 @@ $fluid-sizes-desktop:
 
   // Body sizes mobile
   // Body S
-  --body-sm: calc(((14 / #{$design-size}) * 100) * 1vw);
+  --body-s: calc(((14 / #{$design-size}) * 100) * 1vw);
 
   // Body M
-  --body-md: calc(((16 / #{$design-size}) * 100) * 1vw);
+  --body-m: calc(((16 / #{$design-size}) * 100) * 1vw);
 
   // Body L
   --body-l: calc(((18 / #{$design-size}) * 100) * 1vw);
@@ -167,18 +167,18 @@ $fluid-sizes-desktop:
 
     // Body sizes
     // Body S
-    --body-sm-size: 14px;
+    --body-s: 14px;
 
     // Body M
-    --body-md-size: 16px;
+    --body-m: 16px;
 
     // Body L
-    --body-lg-size: 20px;
+    --body-l: 20px;
 
     // Body XL
-    --body-lg-size: 24px;
+    --body-1-xl: 24px;
 
     // Body 2XL
-    --body-lg-size: 32px;
+    --body-2-xl: 32px;
   }
 }
