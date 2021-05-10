@@ -26,7 +26,7 @@ export type InputProps = {
   isOptional?: boolean
 }
 
-export enum InputSizes {
+export enum InputSize {
   Small = 'sm',
   Medium = 'md',
   Large = 'lg'

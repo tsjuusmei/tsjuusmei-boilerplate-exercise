@@ -16,7 +16,7 @@ export type ButtonProps = {
   contentClassName?: string
 }
 
-export enum ButtonSizes {
+export enum ButtonSize {
   Small = 'sm',
   Medium = 'md',
   Large = 'lg'

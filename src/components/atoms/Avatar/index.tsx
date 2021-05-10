@@ -11,14 +11,14 @@ export type AvatarProps = {
   className?: string
 }
 
-export enum AvatarSizes {
-  ExtraSmall = 'xsm',
+export enum AvatarSize {
+  XSmall = 'xsm',
   Small = 'sm',
   Medium = 'md',
   Large = 'lg',
-  ExtraLarge = 'xlg',
-  ExtraExtraLarge = 'xxlg',
-  ExtraExtraExtraLarge = 'xxxlg'
+  XLarge = 'xlg',
+  XXLarge = 'xxlg',
+  XXXLarge = 'xxxlg'
 }
 
 const Avatar: React.FC<AvatarProps> = ({
