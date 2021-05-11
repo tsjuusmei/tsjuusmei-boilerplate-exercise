@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Icon, { icons } from '.'
+import { IconProps} from '@/components/atoms/Icon/types'
 
 export default {
   title: 'Components / Atoms / Icon',
@@ -9,11 +10,11 @@ export default {
 const sizes = [16, 20, 24]
 
 // Define types
-type IconProps = {
-  name: string
+interface Props extends IconProps {
+  name: string,
 }
 
-const IconWrapper: React.FC<IconProps> = ({ name }) => (
+const IconWrapper: React.FC<Props> = ({ name }) => (
   <div
     className="wrapper"
     style={{
