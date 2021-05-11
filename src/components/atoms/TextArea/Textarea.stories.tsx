@@ -1,5 +1,5 @@
 import React from 'react'
-import TextArea, { TextAreaProps, TextAreaSizes } from '.'
+import TextArea, { TextAreaProps, TextAreaSize } from '.'
 
 export default {
   title: 'Components / Atoms / TextArea',
@@ -8,10 +8,13 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: TextAreaSizes
+        options: TextAreaSize
       }
     }
   }
 }
 
 export const Default = (args: TextAreaProps) => <TextArea {...args} />
+Default.args = {
+  size: TextAreaSize.Medium
+}

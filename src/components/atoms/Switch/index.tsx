@@ -16,14 +16,14 @@ export type SwitchProps = {
   className?: string
 }
 
-export enum SwitchSizes {
+export enum SwitchSize {
   Small = 'sm',
   Medium = 'md',
   Large = 'lg'
 }
 
 const Switch: React.FC<SwitchProps> = ({
-  size = 'md',
+  size = SwitchSize.Medium,
   isDisabled = false,
   isChecked = false,
   isDefaultChecked = false,

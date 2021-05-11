@@ -35,7 +35,7 @@ export enum InputSize {
 const Input: React.FC<InputProps> = ({
   id,
   label,
-  size = 'md',
+  size = InputSize.Medium,
   name,
   placeholder,
   isDisabled,

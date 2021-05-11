@@ -24,7 +24,7 @@ export enum ButtonSize {
 
 const Button: React.FC<ButtonProps> = ({
   variation = 'primary',
-  size = 'md',
+  size = ButtonSize.Medium,
   children = 'Button label',
   label = '',
   href = '',

@@ -22,7 +22,7 @@ export type TextAreaProps = {
   isOptional?: boolean
 }
 
-export enum TextAreaSizes {
+export enum TextAreaSize {
   Small = 'sm',
   Medium = 'md',
   Large = 'lg'
@@ -32,7 +32,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   id,
   label,
   name,
-  size = 'md',
+  size = TextAreaSize.Medium,
   placeholder,
   isDisabled,
   hasError,

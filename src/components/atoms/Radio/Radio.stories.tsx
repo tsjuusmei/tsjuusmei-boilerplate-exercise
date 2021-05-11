@@ -1,5 +1,5 @@
 import React from 'react'
-import Radio, { RadioProps, RadioSizes } from '.'
+import Radio, { RadioProps, RadioSize } from '.'
 
 export default {
   title: 'Components / Atoms / Radio',
@@ -8,10 +8,13 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: RadioSizes
+        options: RadioSize
       }
     }
   }
 }
 
 export const Default = (args: RadioProps) => <Radio {...args} />
+Default.args = {
+  size: RadioSize.Medium
+}

@@ -15,3 +15,6 @@ export default {
 }
 
 export const Default = (args: InputProps) => <Input {...args} />
+Default.args = {
+  size: InputSize.Medium
+}
