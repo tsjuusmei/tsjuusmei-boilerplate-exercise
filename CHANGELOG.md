@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](http://yummygum///compare/v0.1.1...v0.1.2) (2021-05-11)
+
+
+### Functional additions
+
+* Update generate script & use TS ([f83e356](http://yummygum///commit/f83e3561ed87e511f43a0d9936d191a90b01a8e2))
+
+
+### Bug fixes
+
+* Remove test component ([578c9f1](http://yummygum///commit/578c9f1307b364398c08aa52d945534f370f5709))
+
 ### 0.1.1 (2021-05-11)
 
 
