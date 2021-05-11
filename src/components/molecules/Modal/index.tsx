@@ -31,9 +31,10 @@ const Modal: React.FC<Props> = ({
   useOutsideClick(ref, closeModal)
 
   useEffect(() => {
-    // We assume `modalRoot` exists with '!'
-    modalRoot!.appendChild(el.current)
-    return () => void modalRoot!.removeChild(el.current)
+    const element = el.current
+
+    modalRoot?.appendChild(element)
+    return () => void modalRoot?.removeChild(element)
   }, [])
 
   return createPortal(
