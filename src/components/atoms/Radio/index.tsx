@@ -1,26 +1,38 @@
 import React from 'react'
 
-//Components
+// Components
 import Icon from '@/components/atoms/Icon'
 
 // Styling
 import styles from './radio.module.scss'
 
 // Types
+export enum RadioSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 export type RadioProps = {
   name: string,
   label: string,
-  size?: Sizes,
+  size: RadioSize,
   isDisabled?: boolean,
   defaultChecked?: boolean,
   value?: string,
   hasError?: boolean
 }
 
+export enum RadioSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 const Radio: React.FC<RadioProps> = ({
-  name = 'name',
+  name,
   label = 'label',
-  size = 'md',
+  size = RadioSize.Medium,
   isDisabled,
   hasError,
   defaultChecked,

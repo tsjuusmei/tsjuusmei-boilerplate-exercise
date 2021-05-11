@@ -1,11 +1,10 @@
-const { outputFile } = require('fs-extra')
-const { join } = require('path')
+import { outputFile } from 'fs-extra'
+import { join } from 'path'
 
 const folder = process.argv[2] || 'atoms'
 const fileName = process.argv[3] || 'example'
-const convertToKebabCase = (string) => string.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/[\s_]+/g, '-').toLowerCase()
 
-const generateComponent = (name) => {
+const generateComponent = (name: string) => {
   const sub = name.substr(name.lastIndexOf('/') + 1)
   const funcName = sub.charAt(0).toUpperCase() + sub.slice(1)
 
@@ -18,10 +17,10 @@ type ${funcName}Props = {
 }
 
 // Styling
-import styles from './${convertToKebabCase(name)}.module.scss'
+import styles from './${name}.module.scss'
 
 const ${funcName}: React.FC<${funcName}Props> = ({ name }) => (
-  <div className={styles['${convertToKebabCase(name)}']}>
+  <div className={styles['${name}']}>
     <p>{name}</p>
   </div>
 )
@@ -31,7 +30,7 @@ export default ${funcName}
   )
 }
 
-const generateStories = (name) => {
+const generateStories = (name: string) => {
   const sub = name.substr(name.lastIndexOf('/') + 1)
   const funcName = sub.charAt(0).toUpperCase() + sub.slice(1)
   const folderName = folder.charAt(0).toUpperCase() + folder.slice(1)
@@ -52,9 +51,8 @@ Default.args = {}
   )
 }
 
-const generateCss = (name) => (
-  `
-.${name} {
+const generateCss = (name: string) => (
+  `.${name} {
   color: red;
 }
 `
@@ -65,8 +63,8 @@ const content = generateComponent(fileName)
 
 outputFile(filePath, content, 'utf8')
   .then(() => {
-    const sassPath = join('src/components', folder, fileName, `${convertToKebabCase(fileName)}.module.scss`)
-    const sassContent = generateCss(convertToKebabCase(fileName))
+    const sassPath = join('src/components', folder, fileName, `${fileName}.module.scss`)
+    const sassContent = generateCss(fileName)
 
     outputFile(sassPath, sassContent, 'utf8')
       .then(() => {
