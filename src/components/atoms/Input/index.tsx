@@ -39,7 +39,6 @@ const Input: React.FC<InputProps> = ({
   id,
   label,
   size = InputSize.Medium,
-  name,
   placeholder,
   isDisabled,
   hasError,
