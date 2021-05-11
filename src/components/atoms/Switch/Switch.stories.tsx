@@ -15,6 +15,7 @@ export default {
 }
 
 export const Default = (args: SwitchProps) => <Switch {...args} />
+
 Default.args = {
   size: SwitchSize.Medium
 }
