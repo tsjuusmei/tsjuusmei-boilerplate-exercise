@@ -1,11 +1,13 @@
 import * as React from 'react'
 
 // Types
-import type { IconProps } from '../../types'
+import {
+  IconProps, IconSocialSize
+} from '@/components/atoms/Icon/types'
 
 function Twitter({
   color = 'var(--color3-500)',
-  size = 20
+  size = IconSocialSize.Small
 }: IconProps) {
   return (
     <svg
