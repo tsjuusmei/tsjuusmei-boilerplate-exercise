@@ -24,7 +24,7 @@ export enum AvatarSize {
 const Avatar: React.FC<AvatarProps> = ({
   src,
   alt,
-  size = 'md',
+  size = AvatarSize.Medium,
   className,
   ...props
 }) => (
