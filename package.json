@@ -1,6 +1,6 @@
 {
   "name": "chicle",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Chicle, the development boilerplate of Yummygum.",
   "main": "index.js",
   "engines": {
