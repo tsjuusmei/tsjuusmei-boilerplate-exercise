@@ -1,6 +1,8 @@
 import React from 'react'
 import Avatar, { AvatarProps, AvatarSize } from '.'
 
+const sizeDefault = AvatarSize.Medium
+
 export default {
   title: 'Components / Atoms / Avatar',
   component: Avatar,
@@ -10,13 +12,17 @@ export default {
         type: 'select',
         options: AvatarSize
       }
-    }
+    },
+    className: { control: { disable: true } }
   }
 }
 
-export const Default = (args: AvatarProps) => <Avatar {...args} />
+export const Default = (args: AvatarProps) => (
+  <Avatar {...args} />
+)
 
 Default.args = {
   src: 'https://source.unsplash.com/random/800x600',
-  alt: 'Alternative text'
+  size: sizeDefault,
+  alt: 'A description of an avatar image.'
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import Input, { InputProps, InputSize } from '.'
 
+const sizeDefault = InputSize.Medium
+
 export default {
   title: 'Components / Atoms / Input',
   component: Input,
@@ -14,7 +16,10 @@ export default {
   }
 }
 
+
 export const Default = (args: InputProps) => <Input {...args} />
+
 Default.args = {
-  size: InputSize.Medium
+  size: sizeDefault,
+  placeholder: 'Placeholder...'
 }

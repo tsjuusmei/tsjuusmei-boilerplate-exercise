@@ -1,25 +1,26 @@
 import * as React from 'react'
 
-//Components
+// Components
 import Icon from '@/components/atoms/Icon'
 
 // Styles
 import styles from './Switch.module.scss'
 
+// Types
+export enum SwitchSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 export type SwitchProps = {
-  size: Sizes,
+  size: SwitchSize,
   isDisabled?: boolean,
   isChecked?: boolean,
   isDefaultChecked?: boolean,
   hasError?: boolean,
   label?: string,
   className?: string
-}
-
-export enum SwitchSize {
-  Small = 'sm',
-  Medium = 'md',
-  Large = 'lg'
 }
 
 const Switch: React.FC<SwitchProps> = ({

@@ -6,6 +6,7 @@ import Avatar from '@/components/atoms/Avatar'
 // Style
 import styles from './Author.module.scss'
 
+// Types
 export type AuthorProps = {
   className?: string,
   avatarSrc?: string,
@@ -22,10 +23,12 @@ const Author: React.FC<AuthorProps> = ({
   role
 }) => {
   return (
-    <div className={`
-      ${styles.author}
-      ${className ? className : ''}
-    `}>
+    <div
+      className={`
+        ${styles.author}
+        ${className ? className : ''}
+      `}
+    >
       <Avatar src={avatarSrc} alt={avatarAlt} className={styles.avatar} />
       <div>
         <h5>{name}</h5>

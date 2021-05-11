@@ -33,7 +33,7 @@ export type TestimonialsProps = {
   title: string,
   eyebrow: string,
   description?: string
-  sliderData: Slide[]
+  sliderData: Array<Slide>
 }
 
 const Testimonials: React.FC<TestimonialsProps> = ({

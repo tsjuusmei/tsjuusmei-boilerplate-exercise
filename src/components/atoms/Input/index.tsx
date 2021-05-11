@@ -9,11 +9,18 @@ import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
 // Styles
 import styles from './Input.module.scss'
 
+// Types
+export enum InputSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 export type InputProps = {
   id?: string,
   label?: string,
   hasError?: boolean,
-  size?: Sizes,
+  size: InputSize,
   type?: string,
   placeholder?: string,
   spellCheck?: boolean,
@@ -24,12 +31,6 @@ export type InputProps = {
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLInputElement>) => void,
   isOptional?: boolean
-}
-
-export enum InputSize {
-  Small = 'sm',
-  Medium = 'md',
-  Large = 'lg'
 }
 
 const Input: React.FC<InputProps> = ({
