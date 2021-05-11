@@ -1,11 +1,10 @@
 import * as React from 'react'
 
-// Types
-import type { IconProps } from '../../types'
+import { IconProps, IconActionSize } from '@/components/atoms/Icon/types'
 
 function Plus({
   color = 'var(--color3-500)',
-  size = 16
+  size = IconActionSize.Small
 }: IconProps) {
   return (
     <svg
