@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](http://yummygum///compare/v0.1.2...v0.1.3) (2021-05-11)
+
+
+### Style fixes
+
+* Change isError to hasError ([41e1807](http://yummygum///commit/41e1807cc63d9093c920ada255a334de816d48b6))
+* Update Author.stories style ([39fe49f](http://yummygum///commit/39fe49fe960620d6700c14190fa31dc53860ed90))
+* Update Radio component style ([fa41928](http://yummygum///commit/fa41928da169b0c3e73a0f7bbb794be9aaee1c30))
+* Update style Switch component ([c6a86c2](http://yummygum///commit/c6a86c203c29d526d111891c6da9622831bf760f))
+
+
+### Component fixes
+
+* Cleanup Avatar component and storybook ([d6e0976](http://yummygum///commit/d6e09769db8a1b05c68026a96d1a95de0146e4da))
+* Cleanup Avatar component and storybook ([52cdebd](http://yummygum///commit/52cdebd101f14e55d2deed26c314418257666a9c))
+* Cleanup Button component and storybook ([2a801db](http://yummygum///commit/2a801db6ba4eca85f630b719f938a952a21a5fae))
+* Cleanup Input component and storybook ([0a6bf98](http://yummygum///commit/0a6bf9867dc561cbfc3cb75dc5f82d1b7eb009c2))
+* Cleanup TextArea component and storybook ([e546db3](http://yummygum///commit/e546db3cc98698eb238498c1cf3f12248b1d5ef9))
+* Use ButtonProps for ButtonGroep instead of Props ([bcb570e](http://yummygum///commit/bcb570ed85f14201c21c49d8aed3610355edf48d))
+
+
+### Others
+
+* Adding Enums and Clenaup ([5ec80e7](http://yummygum///commit/5ec80e75f4d48fc5cc4b880461e6faee8fe024f8))
+* Resolve PR Issues ([6660438](http://yummygum///commit/6660438a4da990c2a0963942edc0959dea33aaa4))
+* Resolving PR Issues ([d42e264](http://yummygum///commit/d42e26436cdf4c4f470965aa10551942c35f28aa))
+* Resolving PR Issues ([10640a9](http://yummygum///commit/10640a9d17dc29850e4fa8b5569c52542122820c))
+* Resolving requested changes ([08a05a8](http://yummygum///commit/08a05a872ad8006586658b565e08e97acff0ff3a))
+* Resolving requested changes ([abad253](http://yummygum///commit/abad2533b4a19a69baee18bb414300ae7e430003))
+
 ### [0.1.2](http://yummygum///compare/v0.1.1...v0.1.2) (2021-05-11)
 
 
