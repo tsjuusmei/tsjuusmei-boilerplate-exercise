@@ -9,11 +9,23 @@ import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
 // Styles
 import styles from  './Input.module.scss'
 
+// Types
+export enum InputSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
 export type InputProps = {
   id?: string,
   label?: string,
+<<<<<<< HEAD
   hasError?: boolean,
   size?: Sizes,
+=======
+  isError?: boolean,
+  size: InputSize,
+>>>>>>> develop
   type?: string,
   placeholder?: string,
   spellCheck?: boolean,

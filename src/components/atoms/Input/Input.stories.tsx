@@ -1,17 +1,21 @@
 import React from 'react'
-import Input, {InputProps} from '.'
+import Input, { InputProps, InputSize } from '.'
 
-const sizes = {
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg'
-}
+const sizeOptions = Object.keys(InputSize).map(key => InputSize[key])
+const sizeDefault = InputSize.Medium
 
 export default {
   title: 'Components / Atoms / Input',
-  component: Input
+  component: Input,
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: sizeOptions
+      }
+    }
+  }
 }
-
 
 export const Default = (args: InputProps) => (
   <Input
@@ -19,7 +23,6 @@ export const Default = (args: InputProps) => (
     name='input-1'
     {...args}
   />
-
 )
 
 Default.args = {
@@ -29,7 +32,7 @@ Default.args = {
   isError: false,
   isOptional: true,
   isDisabled: false,
-  size: sizes.sm
+  size: sizeDefault
 }
 
 export const Disabled = (args: InputProps) => (
@@ -47,7 +50,7 @@ Disabled.args = {
   isError: false,
   isOptional: false,
   isDisabled: true,
-  size: sizes.md
+  size: sizeDefault
 }
 
 export const Error = (args: InputProps) => (
@@ -55,7 +58,6 @@ export const Error = (args: InputProps) => (
     id='input-3'
     name='input-3'
     {...args}/>
-
 )
 
 Error.args = {
@@ -65,8 +67,5 @@ Error.args = {
   hasError: true,
   isOptional: false,
   isDisabled: false,
-  size: sizes.lg
+  size: sizeDefault
 }
-
-
-

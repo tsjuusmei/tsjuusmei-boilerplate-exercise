@@ -1,5 +1,5 @@
 import React from 'react'
-import Grid, { Col } from '.'
+import Grid, { Col, GridSize } from '.'
 
 const spanOptions = [12, 6, 4, 3, 2, 1]
 
@@ -38,7 +38,7 @@ export default {
 
 type ColumnProps = {
   cols: 12 | 6 | 4 | 3 | 2 | 1,
-  size: Sizes,
+  size: GridSize,
   gap: string
 }
 
@@ -47,7 +47,7 @@ export const Columns = (args: ColumnProps) => {
   const arr = Array(amount).fill(0)
 
   return (
-    <Grid gap={args.gap} size="md">
+    <Grid gap={args.gap} size={args.size}>
       { arr.map((_, idx) => (
         <Col span={args.cols} key={idx}>
           <SampleComponent span={args.cols} />
@@ -59,7 +59,7 @@ export const Columns = (args: ColumnProps) => {
 
 Columns.args = {
   cols: 12,
-  size: 'lg',
+  size: GridSize.Large,
   gap: '56px'
 }
 
@@ -77,7 +77,7 @@ const SampleImage = () => (
 )
 
 export const ImageGallery = () => (
-  <Grid gap="20px" cols={12} size="lg">
+  <Grid gap="20px" cols={12} size={GridSize.Large}>
     <Col span={12}>
       <SampleImage />
     </Col>
@@ -99,7 +99,7 @@ export const ImageGallery = () => (
 export const BlogPost = () => (
   <>
     <img style={{ width: '100%', marginBottom: '80px' }} src="//picsum.photos/1920/480" alt="" />
-    <Grid gap="24px" size="lg">
+    <Grid gap="24px" size={GridSize.Large}>
       <Col span={8} start={5}>
         <h1>Grid Systems</h1>
         <h2 className="h5">Raster Systeme für die Visuelle Gestaltung</h2>

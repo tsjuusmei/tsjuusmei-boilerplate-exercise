@@ -6,11 +6,18 @@ import Icon from '@/components/atoms/Icon'
 // Styles
 import styles from  './TextArea.module.scss'
 
-type Props = {
+// Types
+export enum TextAreaSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
+export type TextAreaProps = {
   id?: string,
   label?: string,
   isError?: boolean,
-  size?: Sizes,
+  size: TextAreaSize,
   placeholder?: string,
   spellCheck?: boolean,
   autoComplete?: string,
@@ -22,10 +29,10 @@ type Props = {
   isOptional?: boolean
 }
 
-const TextArea: React.FC<Props> = ({
+const TextArea: React.FC<TextAreaProps> = ({
   id,
   label,
-  size = 'md',
+  size = TextAreaSize.Medium,
   placeholder,
   isDisabled,
   isError,

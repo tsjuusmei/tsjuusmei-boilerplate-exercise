@@ -37,7 +37,7 @@
   width: calc(var(--size) * var(--factor) * 12px);
   height: calc(var(--size) * var(--factor) * 6px);
 
-  // Sizes
+  // Size variables
   &.lg {
     --factor: 1.2;
     --font-size: 18px;

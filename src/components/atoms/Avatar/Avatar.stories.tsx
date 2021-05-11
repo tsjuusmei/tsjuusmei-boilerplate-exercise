@@ -1,15 +1,8 @@
 import React from 'react'
-import Avatar, { Props } from '.'
+import Avatar, { AvatarProps, AvatarSize } from '.'
 
-const sizeOptions = [
-  'xxxlg',
-  'xxlg',
-  'xlg',
-  'lg',
-  'md',
-  'sm',
-  'xsm'
-]
+const sizeOptions = Object.keys(AvatarSize).map(key => AvatarSize[key])
+const sizeDefault = AvatarSize.Medium
 const alt = 'A description of an avatar image.'
 
 export default {
@@ -26,26 +19,20 @@ export default {
   }
 }
 
-export const Single = (args: Props) => (
-  <Avatar
-    {...args}
-  >
-    Primary
-  </Avatar>
+export const Single = (args: AvatarProps) => (
+  <Avatar {...args} />
 )
 
 Single.args = {
   src: 'https://source.unsplash.com/random/800x600',
-  size: 'md',
+  size: sizeDefault,
   alt: 'A description of an avatar image.'
 }
 
 export const Overview = () => (
   <div>
     {sizeOptions.map((size, idx) => (
-      <div
-        key={idx}
-      >
+      <div key={idx}>
         <Avatar
           alt={alt}
           size={size}

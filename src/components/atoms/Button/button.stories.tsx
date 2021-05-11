@@ -1,8 +1,12 @@
 import * as React from 'react'
-import Button, { Props } from '.'
+import Button, {
+  ButtonProps,
+  ButtonSize,
+  ButtonVariation
+} from '.'
 
-const sizeOptions = ['sm', 'md', 'lg']
-const sizeDefault = 'md'
+const sizeOptions = Object.keys(ButtonSize).map(key => ButtonSize[key])
+const sizeDefault = ButtonSize.Medium
 
 export default {
   title: 'Components / Atoms / Button',
@@ -17,7 +21,7 @@ export default {
   }
 }
 
-export const Primary = (args: Props) => (
+export const Primary = (args: ButtonProps) => (
   <Button
     label="Primary Button"
     {...args}
@@ -27,11 +31,11 @@ export const Primary = (args: Props) => (
 )
 
 Primary.args = {
-  variation: 'primary',
+  variation: ButtonVariation.Primary,
   size: sizeDefault
 }
 
-export const Secondary = (args: Props) => (
+export const Secondary = (args: ButtonProps) => (
   <Button
     label="Secondary Button"
     {...args}
@@ -41,11 +45,11 @@ export const Secondary = (args: Props) => (
 )
 
 Secondary.args = {
-  variation: 'secondary',
+  variation: ButtonVariation.Secondary,
   size: sizeDefault
 }
 
-export const Tertiary = (args: Props) => (
+export const Tertiary = (args: ButtonProps) => (
   <Button
     label="Tertiary Button"
     {...args}
@@ -55,11 +59,11 @@ export const Tertiary = (args: Props) => (
 )
 
 Tertiary.args = {
-  variation: 'tertiary',
+  variation: ButtonVariation.Tertiary,
   size: sizeDefault
 }
 
-export const TextLink = (args: Props) => (
+export const TextLink = (args: ButtonProps) => (
   <Button
     label="Text Link"
     {...args}
@@ -69,6 +73,6 @@ export const TextLink = (args: Props) => (
 )
 
 TextLink.args = {
-  variation: 'text-link',
+  variation: ButtonVariation.TextLink,
   size: sizeDefault
 }
