@@ -1,4 +1,7 @@
 .checkbox {
+  // Checkbox border radius tokens
+  --checkbox-border-radius: var(--border-radius-md);
+
   // Checkbox background colors
   --checkbox-default-background-color: var(--input-default-background-color);
   --checkbox-checked-background-color: var(--input-checked-background-color);
@@ -21,7 +24,7 @@
   --checkbox-error-border-color: var(--input-error-border-color);
 
   // Checkbox focus ring token
-  --checkbox-focus-ring-color: var(--input-focus-ring-color);
+  --checkbox-focus-ring-color: var(--focus-ring-color);
 
   position: relative;
   display: inline-flex;
@@ -171,6 +174,7 @@
   border-radius: 4px;
   height: 100%;
   transition: .2s background-color;
+  border-radius: var(--checkbox-border-radius);
 }
 
 .icon-checkmark {

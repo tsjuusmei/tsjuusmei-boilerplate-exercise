@@ -20,7 +20,7 @@
   --switch-checked-hover-border-color: var(--input-checked-hover-border-color);
 
   // Switch focus ring token
-  --switch-focus-ring-color: var(--input-focus-ring-color);
+  --switch-focus-ring-color: var(--focus-ring-color);
 
   --size: 4;
   --factor: 1;
@@ -246,7 +246,7 @@
       background-color: var(--gray);
       bottom: calc(var(--size) * var(--factor) * .75px);
       transition: background-color 200ms, transform 200ms;
-      border-radius: 50%;
+      border-radius: 100%;
     }
   }
 }

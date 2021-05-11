@@ -1,11 +1,26 @@
 :root {
+  // CHL Tokens - Global tokens
+
+  // Border radius
+  --border-radius-none: 0;
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 6px;
+  --border-radius-round: 100%;
+
+
   // CHL Tokens - Alias tokens
 
+  // Alias colors
+  --primary-color: var(--color-500);
+  --background-color: var(--white-000);
+  --error-color: var(--error-500);
+
   // Primary background colors
-  --primary-default-background-color: var(--color-500);
+  --primary-default-background-color: var(--primary-color);
   --primary-hover-background-color: var(--color-600);
   --primary-active-background-color: var(--color-600);
-  --primary-disabled-background-color: var(--color-500);
+  --primary-disabled-background-color: var(--primary-color);
 
   // Primary content colors
   --primary-default-content-color: var(--white-000);
@@ -33,11 +48,11 @@
 
   // Input background colors
   --input-default-background-color: var(--white-000);
-  --input-checked-background-color: var(--color-500);
+  --input-checked-background-color: var(--primary-color);
   --input-checked-hover-background-color: var(--color-600);
   --input-disabled-background-color: var(--color3-100);
   --input-disabled-checked-background-color: var(--color3-200);
-  --input-error-checked-background-color: var(--error-500);
+  --input-error-checked-background-color: var(--error-color);
   --input-error-disabled-background-color: var(--error-100);
   --input-error-checked-disabled-background-color: var(--error-300);
 
@@ -45,15 +60,27 @@
   --input-default-border-color: var(--color3-300);
   --input-hover-border-color: var(--color3-400);
   --input-active-border-color: var(--color3-500);
-  --input-checked-border-color: var(--color-500);
+  --input-checked-border-color: var(--primary-color);
   --input-checked-hover-border-color: var(--color-600);
   --input-focus-border-color: var(--color-600);
-  --input-focus-checked-border-color: var(--input-default-background-color);
+  --input-focus-checked-border-color: var(--background-color);
   --input-disabled-border-color: var(--color3-200);
-  --input-error-border-color: var(--error-500);
+  --input-error-border-color: var(--error-color);
 
-  // Input focus ring color
-  --input-focus-ring-color: var(--color-500);
+  // Input content colors
+  --input-dafault-label-color: var(--color3-600);
+  --input-disabled-label-color: var(--color3-250);
+
+  // label-color (Checkbox, Input, Select, Radio, Checkbox, Switch & TextArea)
+  // error-icon-color (Checkbox, Input, Select, Radio, Checkbox, Switch & TextArea)
+  // check-color (Checkbox & Radio)
+  // text-color (Input & TextArea)
+  // placeholder-text-color (Input & TextArea)
+  // switch-color (Switch)
+  // chevron-color (Select)
+
+  // Focus ring color
+  --focus-ring-color: var(--primary-color);
 }
 
 // $spacing-size: 4px;

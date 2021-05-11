@@ -19,13 +19,8 @@ export enum InputSize {
 export type InputProps = {
   id?: string,
   label?: string,
-<<<<<<< HEAD
   hasError?: boolean,
-  size?: Sizes,
-=======
-  isError?: boolean,
   size: InputSize,
->>>>>>> develop
   type?: string,
   placeholder?: string,
   spellCheck?: boolean,

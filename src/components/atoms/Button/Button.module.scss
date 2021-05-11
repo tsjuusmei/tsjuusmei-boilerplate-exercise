@@ -1,4 +1,7 @@
 .button {
+  // Button tokens
+  --button-border-radius: var(--border-radius-none);
+
   // Button primary tokens
   --button-primary-default-background-color: var(--primary-default-background-color);
   --button-primary-default-content-color: var(--primary-default-content-color);
@@ -28,6 +31,9 @@
   // Button text link tokens
   --button-text-link-content-color: var(--color-500);
 
+  // Button focus ring token
+  --button-focus-ring-color: var(--focus-ring-color);
+
   font-family: var(--font-stack-base);
   display: inline-block;
   background: none;
@@ -44,6 +50,11 @@
   &.fullwidth {
     width: 100%;
   }
+
+  &:focus,
+  &:focus-within {
+    outline: 2px solid var(--button-focus-ring-color);
+  }
 }
 
 .button-content {
@@ -51,6 +62,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: var(--button-border-radius);
 
   &.lg {
     @include button-lg;

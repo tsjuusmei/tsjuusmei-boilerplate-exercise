@@ -1,18 +1,21 @@
 .textarea {
+  // TextArea tokens
+  --textarea-border-radius: var(--border-radius-none);
+
   // TextArea background tokens
-  --text-area-default-background-color: var(--input-default-background-color);
-  --text-area-disabled-background-color: var(--input-disabled-background-color);
-  --text-area-error-disabled-background-color: var(--input-error-disabled-background-color);
+  --textarea-default-background-color: var(--input-default-background-color);
+  --textarea-disabled-background-color: var(--input-disabled-background-color);
+  --textarea-error-disabled-background-color: var(--input-error-disabled-background-color);
 
   // TextArea border tokens
-  --text-area-default-border-color: var(--input-default-border-color);
-  --text-area-hover-border-color: var(--input-hover-border-color);
-  --text-area-focus-border-color: var(--input-focus-border-color);
-  --text-area-disabled-border-color: var(--input-disabled-border-color);
-  --text-area-error-border-color: var(--input-error-border-color);
+  --textarea-default-border-color: var(--input-default-border-color);
+  --textarea-hover-border-color: var(--input-hover-border-color);
+  --textarea-focus-border-color: var(--input-focus-border-color);
+  --textarea-disabled-border-color: var(--input-disabled-border-color);
+  --textarea-error-border-color: var(--input-error-border-color);
 
   // Input focus ring color
-  --text-area-focus-ring-color: var(--input-focus-ring-color);
+  --textarea-focus-ring-color: var(--focus-ring-color);
 
   display: flex;
   flex-direction: column;
@@ -41,8 +44,8 @@
 
 .element {
   color: var(--color3-900);
-  background: var(--text-area-default-background-color);
-  border: 2px solid var(--text-area-default-border-color);
+  background: var(--textarea-default-background-color);
+  border: 2px solid var(--textarea-default-border-color);
   outline: 0;
   transition: border-color var(--fast-transition) var(--ease);
   resize: none;
@@ -50,26 +53,27 @@
   width: 100%;
   height: 100%;
   padding: 16px;
+  border-radius: var(--textarea-border-radius);
 
   &::placeholder {
     color: var(--color3-400);
   }
 
   &:hover {
-    border-color: var(--text-area-hover-border-color);
+    border-color: var(--textarea-hover-border-color);
   }
 
   &:focus,
   &:focus-within {
-    border-color: var(--text-area-focus-border-color);
-    outline: 2px solid var(--text-area-focus-ring-color);
+    border-color: var(--textarea-focus-border-color);
+    outline: 2px solid var(--textarea-focus-ring-color);
     caret-color: var(--black-000);
   }
 
   &:disabled {
     cursor: not-allowed;
-    background: var(--text-area-disabled-background-color);
-    border-color: var(--text-area-disabled-border-color);
+    background: var(--textarea-disabled-background-color);
+    border-color: var(--textarea-disabled-border-color);
     color: var(--color3-300);
 
     &::placeholder {
@@ -77,13 +81,13 @@
     }
 
     &.error {
-      background-color: var(--text-area-error-disabled-background-color);
-      border-color: var(--text-area-error-border-color);
+      background-color: var(--textarea-error-disabled-background-color);
+      border-color: var(--textarea-error-border-color);
     }
   }
 
   &.error {
-    border-color: var(--text-area-error-border-color);
+    border-color: var(--textarea-error-border-color);
   }
 
   &.lg {
