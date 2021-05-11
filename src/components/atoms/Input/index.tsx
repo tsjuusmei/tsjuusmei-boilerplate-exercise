@@ -1,13 +1,14 @@
 import * as React from 'react'
+import { RegisterOptions, useFormContext } from 'react-hook-form'
 
 // Components
 import Icon from '@/components/atoms/Icon'
 
-// Utils
-import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
-
 // Styles
 import styles from './Input.module.scss'
+
+// Utils
+import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
 
 // Types
 export enum InputSize {
@@ -30,14 +31,14 @@ export type InputProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLInputElement>) => void,
-  isOptional?: boolean
+  isOptional?: boolean,
+  rules?: RegisterOptions
 }
 
 const Input: React.FC<InputProps> = ({
   id,
   label,
   size = InputSize.Medium,
-  name,
   placeholder,
   isDisabled,
   hasError,
@@ -48,9 +49,11 @@ const Input: React.FC<InputProps> = ({
   onBlur,
   autoComplete = 'on',
   spellCheck = true,
+  rules,
   ...props
 }) => {
   const convertedSize = convertSizeToNumber(size)
+  const methods = useFormContext()
 
   return (
     <div className={`
@@ -81,6 +84,7 @@ const Input: React.FC<InputProps> = ({
         autoComplete={autoComplete}
         spellCheck={spellCheck}
         aria-labelledby={label}
+        ref={methods?.register({...rules})}
         {...props}
       />
 

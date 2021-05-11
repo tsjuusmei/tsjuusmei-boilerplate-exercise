@@ -24,6 +24,7 @@
     "paths": {
       "@/components/*": ["./src/components/*"],
       "@/hooks/*": ["./src/helpers/hooks/*"],
+      "@/constants/*": ["src/helpers/constants/*"],
       "@/utils/*": ["./src/helpers/utils/*"],
       "@/styles/*": ["./src/styles/*"],
       "*": ["./src/typings/*.d.ts"]
