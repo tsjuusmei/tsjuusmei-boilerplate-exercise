@@ -15,14 +15,14 @@ export enum TextAreaSize {
 
 export type TextAreaProps = {
   id?: string,
+  name: string,
   label?: string,
-  isError?: boolean,
+  hasError?: boolean,
   size: TextAreaSize,
   placeholder?: string,
   spellCheck?: boolean,
   autoComplete?: string,
   isDisabled?: boolean,
-  name: string,
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
   onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLTextAreaElement>) => void,
@@ -35,7 +35,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   size = TextAreaSize.Medium,
   placeholder,
   isDisabled,
-  isError,
+  hasError,
   isOptional,
   onChange,
   onFocus,
@@ -48,7 +48,7 @@ const TextArea: React.FC<TextAreaProps> = ({
       {label && (
         <label htmlFor={id} className={styles.label}>
           {label}
-          {isError && (
+          {hasError && (
             <Icon name="warning" color="var(--error-500)"/>
           )}
           {isOptional && <span>Optional</span>}
@@ -59,8 +59,9 @@ const TextArea: React.FC<TextAreaProps> = ({
         className={`
           ${styles.element}
           ${styles[size]}
-          ${isError ? styles.error : null}
+          ${hasError ? styles.error : null}
         `}
+        name={name}
         onChange={onChange}
         id={id}
         placeholder={placeholder}
