@@ -2,11 +2,11 @@ import * as React from 'react'
 import { NextPage } from 'next'
 
 // Components
-import Grid, { Col } from '@/components/meta/Grid'
+import Grid, { Col, GridSize } from '@/components/meta/Grid'
 
 const Homepage: NextPage = () => (
   <main className="home">
-    <Grid cols={12} size="sm">
+    <Grid cols={12} size={GridSize.Small}>
       <Col span={12}>
         <h1>h1: The face of the moon was in shadow.</h1>
         <h2>h2: The face of the moon was in shadow.</h2>
