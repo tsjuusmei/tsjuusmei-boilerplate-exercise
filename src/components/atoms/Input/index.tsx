@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { RegisterOptions, useFormContext } from 'react-hook-form'
 
 // Components
 import Icon from '@/components/atoms/Icon'
@@ -24,10 +25,10 @@ export type InputProps = {
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLInputElement>) => void,
   isOptional?: boolean,
-  forwardRef?: any
+  rules?: RegisterOptions
 }
 
-const Input = React.forwardRef<any, InputProps>(({
+const Input: React.FC<InputProps> = ({
   id,
   label,
   size = 'md',
@@ -42,9 +43,11 @@ const Input = React.forwardRef<any, InputProps>(({
   onBlur,
   autoComplete = 'on',
   spellCheck = true,
+  rules,
   ...props
-}, ref) => {
+}) => {
   const convertedSize = convertSizeToNumber(size)
+  const methods = useFormContext()
 
   return (
     <div className={`
@@ -59,7 +62,6 @@ const Input = React.forwardRef<any, InputProps>(({
       )}
 
       <input
-        ref={ref}
         className={`
           ${styles['input-element']}
           ${styles[size]}
@@ -76,6 +78,7 @@ const Input = React.forwardRef<any, InputProps>(({
         autoComplete={autoComplete}
         spellCheck={spellCheck}
         aria-labelledby={label}
+        ref={methods?.register({...rules})}
         {...props}
       />
 
@@ -87,6 +90,6 @@ const Input = React.forwardRef<any, InputProps>(({
       )}
     </div>
   )
-})
+}
 
 export default Input
