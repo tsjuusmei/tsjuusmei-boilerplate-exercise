@@ -35,7 +35,7 @@ export const Default = () => (
       name="error"
       placeholder="Doe is"
       label="Input field with label"
-      isError
+      hasError
     />
   </div>
 )

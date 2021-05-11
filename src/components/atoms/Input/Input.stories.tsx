@@ -26,7 +26,7 @@ Default.args = {
   placeholder: 'Doe is',
   type:'text',
   label: 'Input field with label',
-  isError: false,
+  hasError: false,
   isOptional: true,
   isDisabled: false,
   size: sizes.sm
@@ -44,7 +44,7 @@ Disabled.args = {
   placeholder: 'Doe is',
   type:'text',
   label: 'Input field with label',
-  isError: false,
+  hasError: false,
   isOptional: false,
   isDisabled: true,
   size: sizes.md
@@ -62,7 +62,7 @@ Error.args = {
   placeholder: 'Doe is',
   type:'text',
   label: 'Input field with label',
-  isError: true,
+  hasError: true,
   isOptional: false,
   isDisabled: false,
   size: sizes.lg

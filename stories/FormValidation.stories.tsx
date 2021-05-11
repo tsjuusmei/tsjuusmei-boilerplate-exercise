@@ -16,7 +16,7 @@ export default {
   title: 'Guides / Form / Validation'
 }
 
-export const From = () => {
+export const Form = () => {
   // Functions from react-hook-form
   const methods = useForm()
   const emailPattern = {

@@ -9,7 +9,7 @@ import styles from  './TextArea.module.scss'
 type Props = {
   id?: string,
   label?: string,
-  isError?: boolean,
+  hasError?: boolean,
   size?: Sizes,
   placeholder?: string,
   spellCheck?: boolean,
@@ -28,7 +28,7 @@ const TextArea: React.FC<Props> = ({
   size = 'md',
   placeholder,
   isDisabled,
-  isError,
+  hasError,
   isOptional,
   onChange,
   onFocus,
@@ -41,7 +41,7 @@ const TextArea: React.FC<Props> = ({
       {label && (
         <label htmlFor={id} className={styles.label}>
           {label}
-          {isError && (
+          {hasError && (
             <Icon name="warning" color="var(--error-500)"/>
           )}
           {isOptional && <span>Optional</span>}
@@ -52,7 +52,7 @@ const TextArea: React.FC<Props> = ({
         className={`
           ${styles.element}
           ${styles[size]}
-          ${isError ? styles.error : null}
+          ${hasError ? styles.error : null}
         `}
         onChange={onChange}
         id={id}

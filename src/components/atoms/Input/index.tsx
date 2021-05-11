@@ -13,7 +13,7 @@ import styles from  './Input.module.scss'
 export type InputProps = {
   id?: string,
   label?: string,
-  isError?: boolean,
+  hasError?: boolean,
   size?: Sizes,
   type?: string,
   placeholder?: string,
@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({
   size = 'md',
   placeholder,
   isDisabled,
-  isError,
+  hasError,
   type = 'text',
   isOptional,
   name,
@@ -65,7 +65,7 @@ const Input: React.FC<InputProps> = ({
         className={`
           ${styles['input-element']}
           ${styles[size]}
-          ${isError ? styles.error : null}
+          ${hasError ? styles.error : null}
         `}
         onChange={onChange}
         type={type}
@@ -82,7 +82,7 @@ const Input: React.FC<InputProps> = ({
         {...props}
       />
 
-      {isError && (
+      {hasError && (
         <Icon
           size={convertedSize}
           name="warning"
