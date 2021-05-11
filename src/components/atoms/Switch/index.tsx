@@ -18,7 +18,7 @@ export type SwitchProps = {
   isDisabled?: boolean,
   isChecked?: boolean,
   isDefaultChecked?: boolean,
-  isError?: boolean,
+  hasError?: boolean,
   label?: string,
   className?: string
 }
@@ -28,7 +28,7 @@ const Switch: React.FC<SwitchProps> = ({
   isDisabled = false,
   isChecked = false,
   isDefaultChecked = false,
-  isError = false,
+  hasError = false,
   label = '',
   className = '',
   ...props
@@ -38,7 +38,7 @@ const Switch: React.FC<SwitchProps> = ({
       {...props}
       className={`
         ${styles.switch}
-        ${isError ? styles.error : ''}
+        ${hasError ? styles.error : ''}
         ${isDisabled ? styles.disabled : ''}
         ${styles[size]}
         ${className}
@@ -60,7 +60,7 @@ const Switch: React.FC<SwitchProps> = ({
             ${styles[size]}
           `}>
           {label}
-          {isError && (
+          {hasError && (
             <Icon
               name="warning"
               color="var(--error-500)"

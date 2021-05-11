@@ -1,7 +1,6 @@
 import React from 'react'
 import Radio, { RadioProps, RadioSize } from '.'
 
-const sizeOptions = Object.keys(RadioSize).map(key => RadioSize[key])
 const sizeDefault = RadioSize.Medium
 
 export default {
@@ -11,7 +10,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: sizeOptions
+        options: RadioSize
       }
     }
   }

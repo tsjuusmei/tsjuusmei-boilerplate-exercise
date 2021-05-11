@@ -8,13 +8,13 @@ interface onSelectFunc {
   (index: number): void
 }
 
-export type Props = {
+export type SlideIndicatorProps = {
   active?: number
   total: number
   onSelect: onSelectFunc
 }
 
-const SlideIndicator: React.FC<Props> = ({
+const SlideIndicator: React.FC<SlideIndicatorProps> = ({
   active = 0,
   total,
   onSelect

@@ -7,7 +7,7 @@ import Icon from '@/components/atoms/Icon'
 import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
 
 // Styles
-import styles from  './Input.module.scss'
+import styles from './Input.module.scss'
 
 // Types
 export enum InputSize {
@@ -19,7 +19,7 @@ export enum InputSize {
 export type InputProps = {
   id?: string,
   label?: string,
-  isError?: boolean,
+  hasError?: boolean,
   size: InputSize,
   type?: string,
   placeholder?: string,
@@ -36,10 +36,11 @@ export type InputProps = {
 const Input: React.FC<InputProps> = ({
   id,
   label,
-  size = 'md',
+  size = InputSize.Medium,
+  name,
   placeholder,
   isDisabled,
-  isError,
+  hasError,
   type = 'text',
   isOptional,
   onChange,
@@ -67,8 +68,9 @@ const Input: React.FC<InputProps> = ({
         className={`
           ${styles['input-element']}
           ${styles[size]}
-          ${isError ? styles.error : null}
+          ${hasError ? styles.error : ''}
         `}
+        name={name}
         onChange={onChange}
         type={type}
         id={id}
@@ -82,11 +84,12 @@ const Input: React.FC<InputProps> = ({
         {...props}
       />
 
-      {isError && (
+      {hasError && (
         <Icon
           size={convertedSize}
           name="warning"
-          color="var(--error-500)" />
+          color="var(--error-500)"
+        />
       )}
     </div>
   )
