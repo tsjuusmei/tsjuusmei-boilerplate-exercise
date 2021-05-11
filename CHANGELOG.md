@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](http://yummygum///compare/v0.1.4...v0.1.5) (2021-05-11)
+
+
+### Others
+
+* ⌘ Add comments to explain code ([5b070c5](http://yummygum///commit/5b070c58350a6a801b700b5396f6c9b002f3ac6c))
+
+
+### Functional additions
+
+* ◇ Add form validation trough react-hook-form ([ba935ef](http://yummygum///commit/ba935ef13b6e59449291e9e73e1614a857fa0d40))
+* Create first step to add forwardRef on validation ([fe4db02](http://yummygum///commit/fe4db0219c459f55624cdd8e76c6313aec30b11f))
+
 ### [0.1.4](http://yummygum///compare/v0.1.3...v0.1.4) (2021-05-11)
 
 ### [0.1.3](http://yummygum///compare/v0.1.2...v0.1.3) (2021-05-11)
