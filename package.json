@@ -19,7 +19,7 @@
     "build-storybook": "build-storybook -c .storybook -s ./public -o build",
     "lint": "eslint src/**/*.tsx  && stylelint src/**/*.scss",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "new-component": "node scripts/generate-component.js",
+    "new-component": "ts-node scripts/generate-component.ts",
     "test": "jest --no-watchman"
   },
   "repository": {
@@ -64,6 +64,7 @@
     "@svgr/plugin-svgo": "^5.4.0",
     "@testing-library/react": "11.1.2",
     "@testing-library/react-hooks": "3.7.0",
+    "@types/fs-extra": "^9.0.11",
     "@types/jest": "^26.0.15",
     "@types/node": "14.14.7",
     "@types/react": "16.9.56",
@@ -98,6 +99,7 @@
     "stylelint-8-point-grid": "1.0.0",
     "stylelint-config-recommended": "3.0.0",
     "stylelint-config-standard": "20.0.0",
+    "ts-node": "^9.1.1",
     "typescript": "4.0.5",
     "typescript-plugin-css-modules": "2.8.0"
   },

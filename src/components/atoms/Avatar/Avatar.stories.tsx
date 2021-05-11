@@ -32,9 +32,7 @@ Single.args = {
 export const Overview = () => (
   <div>
     {sizeOptions.map((size, idx) => (
-      <div
-        key={idx}
-      >
+      <div key={idx}>
         <Avatar
           alt={alt}
           size={size}
