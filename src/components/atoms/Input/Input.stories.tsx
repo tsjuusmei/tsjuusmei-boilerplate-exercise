@@ -62,7 +62,7 @@ Error.args = {
   placeholder: 'Doe is',
   type:'text',
   label: 'Input field with label',
-  isError: true,
+  hasError: true,
   isOptional: false,
   isDisabled: false,
   size: sizes.lg

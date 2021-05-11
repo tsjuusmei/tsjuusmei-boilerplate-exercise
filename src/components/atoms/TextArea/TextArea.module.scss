@@ -1,11 +1,18 @@
 .textarea {
-  // TextArea tokens
-  --textarea-default-border-color: var(--default-border-color);
-  --textarea-hover-border-color: var(--hover-border-color);
-  --textarea-active-border-color: var(--active-border-color);
-  --textarea-focus-border-color: var(--focus-border-color);
-  --textarea-disabled-border-color: var(--disabled-border-color);
-  --textarea-error-border-color: var(--error-border-color);
+  // TextArea background tokens
+  --text-area-default-background-color: var(--input-default-background-color);
+  --text-area-disabled-background-color: var(--input-disabled-background-color);
+  --text-area-error-disabled-background-color: var(--input-error-disabled-background-color);
+
+  // TextArea border tokens
+  --text-area-default-border-color: var(--input-default-border-color);
+  --text-area-hover-border-color: var(--input-hover-border-color);
+  --text-area-focus-border-color: var(--input-focus-border-color);
+  --text-area-disabled-border-color: var(--input-disabled-border-color);
+  --text-area-error-border-color: var(--input-error-border-color);
+
+  // Input focus ring color
+  --text-area-focus-ring-color: var(--input-focus-ring-color);
 
   display: flex;
   flex-direction: column;
@@ -34,9 +41,9 @@
 
 .element {
   color: var(--color3-900);
-  background: var(--white-000);
-  border: 2px solid var(--textarea-default-border-color);
-  outline: none;
+  background: var(--text-area-default-background-color);
+  border: 2px solid var(--text-area-default-border-color);
+  outline: 0;
   transition: border-color var(--fast-transition) var(--ease);
   resize: none;
   min-height: 120px;
@@ -49,18 +56,20 @@
   }
 
   &:hover {
-    border-color: var(--textarea-hover-border-color);
+    border-color: var(--text-area-hover-border-color);
   }
 
-  &:focus {
-    border-color: var(--textarea-focus-border-color);
-    caret-color: var(--color3-900);
+  &:focus,
+  &:focus-within {
+    border-color: var(--text-area-focus-border-color);
+    outline: 2px solid var(--text-area-focus-ring-color);
+    caret-color: var(--black-000);
   }
 
   &:disabled {
     cursor: not-allowed;
-    background: var(--color3-100);
-    border-color: var(--textarea-disabled-border-color);
+    background: var(--text-area-disabled-background-color);
+    border-color: var(--text-area-disabled-border-color);
     color: var(--color3-300);
 
     &::placeholder {
@@ -68,13 +77,13 @@
     }
 
     &.error {
-      background-color: var(--error-100);
-      border-color: var(--textarea-error-border-color);
+      background-color: var(--text-area-error-disabled-background-color);
+      border-color: var(--text-area-error-border-color);
     }
   }
 
   &.error {
-    border-color: var(--textarea-error-border-color);
+    border-color: var(--text-area-error-border-color);
   }
 
   &.lg {

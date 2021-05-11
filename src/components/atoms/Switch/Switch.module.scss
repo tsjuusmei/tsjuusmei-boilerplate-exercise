@@ -1,22 +1,26 @@
 .switch {
   // Switch background tokens
-  --switch-default-background-color: var(--default-input-background-color);
-  --switch-checked-background-color: var(--checked-input-background-color);
-  --switch-checked-disabled-background-color: var(--checked-disabled-input-background-color);
-  --switch-checked-error-background-color: var(--checked-error-input-background-color);
-  --switch-disabled-background-color: var(--disabled-input-background-color);
-  --switch-disabled-error-background-color: var(--disabled-error-input-background-color);
-  --switch-disabled-error-checked-background-color: var(--disabled-error-checked-input-background-color);
+  --switch-default-background-color: var(--input-default-background-colorcolor);
+  --switch-checked-background-color: var(--input-checked-background-color);
+  --switch-checked-hover-background-color: var(--input-checked-hover-background-color);
+  --switch-disabled-background-color: var(--input-disabled-background-color);
+  --switch-disabled-checked-background-color: var(--input-disabled-checked-background-color);
+  --switch-error-checked-background-color: var(--input-error-checked-background-color);
+  --switch-error-disabled-background-color: var(--input-error-disabled-background-color);
+  --switch-error-checked-disabled-background-color: var(--input-error-checked-disabled-background-color);
 
   // Switch border tokens
-  --switch-default-border-color: var(--default-border-color);
-  --switch-hover-border-color: var(--hover-border-color);
-  --switch-active-border-color: var(--active-border-color);
-  --switch-focus-border-color: var(--focus-border-color);
-  --switch-disabled-border-color: var(--disabled-border-color);
-  --switch-error-border-color: var(--error-border-color);
-  --switch-checked-border-color: var(--primary-default-background-color);
-  --switch-checked-background-color: var(--primary-default-background-color);
+  --switch-default-border-color: var(--input-default-border-color);
+  --switch-hover-border-color: var(--input-hover-border-color);
+  --switch-focus-border-color: var(--input-focus-border-color);
+  --switch-focus-checked-border-color: var(--input-focus-checked-border-color);
+  --switch-disabled-border-color: var(--input-disabled-border-color);
+  --switch-error-border-color: var(--input-error-border-color);
+  --switch-checked-border-color: var(--input-checked-border-color);
+  --switch-checked-hover-border-color: var(--input-checked-hover-border-color);
+
+  // Switch focus ring token
+  --switch-focus-ring-color: var(--input-focus-ring-color);
 
   --size: 4;
   --factor: 1;
@@ -50,35 +54,15 @@
 
     .slider {
       border-color: var(--switch-focus-border-color);
-      box-shadow: 0 0 0 2px var(--default-blue);
+      box-shadow: 0 0 0 2px var(--switch-focus-ring-color);
     }
 
     input:checked + .slider {
-      border-color: var(--white);
+      border-color: var(--switch-focus-checked-border-color);
     }
 
     &:hover input:checked + .slider {
-      border-color: var(--white);
-      box-shadow: 0 0 0 2px var(--hover-blue);
-    }
-  }
-
-  &:hover:not(.disabled) {
-    .slider {
-      border-color: var(--switch-hover-border-color);
-
-      &::before {
-        background-color: var(--hover-gray);
-      }
-    }
-
-    input:checked + .slider {
-      border-color: var(--switch-hover-border-color);
-      background-color: var(--hover-blue);
-
-      &::before {
-        background-color: var(--white);
-      }
+      border-color: var(--switch-focus-checked-border-color);
     }
   }
 
@@ -91,7 +75,7 @@
 
     input {
       & + .slider {
-        background-color: var(--switch-disabled-background);
+        background-color: var(--switch-disabled-background-color);
         border-color: var(--switch-disabled-border-color);
 
         &::before {
@@ -100,7 +84,7 @@
       }
 
       &:checked + .slider {
-        background-color: var(--color3-200);
+        background-color: var(--switch-disabled-checked-background-color);
         border-color: var(--switch-disabled-border-color);
 
         &::before {
@@ -116,23 +100,21 @@
       outline: 0;
 
       .slider {
-        border-color: var(--switch-active-border-color);
-        box-shadow: 0 0 0 2px var(--default-blue);
+        box-shadow: 0 0 0 2px var(--switch-focus-ring-color);
       }
 
       input:checked + .slider {
-        border-color: var(--white);
+        border-color: var(--switch-focus-checked-border-color);
       }
 
       &:hover input:checked + .slider {
-        border-color: var(--white);
-        box-shadow: 0 0 0 2px var(--error-500);
+        border-color: var(--switch-focus-checked-border-color);
       }
     }
 
     &:hover:not(.disabled) {
       .slider {
-        border-color: var(--switch-hover-border-color);
+        border-color: var(--switch-error-border-color);
 
         &::before {
           background-color: var(--hover-gray);
@@ -141,7 +123,7 @@
 
       input:checked + .slider {
         border-color: var(--switch-error-border-color);
-        background-color: var(--switch-checked-error-background-color);
+        background-color: var(--switch-error-checked-background-color);
 
         &::before {
           background-color: var(--white);
@@ -158,7 +140,7 @@
 
       input {
         & + .slider {
-          background-color: var(--switch-disabled-background-color);
+          background-color: var(--switch-error-disabled-background-color);
           border-color: var(--switch-error-border-color);
 
           &::before {
@@ -167,7 +149,7 @@
         }
 
         &:checked + .slider {
-          background-color: var(--switch-disabled-error-checked-background-color);
+          background-color: var(--switch-error-checked-disabled-background-color);
           border-color: var(--switch-error-border-color);
 
           &::before {
@@ -182,8 +164,8 @@
     }
 
     input:checked + .slider {
+      background-color: var(--switch-error-checked-background-color);
       border-color: var(--switch-error-border-color);
-      background-color: var(--switch-checked-error-background-color);
     }
   }
 
@@ -193,9 +175,18 @@
     width: 0;
     height: 0;
 
+    &:hover + .slider {
+      border-color: var(--switch-hover-border-color);
+    }
+
     &:checked + .slider {
-      border-color: var(--switch-focus-border-color);
       background-color: var(--switch-checked-background-color);
+      border-color: var(--switch-checked-border-color);
+    }
+
+    &:checked:hover + .slider {
+      background-color: var(--switch-checked-hover-background-color);
+      border-color: var(--switch-checked-hover-border-color);
     }
 
     &:checked + .slider::before {

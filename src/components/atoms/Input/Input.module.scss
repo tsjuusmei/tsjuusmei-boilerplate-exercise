@@ -1,37 +1,25 @@
 .input {
-  // Input background tokens
-  --input-default-background-color: var(--default-input-background-color);
-  --input-disabled-background-color: var(--disabled-input-background-color);
-  --input-disabled-error-background-color: var(--disabled-error-input-background-color);
-
-  // Input border tokens
-  --input-default-border-color: var(--default-border-color);
-  --input-hover-border-color: var(--hover-border-color);
-  --input-active-border-color: var(--active-border-color);
-  --input-focus-border-color: var(--focus-border-color);
-  --input-disabled-border-color: var(--disabled-border-color);
-  --input-error-border-color: var(--error-border-color);
-
   display: inline-flex;
   flex-direction: column;
   contain: layout;
 
-  :global(.icon-warning) {
+  svg {
     position: absolute;
     bottom: 10px;
     right: 0;
   }
 
-  &.sm, &.md {
-    :global(.icon-warning) {
+  &.sm,
+  &.md {
+    svg {
       right: 12px;
     }
   }
 
   &.lg {
-    :global(.icon-warning){
+    svg {
       right: 14px;
-      bottom: 13px;
+      bottom: 12px;
     }
   }
 
@@ -54,21 +42,13 @@
 
 .input-element {
   color: var(--color3-900);
-  background: var(--input-default-background-color);
+  background-color: var(--input-default-background-color);
   border: 1px solid var(--input-default-border-color);
-  outline: none;
+  outline: 0;
   transition: border-color var(--fast-transition) var(--ease);
 
   &::placeholder {
     color: var(--color3-400);
-  }
-
-  &:hover {
-    border-color: var(--input-hover-border-color);
-  }
-
-  &.error {
-    border-color: var(--input-error-border-color);
   }
 
   &.lg {
@@ -89,20 +69,28 @@
     padding: 8px;
   }
 
-  &:focus {
+  &:hover {
+    border-color: var(--input-hover-border-color);
+  }
+
+  &:focus,
+  &:focus-within {
     border-color: var(--input-focus-border-color);
-    outline: 2px solid var(--color-500);
+    outline: 2px solid var(--input-focus-ring-color);
     caret-color: var(--black-000);
   }
 
   &:disabled {
-    background: var(--input-disabled-background-color);
+    background-color: var(--input-disabled-background-color);
     border-color: var(--input-disabled-border-color);
     cursor: not-allowed;
+  }
 
-    &.error {
-      background: var(--input-error-background-color);
-      border-color: var(--input-error-border-color);
+  &.has-error {
+    border-color: var(--input-error-border-color);
+
+    &:disabled {
+      background-color: var(--input-error-disabled-background-color);
     }
   }
 }

@@ -7,11 +7,11 @@
   --primary-active-background-color: var(--color-600);
   --primary-disabled-background-color: var(--color-500);
 
-  // Primary foreground colors
-  --primary-default-foreground-color: var(--white-000);
-  --primary-hover-foreground-color: var(--white-000);
-  --primary-active-foreground-color: var(--white-000);
-  --primary-disabled-foreground-color: var(--color-300);
+  // Primary content colors
+  --primary-default-content-color: var(--white-000);
+  --primary-hover-content-color: var(--white-000);
+  --primary-active-content-color: var(--white-000);
+  --primary-disabled-content-color: var(--color-300);
 
   // Secondary background colors
   --secondary-default-background-color: var(--color3-300);
@@ -19,34 +19,41 @@
   --secondary-active-background-color: var(--color3-600);
   --secondary-disabled-background-color: var(--color3-250);
 
-  // Secondary foreground colors
-  --secondary-default-foreground-color: var(--white-000);
-  --secondary-hover-foreground-color: var(--white-000);
-  --secondary-active-foreground-color: var(--color3-100);
-  --secondary-disabled-foreground-color: var(--color3-500);
+  // Secondary content colors
+  --secondary-default-content-color: var(--white-000);
+  --secondary-hover-content-color: var(--white-000);
+  --secondary-active-content-color: var(--color3-100);
+  --secondary-disabled-content-color: var(--color3-500);
 
-  // Tertiary foreground colors
-  --tertiary-default-foreground-color: var(--color3-600);
-  --tertiary-hover-foreground-color: var(--color3-800);
-  --tertiary-active-foreground-color: var(--color3-800);
-  --tertiary-disabled-foreground-color: var(--color3-300);
+  // Tertiary content colors
+  --tertiary-default-content-color: var(--color3-600);
+  --tertiary-hover-content-color: var(--color3-800);
+  --tertiary-active-content-color: var(--color3-800);
+  --tertiary-disabled-content-color: var(--color3-300);
 
   // Input background colors
-  --default-input-background-color: var(--white-000);
-  --checked-input-background-color: var(--color-500);
-  --checked-disabled-input-background-color: var(--color3-200);
-  --checked-error-input-background-color: var(--error-500);
-  --disabled-input-background-color: var(--color3-100);
-  --disabled-error-input-background-color: var(--error-100);
-  --disabled-error-checked-input-background-color: var(--error-300);
+  --input-default-background-color: var(--white-000);
+  --input-checked-background-color: var(--color-500);
+  --input-checked-hover-background-color: var(--color-600);
+  --input-disabled-background-color: var(--color3-100);
+  --input-disabled-checked-background-color: var(--color3-200);
+  --input-error-checked-background-color: var(--error-500);
+  --input-error-disabled-background-color: var(--error-100);
+  --input-error-checked-disabled-background-color: var(--error-300);
 
-  // Input Border colors
-  --default-border-color: var(--color3-300);
-  --hover-border-color: var(--color3-400);
-  --active-border-color: var(--color3-500);
-  --focus-border-color: var(--color-600);
-  --disabled-border-color: var(--color3-200);
-  --error-border-color: var(--error-500);
+  // Input border colors
+  --input-default-border-color: var(--color3-300);
+  --input-hover-border-color: var(--color3-400);
+  --input-active-border-color: var(--color3-500);
+  --input-checked-border-color: var(--color-500);
+  --input-checked-hover-border-color: var(--color-600);
+  --input-focus-border-color: var(--color-600);
+  --input-focus-checked-border-color: var(--input-default-background-color);
+  --input-disabled-border-color: var(--color3-200);
+  --input-error-border-color: var(--error-500);
+
+  // Input focus ring color
+  --input-focus-ring-color: var(--color-500);
 }
 
 // $spacing-size: 4px;
