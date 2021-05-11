@@ -1,12 +1,12 @@
 import React from 'react'
-import Textarea, { TextareaProps, TextareaSize } from '.'
+import TextArea, { TextAreaProps, TextAreaSize } from '.'
 
-const sizeOptions = Object.keys(TextareaSize).map(key => TextareaSize[key])
-const sizeDefault = TextareaSize.Medium
+const sizeOptions = Object.keys(TextAreaSize).map(key => TextAreaSize[key])
+const sizeDefault = TextAreaSize.Medium
 
 export default {
-  title: 'Components / Atoms / Textarea',
-  component: Textarea,
+  title: 'Components / Atoms / TextArea',
+  component: TextArea,
   argTypes: {
     size: {
       control: {
@@ -17,8 +17,8 @@ export default {
   }
 }
 
-export const Default = (args: TextareaProps) => (
-  <Textarea
+export const Default = (args: TextAreaProps) => (
+  <TextArea
     id='textarea-1'
     name='textarea-1'
     {...args}
@@ -28,15 +28,15 @@ export const Default = (args: TextareaProps) => (
 Default.args = {
   placeholder: 'Doe is',
   type:'text',
-  label: 'Textarea field with label',
+  label: 'TextArea field with label',
   isError: false,
   isOptional: true,
   isDisabled: false,
   size: sizeDefault
 }
 
-export const Disabled = (args: TextareaProps) => (
-  <Textarea
+export const Disabled = (args: TextAreaProps) => (
+  <TextArea
     id='textarea-2'
     name='textarea-2'
     {...args}
@@ -46,15 +46,15 @@ export const Disabled = (args: TextareaProps) => (
 Disabled.args = {
   placeholder: 'Doe is',
   type:'text',
-  label: 'Textarea field with label',
+  label: 'TextArea field with label',
   isError: false,
   isOptional: false,
   isDisabled: true,
   size: sizeDefault
 }
 
-export const Error = (args: TextareaProps) => (
-  <Textarea
+export const Error = (args: TextAreaProps) => (
+  <TextArea
     id='textarea-3'
     name='textarea-3'
     {...args}/>
@@ -63,7 +63,7 @@ export const Error = (args: TextareaProps) => (
 Error.args = {
   placeholder: 'Doe is',
   type:'text',
-  label: 'Textarea field with label',
+  label: 'TextArea field with label',
   isError: true,
   isOptional: false,
   isDisabled: false,

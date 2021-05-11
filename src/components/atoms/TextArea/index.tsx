@@ -7,17 +7,17 @@ import Icon from '@/components/atoms/Icon'
 import styles from  './TextArea.module.scss'
 
 // Types
-export enum TextareaSize {
+export enum TextAreaSize {
   Small = 'sm',
   Medium = 'md',
   Large = 'lg'
 }
 
-export type TextareaProps = {
+export type TextAreaProps = {
   id?: string,
   label?: string,
   isError?: boolean,
-  size: TextareaSize,
+  size: TextAreaSize,
   placeholder?: string,
   spellCheck?: boolean,
   autoComplete?: string,
@@ -29,10 +29,10 @@ export type TextareaProps = {
   isOptional?: boolean
 }
 
-const Textarea: React.FC<TextareaProps> = ({
+const TextArea: React.FC<TextAreaProps> = ({
   id,
   label,
-  size = TextareaSize.Medium,
+  size = TextAreaSize.Medium,
   placeholder,
   isDisabled,
   isError,
@@ -74,4 +74,4 @@ const Textarea: React.FC<TextareaProps> = ({
   )
 }
 
-export default Textarea
+export default TextArea
