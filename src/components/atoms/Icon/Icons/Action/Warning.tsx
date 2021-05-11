@@ -1,9 +1,11 @@
 import * as React from 'react'
-import { IconProps } from '../../types'
+
+import { IconProps, IconActionSize } from '@/components/atoms/Icon/types'
 
 const Warning: React.FC<IconProps> = ({
   color = 'var(--color3-500)',
-  size = 16
+  size = IconActionSize.Small,
+  className
 }) => (
   <svg
     width={size}
@@ -11,7 +13,7 @@ const Warning: React.FC<IconProps> = ({
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="warning icon-warning"
+    className={className}
   >
     <path
       fill={color}
