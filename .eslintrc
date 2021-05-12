@@ -178,7 +178,6 @@
       "plugins": ["@typescript-eslint"],
       "extends": ["plugin:@typescript-eslint/recommended"],
       "rules": {
-        "@typescript-eslint/no-use-before-define": "warn",
         "@typescript-eslint/type-annotation-spacing": "error",
         "@typescript-eslint/explicit-module-boundary-types": 0,
         "react/prop-types": "off"
