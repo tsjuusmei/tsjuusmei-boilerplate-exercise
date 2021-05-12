@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](http://yummygum///compare/v0.1.6...v0.1.7) (2021-05-12)
+
+
+### Functional additions
+
+* Get started with Dato ([0d34d07](http://yummygum///commit/0d34d07d614fe83155e6b598cda6931552234899))
+
 ### [0.1.6](http://yummygum///compare/v0.1.5...v0.1.6) (2021-05-11)
 
 ### [0.1.5](http://yummygum///compare/v0.1.4...v0.1.5) (2021-05-11)
