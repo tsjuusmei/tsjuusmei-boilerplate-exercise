@@ -1,0 +1,98 @@
+/*
+  Convert px to vw value, example:
+  Mobile:
+  font-size: get-vw(20);
+
+  Desktop:
+  font-size: get-vw-desktop(24);
+
+  Formula: (size element / design width * 100) = size in VW
+*/
+
+@use 'sass:list';
+@use 'sass:math';
+@function nth-delete($list, $n) {
+  $result: ();
+  $n: if($n < 0, length($list) + $n + 1, $n);
+  $bracketed: is-bracketed($list);
+  $separator: list-separator($list);
+  @for $i from 1 through length($list) {
+    @if $i != $n {
+      $result: append($result, nth($list, $i));
+    }
+  }
+  @return join((), $result, $separator, $bracketed);
+}
+@function reverse($list, $recursive: false) {
+  $result: ();
+
+  @for $i from length($list) * -1 through -1 {
+    @if type-of(nth($list, abs($i))) == list and $recursive {
+      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+    } @else {
+      $result: append($result, nth($list, abs($i)));
+    }
+  }
+
+  @return $result;
+}
+
+// $font-size-base: 16px;
+// $type-scale: 1.125;
+// $type-scale-tablet: 1.175;
+// $type-scale-desktop: 1.25;
+
+// Mobile
+@function get-scale($base, $scale) {
+  // Should return a scale of 9 sizes based on the provided scale
+  $sizes: $base;
+  $sub-sizes: $base;
+
+  @for $index from 1 through 10 {
+    // 1. Grab the previous item in the list
+    $size: list.nth($sizes, $index);
+    // @debug $index, $size;
+    // 2. Multiply that item by the current scale
+    $size: $size * $scale;
+
+    // Round to 2 decimals
+    $size: math.floor($size);
+    // $size: math.floor($size * 100) / 100;
+
+    // 3. Append the new size to the list
+    $sizes: list.append($sizes, $size);
+
+    // Repeat until 9
+
+    // $size: $previous * $scale;
+  }
+
+  @for $index from 1 through 2 {
+    $sub-size: list.nth($sub-sizes, $index);
+    $sub-size: $sub-size / $scale;
+    $sub-size: math.floor($sub-size);
+    // $sub-size: math.round($sub-size * 100) / 100;
+    $sub-sizes: list.append($sub-sizes, $sub-size);
+    @debug $sub-size;
+  }
+  // @debug $sizes;
+  // @debug $sub-sizes;
+  // @debug '';
+  // list.index($sizes,)
+  $sub-sizes: nth-delete($sub-sizes, 1);
+  @return list.join(reverse($sub-sizes), $sizes);
+}
+
+// $sizes-mobile: get-scale($font-size-base, $type-scale);
+// @debug 'Mobile';
+// @debug $sizes-mobile;
+// @debug '';
+
+// $sizes-tablet: get-scale($font-size-base, $type-scale-tablet);
+// @debug 'Tablet';
+// @debug $sizes-tablet;
+// @debug '';
+
+// $sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
+// @debug 'Desktop';
+// @debug $sizes-desktop;

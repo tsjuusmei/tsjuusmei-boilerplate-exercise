@@ -1,4 +1,5 @@
-@import '../functions/all';
+@use '../functions/type-scale' as *;
+@use '../functions/all' as *;
 
 // Design width
 // These values will be used to calculate the font size per design size
@@ -7,47 +8,34 @@ $design-size: 375;
 $design-size-tablet: 768;
 $design-size-desktop: 1440;
 
+$font-size-base: 16px;
+$type-scale: 1.125;
+$type-scale-tablet: 1.175;
+$type-scale-desktop: 1.25;
+
 // 1.25 scale factor as defined by design
 // The order of these sizes should be taken into consideration since that is the order of the classNames
 // Example: 14 = --fluid-2-xl-size, it's the second value in the row
+
 // Heading sizes - mobile (heading/XL)
-$fluid-sizes:
-  20,
-  22,
-  26,
-  28,
-  32,
-  36,
-  40,
-  46,
-  50; // heading-9XL
+$fluid-sizes: get-scale($font-size-base, $type-scale);
+@debug 'Mobile', $fluid-sizes;
+
+// $fluid-sizes-tablet: get-scale($font-size-base, $type-scale-tablet);
+// @debug 'Tablet', $fluid-sizes-tablet;
 
 // Heading sizes - desktop (heading/XL)
-$fluid-sizes-desktop:
-  24
-  32
-  40
-  48
-  64
-  76
-  96
-  120
-  148; // heading-9XL
+$fluid-sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
+@debug 'Desktop', $fluid-sizes-desktop;
 
 :root {
   // Define font
-  --font-stack-base:
-    'SF Pro Display',
-    'BlinkMacSystemFont',
-    'Helvetica',
-    'Lato',
-    'Arial',
-    'Segoe UI',
-    'Verdana',
+  --font-stack-base: system-ui, -apple-system, 'SF Pro Display',
+    'BlinkMacSystemFont', 'Helvetica', 'Lato', 'Arial', 'Segoe UI', 'Verdana',
     sans-serif;
 
   // Define line-height
-  // Based on TailWindCss: https://tailwindcss.com/docs/line-height
+  // Based on TailwindCSS: https://tailwindcss.com/docs/line-height
   --leading-none: 1;
   --leading-tight: 1.25;
   --leading-snug: 1.375;
@@ -56,13 +44,13 @@ $fluid-sizes-desktop:
   --leading-loose: 2;
 
   // Define letter-spacing
-  // Based on TailWindCss: https://tailwindcss.com/docs/letter-spacing
-  --tracking-tighter: -.05em;
-  --tracking-tight: -.025em;
+  // Based on TailwindCSS: https://tailwindcss.com/docs/letter-spacing
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
   --tracking-normal: 0;
-  --tracking-wide: .025em;
-  --tracking-wider: .05em;
-  --tracking-widest: .1em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
 
   // Define minimum font-size for 375px and below
   @media screen and (max-width: $bp-mobile-md) {
@@ -151,7 +139,9 @@ $fluid-sizes-desktop:
     @each $size in $fluid-sizes-desktop {
       $i: index($fluid-sizes-desktop, $size);
 
-      --heading-#{$i}-xl: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+      --heading-#{$i}-xl: calc(
+        ((#{$size} / #{$design-size-desktop}) * 100) * 1vw
+      );
     }
 
     // Heading sizes desktop
