@@ -3,8 +3,14 @@ import { outputFile } from 'fs-extra'
 
 const PascalCase = /([A-Z][a-z0-9]+)((\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?/
 
+interface Answers {
+  component: string
+  type: string
+  stories: boolean
+}
+
 async function survey() {
-  const answers = await prompt([
+  const answers: Answers = await prompt([
     {
       type: 'select',
       name: 'type',
@@ -35,7 +41,7 @@ async function survey() {
 
   const {
     component, type, stories
-  } = answers as any
+  } = answers
 
   const _type: string = type.toLowerCase()
   console.log('\n')
