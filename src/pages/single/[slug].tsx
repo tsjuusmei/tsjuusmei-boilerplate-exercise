@@ -7,6 +7,10 @@ import {
   Image,
 } from 'react-datocms'
 
+// Components
+import Grid, { Col, GridSize } from '@/components/meta/Grid'
+
+// Lib
 import { request } from '@/lib/cms'
 import { metaTagsFragment, responsiveImageFragment } from '@/lib/fragments'
 import { Site, Single } from '@/lib/types'
@@ -89,8 +93,8 @@ const SinglePage: NextPage<Page> = ({
     <>
       <Head>{renderMetaTags(metaTags)}</Head>
       <main className="single">
-        <div className="grid">
-          <div className="container-sm">
+        <Grid cols={12} size={GridSize.Small}>
+          <Col span={12}>
             <h1>{single.title}</h1>
             <StructuredText
               data={content}
@@ -107,8 +111,8 @@ const SinglePage: NextPage<Page> = ({
                 )
               }}
             />
-          </div>
-        </div>
+          </Col>
+        </Grid>
       </main>
     </>
   )

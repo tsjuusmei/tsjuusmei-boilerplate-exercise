@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { NextPage, GetStaticProps } from 'next'
 import { renderMetaTags, ToMetaTagsType } from 'react-datocms'
 
-// Component
+// Components
 import Grid, { Col, GridSize } from '@/components/meta/Grid'
 
-// Library
+// Lib
 import { request } from '@/lib/cms'
 import { metaTagsFragment } from '@/lib/fragments'
 import { Site, Single } from '@/lib/types'
@@ -76,11 +76,19 @@ const Homepage: NextPage<Page> = ({
         <Grid cols={12} size={GridSize.Small}>
           <Col span={12}>
             <h1>{home.title}</h1>
-            <h2>h2: The face of the moon was in shadow.</h2>
-            <h3>h3: The face of the moon was in shadow.</h3>
-            <h4>h4: The face of the moon was in shadow.</h4>
-            <h5>h5: The face of the moon was in shadow.</h5>
-            <h6>h6: The face of the moon was in shadow.</h6>
+            <div className="pages">
+              {
+                pages.map((page, idx) => (
+                  <div key={idx}>
+                    <h4>
+                      <Link as={`/single/${page.slug}`} href="/single/[slug]">
+                        <a>{page.title}</a>
+                      </Link>
+                    </h4>
+                    <p>{page.excerpt}</p>
+                  </div>
+                ))}
+            </div>
             <p className="heading-9-xl">Fluid: heading-9-xl</p>
             <p className="heading-8-xl">Fluid: heading-8-xl</p>
             <p className="heading-7-xl">Fluid: heading-7-xl</p>
@@ -98,19 +106,6 @@ const Homepage: NextPage<Page> = ({
             <p className="body-l">Fluid: body-l</p>
             <p className="body-m">Fluid: body-m</p>
             <p className="body-s">Fluid: body-s</p>
-            <div className="pages">
-              {
-                pages.map((page, idx) => (
-                  <div key={idx}>
-                    <h4>
-                      <Link as={`/single/${page.slug}`} href="/single/[slug]">
-                        <a className="hover:underline">{page.title}</a>
-                      </Link>
-                    </h4>
-                    <p>{page.excerpt}</p>
-                  </div>
-                ))}
-            </div>
           </Col>
         </Grid>
       </main>
