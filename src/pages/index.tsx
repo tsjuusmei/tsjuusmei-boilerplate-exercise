@@ -78,14 +78,18 @@ const Homepage: NextPage<Page> = ({
             <h1>{home.title}</h1>
             <div className="pages">
               {
-                pages.map((page, idx) => (
+                pages.map(({
+                  excerpt,
+                  slug,
+                  title
+                }, idx) => (
                   <div key={idx}>
                     <h4>
-                      <Link as={`/single/${page.slug}`} href="/single/[slug]">
-                        <a>{page.title}</a>
+                      <Link as={`/single/${slug}`} href="/single/[slug]">
+                        <a>{title}</a>
                       </Link>
                     </h4>
-                    <p>{page.excerpt}</p>
+                    <p>{excerpt}</p>
                   </div>
                 ))}
             </div>
