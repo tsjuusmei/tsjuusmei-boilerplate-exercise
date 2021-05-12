@@ -8,7 +8,6 @@
   --border-radius-lg: 6px;
   --border-radius-round: 100%;
 
-
   // CHL Tokens - Alias tokens
 
   // Alias colors
@@ -68,7 +67,7 @@
   --input-error-border-color: var(--error-color);
 
   // Input content colors
-  --input-dafault-label-color: var(--color3-600);
+  --input-default-label-color: var(--color3-600);
   --input-disabled-label-color: var(--color3-250);
 
   // label-color (Checkbox, Input, Select, Radio, Checkbox, Switch & TextArea)
@@ -82,46 +81,3 @@
   // Focus ring color
   --focus-ring-color: var(--primary-color);
 }
-
-// $spacing-size: 4px;
-
-// // Spacing units
-// $spacing-sizes: (
-//   'xxs': 2,
-//   'xs': 4,
-//   's': 6,
-//   'm': 8,
-//   'l': 12,
-//   'xl': 16,
-//   'xxl': 22,
-//   'xxxl': 32
-// );
-
-// $spacing-sizes-tablet: (
-//   'xxs': 2,
-//   'xs': 3,
-//   's': 5,
-//   'm': 6,
-//   'l': 8,
-//   'xl': 12,
-//   'xxl': 16,
-//   'xxxl': 24
-// );
-
-// $spacing-sizes-mobile: (
-//   'xxs': 1,
-//   'xs': 2,
-//   's': 4,
-//   'm': 5,
-//   'l': 7,
-//   'xl': 10,
-//   'xxl': 12,
-//   'xxxl': 16
-// );
-
-// $spacing-sides: (
-//   'top',
-//   'right',
-//   'bottom',
-//   'left'
-// );
