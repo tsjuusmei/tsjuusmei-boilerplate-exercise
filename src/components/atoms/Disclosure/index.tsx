@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Icon from '@/components/atoms/Icon'
 
 // Styles
-import styles from './Disclosure.styles.scss'
+import styles from './Disclosure.module.scss'
 
 export type DisclosureProps = {
   summary: string,
