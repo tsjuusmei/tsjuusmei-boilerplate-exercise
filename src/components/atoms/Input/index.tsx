@@ -21,7 +21,7 @@ export type InputProps = {
   id?: string,
   label?: string,
   hasError?: boolean,
-  size: InputSize,
+  size?: InputSize,
   type?: string,
   placeholder?: string,
   spellCheck?: boolean,

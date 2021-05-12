@@ -18,21 +18,29 @@ export enum ButtonSize {
   Large = 'lg'
 }
 
+export enum ButtonType {
+  Submit = 'submit',
+  Button = 'button',
+  Reset = 'reset'
+}
+
 export type ButtonProps = {
-  variation: ButtonVariation,
-  size: ButtonSize,
+  variation?: ButtonVariation,
+  size?: ButtonSize,
   label?: string,
   href?: string,
   isFullWidth?: boolean,
   isDisabled?: boolean,
   onClick?: React.MouseEventHandler<HTMLElement>,
   className?: string,
-  contentClassName?: string
+  contentClassName?: string,
+  type?: ButtonType
 }
 
 const Button: React.FC<ButtonProps> = ({
   variation = ButtonVariation.Primary,
   size = ButtonSize.Medium,
+  type = ButtonType.Button,
   children,
   label = '',
   href = '',
@@ -66,14 +74,18 @@ const Button: React.FC<ButtonProps> = ({
       aria-disabled={isDisabled}
       aria-label={label}
       href={href}
+      type={href ? null : type}
       {...(!isInternalLink && {
         rel: 'noopener noreferrer',
         target: '_blank'
       })}
     >
       <div
-        className={`${styles['button-content']} ${sharedClassNames}
-        ${contentClassName}`}
+        className={`
+          ${styles['button-content']}
+          ${sharedClassNames}
+          ${contentClassName}
+        `}
       >
         {children}
       </div>

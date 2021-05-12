@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Components
-import Avatar from '@/components/atoms/Avatar'
+import Avatar, { AvatarSize } from '@/components/atoms/Avatar'
 
 // Style
 import styles from './Author.module.scss'
@@ -29,7 +29,12 @@ const Author: React.FC<AuthorProps> = ({
         ${className ? className : ''}
       `}
     >
-      <Avatar src={avatarSrc} alt={avatarAlt} className={styles.avatar} />
+      <Avatar
+        src={avatarSrc}
+        alt={avatarAlt}
+        size={AvatarSize.Medium}
+        className={styles.avatar}
+      />
       <div>
         <h5>{name}</h5>
         {role &&
