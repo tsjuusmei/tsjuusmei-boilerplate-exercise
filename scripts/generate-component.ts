@@ -1,5 +1,6 @@
 import { prompt } from 'enquirer'
 import { outputFile } from 'fs-extra'
+import { toKebabCase } from '../src/helpers/utils/toKebabCase'
 
 const PascalCase = /([A-Z][a-z0-9]+)((\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?/
 
@@ -69,7 +70,7 @@ export type ${component}Props = {
 import styles from './${component}.module.scss'
 
 const ${component}: React.FC<${component}Props> = ({ name = '${component}' }) => (
-  <div className={styles['${component.toLowerCase()}']}>
+  <div className={styles['${toKebabCase(component)}']}>
     <p>{name}</p>
   </div>
 )
@@ -114,7 +115,7 @@ Default.args = {}
 
 async function createStyles(path: string, component: string): Promise<void> {
   const location = `${path}/${component}.module.scss`
-  const template = `.${component.toLowerCase()} {
+  const template = `.${toKebabCase(component)} {
   color: red;  
 }`
 
