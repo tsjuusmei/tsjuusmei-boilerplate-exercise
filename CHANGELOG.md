@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](http://yummygum///compare/v0.1.11...v0.1.12) (2021-05-12)
+
+
+### Functional additions
+
+* Add new generate component script ([4bd3eae](http://yummygum///commit/4bd3eae8425bf4628916de9c50121343a7f9636a))
+
+
+### Others
+
+* Add Kebabcase to component generator ([e9ace52](http://yummygum///commit/e9ace521667e412e05b4afa8f0887da3f8369e6f))
+* Correctly type answer keys ([0e1969e](http://yummygum///commit/0e1969e37a708a1ffbf513e27e0a15e927a9ff6a))
+* Remove unneccessary console.logs and cleanup ([72728c3](http://yummygum///commit/72728c360744130f25f11b7ac795539135026245))
+
 ### [0.1.11](http://yummygum///compare/v0.1.10...v0.1.11) (2021-05-12)
 
 ### [0.1.10](http://yummygum///compare/v0.1.9...v0.1.10) (2021-05-12)
