@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { prompt } from 'enquirer'
 import { outputFile } from 'fs-extra'
 import { toKebabCase } from '../src/helpers/utils/toKebabCase'
@@ -8,6 +9,7 @@ interface Answers {
   component: string
   type: string
   stories: boolean
+  tests: boolean
 }
 
 async function survey() {
@@ -38,10 +40,16 @@ async function survey() {
       initial: 'Y',
       message: 'Create Stories for this component?',
     },
+    {
+      type: 'confirm',
+      name: 'tests',
+      initial: 'Y',
+      message: 'Create Unit tests for this component?',
+    },
   ])
 
   const {
-    component, type, stories
+    component, type, stories, tests
   } = answers
 
   const _type: string = type.toLowerCase()
@@ -54,6 +62,9 @@ async function survey() {
   createStyles(path, component)
   if (stories) {
     createStories(path, component, type)
+  }
+  if (tests) {
+    createTests(path, component)
   }
 }
 
@@ -116,12 +127,39 @@ Default.args = {}
 async function createStyles(path: string, component: string): Promise<void> {
   const location = `${path}/${component}.module.scss`
   const template = `.${toKebabCase(component)} {
-  color: red;  
+  color: red;
 }`
 
   try {
     await outputFile(location, template)
     console.log(`✔ Created Styles → ${location}`)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+async function createTests(path: string, component: string): Promise<void> {
+  const location = `${path}/${component}.test.tsx`
+  const template = `import React from 'react'
+import { render, cleanup } from '@testing-library/react'
+
+// Components
+import ${component}, { ${component}Props } from '.'
+
+// Clear
+afterEach(cleanup)
+
+describe('${component} component', () => {
+  // Add tests...
+  it('should render', () => {
+    const { getByTestId } = render(<${component} />)
+  })
+})
+`
+
+  try {
+    await outputFile(location, template)
+    console.log(`✔ Created Tests → ${location}`)
   } catch (error) {
     console.error(error)
   }
