@@ -149,7 +149,7 @@ import ${component}, { ${component}Props } from '.'
 // Clear
 afterEach(cleanup)
 
-describe('Button component', () => {
+describe('${component} component', () => {
   // Add tests...
   it('should render', () => {
     const { getByTestId } = render(<${component} />)
