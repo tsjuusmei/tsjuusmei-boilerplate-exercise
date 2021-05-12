@@ -64,6 +64,41 @@ $fluid-sizes-desktop:
   --tracking-wider: .05em;
   --tracking-widest: .1em;
 
+  // Define minimum font-size for 375px and below
+  @media screen and (max-width: $bp-mobile-md) {
+    @each $size in $fluid-sizes {
+      $i: index($fluid-sizes, $size);
+
+      --heading-#{$i}-xl: #{$size}px;
+    }
+
+    // Heading sizes
+    // Heading S
+    --heading-s: 14px;
+
+    // Heading M
+    --heading-m: 16px;
+
+    // Heading L
+    --heading-l: 18px;
+
+    // Body sizes
+    // Body S
+    --body-s: 14px;
+
+    // Body M
+    --body-m: 16px;
+
+    // Body L
+    --body-l: 18px;
+
+    // Body XL
+    --body-1-xl: 20px;
+
+    // Body 2XL
+    --body-2-xl: 22px;
+  }
+
   // Define heading size mobile
   // $i is the value from top to bottom, starting at 1, creating a variable that will be used for each heading size
   // Example: --heading-#{$i}-xl = --heading-3-xl. this value is used for the h3
