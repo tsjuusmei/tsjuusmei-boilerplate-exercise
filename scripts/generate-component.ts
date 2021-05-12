@@ -72,7 +72,6 @@ export default ${component}`
 
   try {
     await outputFile(location, template)
-    console.log(template)
     console.log(`✔ Created ${component} → ${location}`)
   } catch (error) {
     console.error(error)
@@ -101,7 +100,6 @@ Default.args = {}
 
   try {
     await outputFile(location, template)
-    console.log(template)
     console.log(`✔ Created Stories → ${location}`)
   } catch (error) {
     console.error(error)
@@ -116,7 +114,6 @@ async function createStyles(path: string, component: string): Promise<void> {
 
   try {
     await outputFile(location, template)
-    console.log(template)
     console.log(`✔ Created Styles → ${location}`)
   } catch (error) {
     console.error(error)
