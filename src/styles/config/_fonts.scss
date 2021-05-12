@@ -1,168 +1,129 @@
 %heading {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--black-000);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-normal);
 }
 
 %paragraph {
   font-weight: 400;
   color: var(--black-000);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
 }
 
 %quote {
   font-weight: 500;
   font-style: italic;
   color: var(--black--000);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
 }
 
 %link {
   font-weight: 700;
   text-decoration: underline;
   color: var(--color-500);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-normal);
 }
 
 @mixin h1 {
   @extend %heading;
-  font-size: var(--heading-1-size);
-  line-height: var(--heading-1-line-height);
-  letter-spacing: var(--heading-1-letter-spacing);
-  font-family: var(--heading-1-font-family), 'Times New Roman', Times, serif;
+  font-size: var(--heading-6-xl);
 }
 
 @mixin h2 {
   @extend %heading;
-  font-size: var(--heading-2-size);
-  line-height: var(--heading-2-line-height);
-  letter-spacing: var(--heading-2-letter-spacing);
+  font-size: var(--heading-3-xl);
 }
 
 @mixin h3 {
   @extend %heading;
-  font-size: var(--heading-3-size);
-  line-height: var(--heading-3-line-height);
-  letter-spacing: var(--heading-3-letter-spacing);
-  font-family: var(--heading-3-font-family), 'Times New Roman', Times, serif;
+  font-size: var(--heading-2-xl);
 }
 
 @mixin h4 {
   @extend %heading;
-  font-size: var(--heading-4-size);
-  line-height: var(--heading-4-line-height);
-  letter-spacing: var(--heading-4-letter-spacing);
-}
-
-@mixin h4quote {
-  @extend %heading;
-  font-size: var(--heading-4-size);
-  line-height: var(--heading-4-line-height);
-  letter-spacing: var(--heading-4-letter-spacing);
-  font-weight: 600;
-  font-style: italic;
+  font-size: var(--heading-1-xl);
 }
 
 @mixin h5 {
   @extend %heading;
-  font-size: var(--heading-5-size);
-  line-height: var(--heading-5-line-height);
-  letter-spacing: var(--heading-5-letter-spacing);
+  font-size: var(--heading-l);
 }
 
 @mixin h6 {
   @extend %heading;
-  font-size: var(--heading-6-size);
-  line-height: var(--heading-6-line-height);
-  letter-spacing: var(--heading-6-letter-spacing);
+  font-size: var(--heading-m);
 }
 
 @mixin streamer {
   @extend %paragraph;
   font-size: var(--streamer-size);
-  line-height: var(--streamer-line-height);
-  letter-spacing: var(--streamer-letter-spacing);
   font-weight: 500;
 }
 
 @mixin quote-lg {
   @extend %quote;
-  font-size: var(--quote-lg-size);
-  line-height: var(--quote-lg-line-height);
-  letter-spacing: var(--quote-lg-letter-spacing);
 }
 
 @mixin quote-md {
   @extend %quote;
-  font-size: var(--quote-md-size);
-  line-height: var(--quote-md-line-height);
-  letter-spacing: var(--quote-md-letter-spacing);
 }
 
-@mixin body-lg {
+@mixin body-s {
   @extend %paragraph;
-  font-size: var(--body-lg-size);
-  line-height: var(--body-lg-line-height);
-  letter-spacing: var(--body-lg-letter-spacing);
+  font-size: var(--body-s);
 }
 
-@mixin body-md {
+@mixin body-m {
   @extend %paragraph;
-  font-size: var(--body-md-size);
-  line-height: var(--body-md-line-height);
-  letter-spacing: var(--body-md-letter-spacing);
+  font-size: var(--body-m);
 }
 
-@mixin body-sm {
+@mixin body-l {
   @extend %paragraph;
-  font-size: var(--body-sm-size);
-  line-height: var(--body-sm-line-height);
-  letter-spacing: var(--body-sm-letter-spacing);
+  font-size: var(--body-l);
+}
+
+@mixin body-1-xl {
+  @extend %paragraph;
+  font-size: var(--body-1-xl);
+}
+
+@mixin body-2-xl {
+  @extend %paragraph;
+  font-size: var(--body-2-xl);
 }
 
 @mixin textlink-lg {
   @extend %link;
-  font-size: var(--textlink-lg-size);
-  line-height: var(--textlink-lg-line-height);
-  letter-spacing: var(--textlink-lg-letter-spacing);
 }
 
 @mixin textlink-md {
   @extend %link;
-  font-size: var(--textlink-md-size);
-  line-height: var(--textlink-md-line-height);
-  letter-spacing: var(--textlink-md-letter-spacing);
 }
 
 @mixin textlink-sm {
   @extend %link;
-  font-size: var(--textlink-sm-size);
-  line-height: var(--textlink-sm-line-height);
-  letter-spacing: var(--textlink-sm-letter-spacing);
 }
 
 @mixin caption {
-  font-size: var(--caption-size);
-  line-height: var(--caption-line-height);
   font-weight: 400;
 }
 
 @mixin eyebrow {
-  font-size: var(--eyebrow-size);
-  line-height: var(--eyebrow-line-height);
-  letter-spacing: var(--eyebrow-letter-spacing);
   text-transform: uppercase;
   font-weight: 600;
 }
 
 @mixin footerlink-md {
   color: var(--black-000);
-  font-size: var(--footerlink-md-size);
-  line-height: var(--footerlink-md-line-height);
-  letter-spacing: var(--footerlink-md-letter-spacing);
 }
 
 @mixin footerlink-sm {
   color: var(--black-000);
-  font-size: var(--footerlink-sm-size);
-  line-height: var(--footerlink-sm-line-height);
-  letter-spacing: var(--footerlink-sm-letter-spacing);
 }
 
 @mixin button-lg {
@@ -196,7 +157,6 @@
 }
 
 // SemiBold
-
 @font-face {
   font-family: 'SF Pro Display';
   src:

@@ -1,31 +1,85 @@
-h1,
-.h1 {
+h1 {
   @include h1;
 }
 
-h2,
-.h2 {
+h2 {
   @include h2;
 }
 
-h3,
-.h3 {
+h3 {
   @include h3;
 }
 
-h4,
-.h4 {
+h4 {
   @include h4;
 }
 
-h5,
-.h5 {
+h5 {
   @include h5;
 }
 
-h6,
-.h6 {
+h6 {
   @include h6;
+}
+
+.heading-s {
+  @extend %heading;
+  font-size: var(--heading-s);
+}
+
+.heading-m {
+  @extend %heading;
+  font-size: var(--heading-m);
+}
+
+.heading-l {
+  @extend %heading;
+  font-size: var(--heading-l);
+}
+
+.heading-1-xl {
+  @extend %heading;
+  font-size: var(--heading-1-xl);
+}
+
+.heading-2-xl {
+  @extend %heading;
+  font-size: var(--heading-2-xl);
+}
+
+.heading-3-xl {
+  @extend %heading;
+  font-size: var(--heading-3-xl);
+}
+
+.heading-4-xl {
+  @extend %heading;
+  font-size: var(--heading-4-xl);
+}
+
+.heading-5-xl {
+  @extend %heading;
+  font-size: var(--heading-5-xl);
+}
+
+.heading-6-xl {
+  @extend %heading;
+  font-size: var(--heading-6-xl);
+}
+
+.heading-7-xl {
+  @extend %heading;
+  font-size: var(--heading-7-xl);
+}
+
+.heading-8-xl {
+  @extend %heading;
+  font-size: var(--heading-8-xl);
+}
+
+.heading-9-xl {
+  @extend %heading;
+  font-size: var(--heading-9-xl);
 }
 
 p {
@@ -43,16 +97,24 @@ p {
     @include quote-md;
   }
 
-  &.body-lg {
-    @include body-lg;
+  &.body-s {
+    @include body-s;
   }
 
-  &.body-md {
-    @include body-md;
+  &.body-m {
+    @include body-m;
   }
 
-  &.body-sm {
-    @include body-sm;
+  &.body-l {
+    @include body-l;
+  }
+
+  &.body-1-xl {
+    @include body-1-xl;
+  }
+
+  &.body-2-xl {
+    @include body-2-xl;
   }
 }
 

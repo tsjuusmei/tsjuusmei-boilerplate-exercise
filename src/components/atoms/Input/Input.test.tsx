@@ -4,21 +4,21 @@ import {
   cleanup,
   fireEvent
 } from '@testing-library/react'
-import Input from '.'
+import Input, { InputSize } from '.'
 
 afterEach(cleanup)
 
 type BaseProps = {
   name: string
   placeholder: string,
-  size: Sizes
+  size: InputSize
 }
 
 describe('Input component', () => {
   const baseProps: BaseProps = {
     name: 'username',
     placeholder: 'Placeholder text',
-    size: 'md'
+    size: InputSize.Medium
   }
 
   // DOM Node tests
@@ -49,7 +49,7 @@ describe('Events', () => {
   const baseProps: BaseProps = {
     name: 'username',
     placeholder: 'Placeholder text',
-    size: 'md'
+    size: InputSize.Medium
   }
 
   it('handles the `onChange` event', () => {

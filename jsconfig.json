@@ -5,6 +5,7 @@
       "@/components/*": ["src/components/*"],
       "@/styles/*": ["src/styles/*"],
       "@/hooks/*": ["src/helpers/hooks/*"],
+      "@/constants/*": ["src/helpers/constants/*"],
       "@/utils/*": ["src/helpers/utils/*"],
       "@/data/*": ["src/data/*"],
       "@/lib/*": ["src/lib/*"],

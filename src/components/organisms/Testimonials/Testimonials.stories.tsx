@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Testimonials, { TestimonialsProps } from '.'
 
 export default {

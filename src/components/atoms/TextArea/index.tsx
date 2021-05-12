@@ -1,33 +1,41 @@
 import * as React from 'react'
 
-// Styles
-import styles from  './TextArea.module.scss'
 //Components
 import Icon from '@/components/atoms/Icon'
 
-type Props = {
+// Styles
+import styles from  './TextArea.module.scss'
+
+// Types
+export enum TextAreaSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
+export type TextAreaProps = {
   id?: string,
+  name: string,
   label?: string,
-  isError?: boolean,
-  size?: Sizes,
+  hasError?: boolean,
+  size: TextAreaSize,
   placeholder?: string,
   spellCheck?: boolean,
   autoComplete?: string,
   isDisabled?: boolean,
-  name: string,
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
   onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLTextAreaElement>) => void,
   isOptional?: boolean
 }
 
-const Textarea: React.FC<Props> = ({
+const TextArea: React.FC<TextAreaProps> = ({
   id,
   label,
-  size = 'md',
+  size = TextAreaSize.Medium,
   placeholder,
   isDisabled,
-  isError,
+  hasError,
   isOptional,
   onChange,
   onFocus,
@@ -40,7 +48,7 @@ const Textarea: React.FC<Props> = ({
       {label && (
         <label htmlFor={id} className={styles.label}>
           {label}
-          {isError && (
+          {hasError && (
             <Icon name="warning" color="var(--error-500)"/>
           )}
           {isOptional && <span>Optional</span>}
@@ -51,8 +59,9 @@ const Textarea: React.FC<Props> = ({
         className={`
           ${styles.element}
           ${styles[size]}
-          ${isError ? styles.error : null}
+          ${hasError ? styles.error : null}
         `}
+        name={name}
         onChange={onChange}
         id={id}
         placeholder={placeholder}
@@ -66,4 +75,4 @@ const Textarea: React.FC<Props> = ({
   )
 }
 
-export default Textarea
+export default TextArea

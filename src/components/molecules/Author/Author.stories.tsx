@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Author, { AuthorProps } from '.'
 
 export default {
