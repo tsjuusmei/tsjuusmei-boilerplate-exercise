@@ -71,7 +71,7 @@ const Input: React.FC<InputProps> = ({
         className={`
           ${styles['input-element']}
           ${styles[size]}
-          ${hasError ? styles.error : ''}
+          ${hasError ? styles['has-error'] : ''}
         `}
         name={name}
         onChange={onChange}
