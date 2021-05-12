@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](http://yummygum///compare/v0.1.7...v0.1.8) (2021-05-12)
+
+
+### Others
+
+* Apply design tokens ([09759f3](http://yummygum///commit/09759f39e31ab3f088184a116fbdfab170abd09b))
+* Apply Design Tokens ([b71341a](http://yummygum///commit/b71341ad615bb0397231f7568dad0f2ee55b1c5f))
+* Apply Design Tokens ([7c3fa1b](http://yummygum///commit/7c3fa1b4d7f1dc46f1e01c5368df1514d38f3b13))
+* Apply Design Tokens ([190bf13](http://yummygum///commit/190bf138ababd869a87896ee5eacbc02a3917028))
+* Apply Design Tokens ([0206aa8](http://yummygum///commit/0206aa880e85215109a61cecbe608e5211cb7787))
+* Apply Design Tokens ([d72446a](http://yummygum///commit/d72446ab958844a79d36cddc39499723f62d1a24))
+* Merge with Develop ([90713d9](http://yummygum///commit/90713d9515c19d6430a4760e1c9f591d75a4ed1d))
+* Resolve Feedback ([10fad90](http://yummygum///commit/10fad90980c0dd7b4115a861f069c7cfc4dbc16e))
+
 ### [0.1.7](http://yummygum///compare/v0.1.6...v0.1.7) (2021-05-12)
 
 
