@@ -10,7 +10,7 @@ import { EMAIL_PATTERN } from '@/constants/global'
 
 // Components
 import Input from '@/components/atoms/Input'
-import Button from '@/components/atoms/Button'
+import Button, { ButtonType } from '@/components/atoms/Button'
 
 export default {
   title: 'Guides / Form / Validation'
@@ -26,6 +26,7 @@ export const Form = () => {
 
   // Log all data from form on submit
   const onSubmit = (data: (e: React.ChangeEvent<HTMLInputElement>) => (void)) => {
+    // eslint-disable-next-line no-console
     console.log(data)
   }
 
@@ -41,7 +42,7 @@ export const Form = () => {
             pattern: emailPattern,
           }}
         />
-        <Button type="submit" style={{ display: 'block' }}>
+        <Button type={ButtonType.Submit}>
           Submit
         </Button>
       </form>
