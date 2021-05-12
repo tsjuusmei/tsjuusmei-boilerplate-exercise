@@ -1,80 +1,126 @@
+import { prompt } from 'enquirer'
 import { outputFile } from 'fs-extra'
-import { join } from 'path'
 
-const folder = process.argv[2] || 'atoms'
-const fileName = process.argv[3] || 'example'
+const PascalCase = /([A-Z][a-z0-9]+)((\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?/
 
-const generateComponent = (name: string) => {
-  const sub = name.substr(name.lastIndexOf('/') + 1)
-  const funcName = sub.charAt(0).toUpperCase() + sub.slice(1)
+async function survey() {
+  const answers = await prompt([
+    {
+      type: 'select',
+      name: 'type',
+      message: 'What is the atomic design type?',
+      choices: ['Atoms', 'Molecules', 'Organisms'],
+    },
+    {
+      type: 'input',
+      name: 'component',
+      message: 'What is the name of the component?',
+      initial: 'ComponentName',
+      validate: (answer) => {
+        if (answer.match(PascalCase) && answer !== 'ComponentName') {
+          return true
+        } else {
+          return 'Make sure you\'ve entered a unique component name in PascalCase.'
+        }
+      },
+      choices: ['Atoms', 'Molecules', 'Organisms'],
+    },
+    {
+      type: 'confirm',
+      name: 'stories',
+      initial: 'Y',
+      message: 'Create Stories for this component?',
+    },
+  ])
 
-  return (
-    `import React from 'react'
+  const {
+    component, type, stories
+  } = answers as any
+
+  const _type: string = type.toLowerCase()
+  console.log('\n')
+  console.log(`Creating a new ${_type.replace('s', '')}...`)
+
+  const path = `src/components/${_type}/${component}`
+
+  createComponent(path, component)
+  createStyles(path, component)
+  if (stories) {
+    createStories(path, component, type)
+  }
+}
+
+async function createComponent(path: string, component: string): Promise<void> {
+  const location = `${path}/index.tsx`
+  const template = `import React from 'react'
 
 // Types
-type ${funcName}Props = {
+export type ${component}Props = {
   name?: string
 }
 
 // Styling
-import styles from './${name}.module.scss'
+import styles from './${component}.module.scss'
 
-const ${funcName}: React.FC<${funcName}Props> = ({ name }) => (
-  <div className={styles['${name}']}>
+const ${component}: React.FC<${component}Props> = ({ name = '${component}' }) => (
+  <div className={styles['${component.toLowerCase()}']}>
     <p>{name}</p>
   </div>
 )
 
-export default ${funcName}
-`
-  )
+export default ${component}`
+
+  try {
+    await outputFile(location, template)
+    console.log(template)
+    console.log(`✔ Created ${component} → ${location}`)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-const generateStories = (name: string) => {
-  const sub = name.substr(name.lastIndexOf('/') + 1)
-  const funcName = sub.charAt(0).toUpperCase() + sub.slice(1)
-  const folderName = folder.charAt(0).toUpperCase() + folder.slice(1)
+async function createStories(
+  path: string,
+  component: string,
+  type: string
+): Promise<void> {
+  const location = `${path}/${component}.stories.tsx`
 
-  return (
-    `import React from 'react'
+  const template = `import React from 'react'
 
-import ${funcName} from '.'
+import ${component}, { ${component}Props } from '.'
 
 export default {
-  title: 'Components / ${folderName} / ${funcName}',
-  component: ${funcName}
+  title: 'Components / ${type} / ${component}',
+  component: ${component}
 }
 
-export const Default = (args) => <${funcName} {...args} />
+export const Default = (args: ${component}Props) => <${component} {...args} />
 Default.args = {}
 `
-  )
+
+  try {
+    await outputFile(location, template)
+    console.log(template)
+    console.log(`✔ Created Stories → ${location}`)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-const generateCss = (name: string) => (
-  `.${name} {
-  color: red;
+async function createStyles(path: string, component: string): Promise<void> {
+  const location = `${path}/${component}.module.scss`
+  const template = `.${component.toLowerCase()} {
+  color: red;  
+}`
+
+  try {
+    await outputFile(location, template)
+    console.log(template)
+    console.log(`✔ Created Styles → ${location}`)
+  } catch (error) {
+    console.error(error)
+  }
 }
-`
-)
 
-const filePath = join('src/components', folder, fileName, 'index.tsx')
-const content = generateComponent(fileName)
-
-outputFile(filePath, content, 'utf8')
-  .then(() => {
-    const sassPath = join('src/components', folder, fileName, `${fileName}.module.scss`)
-    const sassContent = generateCss(fileName)
-
-    outputFile(sassPath, sassContent, 'utf8')
-      .then(() => {
-        const storiesPath = join('src/components', folder, fileName, `${fileName}.stories.tsx`)
-        const storiesContent = generateStories(fileName)
-
-        outputFile(storiesPath, storiesContent, 'utf8')
-          // eslint-disable-next-line no-console
-          .then(() => console.log(`✅ Created '${fileName}' with Sass modules, Storybook and 'index' file.`))
-          .catch((e) => console.error(e))
-      })
-  })
-  .catch((e) => console.error(e))
+survey()
