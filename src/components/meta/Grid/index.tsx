@@ -1,11 +1,19 @@
 import React from 'react'
 
+// Components
 import Col from './Col/'
+
+// Types
+export enum GridSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
 
 export type GridProps = {
   cols?: number,
   className?: string,
-  size: Sizes,
+  size: GridSize,
   gap?: string,
   align?: string
 }
@@ -14,7 +22,7 @@ const Grid: React.FC<GridProps> = ({
   cols = 12,
   children,
   className,
-  size = 'lg',
+  size = GridSize.Large,
   gap,
   align,
   ...props

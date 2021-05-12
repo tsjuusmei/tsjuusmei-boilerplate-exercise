@@ -26,7 +26,7 @@ project-name/
     ├── atoms
     ├── molecules
     └── organisms
-  ├── helpers       # utils and hooks
+  ├── helpers       # utils, hooks and (global) constants
   ├── pages         # app route pages
   └── styles        # Global styling
 └── stories    # Miscellaneous Storybook files (e.g. Typography)
@@ -140,9 +140,12 @@ import { content } from '@/data/nav.json'
 
 # Import function
 import useWindowSize from '@/hooks/useWindowSize'
+
+# Import helpers & constants
+import { EMAIL_PATTERN } from '@/constants/global'
 ```
 
-When you add or edit these aliases, make sure that you'll edit the aliases in these files; `jsconfig.json` and `.storybook/main.js`.
+When you add or edit these aliases, make sure that you'll edit the aliases in these files; `jsconfig.json`, `tsconfig.json` and `.storybook/main.js`.
 
 ### Convert-SVG
 

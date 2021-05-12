@@ -1,0 +1,252 @@
+.switch {
+  // Switch background tokens
+  --switch-default-background-color: var(--input-default-background-colorcolor);
+  --switch-checked-background-color: var(--input-checked-background-color);
+  --switch-checked-hover-background-color: var(--input-checked-hover-background-color);
+  --switch-disabled-background-color: var(--input-disabled-background-color);
+  --switch-disabled-checked-background-color: var(--input-disabled-checked-background-color);
+  --switch-error-checked-background-color: var(--input-error-checked-background-color);
+  --switch-error-disabled-background-color: var(--input-error-disabled-background-color);
+  --switch-error-checked-disabled-background-color: var(--input-error-checked-disabled-background-color);
+
+  // Switch border tokens
+  --switch-default-border-color: var(--input-default-border-color);
+  --switch-hover-border-color: var(--input-hover-border-color);
+  --switch-focus-border-color: var(--input-focus-border-color);
+  --switch-focus-checked-border-color: var(--input-focus-checked-border-color);
+  --switch-disabled-border-color: var(--input-disabled-border-color);
+  --switch-error-border-color: var(--input-error-border-color);
+  --switch-checked-border-color: var(--input-checked-border-color);
+  --switch-checked-hover-border-color: var(--input-checked-hover-border-color);
+
+  // Switch focus ring token
+  --switch-focus-ring-color: var(--focus-ring-color);
+
+  --size: 4;
+  --factor: 1;
+  --default-blue: var(--color-500);
+  --hover-blue: var(--color-600);
+  --gray: var(--color3-300);
+  --default-gray: var(--color3-400);
+  --hover-gray: var(--color3-500);
+  --white: var(--white-000);
+  --font-size: 14px;
+
+  position: relative;
+  display: inline-block;
+  width: calc(var(--size) * var(--factor) * 12px);
+  height: calc(var(--size) * var(--factor) * 6px);
+
+  // Size variables
+  &.lg {
+    --factor: 1.2;
+    --font-size: 18px;
+  }
+
+  &.sm {
+    --factor: .8;
+    --font-size: 12px;
+  }
+
+  // States
+  &:focus:not(.disabled) {
+    outline: 0;
+
+    .slider {
+      border-color: var(--switch-focus-border-color);
+      box-shadow: 0 0 0 2px var(--switch-focus-ring-color);
+    }
+
+    input:checked + .slider {
+      border-color: var(--switch-focus-checked-border-color);
+    }
+
+    &:hover input:checked + .slider {
+      border-color: var(--switch-focus-checked-border-color);
+    }
+  }
+
+  &.disabled {
+    outline: 0;
+
+    .slider {
+      cursor: not-allowed;
+    }
+
+    input {
+      & + .slider {
+        background-color: var(--switch-disabled-background-color);
+        border-color: var(--switch-disabled-border-color);
+
+        &::before {
+          background-color: var(--color3-200);
+        }
+      }
+
+      &:checked + .slider {
+        background-color: var(--switch-disabled-checked-background-color);
+        border-color: var(--switch-disabled-border-color);
+
+        &::before {
+          background-color: var(--gray);
+        }
+      }
+    }
+  }
+
+  // Error
+  &.error {
+    &:focus:not(.disabled) {
+      outline: 0;
+
+      .slider {
+        box-shadow: 0 0 0 2px var(--switch-focus-ring-color);
+      }
+
+      input:checked + .slider {
+        border-color: var(--switch-focus-checked-border-color);
+      }
+
+      &:hover input:checked + .slider {
+        border-color: var(--switch-focus-checked-border-color);
+      }
+    }
+
+    &:hover:not(.disabled) {
+      .slider {
+        border-color: var(--switch-error-border-color);
+
+        &::before {
+          background-color: var(--hover-gray);
+        }
+      }
+
+      input:checked + .slider {
+        border-color: var(--switch-error-border-color);
+        background-color: var(--switch-error-checked-background-color);
+
+        &::before {
+          background-color: var(--white);
+        }
+      }
+    }
+
+    &.disabled {
+      outline: 0;
+
+      .slider {
+        cursor: not-allowed;
+      }
+
+      input {
+        & + .slider {
+          background-color: var(--switch-error-disabled-background-color);
+          border-color: var(--switch-error-border-color);
+
+          &::before {
+            background-color: var(--error-300);
+          }
+        }
+
+        &:checked + .slider {
+          background-color: var(--switch-error-checked-disabled-background-color);
+          border-color: var(--switch-error-border-color);
+
+          &::before {
+            background-color: var(--white);
+          }
+        }
+      }
+    }
+
+    .slider {
+      border-color: var(--switch-error-border-color);
+    }
+
+    input:checked + .slider {
+      background-color: var(--switch-error-checked-background-color);
+      border-color: var(--switch-error-border-color);
+    }
+  }
+
+  // Children
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:hover + .slider {
+      border-color: var(--switch-hover-border-color);
+    }
+
+    &:checked + .slider {
+      background-color: var(--switch-checked-background-color);
+      border-color: var(--switch-checked-border-color);
+    }
+
+    &:checked:hover + .slider {
+      background-color: var(--switch-checked-hover-background-color);
+      border-color: var(--switch-checked-hover-border-color);
+    }
+
+    &:checked + .slider::before {
+      background-color: var(--white);
+      transform: translateX(calc(var(--size) * var(--factor) * 5px));
+    }
+  }
+
+  label {
+    position: absolute;
+    z-index: 2;
+    color: var(--color3-600);
+    left: calc(var(--size) * var(--factor) * 12px + 8px);
+    top: 3px;
+    font-size: var(--font-size);
+    display: flex;
+    align-items: center;
+
+    &.sm svg {
+      width: 14px;
+      height: 14px;
+      margin-left: 8px;
+    }
+
+    &.md svg {
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+    }
+
+    &.lg svg {
+      width: 20px;
+      height: 20px;
+      margin-left: 12px;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-default-background-color);
+    transition: border-color 200ms, background-color 200ms;
+    border-radius: 34px;
+    border: 1px solid var(--switch-default-border-color);
+    box-sizing: border-box;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: calc(var(--size) * var(--factor) * 4px);
+      width: calc(var(--size) * var(--factor) * 4px);
+      left: 4px;
+      background-color: var(--gray);
+      bottom: calc(var(--size) * var(--factor) * .75px);
+      transition: background-color 200ms, transform 200ms;
+      border-radius: 100%;
+    }
+  }
+}

@@ -4,9 +4,23 @@ import Link from 'next/link'
 // Styles
 import styles from './Button.module.scss'
 
-export type Props = {
-  variation: 'primary' | 'secondary' | 'tertiary' | 'text-link',
-  size: Sizes,
+// Types
+export enum ButtonVariation {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Tertiary = 'tertiary',
+  TextLink = 'text-link'
+}
+
+export enum ButtonSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
+export type ButtonProps = {
+  variation: ButtonVariation,
+  size: ButtonSize,
   label?: string,
   href?: string,
   isFullWidth?: boolean,
@@ -16,9 +30,9 @@ export type Props = {
   contentClassName?: string
 }
 
-const Button: React.FC<Props> = ({
-  variation = 'primary',
-  size = 'md',
+const Button: React.FC<ButtonProps> = ({
+  variation = ButtonVariation.Primary,
+  size = ButtonSize.Medium,
   children,
   label = '',
   href = '',
@@ -37,7 +51,9 @@ const Button: React.FC<Props> = ({
   // Shared classNames (less duplicate code)
   const sharedClassNames = `${styles[size]} ${styles[variation]} ${isFullWidth ? styles.fullwidth : ''} ${isDisabled ? styles.disabled : ''}`
 
-  const ButtonWrapper = React.forwardRef<any, Props>((_, ref) => (
+  // TODO: Need to split off the 'text link' button(s) from the main component.
+  // This will also make it easier to change the 'any' type to 'HTMLButtonElement'.
+  const ButtonWrapper = React.forwardRef<any, ButtonProps>((_, ref) => (
     <LinkOrButton
       {...props}
       ref={ref}
