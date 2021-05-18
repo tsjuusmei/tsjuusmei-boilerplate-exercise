@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 // Components
 import Icon from '@/components/atoms/Icon'
+
+// Types
+import { IconRotate } from '@/components/atoms/Icon/types'
 
 // Styles
 import styles from './Disclosure.module.scss'
@@ -17,6 +21,44 @@ const Disclosure: React.FC<DisclosureProps> = ({
   body,
   hasIcon = false
 }) => {
+  const totalVariants = {
+    open: {
+      maxHeight: '1000px',
+      transition: {
+        duration: 0.65,
+        type: 'tween',
+        ease: 'easeInOut',
+      }
+    },
+    closed: {
+      maxHeight: '64px',
+      transition: {
+        duration: 0.65,
+        type: 'tween',
+        ease: 'easeInOut',
+      }
+    }
+  }
+
+  const itemVars = {
+    open: {
+      opacity: 1,
+      transition: {
+        duration: 0.65,
+        type: 'tween',
+        ease: 'easeInOut',
+      }
+    },
+    closed: {
+      opacity: 0,
+      transition: {
+        duration: 0.65,
+        type: 'tween',
+        ease: 'easeInOut',
+      }
+    }
+  }
+
   const [isOpen, setIsOpen] = useState(false)
   function toggleIsOpen(e: { preventDefault: () => void }) {
     e.preventDefault()
@@ -24,10 +66,12 @@ const Disclosure: React.FC<DisclosureProps> = ({
   }
 
   return (
-    <details
+    <motion.details
       className={styles.details}
       open={isOpen}
       onClick={toggleIsOpen}
+      variants={totalVariants}
+      animate={isOpen? 'open': 'closed'}
     >
       <summary>
         <h5>
@@ -40,13 +84,18 @@ const Disclosure: React.FC<DisclosureProps> = ({
           {summary}
           <Icon
             name="chevron"
-            direction={isOpen ? 'up' : 'down'}
+            direction={isOpen ? IconRotate.Up : IconRotate.Down}
             size={24}
           />
         </h5>
       </summary>
-      <p className={`${hasIcon ? 'has-icon' : ''}`}>{body}</p>
-    </details>
+      <AnimatePresence>
+        <motion.p
+          variants={itemVars}
+          className={`${hasIcon ? 'has-icon' : ''}`}
+        >{body}</motion.p>
+      </AnimatePresence>
+    </motion.details>
   )
 }
 
