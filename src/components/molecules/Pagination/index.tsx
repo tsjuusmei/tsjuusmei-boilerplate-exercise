@@ -2,29 +2,13 @@ import React from 'react'
 
 import styles from './Pagination.module.scss'
 
-interface nextPageFunc {
-  (): void
-}
-
-interface prevPageFunc {
-  (): void
-}
-
-interface handleFirstFunc{
-  (): void
-}
-
-interface handleLastFunc{
-  (): void
-}
-
 export interface PaginationProps{
   current: number
-  nextPage: nextPageFunc
-  prevPage: prevPageFunc
+  nextPage: void
+  prevPage: void
   numPages: number
-  handleFirst: handleFirstFunc
-  handleLast: handleLastFunc
+  handleFirst: void
+  handleLast: void
 }
 
 const Pagination: React.FunctionComponent<PaginationProps> = ({
