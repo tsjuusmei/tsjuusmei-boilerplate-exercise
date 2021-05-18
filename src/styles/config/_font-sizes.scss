@@ -1,11 +1,14 @@
-@import '../functions/all';
+@use "sass:list";
+@use '../functions/all';
+@use "../functions/vw";
+@use "media-queries";
 
 // Design width
 // These values will be used to calculate the font size per design size
 // Example: 18 (font size for a paragraph) / 1440 (design width) * 100 (to get a vw value) = 1,25(vw)
-$design-size: 375;
+vw.$design-size: 375;
 $design-size-tablet: 768;
-$design-size-desktop: 1440;
+vw.$design-size-desktop: 1440;
 
 // 1.25 scale factor as defined by design
 // The order of these sizes should be taken into consideration since that is the order of the classNames
@@ -65,9 +68,9 @@ $fluid-sizes-desktop:
   --tracking-widest: .1em;
 
   // Define minimum font-size for 375px and below
-  @media screen and (max-width: $bp-mobile-md) {
+  @media screen and (max-width: media-queries.$bp-mobile-md) {
     @each $size in $fluid-sizes {
-      $i: index($fluid-sizes, $size);
+      $i: list.index($fluid-sizes, $size);
 
       --heading-#{$i}-xl: #{$size}px;
     }
@@ -104,36 +107,36 @@ $fluid-sizes-desktop:
   // Example: --heading-#{$i}-xl = --heading-3-xl. this value is used for the h3
   // Fluid
   @each $size in $fluid-sizes {
-    $i: index($fluid-sizes, $size);
+    $i: list.index($fluid-sizes, $size);
 
-    --heading-#{$i}-xl: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
+    --heading-#{$i}-xl: calc(((#{$size} / #{vw.$design-size}) * 100) * 1vw);
   }
 
   // Heading sizes
   // Heading S
-  --heading-s: calc(((14 / #{$design-size}) * 100) * 1vw);
+  --heading-s: calc(((14 / #{vw.$design-size}) * 100) * 1vw);
 
   // Heading M
-  --heading-m: calc(((16 / #{$design-size}) * 100) * 1vw);
+  --heading-m: calc(((16 / #{vw.$design-size}) * 100) * 1vw);
 
   // Heading L
-  --heading-l: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --heading-l: calc(((18 / #{vw.$design-size}) * 100) * 1vw);
 
   // Body sizes mobile
   // Body S
-  --body-s: calc(((14 / #{$design-size}) * 100) * 1vw);
+  --body-s: calc(((14 / #{vw.$design-size}) * 100) * 1vw);
 
   // Body M
-  --body-m: calc(((16 / #{$design-size}) * 100) * 1vw);
+  --body-m: calc(((16 / #{vw.$design-size}) * 100) * 1vw);
 
   // Body L
-  --body-l: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-l: calc(((18 / #{vw.$design-size}) * 100) * 1vw);
 
   // Body XL
-  --body-1-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-1-xl: calc(((18 / #{vw.$design-size}) * 100) * 1vw);
 
   // Body 2XL
-  --body-2-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --body-2-xl: calc(((18 / #{vw.$design-size}) * 100) * 1vw);
 
   // TODO: Design needs to define tabled sizes
   // @media screen and (min-width: $bp-tablet-md) {
@@ -146,46 +149,46 @@ $fluid-sizes-desktop:
   // }
 
   // Desktop-xs
-  @media screen and (min-width: $bp-desktop-xs) {
+  @media screen and (min-width: media-queries.$bp-desktop-xs) {
     // Define heading size desktop-xs
     @each $size in $fluid-sizes-desktop {
-      $i: index($fluid-sizes-desktop, $size);
+      $i: list.index($fluid-sizes-desktop, $size);
 
-      --heading-#{$i}-xl: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+      --heading-#{$i}-xl: calc(((#{$size} / #{vw.$design-size-desktop}) * 100) * 1vw);
     }
 
     // Heading sizes desktop
     // Heading S
-    --heading-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
+    --heading-s: calc(((14 / #{vw.$design-size-desktop}) * 100) * 1vw);
 
     // Heading M
-    --heading-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
+    --heading-m: calc(((16 / #{vw.$design-size-desktop}) * 100) * 1vw);
 
     // Heading L
-    --heading-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
+    --heading-l: calc(((20 / #{vw.$design-size-desktop}) * 100) * 1vw);
 
     // Body sizes desktop
     // Body S
-    --body-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
+    --body-s: calc(((14 / #{vw.$design-size-desktop}) * 100) * 1vw);
 
     // Body M
-    --body-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
+    --body-m: calc(((16 / #{vw.$design-size-desktop}) * 100) * 1vw);
 
     // Body L
-    --body-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
+    --body-l: calc(((20 / #{vw.$design-size-desktop}) * 100) * 1vw);
 
     // Body XL
-    --body-1-xl: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
+    --body-1-xl: calc(((24 / #{vw.$design-size-desktop}) * 100) * 1vw);
 
     // Body 2XL
-    --body-2-xl: calc(((32 / #{$design-size-desktop}) * 100) * 1vw);
+    --body-2-xl: calc(((32 / #{vw.$design-size-desktop}) * 100) * 1vw);
   }
 
   // Desktop
   // Define max sizes for 1440px and above
-  @media screen and (min-width: $bp-desktop-lg) {
+  @media screen and (min-width: media-queries.$bp-desktop-lg) {
     @each $size in $fluid-sizes-desktop {
-      $i: index($fluid-sizes-desktop, $size);
+      $i: list.index($fluid-sizes-desktop, $size);
 
       --heading-#{$i}-xl: #{$size}px;
     }
