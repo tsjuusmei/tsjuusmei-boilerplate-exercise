@@ -4,11 +4,11 @@ import styles from './Pagination.module.scss'
 
 export interface PaginationProps{
   current: number
-  nextPage: void
-  prevPage: void
+  nextPage: () => void
+  prevPage: () => void
   numPages: number
-  handleFirst: void
-  handleLast: void
+  handleFirst: () => void
+  handleLast: () => void
 }
 
 const Pagination: React.FunctionComponent<PaginationProps> = ({
