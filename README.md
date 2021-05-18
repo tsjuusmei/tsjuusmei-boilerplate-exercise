@@ -71,6 +71,9 @@ This will open the project on `localhost:3000`.
 
 ## Project Structure
 
+### Environment variables
+We need to add an .env file. We can access the file through 1Password.
+
 ### Pages
 Next.js automatically turns React components in `src/pages/` into pages, as long as the component is made the default export. It will also look for subfolders and create nested paths based on them. Dynamic pages are called `[id].js` inside a folder, to allow for dynamic routes. The routes need an extra '/' at the end, but if you forget them, redirects are set up.
 
