@@ -11,6 +11,7 @@ package-lock.json
 # misc
 .DS_Store
 .vscode
+!.vscode/extensions.js
 
 npm-debug.log*
 yarn-debug.log*
