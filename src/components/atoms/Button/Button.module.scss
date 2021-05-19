@@ -28,9 +28,6 @@
   --button-tertiary-active-content-color: var(--tertiary-active-content-color);
   --button-tertiary-disabled-content-color: var(--tertiary-disabled-content-color);
 
-  // Button text link tokens
-  --button-text-link-content-color: var(--color-500);
-
   // Button focus ring token
   --button-focus-ring-color: var(--focus-ring-color);
 
@@ -142,17 +139,6 @@
 
     &.disabled {
       color: var(--tertiary-disabled-content-color);
-    }
-  }
-
-  &.text-link {
-    color: var(--button-text-link-content-color);
-    text-decoration: underline;
-    padding: 0;
-    height: auto;
-
-    &.disabled {
-      opacity: .6;
     }
   }
 
