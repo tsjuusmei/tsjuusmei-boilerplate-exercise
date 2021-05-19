@@ -14,13 +14,13 @@ type BaseProps = {
   size: InputSize
 }
 
-describe('Input component', () => {
-  const baseProps: BaseProps = {
-    name: 'username',
-    placeholder: 'Placeholder text',
-    size: InputSize.Medium
-  }
+const baseProps: BaseProps = {
+  name: 'username',
+  placeholder: 'Placeholder text',
+  size: InputSize.Medium
+}
 
+describe('Input component', () => {
   // DOM Node tests
   it('should render an input of type text by default', () => {
     const { getByTestId } = render(<Input {...baseProps} data-testid="input" />)
@@ -46,12 +46,6 @@ describe('Input component', () => {
 })
 
 describe('Events', () => {
-  const baseProps: BaseProps = {
-    name: 'username',
-    placeholder: 'Placeholder text',
-    size: InputSize.Medium
-  }
-
   it('handles the `onChange` event', () => {
     const onChange = jest.fn()
     const { container } = render(<Input {...baseProps} onChange={onChange} />)

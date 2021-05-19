@@ -1,25 +1,27 @@
+@use "../config/fonts";
+
 h1 {
-  @include h1;
+  @include fonts.h1;
 }
 
 h2 {
-  @include h2;
+  @include fonts.h2;
 }
 
 h3 {
-  @include h3;
+  @include fonts.h3;
 }
 
 h4 {
-  @include h4;
+  @include fonts.h4;
 }
 
 h5 {
-  @include h5;
+  @include fonts.h5;
 }
 
 h6 {
-  @include h6;
+  @include fonts.h6;
 }
 
 .heading-s {
@@ -86,76 +88,76 @@ p {
   @extend %paragraph;
 
   &.streamer {
-    @include streamer;
+    @include fonts.streamer;
   }
 
   &.quote-lg {
-    @include quote-lg;
+    @include fonts.quote-lg;
   }
 
   &.quote-md {
-    @include quote-md;
+    @include fonts.quote-md;
   }
 
   &.body-s {
-    @include body-s;
+    @include fonts.body-s;
   }
 
   &.body-m {
-    @include body-m;
+    @include fonts.body-m;
   }
 
   &.body-l {
-    @include body-l;
+    @include fonts.body-l;
   }
 
   &.body-1-xl {
-    @include body-1-xl;
+    @include fonts.body-1-xl;
   }
 
   &.body-2-xl {
-    @include body-2-xl;
+    @include fonts.body-2-xl;
   }
 }
 
 .textlink-lg {
-  @include textlink-lg;
+  @include fonts.textlink-lg;
 }
 
 .textlink-md {
-  @include textlink-md;
+  @include fonts.textlink-md;
 }
 
 .textlink-sm {
-  @include textlink-sm;
+  @include fonts.textlink-sm;
 }
 
 .caption {
-  @include caption;
+  @include fonts.caption;
 }
 
 .eyebrow {
-  @include eyebrow;
+  @include fonts.eyebrow;
 }
 
 .footerlink-md {
-  @include footerlink-md;
+  @include fonts.footerlink-md;
 }
 
 .footerlink-sm {
-  @include footerlink-sm;
+  @include fonts.footerlink-sm;
 }
 
 .button-sm {
-  @include button-sm;
+  @include fonts.button-sm;
 }
 
 .button-md {
-  @include button-md;
+  @include fonts.button-md;
 }
 
 .button-lg {
-  @include button-lg;
+  @include fonts.button-lg;
 }
 
 @mixin list-style {
