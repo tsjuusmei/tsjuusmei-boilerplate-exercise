@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Yummygum/next-boilerplate#readme",
   "dependencies": {
     "babel-eslint": "^10.1.0",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^3.3.0",
     "glob": "7.1.6",
     "next": "10.0.4",
     "next-seo": "4.17.0",

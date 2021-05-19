@@ -71,7 +71,7 @@ const Disclosure: React.FC<DisclosureProps> = ({
       open={isOpen}
       onClick={toggleIsOpen}
       variants={totalVariants}
-      animate={isOpen? 'open': 'closed'}
+      animate={isOpen ? 'open' : 'closed'}
     >
       <summary>
         <h5>
