@@ -20,8 +20,7 @@ export const Internal = (args: TextLinkProps) => (
 )
 
 Internal.args = {
-  href: '/home',
-  variation: 'internal',
+  href: '/home'
 }
 
 export const External = (args: TextLinkProps) => (
@@ -31,6 +30,5 @@ export const External = (args: TextLinkProps) => (
 )
 
 External.args = {
-  href: 'https://www.google.com',
-  variation: 'external'
+  href: 'https://www.google.com'
 }

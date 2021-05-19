@@ -3,11 +3,6 @@ import Link from 'next/link'
 
 import styles from './Link.module.scss'
 
-export enum TextLinkVariation {
-  Internal = 'internal',
-  External = 'external'
-}
-
 export enum TextLinkSize {
   Small = 'sm',
   Medium = 'md',
@@ -16,7 +11,6 @@ export enum TextLinkSize {
 
 export type TextLinkProps = {
   href: string
-  variation?: TextLinkVariation,
   className?: string,
   size?: TextLinkSize,
   isDisabled?: boolean
@@ -26,28 +20,13 @@ export type TextLinkProps = {
 const TextLink: React.FC<TextLinkProps> = ({
   href = '',
   children,
-  variation = TextLinkVariation.Internal,
   className = '',
   size =  TextLinkSize.Medium,
   isDisabled = false,
   ...props
 }) => {
   const sharedClassNames = `textlink-${size} ${isDisabled? styles.disabled: ''} ${styles['text-link']}`
-  if(variation === 'internal') {
-    return (
-      <Link
-        href={href}
-        {...props}
-      >
-        <a className={`
-          ${className}
-          ${sharedClassNames}
-        `}>
-          {children}
-        </a>
-      </Link>
-    )
-  } else if (variation === 'external') {
+  if (href.includes('http')) {
     return (
       <a
         href={href}
@@ -61,6 +40,19 @@ const TextLink: React.FC<TextLinkProps> = ({
       </a>
     )
   }
+  return (
+    <Link
+      href={href}
+      {...props}
+    >
+      <a className={`
+        ${className}
+        ${sharedClassNames}
+      `}>
+        {children}
+      </a>
+    </Link>
+  )
 }
 
 export default TextLink
