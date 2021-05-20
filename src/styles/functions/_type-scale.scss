@@ -36,48 +36,23 @@
   @for $index from 1 through 10 {
     // 1. Grab the previous item in the list
     $size: list.nth($sizes, $index);
-    // @debug $index, $size;
     // 2. Multiply that item by the current scale
     $size: $size * $scale;
 
     // Round to 2 decimals
-    $size: math.floor($size);
-    // $size: math.floor($size * 100) / 100;
+    $size: math.round($size);
 
     // 3. Append the new size to the list
     $sizes: list.append($sizes, $size);
-
-    // Repeat until 9
-
-    // $size: $previous * $scale;
   }
 
   @for $index from 1 through 2 {
     $sub-size: list.nth($sub-sizes, $index);
     $sub-size: $sub-size / $scale;
     $sub-size: math.floor($sub-size);
-    // $sub-size: math.round($sub-size * 100) / 100;
     $sub-sizes: list.append($sub-sizes, $sub-size);
-    // @debug $sub-size;
   }
-  // @debug $sizes;
-  // @debug $sub-sizes;
-  // @debug '';
-  // list.index($sizes,)
+
   $sub-sizes: nth-delete($sub-sizes, 1);
   @return list.join(reverse($sub-sizes), $sizes);
 }
-
-// $sizes-mobile: get-scale($font-size-base, $type-scale);
-// @debug 'Mobile';
-// @debug $sizes-mobile;
-// @debug '';
-
-// $sizes-tablet: get-scale($font-size-base, $type-scale-tablet);
-// @debug 'Tablet';
-// @debug $sizes-tablet;
-// @debug '';
-
-// $sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
-// @debug 'Desktop';
-// @debug $sizes-desktop;
