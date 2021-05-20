@@ -15,7 +15,7 @@ export default {
 
 export const Internal = (args: TextLinkProps) => (
   <TextLink {...args}>
-    Interne link
+    Internal link
   </TextLink>
 )
 
@@ -25,7 +25,7 @@ Internal.args = {
 
 export const External = (args: TextLinkProps) => (
   <TextLink {...args}>
-    Externe link
+    External link
   </TextLink>
 )
 
