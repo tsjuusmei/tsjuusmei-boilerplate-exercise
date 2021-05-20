@@ -23,3 +23,10 @@ $design-size-desktop: 1440;
 @function get-vw-desktop($target) {
   @return (($target / $design-size-desktop) * 100) * 1vw;
 }
+
+@function get-fluid-size($size, $breakpoint) {
+  $calculated: $size / $breakpoint * 100;
+  @return max(12px, calc(#{$calculated} * 1vw));
+}
+
+

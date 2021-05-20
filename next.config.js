@@ -21,6 +21,7 @@ module.exports = {
                 configRule.use.push({
                   loader: 'sass-resources-loader',
                   options: {
+                    hoistUseStatements: true,
                     resources: [
                       './src/styles/config/_media-queries.scss',
                       './src/styles/config/_fonts.scss'
