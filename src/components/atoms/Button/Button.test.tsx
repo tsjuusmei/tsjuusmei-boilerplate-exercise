@@ -28,11 +28,10 @@ describe('Button component', () => {
   })
 
   it('should render a button with a link', () => {
-    const { getByTestId } = render(<Button {...baseProps} href="https://yummygum.com" data-testid="button">Test</Button>)
+    const { getByTestId } = render(<Button {...baseProps} data-testid="button">Test</Button>)
     const domNode = getByTestId('button') as HTMLAnchorElement
 
     expect(domNode.nodeName).toBe('A')
-    expect(domNode.href).toBe('https://yummygum.com/')
   })
 
   it('should render a disabled Button', () => {
