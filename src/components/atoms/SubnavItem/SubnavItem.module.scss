@@ -1,0 +1,23 @@
+.subnav-item {
+  display: flex;
+
+  .description {
+    align-items: flex-start;
+  }
+
+  .no-description {
+    align-items: center;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
+
+  a {
+    max-width: 240px;
+
+    .body-m {
+      margin-top: 4px;
+    }
+  }
+}
