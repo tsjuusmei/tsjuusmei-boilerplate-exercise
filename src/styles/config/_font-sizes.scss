@@ -137,30 +137,18 @@ $fluid-sizes-desktop: type.get-scale($font-size-base, $type-scale-desktop);
     @each $size in $fluid-sizes-desktop {
       $i: index($fluid-sizes-desktop, $size);
 
-      --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-desktop)};
+      --heading-#{$i}-xl: #{rem($size)};
     }
-
-    // // Heading sizes
-    // --heading-s: #{rem($s)};
-    // --heading-m: #{rem($m)};
-    // --heading-l: #{rem($l)};
-
-    // // Body sizes
-    // --body-s: #{rem($s)};
-    // --body-m: #{rem($m)};
-    // --body-l: #{rem($l)};
-    // --body-1-xl: #{rem($xl)};
-    // --body-2-xl: #{rem($two-xl)};
     // Heading sizes tablet
-    --heading-s: #{get-fluid-size($s, $design-size-desktop)};
-    --heading-m: #{get-fluid-size($m, $design-size-desktop)};
-    --heading-l: #{get-fluid-size($l, $design-size-desktop)};
+    --heading-s: #{rem($s)};
+    --heading-m: #{rem($m)};
+    --heading-l: #{rem($l)};
 
     // Body sizes desktop
-    --body-s: #{get-fluid-size($s, $design-size-desktop)};
-    --body-m: #{get-fluid-size($m, $design-size-desktop)};
-    --body-l: #{get-fluid-size($l, $design-size-desktop)};
-    --body-1-xl: #{get-fluid-size($xl, $design-size-desktop)};
-    --body-2-xl: #{get-fluid-size($two-xl, $design-size-desktop)};
+    --body-s: #{rem($s)};
+    --body-m: #{rem($m)};
+    --body-l: #{rem($l)};
+    --body-1-xl: #{rem($xl)};
+    --body-2-xl: #{rem($two-xl)};
   }
 }
