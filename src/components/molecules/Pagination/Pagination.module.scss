@@ -1,0 +1,27 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 48px;
+  left: 40%;
+
+  span {
+    display: block;
+    margin: 8px;
+    cursor: default;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-400);
+    }
+  }
+}
+
+.active {
+  background-color: var(--color-300);
+  padding: 8px;
+  border-radius: 8px;
+}
