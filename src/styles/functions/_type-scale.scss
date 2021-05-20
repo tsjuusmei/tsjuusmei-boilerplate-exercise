@@ -1,0 +1,58 @@
+@use 'sass:list';
+@use 'sass:math';
+
+@function nth-delete($list, $n) {
+  $result: ();
+  $n: if($n < 0, length($list) + $n + 1, $n);
+  $bracketed: is-bracketed($list);
+  $separator: list-separator($list);
+  @for $i from 1 through length($list) {
+    @if $i != $n {
+      $result: append($result, nth($list, $i));
+    }
+  }
+  @return join((), $result, $separator, $bracketed);
+}
+@function reverse($list, $recursive: false) {
+  $result: ();
+
+  @for $i from length($list) * -1 through -1 {
+    @if type-of(nth($list, abs($i))) == list and $recursive {
+      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+    } @else {
+      $result: append($result, nth($list, abs($i)));
+    }
+  }
+
+  @return $result;
+}
+
+// Mobile
+@function get-scale($base, $scale) {
+  // Should return a scale of 9 sizes based on the provided scale
+  $sizes: $base;
+  $sub-sizes: $base;
+
+  @for $index from 1 through 10 {
+    // 1. Grab the previous item in the list
+    $size: list.nth($sizes, $index);
+    // 2. Multiply that item by the current scale
+    $size: $size * $scale;
+
+    // Round to 2 decimals
+    $size: math.round($size);
+
+    // 3. Append the new size to the list
+    $sizes: list.append($sizes, $size);
+  }
+
+  @for $index from 1 through 2 {
+    $sub-size: list.nth($sub-sizes, $index);
+    $sub-size: $sub-size / $scale;
+    $sub-size: math.floor($sub-size);
+    $sub-sizes: list.append($sub-sizes, $sub-size);
+  }
+
+  $sub-sizes: nth-delete($sub-sizes, 1);
+  @return list.join(reverse($sub-sizes), $sizes);
+}

@@ -1,0 +1,13 @@
+.text-link {
+  // text link token
+  --text-link-content-color: var(--color-500);
+
+  color: var(--text-link-content-color);
+  text-decoration: underline;
+  padding: 0;
+  height: auto;
+
+  &.disabled {
+    opacity: .6;
+  }
+}

@@ -1,53 +1,41 @@
-@import '../functions/all';
+@use 'sass:map';
+@use 'sass:list';
+@use 'media-queries' as *;
+@use '../functions/type-scale' as type;
+@use '../functions/vw' as *;
+
+$font-size-base: 16 !default;
+
+// Breakpoints at which the design team creates their frames
 
 // Design width
 // These values will be used to calculate the font size per design size
-// Example: 18 (font size for a paragraph) / 1440 (design width) * 100 (to get a vw value) = 1,25(vw)
-$design-size: 375;
-$design-size-tablet: 768;
-$design-size-desktop: 1440;
+$design-size-mobile: 375 !default;
+$design-size-tablet: 768 !default;
+$design-size-desktop: 1440 !default;
 
-// 1.25 scale factor as defined by design
-// The order of these sizes should be taken into consideration since that is the order of the classNames
-// Example: 14 = --fluid-2-xl-size, it's the second value in the row
-// Heading sizes - mobile (heading/XL)
-$fluid-sizes:
-  20,
-  22,
-  26,
-  28,
-  32,
-  36,
-  40,
-  46,
-  50; // heading-9XL
+// The typographic scale to apply at each breakpoint. They interpolate and scale.
+$type-scale-mobile: 1.125 !default;
+$type-scale-tablet: 1.175 !default;
+$type-scale-desktop: 1.25 !default;
 
-// Heading sizes - desktop (heading/XL)
-$fluid-sizes-desktop:
-  24
-  32
-  40
-  48
-  64
-  76
-  96
-  120
-  148; // heading-9XL
+// Generate arrays of type scales.
+$fluid-sizes: type.get-scale($font-size-base, $type-scale-mobile);
+$fluid-sizes-tablet: type.get-scale($font-size-base, $type-scale-tablet);
+$fluid-sizes-desktop: type.get-scale($font-size-base, $type-scale-desktop);
+
+@function rem($value) {
+  @return max(0.75rem, $value / $font-size-base * 1rem);
+}
 
 :root {
   // Define font
-  --font-stack-base:
-    'SF Pro Display',
-    'BlinkMacSystemFont',
-    'Helvetica',
-    'Lato',
-    'Arial',
-    'Segoe UI',
-    'Verdana',
+  --font-stack-base: system-ui, -apple-system, 'SF Pro Display',
+    'BlinkMacSystemFont', 'Helvetica', 'Lato', 'Arial', 'Segoe UI', 'Verdana',
     sans-serif;
 
   // Define line-height
-  // Based on TailWindCss: https://tailwindcss.com/docs/line-height
+  // Based on TailwindCSS: https://tailwindcss.com/docs/line-height
   --leading-none: 1;
   --leading-tight: 1.25;
   --leading-snug: 1.375;
@@ -56,13 +44,48 @@ $fluid-sizes-desktop:
   --leading-loose: 2;
 
   // Define letter-spacing
-  // Based on TailWindCss: https://tailwindcss.com/docs/letter-spacing
-  --tracking-tighter: -.05em;
-  --tracking-tight: -.025em;
+  // Based on TailwindCSS: https://tailwindcss.com/docs/letter-spacing
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
   --tracking-normal: 0;
-  --tracking-wide: .025em;
-  --tracking-wider: .05em;
-  --tracking-widest: .1em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  // Assign variables to type scale points
+  $s: list.nth($fluid-sizes, 1);
+  $m: list.nth($fluid-sizes, 2);
+  $l: list.nth($fluid-sizes, 3);
+  $xl: list.nth($fluid-sizes, 4);
+  $two-xl: list.nth($fluid-sizes, 5);
+  $three-xl: list.nth($fluid-sizes, 6);
+  $four-xl: list.nth($fluid-sizes, 7);
+  $five-xl: list.nth($fluid-sizes, 8);
+  $six-xl: list.nth($fluid-sizes, 9);
+  $seven-xl: list.nth($fluid-sizes, 10);
+  $eight-xl: list.nth($fluid-sizes, 11);
+  $nine-xl: list.nth($fluid-sizes, 12);
+
+  // Define minimum font-size for 375px and below
+  @media screen and (max-width: #{$design-size-mobile}px) {
+    @each $size in $fluid-sizes {
+      $i: index($fluid-sizes, $size);
+
+      --heading-#{$i}-xl: #{rem($size)};
+    }
+
+    // Heading sizes
+    --heading-s: #{rem($s)};
+    --heading-m: #{rem($m)};
+    --heading-l: #{rem($l)};
+
+    // Body sizes
+    --body-s: #{rem($s)};
+    --body-m: #{rem($m)};
+    --body-l: #{rem($l)};
+    --body-1-xl: #{rem($xl)};
+    --body-2-xl: #{rem($two-xl)};
+  }
 
   // Define heading size mobile
   // $i is the value from top to bottom, starting at 1, creating a variable that will be used for each heading size
@@ -71,114 +94,61 @@ $fluid-sizes-desktop:
   @each $size in $fluid-sizes {
     $i: index($fluid-sizes, $size);
 
-    --heading-#{$i}-xl: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
+    --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-mobile)};
   }
 
   // Heading sizes
-  // Heading S
-  --heading-s: calc(((14 / #{$design-size}) * 100) * 1vw);
-
-  // Heading M
-  --heading-m: calc(((16 / #{$design-size}) * 100) * 1vw);
-
-  // Heading L
-  --heading-l: calc(((18 / #{$design-size}) * 100) * 1vw);
+  --heading-s: #{get-fluid-size($s, $design-size-mobile)};
+  --heading-m: #{get-fluid-size($m, $design-size-mobile)};
+  --heading-l: #{get-fluid-size($l, $design-size-mobile)};
 
   // Body sizes mobile
-  // Body S
-  --body-s: calc(((14 / #{$design-size}) * 100) * 1vw);
-
-  // Body M
-  --body-m: calc(((16 / #{$design-size}) * 100) * 1vw);
-
-  // Body L
-  --body-l: calc(((18 / #{$design-size}) * 100) * 1vw);
-
-  // Body XL
-  --body-1-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
-
-  // Body 2XL
-  --body-2-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
-
-  // TODO: Design needs to define tabled sizes
-  // @media screen and (min-width: $bp-tablet-md) {
-  //   // Define fluid heading size tablet-md
-  //   @each $size in $fluid-sizes {
-  //     $i: index($fluid-sizes, $size);
-
-  //     --heading-#{$i}-xl: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
-  //   }
-  // }
+  --body-s: #{get-fluid-size($s, $design-size-mobile)};
+  --body-m: #{get-fluid-size($m, $design-size-mobile)};
+  --body-l: #{get-fluid-size($l, $design-size-mobile)};
+  --body-1-xl: #{get-fluid-size($l, $design-size-mobile)};
+  --body-2-xl: #{get-fluid-size($l, $design-size-mobile)};
 
   // Desktop-xs
-  @media screen and (min-width: $bp-desktop-xs) {
+  @media screen and (min-width: #{$design-size-tablet}px) {
     // Define heading size desktop-xs
-    @each $size in $fluid-sizes-desktop {
-      $i: index($fluid-sizes-desktop, $size);
+    @each $size in $fluid-sizes-tablet {
+      $i: index($fluid-sizes-tablet, $size);
 
-      --heading-#{$i}-xl: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+      --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-tablet)};
     }
 
-    // Heading sizes desktop
-    // Heading S
-    --heading-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
+    // Heading sizes tablet
+    --heading-s: #{get-fluid-size($s, $design-size-tablet)};
+    --heading-m: #{get-fluid-size($m, $design-size-tablet)};
+    --heading-l: #{get-fluid-size($l, $design-size-tablet)};
 
-    // Heading M
-    --heading-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // Heading L
-    --heading-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // Body sizes desktop
-    // Body S
-    --body-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // Body M
-    --body-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // Body L
-    --body-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // Body XL
-    --body-1-xl: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // Body 2XL
-    --body-2-xl: calc(((32 / #{$design-size-desktop}) * 100) * 1vw);
+    // Body sizes tablet
+    --body-s: #{get-fluid-size($s, $design-size-tablet)};
+    --body-m: #{get-fluid-size($m, $design-size-tablet)};
+    --body-l: #{get-fluid-size($l, $design-size-tablet)};
+    --body-1-xl: #{get-fluid-size($xl, $design-size-tablet)};
+    --body-2-xl: #{get-fluid-size($two-xl, $design-size-tablet)};
   }
 
   // Desktop
   // Define max sizes for 1440px and above
-  @media screen and (min-width: $bp-desktop-lg) {
+  @media screen and (min-width: #{$design-size-desktop}px) {
     @each $size in $fluid-sizes-desktop {
       $i: index($fluid-sizes-desktop, $size);
 
-      --heading-#{$i}-xl: #{$size}px;
+      --heading-#{$i}-xl: #{rem($size)};
     }
+    // Heading sizes tablet
+    --heading-s: #{rem($s)};
+    --heading-m: #{rem($m)};
+    --heading-l: #{rem($l)};
 
-    // Heading sizes
-    // Heading S
-    --heading-s: 14px;
-
-    // Heading M
-    --heading-m: 16px;
-
-    // Heading L
-    --heading-l: 20px;
-
-    // Body sizes
-    // Body S
-    --body-s: 14px;
-
-    // Body M
-    --body-m: 16px;
-
-    // Body L
-    --body-l: 20px;
-
-    // Body XL
-    --body-1-xl: 24px;
-
-    // Body 2XL
-    --body-2-xl: 32px;
+    // Body sizes desktop
+    --body-s: #{rem($s)};
+    --body-m: #{rem($m)};
+    --body-l: #{rem($l)};
+    --body-1-xl: #{rem($xl)};
+    --body-2-xl: #{rem($two-xl)};
   }
 }
