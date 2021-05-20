@@ -1,6 +1,6 @@
 {
   "name": "chicle",
-  "version": "0.1.18",
+  "version": "0.1.21",
   "description": "Chicle, the development boilerplate of Yummygum.",
   "main": "index.js",
   "engines": {
@@ -43,7 +43,7 @@
     "react-hook-form": "^6.15.5",
     "react-hooks-visible": "^1.1.1",
     "react-slick": "^0.28.0",
-    "sass": "1.32.0",
+    "sass": "^1.32.13",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
@@ -95,8 +95,7 @@
     "react-datocms": "^1.5.5",
     "react-docgen-typescript-loader": "3.7.2",
     "react-test-renderer": "16.9.0",
-    "sass-loader": "10.1.0",
-    "sass-resources-loader": "2.1.1",
+    "sass-resources-loader": "^2.2.1",
     "standard-version": "9.0.0",
     "storybook": "6.2.9",
     "style-loader": "2.0.0",

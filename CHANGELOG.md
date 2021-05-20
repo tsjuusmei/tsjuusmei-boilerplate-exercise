@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+
+### [0.1.21](http://yummygum///compare/v0.1.20...v0.1.21) (2021-05-20)
+
+### [0.1.20](http://yummygum///compare/v0.1.19...v0.1.20) (2021-05-20)
+
+
+### Layout fixes
+
+* Finalise the ability to give a type scale and a base font-size to generate typography ([956c001](http://yummygum///commit/956c00152f4aef5305eb0c4b9feb7814a26b7dcc))
+
+
+### Functional additions
+
+* Add design tokens for type scalee ([a85f6a0](http://yummygum///commit/a85f6a030252e4dfc28ee148433decb64a9fe52e))
+* Apply max func ([40c3656](http://yummygum///commit/40c36562d7a87b92fcfb4183c52f0a64eabc155f))
+* Start work on fluidity in type scale ([30a0d51](http://yummygum///commit/30a0d51c1a76f463694020ed9782ceb6fbce3c83))
+* Tokenize most SCSS variables ([cfcd774](http://yummygum///commit/cfcd7742487636d7f95f7b84f8ee6427c6ddbcba))
+
+
+### Others
+
+* Clean up max font sizes ([4996483](http://yummygum///commit/499648364a634342c6bfddc5596166c29c1c24fc))
+* Remove unused debug statements and comments ([81b858f](http://yummygum///commit/81b858f34b11d82fac616694ba1c6f2d9b0702ab))
+
+### [0.1.19](http://yummygum///compare/v0.1.18...v0.1.19) (2021-05-20)
+
+
+### Component fixes
+
+* CHL-26-Pagination: component logic without styling ([2106f3f](http://yummygum///commit/2106f3faffd8e26f1c5bf4cbd3a9c94e5c4e788b))
+* CHL-26: Added clickable span for pages ([f7cb408](http://yummygum///commit/f7cb40803c5ca190d8b1562dfbcd754643fcca63))
+* CHL-26: Pagination more reusable, logic and usage in storybook ([501bab3](http://yummygum///commit/501bab3bf779287d6f376eff2f9bfbf39d9cb609))
+* CHL-26: Process PR feedback ([03230f5](http://yummygum///commit/03230f50e1ac4ed8c6e89689dba871099cbbd8cf))
+
 ### [0.1.18](http://yummygum///compare/v0.1.17...v0.1.18) (2021-05-19)
 
 ### [0.1.17](http://yummygum///compare/v0.1.16...v0.1.17) (2021-05-19)
