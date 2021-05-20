@@ -1,44 +1,32 @@
 @use 'sass:map';
 @use 'sass:list';
-// @use '../functions';
-// @use '../functions/vw';
+@use 'media-queries' as *;
 @use '../functions/type-scale' as type;
-@use 'media-queries' as mq;
+@use '../functions/vw' as *;
+
+$font-size-base: 16 !default;
+
+// Breakpoints at which the design team creates their frames
 
 // Design width
 // These values will be used to calculate the font size per design size
-// Example: 18 (font size for a paragraph) / 1440 (design width) * 100 (to get a vw value) = 1,25(vw)
-$design-size-mobile: 375;
-$design-size-tablet: 768;
-$design-size-desktop: 1440;
+$design-size-mobile: 375 !default;
+$design-size-tablet: 768 !default;
+$design-size-desktop: 1440 !default;
 
-$font-size-base: 16;
-$font-size-min: 12;
+// The typographic scale to apply at each breakpoint. They interpolate and scale.
+$type-scale-mobile: 1.125 !default;
+$type-scale-tablet: 1.175 !default;
+$type-scale-desktop: 1.25 !default;
 
-$type-scale-mobile: 1.125;
-$type-scale-tablet: 1.175;
-// $type-scale-desktop: 1.25;
-$type-scale-desktop: 1.25;
+// Generate arrays of type scales.
+$fluid-sizes: type.get-scale($font-size-base, $type-scale-mobile);
+$fluid-sizes-tablet: type.get-scale($font-size-base, $type-scale-tablet);
+$fluid-sizes-desktop: type.get-scale($font-size-base, $type-scale-desktop);
 
-$breakpoints: (
-  'mobile': $design-size-mobile,
-  'tablet': $design-size-tablet,
-  'desktop': $design-size-desktop,
-);
-
-$scales: (
-  'mobile': $type-scale-mobile,
-  'tablet': $type-scale-tablet,
-  'desktop': $type-scale-desktop,
-);
-
-@function get-fluid-size($size, $breakpoint) {
-  $value: $size / $breakpoint;
-  $calculated: $value * 100;
-  @debug $calculated;
-  @return max(12px, calc(#{$calculated} * 1vw));
+@function rem($value) {
+  @return max(0.75rem, $value / $font-size-base * 1rem);
 }
-// @debug $breakpoints;
 
 :root {
   // Define font
@@ -64,230 +52,115 @@ $scales: (
   --tracking-wider: 0.05em;
   --tracking-widest: 0.1em;
 
-  // Loop over all the breakpoints
-  @each $name, $breakpoint in $breakpoints {
-    // Scope the rules to a desired media query
-    $scale: map.get(
-      $map: $scales,
-      $key: $name,
-    );
+  // Assign variables to type scale points
+  $s: list.nth($fluid-sizes, 1);
+  $m: list.nth($fluid-sizes, 2);
+  $l: list.nth($fluid-sizes, 3);
+  $xl: list.nth($fluid-sizes, 4);
+  $two-xl: list.nth($fluid-sizes, 5);
+  $three-xl: list.nth($fluid-sizes, 6);
+  $four-xl: list.nth($fluid-sizes, 7);
+  $five-xl: list.nth($fluid-sizes, 8);
+  $six-xl: list.nth($fluid-sizes, 9);
+  $seven-xl: list.nth($fluid-sizes, 10);
+  $eight-xl: list.nth($fluid-sizes, 11);
+  $nine-xl: list.nth($fluid-sizes, 12);
 
-    $fluid-sizes: type.get-scale($font-size-base, $scale);
-    @debug $fluid-sizes;
+  // Define minimum font-size for 375px and below
+  @media screen and (max-width: #{$design-size-mobile}px) {
+    @each $size in $fluid-sizes {
+      $i: index($fluid-sizes, $size);
 
-    $s: list.nth($fluid-sizes, 1);
-    $m: list.nth($fluid-sizes, 2);
-    $l: list.nth($fluid-sizes, 3);
-    $xl: list.nth($fluid-sizes, 4);
-    $two-xl: list.nth($fluid-sizes, 5);
-    $three-xl: list.nth($fluid-sizes, 6);
-    $four-xl: list.nth($fluid-sizes, 7);
-    $five-xl: list.nth($fluid-sizes, 8);
-
-    $six-xl: list.nth($fluid-sizes, 9);
-    $seven-xl: list.nth($fluid-sizes, 10);
-    $eight-xl: list.nth($fluid-sizes, 11);
-    $nine-xl: list.nth($fluid-sizes, 12);
-
-    @if ($name != 'mobile') {
-      $s: get-fluid-size($s, $breakpoint);
-      $m: get-fluid-size($m, $breakpoint);
-      $l: get-fluid-size($l, $breakpoint);
-      $xl: get-fluid-size($xl, $breakpoint);
-      $two-xl: get-fluid-size($two-xl, $breakpoint);
-      $three-xl: get-fluid-size($three-xl, $breakpoint);
-      $four-xl: get-fluid-size($four-xl, $breakpoint);
-      $five-xl: get-fluid-size($five-xl, $breakpoint);
-      $six-xl: get-fluid-size($six-xl, $breakpoint);
-      $seven-xl: get-fluid-size($seven-xl, $breakpoint);
-      $eight-xl: get-fluid-size($eight-xl, $breakpoint);
-      $nine-xl: get-fluid-size($nine-xl, $breakpoint);
+      --heading-#{$i}-xl: #{rem($size)};
     }
 
-    @media screen and (max-width: #{$breakpoint}px) {
-      // @debug $name;
-      // @debug 'Sizes:' $fluid-sizes;
+    // Heading sizes
+    --heading-s: #{rem($s)};
+    --heading-m: #{rem($m)};
+    --heading-l: #{rem($l)};
 
-      // @each $size in $fluid-sizes {
-      //   $i: list.index($fluid-sizes, $size);
-      //   @debug $i;
-      //   --heading-#{$i}-xl: #{$size}px;
-      // }
-
-      // Heading sizes
-      --heading-s: #{$s};
-      --heading-m: #{$m};
-      --heading-l: #{$l};
-      --heading-1-xl: #{$xl};
-      --heading-2-xl: #{$two-xl};
-      --heading-3-xl: #{$three-xl};
-      --heading-4-xl: #{$four-xl};
-      --heading-5-xl: #{$five-xl};
-      --heading-6-xl: #{$six-xl};
-      --heading-7-xl: #{$seven-xl};
-      --heading-8-xl: #{$eight-xl};
-      --heading-9-xl: #{$nine-xl};
-
-      // Body sizes
-      --body-s: #{$s};
-      --body-m: #{$m};
-      --body-l: #{$l};
-      --body-1-xl: #{$xl};
-      --body-2-xl: #{$two-xl};
-    }
+    // Body sizes
+    --body-s: #{rem($s)};
+    --body-m: #{rem($m)};
+    --body-l: #{rem($l)};
+    --body-1-xl: #{rem($xl)};
+    --body-2-xl: #{rem($two-xl)};
   }
-  // @media screen and (max-width: mq.$bp-mobile-md) {
-  //   @each $size in $fluid-sizes {
-  //     $i: list.index($fluid-sizes, $size);
-  //     // @debug $i;
-  //     --heading-#{$i}-xl: #{$size}px;
-  //   }
-  // // Define minimum font-size for 375px and below
 
-  //   // Heading sizes
-  //   // Heading S
-  //   --heading-s: 14px;
+  // Define heading size mobile
+  // $i is the value from top to bottom, starting at 1, creating a variable that will be used for each heading size
+  // Example: --heading-#{$i}-xl = --heading-3-xl. this value is used for the h3
+  // Fluid
+  @each $size in $fluid-sizes {
+    $i: index($fluid-sizes, $size);
 
-  //   // Heading M
-  //   --heading-m: 16px;
+    --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-mobile)};
+  }
 
-  //   // Heading L
-  //   --heading-l: 18px;
+  // Heading sizes
+  --heading-s: #{get-fluid-size($s, $design-size-mobile)};
+  --heading-m: #{get-fluid-size($m, $design-size-mobile)};
+  --heading-l: #{get-fluid-size($l, $design-size-mobile)};
 
-  //   // Body sizes
-  //   // Body S
-  //   --body-s: 14px;
+  // Body sizes mobile
+  --body-s: #{get-fluid-size($s, $design-size-mobile)};
+  --body-m: #{get-fluid-size($m, $design-size-mobile)};
+  --body-l: #{get-fluid-size($l, $design-size-mobile)};
+  --body-1-xl: #{get-fluid-size($l, $design-size-mobile)};
+  --body-2-xl: #{get-fluid-size($l, $design-size-mobile)};
 
-  //   // Body M
-  //   --body-m: 16px;
+  // Desktop-xs
+  @media screen and (min-width: #{$design-size-tablet}px) {
+    // Define heading size desktop-xs
+    @each $size in $fluid-sizes-tablet {
+      $i: index($fluid-sizes-tablet, $size);
 
-  //   // Body L
-  //   --body-l: 18px;
+      --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-tablet)};
+    }
 
-  //   // Body XL
-  //   --body-1-xl: 20px;
+    // Heading sizes tablet
+    --heading-s: #{get-fluid-size($s, $design-size-tablet)};
+    --heading-m: #{get-fluid-size($m, $design-size-tablet)};
+    --heading-l: #{get-fluid-size($l, $design-size-tablet)};
 
-  //   // Body 2XL
-  //   --body-2-xl: 22px;
-  // }
+    // Body sizes tablet
+    --body-s: #{get-fluid-size($s, $design-size-tablet)};
+    --body-m: #{get-fluid-size($m, $design-size-tablet)};
+    --body-l: #{get-fluid-size($l, $design-size-tablet)};
+    --body-1-xl: #{get-fluid-size($xl, $design-size-tablet)};
+    --body-2-xl: #{get-fluid-size($two-xl, $design-size-tablet)};
+  }
 
-  // // Define heading size mobile
-  // // $i is the value from top to bottom, starting at 1, creating a variable that will be used for each heading size
-  // // Example: --heading-#{$i}-xl = --heading-3-xl. this value is used for the h3
-  // // Fluid
-  // @each $size in $fluid-sizes {
-  //   $i: list.index($fluid-sizes, $size);
+  // Desktop
+  // Define max sizes for 1440px and above
+  @media screen and (min-width: #{$design-size-desktop}px) {
+    @each $size in $fluid-sizes-desktop {
+      $i: index($fluid-sizes-desktop, $size);
 
-  //   --heading-#{$i}-xl: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
-  // }
+      --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-desktop)};
+    }
 
-  // // Heading sizes
-  // // Heading S
-  // --heading-s: calc(((14 / #{$design-size}) * 100) * 1vw);
+    // // Heading sizes
+    // --heading-s: #{rem($s)};
+    // --heading-m: #{rem($m)};
+    // --heading-l: #{rem($l)};
 
-  // // Heading M
-  // --heading-m: calc(((16 / #{$design-size}) * 100) * 1vw);
+    // // Body sizes
+    // --body-s: #{rem($s)};
+    // --body-m: #{rem($m)};
+    // --body-l: #{rem($l)};
+    // --body-1-xl: #{rem($xl)};
+    // --body-2-xl: #{rem($two-xl)};
+    // Heading sizes tablet
+    --heading-s: #{get-fluid-size($s, $design-size-desktop)};
+    --heading-m: #{get-fluid-size($m, $design-size-desktop)};
+    --heading-l: #{get-fluid-size($l, $design-size-desktop)};
 
-  // // Heading L
-  // --heading-l: calc(((18 / #{$design-size}) * 100) * 1vw);
-
-  // // Body sizes mobile
-  // // Body S
-  // --body-s: calc(((14 / #{$design-size}) * 100) * 1vw);
-
-  // // Body M
-  // --body-m: calc(((16 / #{$design-size}) * 100) * 1vw);
-
-  // // Body L
-  // --body-l: calc(((18 / #{$design-size}) * 100) * 1vw);
-
-  // // Body XL
-  // --body-1-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
-
-  // // Body 2XL
-  // --body-2-xl: calc(((18 / #{$design-size}) * 100) * 1vw);
-
-  // TODO: Design needs to define tabled sizes
-  // @media screen and (min-width: $bp-tablet-md) {
-  //   // Define fluid heading size tablet-md
-  //   @each $size in $fluid-sizes {
-  //     $i: index($fluid-sizes, $size);
-
-  //     --heading-#{$i}-xl: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
-  //   }
-  // }
-
-  // // Desktop-xs
-  // @media screen and (min-width: mq.$bp-desktop-xs) {
-  //   // Define heading size desktop-xs
-  //   @each $size in $fluid-sizes-desktop {
-  //     $i: list.index($fluid-sizes-desktop, $size);
-
-  //     --heading-#{$i}-xl: calc(
-  //       ((#{$size} / #{$design-size-desktop}) * 100) * 1vw
-  //     );
-  //   }
-
-  //   // Heading sizes desktop
-  //   // Heading S
-  //   --heading-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
-
-  //   // Heading M
-  //   --heading-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
-
-  //   // Heading L
-  //   --heading-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
-
-  //   // Body sizes desktop
-  //   // Body S
-  //   --body-s: calc(((14 / #{$design-size-desktop}) * 100) * 1vw);
-
-  //   // Body M
-  //   --body-m: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
-
-  //   // Body L
-  //   --body-l: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
-
-  //   // Body XL
-  //   --body-1-xl: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
-
-  //   // Body 2XL
-  //   --body-2-xl: calc(((32 / #{$design-size-desktop}) * 100) * 1vw);
-  // }
-
-  // // Desktop
-  // // Define max sizes for 1440px and above
-  // @media screen and (min-width: mq.$bp-desktop-lg) {
-  //   @each $size in $fluid-sizes-desktop {
-  //     $i: list.index($fluid-sizes-desktop, $size);
-
-  //     --heading-#{$i}-xl: #{$size}px;
-  //   }
-
-  //   // Heading sizes
-  //   // Heading S
-  //   --heading-s: 14px;
-
-  //   // Heading M
-  //   --heading-m: 16px;
-
-  //   // Heading L
-  //   --heading-l: 20px;
-
-  //   // Body sizes
-  //   // Body S
-  //   --body-s: 14px;
-
-  //   // Body M
-  //   --body-m: 16px;
-
-  //   // Body L
-  //   --body-l: 20px;
-
-  //   // Body XL
-  //   --body-1-xl: 24px;
-
-  //   // Body 2XL
-  //   --body-2-xl: 32px;
-  // }
+    // Body sizes desktop
+    --body-s: #{get-fluid-size($s, $design-size-desktop)};
+    --body-m: #{get-fluid-size($m, $design-size-desktop)};
+    --body-l: #{get-fluid-size($l, $design-size-desktop)};
+    --body-1-xl: #{get-fluid-size($xl, $design-size-desktop)};
+    --body-2-xl: #{get-fluid-size($two-xl, $design-size-desktop)};
+  }
 }
