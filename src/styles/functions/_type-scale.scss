@@ -1,16 +1,6 @@
-/*
-  Convert px to vw value, example:
-  Mobile:
-  font-size: get-vw(20);
-
-  Desktop:
-  font-size: get-vw-desktop(24);
-
-  Formula: (size element / design width * 100) = size in VW
-*/
-
 @use 'sass:list';
 @use 'sass:math';
+
 @function nth-delete($list, $n) {
   $result: ();
   $n: if($n < 0, length($list) + $n + 1, $n);
@@ -36,11 +26,6 @@
 
   @return $result;
 }
-
-// $font-size-base: 16px;
-// $type-scale: 1.125;
-// $type-scale-tablet: 1.175;
-// $type-scale-desktop: 1.25;
 
 // Mobile
 @function get-scale($base, $scale) {
@@ -73,7 +58,7 @@
     $sub-size: math.floor($sub-size);
     // $sub-size: math.round($sub-size * 100) / 100;
     $sub-sizes: list.append($sub-sizes, $sub-size);
-    @debug $sub-size;
+    // @debug $sub-size;
   }
   // @debug $sizes;
   // @debug $sub-sizes;
