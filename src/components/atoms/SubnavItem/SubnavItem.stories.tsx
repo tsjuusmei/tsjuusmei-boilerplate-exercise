@@ -1,6 +1,6 @@
 import React from 'react'
 import SubnavItem, { SubnavItemProps } from '.'
-import {icons} from '@/components/atoms/Icon'
+import { icons } from '@/components/atoms/Icon'
 
 export default {
   title: 'Components / Atoms / SubnavItem',
@@ -20,7 +20,7 @@ export const Default = (args: SubnavItemProps) => <SubnavItem {...args} />
 Default.args = {
   iconName: '',
   href: '/home',
-  title: 'NavDropdownItem',
+  title: 'SubnavItem',
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
 }
 
