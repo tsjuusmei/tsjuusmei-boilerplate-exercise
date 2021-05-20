@@ -1,5 +1,5 @@
-import React from "react";
-import { RouterContext } from  'next/dist/next-server/lib/router-context';
+import React from 'react'
+import { RouterContext } from  'next/dist/next-server/lib/router-context'
 
 // Styling
 import './storybook.scss'
