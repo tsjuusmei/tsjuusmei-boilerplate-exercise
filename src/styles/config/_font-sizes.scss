@@ -1,5 +1,8 @@
-@use '../functions/type-scale' as *;
-@use '../functions/all' as *;
+@use "sass:list";
+@use '../functions/all';
+@use "../functions/vw";
+@use "../functions/type-scale";
+@use "media-queries";
 
 // Design width
 // These values will be used to calculate the font size per design size
@@ -21,8 +24,8 @@ $type-scale-desktop: 1.25;
 $fluid-sizes: get-scale($font-size-base, $type-scale);
 @debug 'Mobile', $fluid-sizes;
 
-// $fluid-sizes-tablet: get-scale($font-size-base, $type-scale-tablet);
-// @debug 'Tablet', $fluid-sizes-tablet;
+$fluid-sizes-tablet: get-scale($font-size-base, $type-scale-tablet);
+@debug 'Tablet', $fluid-sizes-tablet;
 
 // Heading sizes - desktop (heading/XL)
 $fluid-sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
@@ -53,9 +56,9 @@ $fluid-sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
   --tracking-widest: 0.1em;
 
   // Define minimum font-size for 375px and below
-  @media screen and (max-width: $bp-mobile-md) {
+  @media screen and (max-width: media-queries.$bp-mobile-md) {
     @each $size in $fluid-sizes {
-      $i: index($fluid-sizes, $size);
+      $i: list.index($fluid-sizes, $size);
 
       --heading-#{$i}-xl: #{$size}px;
     }
@@ -92,7 +95,7 @@ $fluid-sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
   // Example: --heading-#{$i}-xl = --heading-3-xl. this value is used for the h3
   // Fluid
   @each $size in $fluid-sizes {
-    $i: index($fluid-sizes, $size);
+    $i: list.index($fluid-sizes, $size);
 
     --heading-#{$i}-xl: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
   }
@@ -134,10 +137,10 @@ $fluid-sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
   // }
 
   // Desktop-xs
-  @media screen and (min-width: $bp-desktop-xs) {
+  @media screen and (min-width: media-queries.$bp-desktop-xs) {
     // Define heading size desktop-xs
     @each $size in $fluid-sizes-desktop {
-      $i: index($fluid-sizes-desktop, $size);
+      $i: list.index($fluid-sizes-desktop, $size);
 
       --heading-#{$i}-xl: calc(
         ((#{$size} / #{$design-size-desktop}) * 100) * 1vw
@@ -173,9 +176,9 @@ $fluid-sizes-desktop: get-scale($font-size-base, $type-scale-desktop);
 
   // Desktop
   // Define max sizes for 1440px and above
-  @media screen and (min-width: $bp-desktop-lg) {
+  @media screen and (min-width: media-queries.$bp-desktop-lg) {
     @each $size in $fluid-sizes-desktop {
-      $i: index($fluid-sizes-desktop, $size);
+      $i: list.index($fluid-sizes-desktop, $size);
 
       --heading-#{$i}-xl: #{$size}px;
     }

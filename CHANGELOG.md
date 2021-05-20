@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](http://yummygum///compare/v0.1.17...v0.1.18) (2021-05-19)
+
+### [0.1.17](http://yummygum///compare/v0.1.16...v0.1.17) (2021-05-19)
+
+
+### Component fixes
+
+* Add Unit tests to Button ([7affdbf](http://yummygum///commit/7affdbf6c45fff49a261250e71fd0ed4c617efb2))
+
+### [0.1.16](http://yummygum///compare/v0.1.15...v0.1.16) (2021-05-19)
+
+### [0.1.15](http://yummygum///compare/v0.1.14...v0.1.15) (2021-05-18)
+
 ### [0.1.14](http://yummygum///compare/v0.1.13...v0.1.14) (2021-05-12)
 
 
