@@ -1,8 +1,17 @@
+$ease: ease-in-out !default;
+$ease-out: ease-out !default;
+$ease-in: ease-in !default;
+
+$fast-transition: 100ms !default;
+$regular-transition: 200ms !default;
+$slow-transition: 400ms !default;
+
 :root {
-  --ease: ease-in-out;
-  --circ-in-out: cubic-bezier(.785, .135, .15, .86);
-  --slide: cubic-bezier(.19, .82, .84, 1.06);
-  --fast-transition: 100ms;
-  --regular-transition: 200ms;
-  --slow-transition: 400ms;
+  --ease: $ease;
+  --ease-in: $ease-in;
+  --ease-out: $ease-out;
+
+  --fast-transition: $fast-transition;
+  --regular-transition: $regular-transition;
+  --slow-transition: $slow-transition;
 }
