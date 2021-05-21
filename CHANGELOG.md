@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](http://yummygum///compare/v0.1.21...v0.1.22) (2021-05-21)
+
+
+### Style fixes
+
+* Cleanup css Disclosure Component ([69dcf10](http://yummygum///commit/69dcf100b8f7ff89c61083d76671340eea6fb0c3))
+
+
+### Component fixes
+
+* Add useState to Disclosure component ([f05f192](http://yummygum///commit/f05f1921cf56f0ed77f1b37ab566fed5a61e94b3))
+* CHL-36: Create Disclosure component ([cc1c22c](http://yummygum///commit/cc1c22c7a6bfb3ad5efa6495a030a218a799e7ec))
+* Fix direction Disclosure component ([424ebf8](http://yummygum///commit/424ebf8df3aac5a35470a37c8b85430f2e02d5c0))
+* Fix responsivenes Disclosure Component ([1d04626](http://yummygum///commit/1d0462602e662b3ca34ac78b299f48740cb1f9be))
+* Moved Disclosure Component from Molecules to Atoms ([90e19f4](http://yummygum///commit/90e19f4500a68396c0ad33b7a96bd0631731ff7a))
+* Refactor Disclosure Component ([ddefa36](http://yummygum///commit/ddefa362cf83f803d8227d80eb6a8b60ac8e19ec))
+
+
+### Bug fixes
+
+* Fix scss import Disclosure ([7be0f11](http://yummygum///commit/7be0f1146e4f1ad8c9e758220918044e2c2d66e1))
+
 ### [0.1.21](http://yummygum///compare/v0.1.20...v0.1.21) (2021-05-20)
 
 ### [0.1.20](http://yummygum///compare/v0.1.19...v0.1.20) (2021-05-20)
