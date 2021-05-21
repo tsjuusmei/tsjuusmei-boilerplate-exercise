@@ -20,12 +20,12 @@ const Chevron: React.FC<Props> = ({
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ transform: `rotate(${IconRotate[direction]}` }}
+    style={{ transform: `rotate(${direction}` }}
   >
     <path
       d="M14 5L8 11L2 5"
       stroke={color}
-      strokeWidth={3}
+      strokeWidth={2}
     />
   </svg>
 )
