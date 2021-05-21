@@ -19,12 +19,11 @@ const SubnavItem: React.FC<SubnavItemProps> = ({
   href = '',
   title = '',
   description
-
 }) => (
   <div className={`
-    ${styles['subnav-item']}
-    ${description ? styles.description : styles['no-description']}
-    `}>
+  ${styles['subnav-item']}
+  ${description ? styles.description : styles['no-description']}
+  `}>
     {
       iconName && <Icon name={iconName}/>
     }
@@ -42,4 +41,4 @@ const SubnavItem: React.FC<SubnavItemProps> = ({
   </div>
 )
 
-export default SubnavItem
+export default React.memo(SubnavItem)
