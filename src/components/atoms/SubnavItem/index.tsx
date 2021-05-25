@@ -21,8 +21,8 @@ const SubnavItem: React.FC<SubnavItemProps> = ({
   description
 }) => (
   <div className={`
-  ${styles['subnav-item']}
-  ${description ? styles.description : styles['no-description']}
+    ${styles['subnav-item']}
+    ${description ? styles.description : styles['no-description']}
   `}>
     {
       iconName && <Icon name={iconName}/>
