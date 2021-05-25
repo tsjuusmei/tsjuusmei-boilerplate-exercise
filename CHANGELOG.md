@@ -1,6 +1,9 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.23](http://yummygum///compare/v0.1.22...v0.1.23) (2021-05-25)
+
 ### [0.1.22](http://yummygum///compare/v0.1.21...v0.1.22) (2021-05-21)
 
 
