@@ -1,7 +1,6 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
 ### [0.1.22](http://yummygum///compare/v0.1.21...v0.1.22) (2021-05-21)
 
 
@@ -22,7 +21,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug fixes
 
-* Fix scss import Disclosure ([7be0f11](http://yummygum///commit/7be0f1146e4f1ad8c9e758220918044e2c2d66e1))
+* Fix scss import Disclosure ([7be0f11](http://yummygum///commit/7be0f1146e4f1ad8c9e758220918044e2c2d66e1)
 
 ### [0.1.21](http://yummygum///compare/v0.1.20...v0.1.21) (2021-05-20)
 

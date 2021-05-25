@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import styles from './Link.module.scss'
+import styles from './TextLink.module.scss'
 
 export enum TextLinkSize {
   Small = 'sm',

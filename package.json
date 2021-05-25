@@ -44,6 +44,7 @@
     "react-hooks-visible": "^1.1.1",
     "react-slick": "^0.28.0",
     "sass": "^1.32.13",
+    "sass-loader": "10",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
