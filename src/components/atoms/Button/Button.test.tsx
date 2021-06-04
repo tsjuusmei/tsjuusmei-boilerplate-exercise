@@ -27,13 +27,6 @@ describe('Button component', () => {
     expect(domNode.nodeName).toBe('BUTTON')
   })
 
-  it('should render a button with a link', () => {
-    const { getByTestId } = render(<Button {...baseProps} data-testid="button">Test</Button>)
-    const domNode = getByTestId('button') as HTMLAnchorElement
-
-    expect(domNode.nodeName).toBe('A')
-  })
-
   it('should render a disabled Button', () => {
     const { getByTestId } = render(<Button {...baseProps} isDisabled data-testid="button">Test</Button>)
     const domNode = getByTestId('button') as HTMLButtonElement
