@@ -12,6 +12,7 @@
   $bp-desktop-lg: 1440px,
 );
 
+// Transitions
 @use 'transitions' with (
   $ease: ease-in-out,
   $ease-out: ease-out,
@@ -21,6 +22,7 @@
   $slow-transition: 400ms,
 );
 
+// Font sizes
 @use 'font-sizes' with (
   $font-size-base: 16,
   $type-scale-mobile: 1.125,
@@ -28,6 +30,7 @@
   $type-scale-desktop: 1.25,
 );
 
+// Imports
 @use 'colors';
 @use 'fonts';
 @use 'tokens';

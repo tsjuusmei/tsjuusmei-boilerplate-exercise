@@ -7,10 +7,12 @@ $regular-transition: 200ms !default;
 $slow-transition: 400ms !default;
 
 :root {
+  // Easing curves
   --ease: $ease;
   --ease-in: $ease-in;
   --ease-out: $ease-out;
 
+  // Transitions
   --fast-transition: $fast-transition;
   --regular-transition: $regular-transition;
   --slow-transition: $slow-transition;

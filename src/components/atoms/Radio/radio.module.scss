@@ -1,7 +1,7 @@
 .wrapper {
   // Radio tokens
   --radio-border-radius: var(--border-radius-round);
-  
+
   // Radio background colors
   --radio-default-background-color: var(--input-default-background-color);
   --radio-checked-background-color: var(--input-checked-background-color);
@@ -25,6 +25,7 @@
   // Radio focus ring token
   --radio-focus-ring-color: var(--focus-ring-color);
 
+  // Element sizes
   --dot-size: 6px;
   --label-size: 12px;
   --label-spacing: 8px;
