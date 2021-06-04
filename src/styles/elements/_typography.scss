@@ -1,4 +1,4 @@
-@use "../config/fonts";
+@use '../config/fonts';
 
 h1 {
   @include fonts.h1;

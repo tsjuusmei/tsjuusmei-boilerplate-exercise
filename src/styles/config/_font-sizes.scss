@@ -25,13 +25,21 @@ $fluid-sizes-tablet: type.get-scale($font-size-base, $type-scale-tablet);
 $fluid-sizes-desktop: type.get-scale($font-size-base, $type-scale-desktop);
 
 @function rem($value) {
-  @return max(0.75rem, $value / $font-size-base * 1rem);
+  @return max(.75rem, $value / $font-size-base * 1rem);
 }
 
 :root {
   // Define font
-  --font-stack-base: system-ui, -apple-system, 'SF Pro Display',
-    'BlinkMacSystemFont', 'Helvetica', 'Lato', 'Arial', 'Segoe UI', 'Verdana',
+  --font-stack-base:
+    system-ui,
+    -apple-system,
+    'SF Pro Display',
+    'BlinkMacSystemFont',
+    'Helvetica',
+    'Lato',
+    'Arial',
+    'Segoe UI',
+    'Verdana',
     sans-serif;
 
   // Define line-height
@@ -45,12 +53,12 @@ $fluid-sizes-desktop: type.get-scale($font-size-base, $type-scale-desktop);
 
   // Define letter-spacing
   // Based on TailwindCSS: https://tailwindcss.com/docs/letter-spacing
-  --tracking-tighter: -0.05em;
-  --tracking-tight: -0.025em;
+  --tracking-tighter: -.05em;
+  --tracking-tight: -.025em;
   --tracking-normal: 0;
-  --tracking-wide: 0.025em;
-  --tracking-wider: 0.05em;
-  --tracking-widest: 0.1em;
+  --tracking-wide: .025em;
+  --tracking-wider: .05em;
+  --tracking-widest: .1em;
 
   // Assign variables to type scale points
   $s: list.nth($fluid-sizes, 1);

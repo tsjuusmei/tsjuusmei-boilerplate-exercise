@@ -26,7 +26,6 @@ $design-size-desktop: 1440;
 
 @function get-fluid-size($size, $breakpoint) {
   $calculated: $size / $breakpoint * 100;
+
   @return max(12px, calc(#{$calculated} * 1vw));
 }
-
-
