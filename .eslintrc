@@ -180,6 +180,7 @@
       "rules": {
         "@typescript-eslint/type-annotation-spacing": "error",
         "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/array-type": ["error", { "default": "array" }],
         "react/prop-types": "off"
       }
     }
