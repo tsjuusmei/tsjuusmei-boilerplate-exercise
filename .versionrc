@@ -9,7 +9,7 @@
     {"type": "component", "section":"Component fixes", "hidden": false},
     {"type": "release", "section":"New Release", "hidden": false},
     {"type": "style", "section":"Style fixes", "hidden": false},
-    {"type": "test", "section":"Tests", "hidden": false},
+    {"type": "test", "section":"Tests", "hidden": false}
   ],
   "releaseCommitMessageFormat": "release: {{currentTag}}"
 }

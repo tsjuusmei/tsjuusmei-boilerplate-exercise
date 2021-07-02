@@ -1,42 +1,83 @@
-$spacing-size: 4px;
+:root {
+  // CHL Tokens - Global tokens
 
-// Spacing units
-$spacing-sizes: (
-  'xxs': 2,
-  'xs': 4,
-  's': 6,
-  'm': 8,
-  'l': 12,
-  'xl': 16,
-  'xxl': 22,
-  'xxxl': 32
-);
+  // Border radius
+  --border-radius-none: 0;
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 6px;
+  --border-radius-round: 100%;
 
-$spacing-sizes-tablet: (
-  'xxs': 2,
-  'xs': 3,
-  's': 5,
-  'm': 6,
-  'l': 8,
-  'xl': 12,
-  'xxl': 16,
-  'xxxl': 24
-);
+  // CHL Tokens - Alias tokens
 
-$spacing-sizes-mobile: (
-  'xxs': 1,
-  'xs': 2,
-  's': 4,
-  'm': 5,
-  'l': 7,
-  'xl': 10,
-  'xxl': 12,
-  'xxxl': 16
-);
+  // Alias colors
+  --primary-color: var(--color-500);
+  --background-color: var(--white-000);
+  --error-color: var(--error-500);
 
-$spacing-sides: (
-  'top',
-  'right',
-  'bottom',
-  'left'
-);
+  // Primary background colors
+  --primary-default-background-color: var(--primary-color);
+  --primary-hover-background-color: var(--color-600);
+  --primary-active-background-color: var(--color-600);
+  --primary-disabled-background-color: var(--primary-color);
+
+  // Primary content colors
+  --primary-default-content-color: var(--white-000);
+  --primary-hover-content-color: var(--white-000);
+  --primary-active-content-color: var(--white-000);
+  --primary-disabled-content-color: var(--color-300);
+
+  // Secondary background colors
+  --secondary-default-background-color: var(--color3-300);
+  --secondary-hover-background-color: var(--color3-600);
+  --secondary-active-background-color: var(--color3-600);
+  --secondary-disabled-background-color: var(--color3-250);
+
+  // Secondary content colors
+  --secondary-default-content-color: var(--white-000);
+  --secondary-hover-content-color: var(--white-000);
+  --secondary-active-content-color: var(--color3-100);
+  --secondary-disabled-content-color: var(--color3-500);
+
+  // Tertiary content colors
+  --tertiary-default-content-color: var(--color3-600);
+  --tertiary-hover-content-color: var(--color3-800);
+  --tertiary-active-content-color: var(--color3-800);
+  --tertiary-disabled-content-color: var(--color3-300);
+
+  // Input background colors
+  --input-default-background-color: var(--white-000);
+  --input-checked-background-color: var(--primary-color);
+  --input-checked-hover-background-color: var(--color-600);
+  --input-disabled-background-color: var(--color3-100);
+  --input-disabled-checked-background-color: var(--color3-200);
+  --input-error-checked-background-color: var(--error-color);
+  --input-error-disabled-background-color: var(--error-100);
+  --input-error-checked-disabled-background-color: var(--error-300);
+
+  // Input border colors
+  --input-default-border-color: var(--color3-300);
+  --input-hover-border-color: var(--color3-400);
+  --input-active-border-color: var(--color3-500);
+  --input-checked-border-color: var(--primary-color);
+  --input-checked-hover-border-color: var(--color-600);
+  --input-focus-border-color: var(--color-600);
+  --input-focus-checked-border-color: var(--background-color);
+  --input-disabled-border-color: var(--color3-200);
+  --input-error-border-color: var(--error-color);
+
+  // Input content colors
+  --input-default-label-color: var(--color3-600);
+  --input-disabled-label-color: var(--color3-250);
+
+  // label-color (Checkbox, Input, Select, Radio, Checkbox, Switch & TextArea)
+  // error-icon-color (Checkbox, Input, Select, Radio, Checkbox, Switch & TextArea)
+  // check-color (Checkbox & Radio)
+  // text-color (Input & TextArea)
+  // placeholder-text-color (Input & TextArea)
+  // switch-color (Switch)
+  // chevron-color (Select)
+
+  // Focus ring color
+  --focus-ring-color: var(--primary-color);
+}

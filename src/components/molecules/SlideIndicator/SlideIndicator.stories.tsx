@@ -1,14 +1,12 @@
 import React from 'react'
-
-import SlideIndicator from '.'
-import type { Props } from '.'
+import SlideIndicator, { SlideIndicatorProps } from '.'
 
 export default {
   title: 'Components / Molecules / SlideIndicator',
   component: SlideIndicator
 }
 
-export const Default = (args: Props) => <SlideIndicator {...args} />
+export const Default = (args: SlideIndicatorProps) => <SlideIndicator {...args} />
 Default.args = {
   active: 0,
   total: 8,

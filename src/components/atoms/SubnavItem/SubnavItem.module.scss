@@ -1,0 +1,24 @@
+.subnav-item {
+  display: flex;
+
+  .description {
+    align-items: flex-start;
+  }
+
+  .no-description {
+    align-items: center;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
+
+  a {
+    max-width: 240px;
+
+    p {
+      margin-top: 4px;
+      color: var(--color3-500);
+    }
+  }
+}

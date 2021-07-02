@@ -4,23 +4,23 @@ import {
   cleanup,
   fireEvent
 } from '@testing-library/react'
-import Input from '.'
+import Input, { InputSize } from '.'
 
 afterEach(cleanup)
 
 type BaseProps = {
   name: string
   placeholder: string,
-  size: Sizes
+  size: InputSize
+}
+
+const baseProps: BaseProps = {
+  name: 'username',
+  placeholder: 'Placeholder text',
+  size: InputSize.Medium
 }
 
 describe('Input component', () => {
-  const baseProps: BaseProps = {
-    name: 'username',
-    placeholder: 'Placeholder text',
-    size: 'md'
-  }
-
   // DOM Node tests
   it('should render an input of type text by default', () => {
     const { getByTestId } = render(<Input {...baseProps} data-testid="input" />)
@@ -46,12 +46,6 @@ describe('Input component', () => {
 })
 
 describe('Events', () => {
-  const baseProps: BaseProps = {
-    name: 'username',
-    placeholder: 'Placeholder text',
-    size: 'md'
-  }
-
   it('handles the `onChange` event', () => {
     const onChange = jest.fn()
     const { container } = render(<Input {...baseProps} onChange={onChange} />)

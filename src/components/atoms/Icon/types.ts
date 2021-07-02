@@ -21,8 +21,8 @@ export type IconProps = {
 
 // eslint-disable-next-line no-shadow
 export enum IconSize {
-  Small = 12,
-  Medium = 16,
+  Small = 16,
+  Medium = 20,
   Large = 24,
   XLarge = 32,
   XXLarge = 40,

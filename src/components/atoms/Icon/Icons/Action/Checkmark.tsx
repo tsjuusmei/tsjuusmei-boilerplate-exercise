@@ -1,11 +1,11 @@
 import * as React from 'react'
 
 // Types
-import { IconProps, IconSize } from '../../types'
+import { IconProps, IconSize } from '@/components/atoms/Icon/types'
 
 function Checkmark({
   color = 'var(--color3-500)',
-  size = IconSize.Medium,
+  size = IconSize.Small,
   className
 }: IconProps) {
   return (
@@ -17,11 +17,7 @@ function Checkmark({
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <path
-        d="M2 8.23858L6.4 13L14 3"
-        stroke={color}
-        strokeWidth={3}
-      />
+      <path d="M2 8.239L6.4 13 14 3" stroke={color} strokeWidth={2} />
     </svg>
   )
 }

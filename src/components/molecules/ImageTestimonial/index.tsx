@@ -16,6 +16,6 @@ const ImageTestimonial: React.FC<Props> = ({
   className = '',
   width = '684px',
   height = '380px'
-}) => <Image alt={alt} src={src} className={className} width={width} height={height}  />
+}) => <Image alt={alt} src={src} className={className} width={width} height={height} />
 
 export default React.memo(ImageTestimonial)

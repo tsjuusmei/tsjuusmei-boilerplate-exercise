@@ -17,7 +17,7 @@ body {
 */
 
 .js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
+  outline: 0;
 }
 
 .js-focus-visible .focus-visible {

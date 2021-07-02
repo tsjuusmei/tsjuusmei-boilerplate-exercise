@@ -1,19 +1,27 @@
 import * as React from 'react'
+import { RegisterOptions, useFormContext } from 'react-hook-form'
 
 // Components
 import Icon from '@/components/atoms/Icon'
 
+// Styles
+import styles from './Input.module.scss'
+
 // Utils
 import { convertSizeToNumber } from '@/utils/convertSizeToNumber'
 
-// Styles
-import styles from  './Input.module.scss'
+// Types
+export enum InputSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
 
 export type InputProps = {
   id?: string,
   label?: string,
-  isError?: boolean,
-  size?: Sizes,
+  hasError?: boolean,
+  size?: InputSize,
   type?: string,
   placeholder?: string,
   spellCheck?: boolean,
@@ -23,16 +31,17 @@ export type InputProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
   onBlur?: (e: React.FormEvent<HTMLInputElement>) => void,
-  isOptional?: boolean
+  isOptional?: boolean,
+  rules?: RegisterOptions
 }
 
 const Input: React.FC<InputProps> = ({
   id,
   label,
-  size = 'md',
+  size = InputSize.Medium,
   placeholder,
   isDisabled,
-  isError,
+  hasError,
   type = 'text',
   isOptional,
   onChange,
@@ -40,9 +49,11 @@ const Input: React.FC<InputProps> = ({
   onBlur,
   autoComplete = 'on',
   spellCheck = true,
+  rules,
   ...props
 }) => {
   const convertedSize = convertSizeToNumber(size)
+  const methods = useFormContext()
 
   return (
     <div className={`
@@ -60,8 +71,9 @@ const Input: React.FC<InputProps> = ({
         className={`
           ${styles['input-element']}
           ${styles[size]}
-          ${isError ? styles.error : null}
+          ${hasError ? styles['has-error'] : ''}
         `}
+        name={name}
         onChange={onChange}
         type={type}
         id={id}
@@ -72,14 +84,16 @@ const Input: React.FC<InputProps> = ({
         autoComplete={autoComplete}
         spellCheck={spellCheck}
         aria-labelledby={label}
+        ref={methods?.register({...rules})}
         {...props}
       />
 
-      {isError && (
+      {hasError && (
         <Icon
           size={convertedSize}
           name="warning"
-          color="var(--error-500)" />
+          color="var(--error-500)"
+        />
       )}
     </div>
   )

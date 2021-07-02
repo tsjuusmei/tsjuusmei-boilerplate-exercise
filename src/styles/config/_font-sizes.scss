@@ -1,41 +1,38 @@
-@import '../functions/all';
+@use 'sass:map';
+@use 'sass:list';
+@use 'media-queries' as *;
+@use '../functions/type-scale' as type;
+@use '../functions/vw' as *;
+
+$font-size-base: 16 !default;
+
+// Breakpoints at which the design team creates their frames
 
 // Design width
-$design-size: 375;
-$design-size-tablet: 768;
-$design-size-desktop: 1440;
+// These values will be used to calculate the font size per design size
+$design-size-mobile: 375 !default;
+$design-size-tablet: 768 !default;
+$design-size-desktop: 1440 !default;
 
-// Heading sizes mobile
-$heading-sizes:
-  30,
-  24,
-  22,
-  20,
-  18,
-  17;
+// The typographic scale to apply at each breakpoint. They interpolate and scale.
+$type-scale-mobile: 1.125 !default;
+$type-scale-tablet: 1.175 !default;
+$type-scale-desktop: 1.25 !default;
 
-// Heading sizes tablet
-$heading-sizes-tablet:
-  40,
-  32,
-  28,
-  20,
-  18,
-  17;
+// Generate arrays of type scales.
+$fluid-sizes: type.get-scale($font-size-base, $type-scale-mobile);
+$fluid-sizes-tablet: type.get-scale($font-size-base, $type-scale-tablet);
+$fluid-sizes-desktop: type.get-scale($font-size-base, $type-scale-desktop);
 
-// Heading sizes desktop-xs
-$heading-sizes-desktop-xs:
-  48,
-  36,
-  28,
-  22,
-  18,
-  17;
+@function rem($value) {
+  @return max(.75rem, $value / $font-size-base * 1rem);
+}
 
-// Heading sizes desktop defined at media breakpoint
 :root {
   // Define font
   --font-stack-base:
+    system-ui,
+    -apple-system,
     'SF Pro Display',
     'BlinkMacSystemFont',
     'Helvetica',
@@ -45,308 +42,121 @@ $heading-sizes-desktop-xs:
     'Verdana',
     sans-serif;
 
-  // Define heading size mobile
-  @each $size in $heading-sizes {
-    $i: index($heading-sizes, $size);
+  // Define line-height
+  // Based on TailwindCSS: https://tailwindcss.com/docs/line-height
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
 
-    --heading-#{$i}-size: calc(((#{$size} / #{$design-size}) * 100) * 1vw);
-  }
+  // Define letter-spacing
+  // Based on TailwindCSS: https://tailwindcss.com/docs/letter-spacing
+  --tracking-tighter: -.05em;
+  --tracking-tight: -.025em;
+  --tracking-normal: 0;
+  --tracking-wide: .025em;
+  --tracking-wider: .05em;
+  --tracking-widest: .1em;
 
-  --heading-1-font-family: 'IBM Plex Mono';
-  --heading-3-font-family: 'IBM Plex Mono';
+  // Assign variables to type scale points
+  $s: list.nth($fluid-sizes, 1);
+  $m: list.nth($fluid-sizes, 2);
+  $l: list.nth($fluid-sizes, 3);
+  $xl: list.nth($fluid-sizes, 4);
+  $two-xl: list.nth($fluid-sizes, 5);
+  $three-xl: list.nth($fluid-sizes, 6);
+  $four-xl: list.nth($fluid-sizes, 7);
+  $five-xl: list.nth($fluid-sizes, 8);
+  $six-xl: list.nth($fluid-sizes, 9);
+  $seven-xl: list.nth($fluid-sizes, 10);
+  $eight-xl: list.nth($fluid-sizes, 11);
+  $nine-xl: list.nth($fluid-sizes, 12);
 
-  // Mobile
-  // h1
-  --heading-1-line-height: '1.2';
-  --heading-1-letter-spacing: -.02em;
+  // Define minimum font-size for 375px and below
+  @media screen and (max-width: #{$design-size-mobile}px) {
+    @each $size in $fluid-sizes {
+      $i: index($fluid-sizes, $size);
 
-  // h2
-  --heading-2-line-height: '1.166';
-  --heading-2-letter-spacing: -.02em;
-
-  // h3
-  --heading-3-line-height: '1.272';
-  --heading-3-letter-spacing: -.01em;
-
-  // h4
-  --heading-4-line-height: '1.4';
-  --heading-4-letter-spacing: -.01em;
-
-  // h5
-  --heading-5-line-height: '1.333';
-  --heading-5-letter-spacing: -.01em;
-
-  // h6
-  --heading-6-line-height: '1.411';
-  --heading-6-letter-spacing: -.01em;
-
-  // body-lg
-  --body-lg-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  --body-lg-line-height: '1.555';
-
-  // body-md
-  --body-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  --body-md-line-height: '1.555';
-
-  // body-sm
-  --body-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
-  --body-sm-line-height: '1.41';
-
-  // streamer
-  --streamer-size: calc(((20 / #{$design-size}) * 100) * 1vw);
-  --streamer-line-height: '1.3';
-  --streamer-letter-spacing: 0;
-
-  // quote lg
-  --quote-lg-size: calc(((24 / #{$design-size}) * 100) * 1vw);
-  --quote-lg-line-height: '1.166';
-  --quote-lg-letter-spacing: 0;
-
-  // quote md
-  --quote-md-size: calc(((20 / #{$design-size}) * 100) * 1vw);
-  --quote-md-line-height: '1.2';
-  --quote-md-letter-spacing: 0;
-
-  // textlink-lg
-  --textlink-lg-size: calc(((20 / #{$design-size}) * 100) * 1vw);
-  --textlink-lg-line-height: '1.4';
-  --textlink-lg-letter-spacing: -.02em;
-
-  // textlink-md
-  --textlink-md-size: calc(((18 / #{$design-size}) * 100) * 1vw);
-  --textlink-md-line-height: '1.555';
-  --textlink-md-letter-spacing: -.02em;
-
-  // textlink-sm
-  --textlink-sm-size: calc(((17 / #{$design-size}) * 100) * 1vw);
-  --textlink-sm-line-height: '1.411';
-  --textlink-sm-letter-spacing: -.02em;
-
-  // caption
-  --caption-size: calc(((10 / #{$design-size}) * 100) * 1vw);
-  --caption-line-height: '1.2';
-
-  // eyebrow
-  --eyebrow-size: calc(((10 / #{$design-size}) * 100) * 1vw);
-  --eyebrow-line-height: '1.2';
-  --eyebrow-letter-spacing: .1em;
-
-  // footerlink-md
-  --footerlink-md-size: calc(((16 / #{$design-size}) * 100) * 1vw);
-  --footerlink-md-line-height: '1';
-  --footerlink-md-letter-spacing: 0;
-
-  // footerlink-sm
-  --footerlink-sm-size: calc(((12 / #{$design-size}) * 100) * 1vw);
-  --footerlink-sm-line-height: '1';
-  --footerlink-sm-letter-spacing: 0;
-
-  @media screen and (min-width: $bp-tablet-md) {
-    // Define heading size tablet-md
-    @each $size in $heading-sizes-tablet {
-      $i: index($heading-sizes-tablet, $size);
-
-      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-tablet}) * 100) * 1vw);
+      --heading-#{$i}-xl: #{rem($size)};
     }
 
-    // h1
-    --heading-1-line-height: '1.025';
-    --heading-1-letter-spacing: -.01em;
+    // Heading sizes
+    --heading-s: #{rem($s)};
+    --heading-m: #{rem($m)};
+    --heading-l: #{rem($l)};
 
-    // h2
-    --heading-2-line-height: '1.125';
-    --heading-2-letter-spacing: -.01em;
-
-    // h3
-    --heading-3-line-height: '1.285';
-    --heading-3-letter-spacing: -.01em;
-
-    // body-lg
-    --body-lg-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // body-md
-    --body-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // body-sm
-    --body-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // streamer
-    --streamer-size: calc(((22 / #{$design-size-tablet}) * 100) * 1vw);
-    --streamer-line-height: '1.363';
-
-    // quote lg
-    --quote-lg-size: calc(((24 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // quote md
-    --quote-md-size: calc(((20 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // textlink-lg
-    --textlink-lg-size: calc(((20 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // textlink-md
-    --textlink-md-size: calc(((18 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // textlink-sm
-    --textlink-sm-size: calc(((17 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // caption
-    --caption-size: calc(((10 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // eyebrow
-    --eyebrow-size: calc(((10 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // footerlink-md
-    --footerlink-md-size: calc(((16 / #{$design-size-tablet}) * 100) * 1vw);
-
-    // footerlink-sm
-    --footerlink-sm-size: calc(((12 / #{$design-size-tablet}) * 100) * 1vw);
+    // Body sizes
+    --body-s: #{rem($s)};
+    --body-m: #{rem($m)};
+    --body-l: #{rem($l)};
+    --body-1-xl: #{rem($xl)};
+    --body-2-xl: #{rem($two-xl)};
   }
+
+  // Define heading size mobile
+  // $i is the value from top to bottom, starting at 1, creating a variable that will be used for each heading size
+  // Example: --heading-#{$i}-xl = --heading-3-xl. this value is used for the h3
+  // Fluid
+  @each $size in $fluid-sizes {
+    $i: index($fluid-sizes, $size);
+
+    --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-mobile)};
+  }
+
+  // Heading sizes
+  --heading-s: #{get-fluid-size($s, $design-size-mobile)};
+  --heading-m: #{get-fluid-size($m, $design-size-mobile)};
+  --heading-l: #{get-fluid-size($l, $design-size-mobile)};
+
+  // Body sizes mobile
+  --body-s: #{get-fluid-size($s, $design-size-mobile)};
+  --body-m: #{get-fluid-size($m, $design-size-mobile)};
+  --body-l: #{get-fluid-size($l, $design-size-mobile)};
+  --body-1-xl: #{get-fluid-size($l, $design-size-mobile)};
+  --body-2-xl: #{get-fluid-size($l, $design-size-mobile)};
 
   // Desktop-xs
-  @media screen and (min-width: $bp-desktop-xs) {
+  @media screen and (min-width: #{$design-size-tablet}px) {
     // Define heading size desktop-xs
-    @each $size in $heading-sizes-desktop-xs {
-      $i: index($heading-sizes-desktop-xs, $size);
+    @each $size in $fluid-sizes-tablet {
+      $i: index($fluid-sizes-tablet, $size);
 
-      --heading-#{$i}-size: calc(((#{$size} / #{$design-size-desktop}) * 100) * 1vw);
+      --heading-#{$i}-xl: #{get-fluid-size($size, $design-size-tablet)};
     }
 
-    // h1
-    --heading-1-line-height: '1.25';
-    --heading-1-letter-spacing: -.02em;
+    // Heading sizes tablet
+    --heading-s: #{get-fluid-size($s, $design-size-tablet)};
+    --heading-m: #{get-fluid-size($m, $design-size-tablet)};
+    --heading-l: #{get-fluid-size($l, $design-size-tablet)};
 
-    // h2
-    --heading-2-line-height: '1.333';
-    --heading-2-letter-spacing: -.01em;
-
-    // h4
-    --heading-4-line-height: '1.272';
-    --heading-4-letter-spacing: -.01em;
-
-    // body-lg
-    --body-lg-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // body-md
-    --body-md-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // body-sm
-    --body-sm-size: calc(((17 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // streamer
-    --streamer-size: calc(((24 / #{$design-size-desktop}) * 100) * 1vw);
-    --streamer-line-height: '1.25';
-
-    // quote lg
-    --quote-lg-size: calc(((36 / #{$design-size-desktop}) * 100) * 1vw);
-    --quote-lg-line-height: '1.111';
-
-    // quote md
-    --quote-md-size: calc(((28 / #{$design-size-desktop}) * 100) * 1vw);
-    --quote-md-line-height: '1.285';
-
-    // textlink-lg
-    --textlink-lg-size: calc(((20 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // textlink-md
-    --textlink-md-size: calc(((18 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // textlink-sm
-    --textlink-sm-size: calc(((17 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // caption
-    --caption-size: calc(((10 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // eyebrow
-    --eyebrow-size: calc(((10 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // footerlink-md
-    --footerlink-md-size: calc(((16 / #{$design-size-desktop}) * 100) * 1vw);
-
-    // footerlink-sm
-    --footerlink-sm-size: calc(((12 / #{$design-size-desktop}) * 100) * 1vw);
+    // Body sizes tablet
+    --body-s: #{get-fluid-size($s, $design-size-tablet)};
+    --body-m: #{get-fluid-size($m, $design-size-tablet)};
+    --body-l: #{get-fluid-size($l, $design-size-tablet)};
+    --body-1-xl: #{get-fluid-size($xl, $design-size-tablet)};
+    --body-2-xl: #{get-fluid-size($two-xl, $design-size-tablet)};
   }
 
   // Desktop
-  @media screen and (min-width: $bp-desktop-lg) {
-    // h1
-    --heading-1-size: 52px;
-    --heading-1-line-height: '1.25';
-    --heading-1-letter-spacing: -.02em;
+  // Define max sizes for 1440px and above
+  @media screen and (min-width: #{$design-size-desktop}px) {
+    @each $size in $fluid-sizes-desktop {
+      $i: index($fluid-sizes-desktop, $size);
 
-    // h2
-    --heading-2-size: 40px;
-    --heading-2-line-height: '1.333';
-    --heading-2-letter-spacing: -.01em;
+      --heading-#{$i}-xl: #{rem($size)};
+    }
+    // Heading sizes tablet
+    --heading-s: #{rem($s)};
+    --heading-m: #{rem($m)};
+    --heading-l: #{rem($l)};
 
-    // h3
-    --heading-3-size: 32px;
-    --heading-3-line-height: '1.375';
-    --heading-4-letter-spacing: -.01em;
-
-    // h4
-    --heading-4-size: 24px;
-    --heading-4-line-height: '1.272';
-    --heading-4-letter-spacing: -.01em;
-
-    // h5
-    --heading-5-size: 16px;
-    --heading-5-line-height: '1.5';
-    --heading-5-letter-spacing: -.01em;
-
-    // h6
-    --heading-6-size: 14px;
-    --heading-5-line-height: '1.5';
-    --heading-5-letter-spacing: 0;
-
-    // body-lg
-    --body-lg-size: 20px;
-    --body-lg-line-height: '1.4';
-
-    // body-md
-    --body-md-size: 16px;
-    --body-md-line-height: '1.5';
-
-    // body-sm
-    --body-sm-size: 14px;
-    --body-sm-line-height: '1.714';
-
-    // streamer
-    --streamer-size: 26px;
-    --streamer-line-height: '1.23';
-
-    // quote lg
-    --quote-lg-size: 40px;
-    --quote-lg-line-height: '1.1';
-
-    // quote md
-    --quote-md-size: 32px;
-    --quote-md-line-height: '1.25';
-
-    // textlink-lg
-    --textlink-lg-size: 20px;
-    --textlink-lg-line-height: '1.4';
-    --textlink-lg-letter-spacing: -.02em;
-
-    // textlink-md
-    --textlink-md-size: 16px;
-    --textlink-md-line-height: '1.5';
-    --textlink-md-letter-spacing: -.02em;
-
-    // textlink-sm
-    --textlink-sm-size: 14px;
-    --textlink-sm-line-height: '1.714';
-    --textlink-sm-letter-spacing: -.02em;
-
-    // caption
-    --caption-size: 10px;
-
-    // eyebrow
-    --eyebrow-size: 10px;
-
-    // footerlink-md
-    --footerlink-md-size: 16px;
-
-    // footerlink-sm
-    --footerlink-sm-size: 12px;
+    // Body sizes desktop
+    --body-s: #{rem($s)};
+    --body-m: #{rem($m)};
+    --body-l: #{rem($l)};
+    --body-1-xl: #{rem($xl)};
+    --body-2-xl: #{rem($two-xl)};
   }
 }

@@ -36,7 +36,8 @@
     "no-sequences": "error",
     "no-eval": "error",
     "no-return-await": "error",
-    "no-shadow": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
     "no-throw-literal": "error",
     "no-extra-bind": "error",
     "no-var": "error",
@@ -177,9 +178,9 @@
       "plugins": ["@typescript-eslint"],
       "extends": ["plugin:@typescript-eslint/recommended"],
       "rules": {
-        "@typescript-eslint/no-use-before-define": "warn",
         "@typescript-eslint/type-annotation-spacing": "error",
         "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/array-type": ["error", { "default": "array" }],
         "react/prop-types": "off"
       }
     }

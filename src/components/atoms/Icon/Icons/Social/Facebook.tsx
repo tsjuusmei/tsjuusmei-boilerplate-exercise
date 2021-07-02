@@ -1,11 +1,13 @@
 import * as React from 'react'
 
 // Types
-import type { IconProps } from '../../types'
+import {
+  IconProps, IconSize
+} from '@/components/atoms/Icon/types'
 
 function Facebook({
   color = 'var(--color3-500)',
-  size = 20,
+  size = IconSize.Small,
   className
 }: IconProps) {
   return (

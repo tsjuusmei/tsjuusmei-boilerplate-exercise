@@ -4,17 +4,28 @@ import Image from 'next/image'
 // Styling
 import styles from './Avatar.module.scss'
 
-export type Props = {
+// Types
+export enum AvatarSize {
+  XSmall = 'xsm',
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg',
+  XLarge = 'xlg',
+  XXLarge = 'xxlg',
+  XXXLarge = 'xxxlg',
+}
+
+export type AvatarProps = {
   src: string
-  size?: string,
+  size?: AvatarSize,
   alt: string,
   className?: string
 }
 
-const Avatar: React.FC<Props> = ({
+const Avatar: React.FC<AvatarProps> = ({
   src,
   alt,
-  size = 'md',
+  size = AvatarSize.Medium,
   className = '',
   ...props
 }) => (

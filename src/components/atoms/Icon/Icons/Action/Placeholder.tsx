@@ -1,11 +1,10 @@
 import * as React from 'react'
 
-// Types
-import { IconProps, IconSize } from '../../types'
+import { IconProps, IconSize } from '@/components/atoms/Icon/types'
 
 function Placeholder({
   color = 'var(--color3-500)',
-  size = IconSize.Medium,
+  size = IconSize.Small,
   className
 }: IconProps) {
   return (

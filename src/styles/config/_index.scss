@@ -1,0 +1,36 @@
+@use 'media-queries' with (
+  $bp-mobile-sm: 320px,
+  $bp-mobile-md: 375px,
+  $bp-mobile-lg: 414px,
+  $bp-tablet-sm: 562px,
+  $bp-tablet-md: 768px,
+  $bp-tablet-lg: 920px,
+  $bp-desktop-xs: 1024px,
+  $bp-desktop-sm: 1120px,
+  $bp-mobile-nav: 1240px,
+  $bp-desktop-md: 1280px,
+  $bp-desktop-lg: 1440px,
+);
+
+// Transitions
+@use 'transitions' with (
+  $ease: ease-in-out,
+  $ease-out: ease-out,
+  $ease-in: ease-in,
+  $fast-transition: 100ms,
+  $regular-transition: 200ms,
+  $slow-transition: 400ms,
+);
+
+// Font sizes
+@use 'font-sizes' with (
+  $font-size-base: 16,
+  $type-scale-mobile: 1.125,
+  $type-scale-tablet: 1.175,
+  $type-scale-desktop: 1.25,
+);
+
+// Imports
+@use 'colors';
+@use 'fonts';
+@use 'tokens';

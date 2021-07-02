@@ -13,8 +13,8 @@ import '../styles/master.scss'
 import { version } from '../../package.json'
 
 const metaData = {
-  name: `Next boilerplate ${version}`,
-  description: 'This is a Next boilerplate'
+  name: `Chicle (Next) — ${version}`,
+  description: 'This is Yummygum\'s Chicle boilerplate.'
 }
 
 export default function MyApp({ Component, pageProps }: AppProps) {

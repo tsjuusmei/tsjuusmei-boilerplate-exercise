@@ -1,4 +1,36 @@
 .button {
+  // Button tokens
+  --button-border-radius: var(--border-radius-none);
+
+  // Button primary tokens
+  --button-primary-default-background-color: var(--primary-default-background-color);
+  --button-primary-default-content-color: var(--primary-default-content-color);
+  --button-primary-hover-background-color: var(--primary-hover-background-color);
+  --button-primary-hover-content-color: var(--primary-hover-content-color);
+  --button-primary-active-background-color: var(--primary-active-background-color);
+  --button-primary-active-content-color: var(--primary-active-content-color);
+  --button-primary-disabled-background-color: var(--primary-disabled-background-color);
+  --button-primary-disabled-content-color: var(--primary-disabled-content-color);
+
+  // Button secondary tokens
+  --button-secondary-default-background-color: var(--secondary-default-background-color);
+  --button-secondary-default-content-color: var(--secondary-default-content-color);
+  --button-secondary-hover-background-color: var(--secondary-hover-background-color);
+  --button-secondary-hover-content-color: var(--secondary-hover-content-color);
+  --button-secondary-active-background-color: var(--secondary-active-background-color);
+  --button-secondary-active-content-color: var(--secondary-active-content-color);
+  --button-secondary-disabled-background-color: var(--secondary-disabled-background-color);
+  --button-secondary-disabled-content-color: var(--secondary-disabled-content-color);
+
+  // Button tertiary tokens
+  --button-tertiary-default-content-color: var(--tertiary-default-content-color);
+  --button-tertiary-hover-content-color: var(--tertiary-hover-content-color);
+  --button-tertiary-active-content-color: var(--tertiary-active-content-color);
+  --button-tertiary-disabled-content-color: var(--tertiary-disabled-content-color);
+
+  // Button focus ring token
+  --button-focus-ring-color: var(--focus-ring-color);
+
   font-family: var(--font-stack-base);
   display: inline-block;
   background: none;
@@ -15,6 +47,11 @@
   &.fullwidth {
     width: 100%;
   }
+
+  &:focus,
+  &:focus-within {
+    outline: 2px solid var(--button-focus-ring-color);
+  }
 }
 
 .button-content {
@@ -22,6 +59,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: var(--button-border-radius);
 
   &.lg {
     @include button-lg;
@@ -48,68 +86,59 @@
   }
 
   &.primary {
-    background-color: var(--color-500);
-    color: var(--white-000);
+    background-color: var(--button-primary-default-background-color);
+    color: var(--button-primary-default-content-color);
 
     &:hover {
-      background-color: var(--color-600);
+      background-color: var(--button-primary-hover-background-color);
+      color: var(--button-primary-hover-content-color);
     }
 
     &:active {
-      background-color: var(--color-600);
-      color: var(--color-100);
+      background-color: var(--button-primary-active-background-color);
+      color: var(--button-primary-active-content-color);
     }
 
     &.disabled {
-      background-color: var(--color-500);
-      color: var(--color-300);
+      background-color: var(--button-primary-disabled-background-color);
+      color: var(--button-primary-disabled-content-color);
     }
   }
 
   &.secondary {
-    background-color: var(--color3-300);
-    color: var(--white-000);
+    background-color: var(--button-secondary-default-background-color);
+    color: var(--button-secondary-default-content-color);
 
     &:hover {
-      background-color: var(--color3-600);
+      background-color: var(--button-secondary-hover-background-color);
+      color: var(--secondary-hover-content-color);
     }
 
     &:active {
-      background-color: var(--color3-600);
-      color: var(--color3-100);
+      background-color: var(--button-secondary-active-background-color);
+      color: var(--button-secondary-active-content-color);
     }
 
     &.disabled {
-      background-color: var(--color3-250);
-      color: var(--color3-500);
+      background-color: var(--button-secondary-disabled-background-color);
+      color: var(--button-secondary-disabled-content-color);
     }
   }
 
   &.tertiary {
-    color: var(--color3-600);
+    color: var(--button-tertiary-default-content-color);
     padding: 0;
 
     &:hover {
-      color: var(--color3-800);
+      color: var(--button-tertiary-hover-content-color);
     }
 
     &:active {
-      color: var(--color3-900);
+      color: var(--button-tertiary-active-content-color);
     }
 
     &.disabled {
-      color: var(--color3-300);
-    }
-  }
-
-  &.text-link {
-    color: var(--color-500);
-    text-decoration: underline;
-    padding: 0;
-    height: auto;
-
-    &.disabled {
-      opacity: .6;
+      color: var(--tertiary-disabled-content-color);
     }
   }
 

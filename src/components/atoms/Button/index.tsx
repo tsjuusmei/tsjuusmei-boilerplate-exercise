@@ -1,46 +1,57 @@
 import * as React from 'react'
-import Link from 'next/link'
 
 // Styles
 import styles from './Button.module.scss'
 
-export type Props = {
-  variation: 'primary' | 'secondary' | 'tertiary' | 'text-link',
-  size: Sizes,
+// Types
+export enum ButtonVariation {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Tertiary = 'tertiary'
+}
+
+export enum ButtonSize {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg'
+}
+
+export enum ButtonType {
+  Submit = 'submit',
+  Button = 'button',
+  Reset = 'reset'
+}
+
+export type ButtonProps = {
+  variation?: ButtonVariation,
+  size?: ButtonSize,
   label?: string,
-  href?: string,
   isFullWidth?: boolean,
   isDisabled?: boolean,
   onClick?: React.MouseEventHandler<HTMLElement>,
   className?: string,
-  contentClassName?: string
+  contentClassName?: string,
+  type?: ButtonType
 }
 
-const Button: React.FC<Props> = ({
-  variation = 'primary',
-  size = 'md',
+const Button: React.FC<ButtonProps> = ({
+  variation = ButtonVariation.Primary,
+  size = ButtonSize.Medium,
+  type = ButtonType.Button,
   children,
   label = '',
-  href = '',
   isFullWidth = false,
   isDisabled = false,
   className = '',
   contentClassName = '',
   ...props
 }) => {
-  // Check if link is internal or external
-  const isInternalLink = href && !href.includes('http')
-
-  // When link is internal, Link > a > div
-  const LinkOrButton = href ? 'a' : 'button'
-
   // Shared classNames (less duplicate code)
   const sharedClassNames = `${styles[size]} ${styles[variation]} ${isFullWidth ? styles.fullwidth : ''} ${isDisabled ? styles.disabled : ''}`
 
-  const ButtonWrapper = React.forwardRef<any, Props>((_, ref) => (
-    <LinkOrButton
+  return (
+    <button
       {...props}
-      ref={ref}
       className={`
         ${styles.button}
         ${className}
@@ -49,32 +60,19 @@ const Button: React.FC<Props> = ({
       disabled={isDisabled}
       aria-disabled={isDisabled}
       aria-label={label}
-      href={href}
-      {...(!isInternalLink && {
-        rel: 'noopener noreferrer',
-        target: '_blank'
-      })}
+      type={type}
     >
       <div
-        className={`${styles['button-content']} ${sharedClassNames}
-        ${contentClassName}`}
+        className={`
+          ${styles['button-content']}
+          ${sharedClassNames}
+          ${contentClassName}
+        `}
       >
         {children}
       </div>
-    </LinkOrButton>
-  ))
-
-  ButtonWrapper.displayName = 'ButtonWrapper'
-
-  if (isInternalLink) {
-    return (
-      <Link href={href}>
-        <ButtonWrapper variation={variation} size={size} />
-      </Link>
-    )
-  }
-
-  return (<ButtonWrapper variation={variation} size={size} {...props} />)
+    </button>
+  )
 }
 
 export default Button
