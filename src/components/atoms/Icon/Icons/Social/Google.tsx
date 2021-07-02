@@ -5,7 +5,8 @@ import type { IconProps } from '../../types'
 
 function Google({
   color = 'var(--color3-500)',
-  size = 20
+  size = 20,
+  className
 }: IconProps) {
   return (
     <svg
@@ -14,6 +15,7 @@ function Google({
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fillRule="evenodd"

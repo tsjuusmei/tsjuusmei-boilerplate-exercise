@@ -1,4 +1,6 @@
 import * as React from 'react'
+
+// Types
 import { IconProps } from './types'
 
 // Icons Imports
@@ -29,38 +31,48 @@ import Reddit from './Icons/Social/Reddit'
 
 // Types
 interface Props extends IconProps {
-  name: string
+  name: IconName
 }
 
-const iconElements = (props?: React.PropsWithChildren<IconProps>) => ({
-  'placeholder': <Placeholder {...props} />,
-  'checkmark': <Checkmark {...props} />,
-  'triangle': <Triangle {...props} />,
-  'chevron': <Chevron {...props} />,
-  'external-link': <ExternalLink {...props} />,
-  'minus': <Minus {...props} />,
-  'plus': <Plus {...props} />,
-  'warning': <Warning {...props} />,
-  'close': <Close {...props} />,
-  'facebook': <Facebook {...props} />,
-  'twitter': <Twitter {...props} />,
-  'instagram': <Instagram {...props} />,
-  'google': <Google {...props} />,
-  'youtube': <Youtube {...props} />,
-  'snapchat': <Snapchat {...props} />,
-  'apple': <Apple {...props} />,
-  'pinterest': <Pinterest {...props} />,
-  'linkedin': <LinkedIn {...props} />,
-  'dribbble': <Dribbble {...props} />,
-  'reddit': <Reddit {...props} />,
-})// Add Icon Above
+export const iconComponents = {
+  'placeholder': Placeholder,
+  'checkmark': Checkmark,
+  'triangle': Triangle,
+  'chevron': Chevron,
+  'external-link': ExternalLink,
+  'minus': Minus,
+  'plus': Plus,
+  'warning': Warning,
+  'close': Close,
+  'facebook': Facebook,
+  'twitter': Twitter,
+  'instagram': Instagram,
+  'google': Google,
+  'youtube': Youtube,
+  'snapchat': Snapchat,
+  'apple': Apple,
+  'pinterest': Pinterest,
+  'linkedin': LinkedIn,
+  'dribbble': Dribbble,
+  'reddit': Reddit,
+}
+
+export type IconName = keyof typeof iconComponents;
+
+export const iconElements = (props?: React.PropsWithChildren<IconProps>) => Object.entries(iconComponents).reduce(
+  (previous, [name, Component]) => {
+    return {
+      ...previous,
+      [name]: <Component {...props} />,
+    }
+  },
+  {} as Record<IconName, typeof Icon>
+)
 
 const Icon: React.FC<Props> = ({ name, ...props }) => (
   <>
     {iconElements(props)[name]}
   </>
 )
-
-export const icons = Object.keys(iconElements())
 
 export default Icon

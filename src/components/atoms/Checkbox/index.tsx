@@ -34,7 +34,7 @@ const Checkbox: React.FC<Props> = ({
     >
       <input type="checkbox" disabled={isDisabled} defaultChecked={isChecked} />
       <span className={styles.checkmark}>
-        <Icon name="check" />
+        <Icon name="checkmark" />
       </span>
       {label && (
         label
