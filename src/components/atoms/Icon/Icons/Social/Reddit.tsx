@@ -2,12 +2,13 @@ import * as React from 'react'
 
 // Types
 import {
-  IconProps, IconSocialSize
+  IconProps, IconSize
 } from '@/components/atoms/Icon/types'
 
 function Reddit({
   color = 'var(--color3-500)',
-  size = IconSocialSize.Small
+  size = IconSize.Small,
+  className
 }: IconProps) {
   return (
     <svg
@@ -16,6 +17,7 @@ function Reddit({
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fillRule="evenodd"

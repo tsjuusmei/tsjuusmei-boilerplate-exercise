@@ -2,32 +2,34 @@ import * as React from 'react'
 
 // Types
 import {
-  IconProps, IconRotate, IconActionSize
+  IconProps,
+  IconRotate,
+  IconSize
 } from '@/components/atoms/Icon/types'
 
-interface Props extends IconProps {
-  direction?: IconRotate
-}
-
-const Chevron: React.FC<Props> = ({
+function Chevron({
   color = 'var(--color3-500)',
-  direction = IconRotate.Down,
-  size = IconActionSize.Small
-}) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    style={{ transform: `rotate(${direction}` }}
-  >
-    <path
-      d="M14 5L8 11L2 5"
-      stroke={color}
-      strokeWidth={2}
-    />
-  </svg>
-)
+  direction = IconRotate.South,
+  size = IconSize.Small,
+  className
+}: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ transform: `rotate(${direction}` }}
+      className={className}
+    >
+      <path
+        d="M14 5L8 11L2 5"
+        stroke={color}
+        strokeWidth={2}
+      />
+    </svg>
+  )
+}
 
 export default React.memo(Chevron)

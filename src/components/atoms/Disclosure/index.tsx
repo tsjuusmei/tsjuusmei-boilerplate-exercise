@@ -84,7 +84,7 @@ const Disclosure: React.FC<DisclosureProps> = ({
           {summary}
           <Icon
             name="chevron"
-            direction={isOpen ? IconRotate.Up : IconRotate.Down}
+            direction={isOpen ? IconRotate.North : IconRotate.South}
             size={24}
           />
         </h5>

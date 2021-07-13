@@ -1,13 +1,14 @@
 import * as React from 'react'
 
 import {
-  IconProps, IconActionSize, IconRotate
+  IconProps, IconSize, IconRotate
 } from '@/components/atoms/Icon/types'
 
 const Trianlge: React.FC<IconProps> = ({
   color = 'var(--color3-500)',
-  direction = IconRotate.Down,
-  size = IconActionSize.Small
+  direction = IconRotate.South,
+  size = IconSize.Small,
+  className
 }) => (
   <svg
     width={size}
@@ -16,6 +17,7 @@ const Trianlge: React.FC<IconProps> = ({
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     style={{ transform: `rotate(${IconRotate[direction]}` }}
+    className={className}
   >
     <path
       d="M2 5H14L8 12L2 5Z"

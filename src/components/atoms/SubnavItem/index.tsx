@@ -2,13 +2,13 @@ import * as React from 'react'
 import Link from 'next/link'
 
 // Components
-import Icon from '@/components/atoms/Icon'
+import Icon, { IconName } from '@/components/atoms/Icon'
 
 // Styling
 import styles from './SubnavItem.module.scss'
 
 export type SubnavItemProps = {
-  iconName?: string
+  iconName?: IconName
   href: string
   title: string
   description?: string

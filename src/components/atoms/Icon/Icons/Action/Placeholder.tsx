@@ -1,10 +1,11 @@
 import * as React from 'react'
 
-import { IconProps, IconActionSize } from '@/components/atoms/Icon/types'
+import { IconProps, IconSize } from '@/components/atoms/Icon/types'
 
 function Placeholder({
   color = 'var(--color3-500)',
-  size = IconActionSize.Small
+  size = IconSize.Small,
+  className
 }: IconProps) {
   return (
     <svg
@@ -13,6 +14,7 @@ function Placeholder({
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fillRule="evenodd"

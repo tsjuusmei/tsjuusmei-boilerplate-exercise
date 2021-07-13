@@ -1,16 +1,15 @@
 import React from 'react'
+
 import SubnavItem, { SubnavItemProps } from '.'
-import { icons } from '@/components/atoms/Icon'
+import { iconComponents, IconName } from '../Icon'
 
 export default {
   title: 'Components / Atoms / SubnavItem',
   component: SubnavItem,
   argTypes: {
     iconName: {
-      control: {
-        type: 'select',
-        options: icons
-      }
+      type: 'select',
+      options: Object.keys(iconComponents) as IconName[]
     }
   }
 }

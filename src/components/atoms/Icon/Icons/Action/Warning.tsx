@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { IconProps, IconActionSize } from '@/components/atoms/Icon/types'
+import { IconProps, IconSize } from '@/components/atoms/Icon/types'
 
 const Warning: React.FC<IconProps> = ({
   color = 'var(--color3-500)',
-  size = IconActionSize.Small,
+  size = IconSize.Small,
   className
 }) => (
   <svg
